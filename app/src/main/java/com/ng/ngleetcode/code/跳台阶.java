@@ -6,6 +6,8 @@ import com.ng.ngleetcode.base.LogUtil;
 /**
  * 完成:1 2022-2-19
  *
+ *  类似斐波那契
+ *
  */
 public class 跳台阶 {
 
