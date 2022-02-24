@@ -1,5 +1,5 @@
 
-package com.ng.ngleetcode.code;
+package com.ng.ngleetcode.code.easy;
 
 import com.ng.ngleetcode.base.LogUtil;
 

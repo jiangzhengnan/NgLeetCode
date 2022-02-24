@@ -20,6 +20,10 @@ import java.util.jar.JarFile;
 public class StartCode {
 
     public static void main(String[] args) {
+        get1RandomTest();
+    }
+
+    public static void get1RandomTest() {
         //抽一道题吧~
         Set<Class<?>> codeSet = getClassSet("com.ng.ngleetcode.code");
         ArrayList<Class<?>> list = new ArrayList(codeSet);

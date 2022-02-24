@@ -1,13 +1,12 @@
-package com.ng.ngleetcode.code;
+package com.ng.ngleetcode.code.easy;
 
 
 import com.ng.ngleetcode.base.LogUtil;
 
 /**
  * 完成:1 2022-2-19
- *
  *  类似斐波那契
- *
+ *  递归解法比较简单这里不提了
  */
 public class 跳台阶 {
 
