@@ -1,14 +1,14 @@
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code;
 
-import com.ng.ngleetcode.base.LogUtil;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
 
 /**
- * 完成:0
- *
  * https://www.nowcoder.com/practice/e016ad9b7f0b45048c58a9f27ba618bf?tpId=117&tqId=37791&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D117%26page%3D1&difficulty=undefined&judgeStatus=undefined&tags=&title=
  *
  *
  */
+@Solution(easy = 0, hard = 0)
 public class 寻找第K大 {
 
 	public static void main(String[] args) {

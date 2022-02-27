@@ -1,14 +1,13 @@
-package com.ng.ngleetcode.base;
+package com.ng.ngleetcode.util;
 
 public class LogUtil {
 
 	public static void pring(ListNode node) {
-		String result = " ";
-		while (node != null) {
-			result += node.val + " ,";
-			node = node.next;
+		if (node == null){
+			System.out.println("null");
+			return;
 		}
-		System.out.println(result.substring(0, result.length()-1));
+		System.out.println(node.toString());
 	}
 
 	public static void pring(boolean str) {

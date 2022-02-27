@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.base;
+package com.ng.ngleetcode.util;
 
 public class TreeNode {
     public int val = 0;

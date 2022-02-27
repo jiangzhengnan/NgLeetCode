@@ -1,12 +1,9 @@
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code.排序;
 
-import com.ng.ngleetcode.base.LogUtil;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
 
-/**
- *
- * 完成次数:0
- *
- */
+@Solution(easy = 0, hard = 0)
 public class 快速排序 {
 
 	public static void main(String[] args) {

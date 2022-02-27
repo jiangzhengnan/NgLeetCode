@@ -1,14 +1,15 @@
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code;
 
-import com.ng.ngleetcode.base.LogUtil;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 
-//完成:1 2022-2-15
 //空间和时间最好的选择吧。哈希表查+链表存
+@Solution(easy = 1, hard = 1)
 public class 设计LRU缓存结构 {
 
 	/**

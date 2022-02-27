@@ -1,13 +1,12 @@
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code.链表;
 
-import com.ng.ngleetcode.base.ListNode;
-import com.ng.ngleetcode.base.LogUtil;
+import com.ng.ngleetcode.util.ListNode;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
 
 /**
  * 日期:
  * 原题链接:https://www.nowcoder.com/practice/b49c3dc907814e9bbfa8437c251b028e?tpId=117&tqId=37746&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D117%26page%3D1&difficulty=undefined&judgeStatus=undefined&tags=&title=
- * 完成次数:
- * <p>
  * 描述:
  * 将给出的链表中的节点每 k 个一组翻转，返回翻转后的链表
  * 如果链表中的节点数不是 k 的倍数，将最后剩下的节点保持原样
@@ -20,6 +19,7 @@ import com.ng.ngleetcode.base.LogUtil;
  * 对于 k = 2k=2 , 你应该返回 2→1→4→3→5
  * 对于 k = 3k=3 , 你应该返回 3→2→1→4→5
  */
+@Solution(easy = 0, hard = 0)
 public class 链表中的节点每k个一组翻转 {
 
 	public static void main(String[] args) {

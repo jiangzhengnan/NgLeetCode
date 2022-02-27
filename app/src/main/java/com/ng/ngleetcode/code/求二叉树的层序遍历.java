@@ -1,18 +1,18 @@
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code;
 
-import com.ng.ngleetcode.base.LogUtil;
-import com.ng.ngleetcode.base.TreeNode;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
+import com.ng.ngleetcode.util.TreeNode;
 
 import java.util.ArrayList;
 
 /**
  * 日期:
  * 原题链接: https://www.nowcoder.com/practice/04a5560e43e24e9db4595865dc9c63a3?tpId=117&tqId=37723&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D117%26page%3D1&difficulty=undefined&judgeStatus=undefined&tags=&title=
- * 完成次数: 1
- *
  * 描述:
  * 
  */
+@Solution(easy = 1, hard = 0)
 public class 求二叉树的层序遍历 {
 
 	public static void main(String[] args) {

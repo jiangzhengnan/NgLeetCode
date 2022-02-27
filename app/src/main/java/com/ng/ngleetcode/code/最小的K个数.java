@@ -1,15 +1,16 @@
 
-package com.ng.ngleetcode.code.easy;
+package com.ng.ngleetcode.code;
 
-import com.ng.ngleetcode.base.LogUtil;
+import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Solution;
 
 import java.util.ArrayList;
 
 /**
  * 日期:2022年2月19日 下午8:52:50
  * 原题链接:https://www.nowcoder.com/practice/6a296eb82cf844ca8539b57c23e6e9bf?tpId=117&tqId=37765&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D117%26page%3D1&difficulty=undefined&judgeStatus=undefined&tags=&title=
- * 完成次数:
  */
+@Solution(easy = 0, hard = 0)
 public class 最小的K个数 {
 
     public static void main(String[] args) {
