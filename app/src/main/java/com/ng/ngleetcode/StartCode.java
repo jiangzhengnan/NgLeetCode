@@ -10,9 +10,14 @@ import com.ng.ngleetcode.util.ProgressUtil;
 public class StartCode {
 
     public static void main(String[] args) {
-        ProgressUtil.getNowProgress();
-        LogUtil.pring(" ");
-        ProblemUtil.getRandomTest(5);
+        //当前进度
+        //ProgressUtil.getNowProgress();
+
+        //随机得到几个题目
+        //ProblemUtil.getRandomTest(5);
+
+        //输出目录到readme
+        ProgressUtil.refreshReadMe();
     }
 
 }

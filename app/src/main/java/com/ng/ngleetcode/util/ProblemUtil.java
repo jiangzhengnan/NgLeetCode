@@ -24,7 +24,7 @@ public class ProblemUtil {
      */
     public static void getRandomTest(int num) {
         LogUtil.pring("抽取 " + num + " 道题目");
-        Set<Class<?>> codeSet = getClassSet("com.ng.ngleetcode.code");
+        Set<Class<?>> codeSet = getClassSet(Constants.CODE_PKG_NAME);
         ArrayList<Class<?>> list = new ArrayList(codeSet);
         List<Integer> repeatList = new ArrayList<>();
 
@@ -138,7 +138,9 @@ public class ProblemUtil {
 
     private static void doAddClass(Set<Class<?>> classSet, String className) {
         Class<?> cls = loadClass(className, false);
-        classSet.add(cls);
+        if (!className.contains("$")){
+            classSet.add(cls);
+        }
     }
 
     private static boolean isNotEmpty(String s) {

@@ -1,6 +1,11 @@
 package com.ng.ngleetcode.code;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.ng.ngleetcode.util.LogUtil;
+import com.ng.ngleetcode.util.Node;
 import com.ng.ngleetcode.util.Solution;
 
 import java.util.Arrays;
@@ -10,20 +15,9 @@ import java.util.Map;
 
 //空间和时间最好的选择吧。哈希表查+链表存
 @Solution(easy = 1, hard = 1)
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class 设计LRU缓存结构 {
 
-	/**
-	 * 首先实现链表节点
-	 */
-	static class Node {
-		int key, val;
-		Node prev, next;
-
-		public Node(int key, int val) {
-			this.key = key;
-			this.val = val;
-		}
-	}
 
 	private static Map<Integer, Node> map = new HashMap<>();
 	private static Node head = new Node(-1, -1);

@@ -1,3 +1,16 @@
-# NgLeetCode
-刷题本
-啊啊啊
+## 排序
+* [快速排序](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/排序/快速排序.java)
+## other
+* [最小的K个数](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/最小的K个数.java)
+* [实现二叉树先序中序和后序遍历](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/实现二叉树先序中序和后序遍历.java)
+* [寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/寻找第K大.java)
+* [求二叉树的层序遍历](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/求二叉树的层序遍历.java)
+* [跳台阶](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/跳台阶.java)
+* [设计LRU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/设计LRU缓存结构.java)
+## 链表
+* [链表内指定区间反转](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表内指定区间反转.java)
+* [删除链表的倒数第n个节点](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/删除链表的倒数第n个节点.java)
+* [合并k个已排序的链表](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/合并k个已排序的链表.java)
+* [链表中的节点每k个一组翻转](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表中的节点每k个一组翻转.java)
+* [链表中环的入口结点](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表中环的入口结点.java)
+* [链表中倒数最后k个结点](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表中倒数最后k个结点.java)
