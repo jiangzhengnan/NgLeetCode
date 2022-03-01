@@ -4,6 +4,9 @@ import com.ng.ngleetcode.util.ListNode;
 import com.ng.ngleetcode.util.LogUtil;
 import com.ng.ngleetcode.util.Solution;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 日期:
  * 原题链接:https://www.nowcoder.com/practice/b49c3dc907814e9bbfa8437c251b028e?tpId=117&tqId=37746&rp=1&ru=/exam/oj&qru=/exam/oj&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D117%26page%3D1&difficulty=undefined&judgeStatus=undefined&tags=&title=
@@ -21,6 +24,41 @@ import com.ng.ngleetcode.util.Solution;
  */
 @Solution(easy = 0, hard = 0)
 public class 链表中的节点每k个一组翻转 {
+
+	public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+		List<ListNode> map = new ArrayList();
+		while(true) {
+			if(!insert(map, pHead1)) {
+				return pHead1;
+			}
+			if(!insert(map, pHead2)) {
+				return pHead2;
+			}
+
+			if(pHead1.next == null && pHead2.next == null) {
+				break;
+			}
+
+			if(pHead1.next != null) {
+				pHead1 = pHead1.next;
+			}
+			if(pHead2.next != null) {
+				pHead2 = pHead2.next;
+			}
+
+		}
+
+		return null;
+	}
+
+	public boolean insert(List<ListNode> map, ListNode temp) {
+		if(map.contains(temp)) {
+			return false;
+		} else {
+			map.add(temp);
+			return true;
+		}
+	}
 
 	public static void main(String[] args) {
 		LogUtil.pring(reverseGroup(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));

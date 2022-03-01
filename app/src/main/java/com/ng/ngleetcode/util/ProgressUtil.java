@@ -1,24 +1,16 @@
 package com.ng.ngleetcode.util;
 
-import android.content.Context;
-
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.net.JarURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Random;
 import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
 
 /**
@@ -60,11 +52,10 @@ public class ProgressUtil {
      * * [方法指令](https://github.com/JasonWu1111/Android-Review/blob/master/Docs/Java知识点汇总.md#方法指令)
      */
     public static void refreshReadMe() {
-        String path = "/Users/xiaoguagua/AndroidProjects/MyProjects/NgLeetCode";
         StringBuilder directorySb = new StringBuilder();
 
         HashMap<String, List<MyCodeProblem>> classMap = getClassMap(Constants.CODE_PKG_NAME);
-        directorySb.append("# 题库");
+        directorySb.append("# 题库").append("\n");
         for (String key : classMap.keySet()) {
             List<MyCodeProblem> problems = classMap.get(key);
             directorySb.append("## ").append(key).append("\n");
@@ -74,7 +65,30 @@ public class ProgressUtil {
                 }
             }
         }
-        saveContent(path, directorySb.toString());
+        saveContent(Constants.README_PATH, directorySb.toString());
+    }
+
+    public static String getRandomProblemLink() {
+        try {
+            HashMap<String, List<MyCodeProblem>> classMap = getClassMap(Constants.CODE_PKG_NAME);
+            for (String key : classMap.keySet()) {
+                List<MyCodeProblem> problems = classMap.get(key);
+                if (problems != null) {
+                    for (MyCodeProblem problem : problems) {
+                        int randNum = new Random().nextInt(100);
+                        LogUtil.pring(randNum);
+                        if (randNum < 10) {
+                            LogUtil.pring(randNum);
+                            return problem.link;
+                        }
+                    }
+                }
+            }
+            return getRandomProblemLink();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return e.getMessage().toLowerCase();
+        }
     }
 
 

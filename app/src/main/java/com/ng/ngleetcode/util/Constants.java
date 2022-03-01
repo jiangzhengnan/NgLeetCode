@@ -11,5 +11,10 @@ public class Constants {
 
     public static final String CODE_PKG_NAME = "com.ng.ngleetcode.code";
 
+
     public static final String GITHUB_LINK_HEAD = "https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/";
+
+    //public static final String README_PATH = "/Users/xiaoguagua/AndroidProjects/MyProjects/NgLeetCode";
+     public static final String README_PATH = "/D:/AndroidStudioProjects/NgLeetCode";
+
 }

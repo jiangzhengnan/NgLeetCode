@@ -1,4 +1,4 @@
-package com.ng.ngleetcode;
+package com.ng.ngleetcode.start;
 
 import com.ng.ngleetcode.util.Solution;
 

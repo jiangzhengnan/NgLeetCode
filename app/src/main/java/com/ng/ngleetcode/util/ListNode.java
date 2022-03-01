@@ -8,7 +8,7 @@ public class ListNode {
         this.val = val;
     }
 
-    public static ListNode getNodeList(int[] array) {
+    public static ListNode getNodeList(int ...array) {
         if (array == null) {
             return null;
         }
@@ -20,6 +20,14 @@ public class ListNode {
             cur = tempNode;
         }
         return head;
+    }
+
+    public static void mergeNodeList(ListNode array1, ListNode array2) {
+        ListNode now = array1;
+        while (now.next != null) {
+            now = now.next;
+        }
+        now.next = array2;
     }
 
     @Override

@@ -1,8 +1,4 @@
-package com.ng.ngleetcode;
-
-import com.ng.ngleetcode.util.LogUtil;
-import com.ng.ngleetcode.util.ProblemUtil;
-import com.ng.ngleetcode.util.ProgressUtil;
+package com.ng.ngleetcode.start;
 
 /**
  * 随机抽题模拟器
@@ -17,7 +13,9 @@ public class StartCode {
         //ProblemUtil.getRandomTest(5);
 
         //输出目录到readme
-        ProgressUtil.refreshReadMe();
+        //ProgressUtil.refreshReadMe();
+
+        //LogUtil.pring(ProgressUtil.getRandomProblemLink());
     }
 
 }

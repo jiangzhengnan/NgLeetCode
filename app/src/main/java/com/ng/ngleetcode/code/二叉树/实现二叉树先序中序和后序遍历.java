@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.code;
+package com.ng.ngleetcode.code.二叉树;
 
 import com.ng.ngleetcode.util.LogUtil;
 import com.ng.ngleetcode.util.Solution;
@@ -25,7 +25,6 @@ public class 实现二叉树先序中序和后序遍历 {
 		root.left = left;
 		root.right = right;
 		LogUtil.pring(threeOrders(null));
-
 	}
 
 	public static List<Integer> cache = new ArrayList<>();

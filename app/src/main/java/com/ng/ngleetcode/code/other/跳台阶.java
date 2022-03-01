@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.code;
+package com.ng.ngleetcode.code.other;
 
 
 import com.ng.ngleetcode.util.LogUtil;
