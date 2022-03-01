@@ -7,7 +7,7 @@ package com.ng.ngleetcode.util;
  */
 public class Constants {
 
-    public static final String DEFAULT_PKG = "other";
+    public static final String DEFAULT_PKG = "暂未分类";
 
     public static final String CODE_PKG_NAME = "com.ng.ngleetcode.code";
 
