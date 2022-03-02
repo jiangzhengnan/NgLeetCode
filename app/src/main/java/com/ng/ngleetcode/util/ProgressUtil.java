@@ -65,6 +65,7 @@ public class ProgressUtil {
                 }
             }
         }
+        LogUtil.pring("输出成功:\n" + directorySb.toString());
         saveContent(Constants.README_PATH, directorySb.toString());
     }
 
