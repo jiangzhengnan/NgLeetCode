@@ -2,14 +2,12 @@ package com.ng.ngleetcode.util;
 
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileOutputStream;
 import java.lang.annotation.Annotation;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 
@@ -65,52 +63,10 @@ public class ProgressUtil {
                 }
             }
         }
-        LogUtil.pring("输出成功:\n" + directorySb.toString());
-        saveContent(Constants.README_PATH, directorySb.toString());
+        //LogUtil.pring("输出成功:\n" + directorySb.toString());
+        FileUtil.saveContent(Constants.README_FILE_PATH, directorySb.toString());
     }
 
-    public static String getRandomProblemLink() {
-        try {
-            HashMap<String, List<MyCodeProblem>> classMap = getClassMap(Constants.CODE_PKG_NAME);
-            for (String key : classMap.keySet()) {
-                List<MyCodeProblem> problems = classMap.get(key);
-                if (problems != null) {
-                    for (MyCodeProblem problem : problems) {
-                        int randNum = new Random().nextInt(100);
-                        LogUtil.pring(randNum);
-                        if (randNum < 10) {
-                            LogUtil.pring(randNum);
-                            return problem.link;
-                        }
-                    }
-                }
-            }
-            return getRandomProblemLink();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return e.getMessage().toLowerCase();
-        }
-    }
-
-
-    public static boolean saveContent(String path, String content) {
-        try {
-            // 动态获得路径
-            File file = new File(path, "README.md");
-            // 输出流，把数据输出到文件中
-            FileOutputStream fos = new FileOutputStream(file);
-            // 写入字节流
-            fos.write(content.getBytes());
-            // 清空缓存
-            fos.flush();
-            // 关闭流
-            fos.close();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     public static HashMap<String, List<MyCodeProblem>> getClassMap(String packageName) {
         HashMap<String, List<MyCodeProblem>> classMap = new HashMap<>();
@@ -142,6 +98,7 @@ public class ProgressUtil {
             String fileName = file.getName();
             if (file.isFile()) {
                 String className = fileName.substring(0, fileName.lastIndexOf("."));
+
                 if (isNotEmpty(packageName)) {
                     className = packageName + "|" + className;
                 }
@@ -160,6 +117,7 @@ public class ProgressUtil {
             }
         }
     }
+
 
     private static void doAddClass(HashMap<String, List<MyCodeProblem>> classMap, String className) {
         if (!className.contains("$")) {

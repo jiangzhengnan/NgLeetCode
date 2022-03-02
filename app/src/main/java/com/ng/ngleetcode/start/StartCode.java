@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.start;
 
+import com.ng.ngleetcode.util.ProblemUtil;
 import com.ng.ngleetcode.util.ProgressUtil;
 
 /**
@@ -14,10 +15,15 @@ public class StartCode {
         //随机得到几个题目
         //ProblemUtil.getRandomTest(5);
 
+        refreshLocalProjects();
+    }
+
+    private static void refreshLocalProjects() {
         //输出目录到readme
         ProgressUtil.refreshReadMe();
 
-        //LogUtil.pring(ProgressUtil.getRandomProblemLink());
+        //输出所有题目到assets
+        ProblemUtil.copyJavaToAssets();
     }
 
 }

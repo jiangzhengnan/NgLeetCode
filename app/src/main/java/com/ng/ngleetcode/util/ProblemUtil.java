@@ -42,6 +42,10 @@ public class ProblemUtil {
         }
     }
 
+    public static void copyJavaToAssets() {
+        FileUtil.copyDir(Constants.JAVA_DIR_PATH,Constants.ASSETS_DIR_PATH);
+    }
+
     /**
      * 获取类加载器
      */
@@ -138,7 +142,7 @@ public class ProblemUtil {
 
     private static void doAddClass(Set<Class<?>> classSet, String className) {
         Class<?> cls = loadClass(className, false);
-        if (!className.contains("$")){
+        if (!className.contains("$")) {
             classSet.add(cls);
         }
     }
@@ -146,4 +150,5 @@ public class ProblemUtil {
     private static boolean isNotEmpty(String s) {
         return s != null && s.length() > 0;
     }
+
 }
