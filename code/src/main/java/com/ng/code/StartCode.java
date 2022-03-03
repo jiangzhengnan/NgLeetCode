@@ -12,6 +12,8 @@ public class StartCode {
         //当前进度
         ProgressUtil.getNowProgress();
 
+        refreshLocalProjects();
+
         //随机得到几个题目
         //ProblemUtil.getRandomTest(5);
 
