@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.ng.ngleetcode.android.CodeBean;
-import com.ng.ngleetcode.android.NgTextView;
-import com.ng.ngleetcode.util.ProblemAndroidUtil;
+import com.ng.code.util.CodeBean;
+import com.ng.ngleetcode.view.NgTextView;
+import com.ng.code.util.ProblemAndroidUtil;
 
 public class MainActivity extends Activity {
     TextView mTitleView;
@@ -26,12 +26,13 @@ public class MainActivity extends Activity {
         mTitleView = findViewById(R.id.tv_title);
         mStartBtn = findViewById(R.id.btn_start);
         mStartBtn.setOnClickListener(new View.OnClickListener() {
-            float degree = 180;
+            float degree = -180;
 
             @Override
             public void onClick(View view) {
-                mStartBtn.animate().rotation(degree).setDuration(500).start();
-                degree += 180;
+                mShowTv.setText("");
+                mStartBtn.animate().rotation(degree).setDuration(400).start();
+                degree -= 180;
                 showRandomProblem();
             }
         });
