@@ -14,11 +14,11 @@ public class 删除链表的倒数第n个节点 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(new int[]{1, 2});
-        LogUtil.pring(SolutionEasy.removeNthFromEnd(data, 2));
+        LogUtil.pring(EasySolution.removeNthFromEnd(data, 2));
     }
 
     //双指针
-    private static class SolutionEasy {
+    private static class EasySolution {
         public static ListNode removeNthFromEnd(ListNode head, int n) {
             // write code here
             ListNode slow = head;
@@ -44,7 +44,7 @@ public class 删除链表的倒数第n个节点 {
     }
 
     //递归
-    private static class SolutionHard {
+    private static class HardSolution {
         public static ListNode removeNthFromEnd(ListNode head, int n) {
             int pos = length(head, n);
             // 说明删除的是头节点

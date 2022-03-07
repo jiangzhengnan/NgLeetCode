@@ -27,7 +27,7 @@ public class 删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 1, 2, 3, 3);
-        LogUtil.pring(SolutionEasy.deleteDuplicates(data));
+        LogUtil.pring(EasySolution.deleteDuplicates(data));
 
     }
 
@@ -35,7 +35,7 @@ public class 删除有序链表中重复的元素一 {
      * 因为是排序的链表
      * 直接比较当前节点和上一个节点是否相等，是的话删除当前节点
      */
-    private static class SolutionEasy {
+    private static class EasySolution {
 
         public static ListNode deleteDuplicates(ListNode head) {
             ListNode pre = null;
@@ -56,7 +56,7 @@ public class 删除有序链表中重复的元素一 {
     }
 
     //与上面相同
-    private static class SolutionHard {
+    private static class HardSolution {
     }
 
 

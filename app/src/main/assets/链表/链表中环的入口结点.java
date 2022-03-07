@@ -16,7 +16,7 @@ public class 链表中环的入口结点 {
 
     }
 
-    private static class SolutionEasy {
+    private static class EasySolution {
         //set标注法
     }
 
@@ -32,7 +32,7 @@ public class 链表中环的入口结点 {
                 a = c
 
      */
-    private static class SolutionHard {
+    private static class HardSolution {
 
         public ListNode EntryNodeOfLoop(ListNode pHead) {
             if (pHead == null || pHead.next == null) {

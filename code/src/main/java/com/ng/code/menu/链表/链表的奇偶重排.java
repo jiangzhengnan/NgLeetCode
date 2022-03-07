@@ -26,10 +26,10 @@ public class 链表的奇偶重排 {
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(2, 1, 3, 5, 6, 4, 7);
 
-        LogUtil.pring(SolutionHard.oddEvenList(data));
+        LogUtil.pring(HardSolution.oddEvenList(data));
     }
 
-    private static class SolutionEasy {
+    private static class EasySolution {
 
         /**
          * 1.取出奇节点数组
@@ -67,7 +67,7 @@ public class 链表的奇偶重排 {
 
     }
 
-    private static class SolutionHard {
+    private static class HardSolution {
 
         /**
          * 1.odd节点指向奇数位 even节点指向偶数位

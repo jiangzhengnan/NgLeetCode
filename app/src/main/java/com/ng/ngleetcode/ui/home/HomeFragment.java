@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     private void showRandomProblem() {
         CodeBean codeBean = ProblemAndroidUtil.getRandomProblemJavaContent(getContext());
         binding.codeView.setCode(codeBean.content).apply();
-        binding.tvTitle.setText(codeBean.title);
+        setTitle(codeBean.title);
     }
 
     public void refreshData() {
@@ -59,7 +59,11 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     public void refreshData(CodeBean codeBean) {
         codeBean.content = ProblemAndroidUtil.readAssets(getContext(), codeBean.contentPath);
         binding.codeView.setCode(codeBean.content).apply();
-        binding.tvTitle.setText(codeBean.title);
+        setTitle(codeBean.title);
+    }
+
+    public void setTitle(String title) {
+        binding.tvTitle.setText(title.replace(".java", ""));
     }
 
 

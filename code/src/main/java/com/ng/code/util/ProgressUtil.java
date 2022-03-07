@@ -37,7 +37,7 @@ public class ProgressUtil {
                 }
             }
         }
-        LogUtil.pring("题库总数: " + list.size() + " 简单完成: " + easy + " 困难完成: " + easy);
+        LogUtil.pring("题库总数: " + list.size() + " 简单完成: " + easy + " 困难完成: " + hard);
     }
 
     /**

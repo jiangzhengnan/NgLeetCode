@@ -9,6 +9,7 @@
 ## 二叉树
 * [实现二叉树先序中序和后序遍历](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二叉树/实现二叉树先序中序和后序遍历.java)
 * [求二叉树的层序遍历](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二叉树/求二叉树的层序遍历.java)
+* [按之字形顺序打印二叉树](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二叉树/按之字形顺序打印二叉树.java)
 ## 链表
 * [单链表的排序](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/单链表的排序.java)
 * [判断一个链表是否为回文结构](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/判断一个链表是否为回文结构.java)
@@ -23,3 +24,9 @@
 * [删除有序链表中重复的元素一](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/删除有序链表中重复的元素一.java)
 * [链表的奇偶重排](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表的奇偶重排.java)
 * [链表相加二](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/链表/链表相加二.java)
+## 二分法
+* [数组中的逆序对](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二分法/数组中的逆序对.java)
+* [二维数组中的查找](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二分法/二维数组中的查找.java)
+* [比较版本号](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二分法/比较版本号.java)
+* [寻找峰值](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二分法/寻找峰值.java)
+* [二分查找一](https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/二分法/二分查找一.java)

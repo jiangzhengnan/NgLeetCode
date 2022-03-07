@@ -17,12 +17,12 @@ public class 判断一个链表是否为回文结构 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3, 3, 2, 1);
-        LogUtil.pring(SolutionEasy.isPail(data));
+        LogUtil.pring(EasySolution.isPail(data));
 
     }
 
     //使用栈解决
-    private static class SolutionEasy {
+    private static class EasySolution {
 
         public static boolean isPail(ListNode head) {
             // write code here
@@ -48,7 +48,7 @@ public class 判断一个链表是否为回文结构 {
      * 2.反转后半部分
      * 3.比较两段是否相等
      */
-    private static class SolutionHard {
+    private static class HardSolution {
 
         public static boolean isPail(ListNode head) {
             ListNode fast = head;

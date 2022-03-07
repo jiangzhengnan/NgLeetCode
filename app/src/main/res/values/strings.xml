@@ -2,7 +2,7 @@
     <string name="app_name">Pumpkin</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">刷题笔记本</string>
+    <string name="nav_header_title">Code Note Book</string>
     <string name="nav_header_subtitle">Show me the fuck code</string>
 
     <string name="nav_header_desc">Navigation header</string>

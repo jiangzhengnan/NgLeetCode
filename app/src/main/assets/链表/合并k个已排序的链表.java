@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class 合并k个已排序的链表 {
 
     public static void main(String[] args) {
-        LogUtil.pring(SolutionEasy.mergeKLists(getData()));
-        LogUtil.pring(SolutionHard.mergeKLists(getData()));
+        LogUtil.pring(EasySolution.mergeKLists(getData()));
+        LogUtil.pring(HardSolution.mergeKLists(getData()));
     }
 
     private static ArrayList<ListNode> getData() {
@@ -47,7 +47,7 @@ public class 合并k个已排序的链表 {
      * 循环遍历arraylist列表,进行比较,每次选出最小的节点加在结果链表里,
      * 然后列表位置的最小节点指向它自己的next节点. 直到列表里全是null,则终止循环.
      */
-    private static class SolutionEasy {
+    private static class EasySolution {
 
         public static ListNode mergeKLists(ArrayList<ListNode> lists) {
             ListNode result = new ListNode(0);
@@ -94,7 +94,7 @@ public class 合并k个已排序的链表 {
      * 2、分而治之！求一个mid,将mid左边的合并，右边的合并，最后将左右两边的链表合并。
      * 3、重复这一过程，直到获取最终的有序链表。
      */
-    private static class SolutionHard {
+    private static class HardSolution {
         public static ListNode mergeKLists(ArrayList<ListNode> lists) {
             return mergeList(lists, 0, lists.size() - 1);
         }

@@ -32,13 +32,13 @@ public class 删除有序链表中重复的元素二 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3, 3, 4, 4, 5);
-        LogUtil.pring(SolutionHard.deleteDuplicates(data));
+        LogUtil.pring(HardSolution.deleteDuplicates(data));
     }
 
     /**
      * 双指针解法
      */
-    private static class SolutionEasy {
+    private static class EasySolution {
 
     }
 
@@ -48,7 +48,7 @@ public class 删除有序链表中重复的元素二 {
      * 如果now和next相等，则找到不相等的下一个为止
      * 然后链接pre和下一个
      */
-    private static class SolutionHard {
+    private static class HardSolution {
         public static ListNode deleteDuplicates(ListNode head) {
             if (head == null) {
                 return null;

@@ -11,9 +11,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com
@@ -31,6 +33,26 @@ public class ProblemAndroidUtil {
         String content = readAssets(context, codeList.get(randNum));
         return new CodeBean(codeList.get(randNum), content);
     }
+
+    public static String getNowProgressAndroid(Context context) {
+        List<String> codeList = getAssetsJavaCodeList(context);
+        int easyCount = 0;
+        int hardCount = 0;
+        for (String codeStr : codeList) {
+            //@Solution(easy = 1, hard = 0)
+            String content = readAssets(context, codeStr);
+            int easyIndex = content.indexOf("easy = ");
+            if (Integer.parseInt(content.substring(easyIndex + 7, easyIndex + 8)) > 0) {
+                easyCount++;
+            }
+            int hardIndex = content.indexOf("hard = ");
+            if (Integer.parseInt(content.substring(hardIndex + 7, hardIndex + 8)) > 0) {
+                hardCount++;
+            }
+        }
+        return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount;
+    }
+
 
     public static List<String> getAssetsJavaCodeList(Context context) {
         List<String> result = new ArrayList<>();

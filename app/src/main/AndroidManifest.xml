@@ -24,9 +24,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ContentActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

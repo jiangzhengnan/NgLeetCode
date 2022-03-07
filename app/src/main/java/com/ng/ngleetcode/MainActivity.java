@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ((TextView) binding.navView.getHeaderView(0).findViewById(R.id.navHeaderMainDesc)).setText(ProblemAndroidUtil.getNowProgressAndroid(this));
     }
 
     //clazz传入fragment类：如：HomeFragment.class

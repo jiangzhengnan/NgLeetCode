@@ -22,11 +22,11 @@ import com.ng.code.util.Solution;
 public class 链表中倒数最后k个结点 {
 
     public static void main(String[] args) {
-        LogUtil.pring(SolutionHard.FindKthToTail(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));
+        LogUtil.pring(HardSolution.FindKthToTail(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));
     }
 
     //双指针
-    private static class SolutionEasy {
+    private static class EasySolution {
         public static ListNode FindKthToTail(ListNode pHead, int k) {
             if (pHead == null) {
                 return pHead;
@@ -48,7 +48,7 @@ public class 链表中倒数最后k个结点 {
     }
 
     //递归
-    private static class SolutionHard {
+    private static class HardSolution {
 
         static int size;
 

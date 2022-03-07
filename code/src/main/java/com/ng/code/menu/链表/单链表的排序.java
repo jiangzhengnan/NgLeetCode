@@ -14,11 +14,11 @@ public class 单链表的排序 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);
-        LogUtil.pring(SolutionHard.sortInList(data));
+        LogUtil.pring(HardSolution.sortInList(data));
     }
 
     //辅助数组排序
-    private static class SolutionEasy {
+    private static class EasySolution {
     }
 
     /**
@@ -26,7 +26,7 @@ public class 单链表的排序 {
      * 1.将链表断开，直到只有一个节点
      * 2.合并，将两个链表合并，转化为排序链表
      */
-    private static class SolutionHard {
+    private static class HardSolution {
         public static ListNode sortInList(ListNode head) {
             if (head == null || head.next == null) {
                 return head;

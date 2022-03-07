@@ -21,12 +21,12 @@ public class 链表内指定区间反转 {
 
     public static void main(String[] args) {
         LogUtil.pring(
-                SolutionHard.reverseBetween(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5, 6}), 2, 4));
+                HardSolution.reverseBetween(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5, 6}), 2, 4));
     }
 
     //一次遍历法
     // 固定子区间外的节点，在反转区间内，每遍历到一个节点，让这个新节点来到反转部分的起始位置。
-    private static class SolutionHard {
+    private static class HardSolution {
         public static ListNode reverseBetween(ListNode head, int m, int n) {
             ListNode dummyNode = new ListNode(-1);
             dummyNode.next = head;
@@ -49,7 +49,7 @@ public class 链表内指定区间反转 {
     }
 
     //双指针解法
-    private static class SolutionEasy {
+    private static class EasySolution {
         public static ListNode reverseBetween(ListNode head, int m, int n) {
             // write code here
             ListNode first = new ListNode(-1);

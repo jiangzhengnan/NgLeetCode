@@ -14,11 +14,12 @@ public class TemplateTestClass {
 
     }
 
-    private static class SolutionEasy {
+    private static class EasySolution {
+
     }
 
-    private static class SolutionHard {
-    }
+    private static class HardSolution {
 
+    }
 
 }

@@ -20,14 +20,14 @@ public class 两个链表的第一个公共结点 {
         ListNode.mergeNodeList(phead1,phead3);
         ListNode.mergeNodeList(phead2,phead3);
 
-        LogUtil.pring(SolutionEasy.FindFirstCommonNode(phead1, phead2));
+        LogUtil.pring(EasySolution.FindFirstCommonNode(phead1, phead2));
     }
 
     /**
      * 双指针
      * 因为 ta + tb = tb + ta
      */
-    private static class SolutionEasy {
+    private static class EasySolution {
         public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
             if (pHead1 == null || pHead2 == null)  //其中有一个为空，则不能有公共结点，返回null
                 return null;
@@ -41,7 +41,7 @@ public class 两个链表的第一个公共结点 {
         }
     }
 
-    private static class SolutionHard {
+    private static class HardSolution {
     }
 
 
