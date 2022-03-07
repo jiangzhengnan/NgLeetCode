@@ -2,7 +2,10 @@ package com.ng.code.util;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.MenuItem;
 
+
+import androidx.annotation.NonNull;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -24,9 +27,9 @@ public class ProblemAndroidUtil {
      */
     public static CodeBean getRandomProblemJavaContent(Context context) {
         List<String> codeList = getAssetsJavaCodeList(context);
-        int randNum = new Random().nextInt(codeList.size() -1);
+        int randNum = new Random().nextInt(codeList.size() - 1);
         String content = readAssets(context, codeList.get(randNum));
-        return new CodeBean(codeList.get(randNum),content);
+        return new CodeBean(codeList.get(randNum), content);
     }
 
     public static List<String> getAssetsJavaCodeList(Context context) {
@@ -49,9 +52,30 @@ public class ProblemAndroidUtil {
         return result;
     }
 
-
-    private static void doAddClass(List<String> result, String className) {
-        Log.d("nangua", "传进来的:" + className);
+    @NonNull
+    public static List<CodeDir> getJavaCodeList(Context context) {
+        List<CodeDir> result = new ArrayList<>();
+        try {
+            String[] files = context.getAssets().list("");
+            for (String temp : files) {
+                CodeDir tempDir = new CodeDir(IdGenerator.generateID());
+                tempDir.title = temp;
+                List<CodeBean> tempList = new ArrayList<>();
+                for (String subTemp : context.getAssets().list(temp)) {
+                    String realFilePath = temp + "/" + subTemp;
+                    if (realFilePath.endsWith(".java")) {
+                        tempList.add(new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
+                    }
+                }
+                if (tempList.size() > 0) {
+                    tempDir.dataList = tempList;
+                    result.add(tempDir);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /**

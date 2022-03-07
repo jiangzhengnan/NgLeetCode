@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".ContentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
+        android:id="@+id/codeContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ng.ngleetcode.view.code.CodeView
+            android:id="@+id/codeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cv_show_line_number="false"
+            app:cv_start_line_number="0"
+            app:cv_wrap_line="true"
+            app:cv_zoom_enable="true" />
+
+    </com.ng.ngleetcode.view.rounded.RoundedFrameLayout>
+
+
+</LinearLayout>
