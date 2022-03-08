@@ -12,7 +12,7 @@ public class Constants {
     public static final String CODE_PKG_NAME = "com.ng.code.menu";
 
 
-    public static final String GITHUB_LINK_HEAD = "https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/java/com/ng/ngleetcode/code/";
+    public static final String GITHUB_LINK_HEAD = "https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/";
 
     private static final String OS_PROJECTS_PATH = "/Users/xiaoguagua/AndroidProjects/MyProjects/NgLeetCode/";
     //private static final String OS_PROJECTS_PATH = "/D:/AndroidStudioProjects/NgLeetCode/";
