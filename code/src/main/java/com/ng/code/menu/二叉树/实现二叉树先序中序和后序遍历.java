@@ -19,12 +19,11 @@ import java.util.List;
 public class 实现二叉树先序中序和后序遍历 {
 
 	public static void main(String[] args) {
-		TreeNode root = new TreeNode(1);
-		TreeNode left = new TreeNode(2);
-		TreeNode right = new TreeNode(3);
-		root.left = left;
-		root.right = right;
-		LogUtil.pring(threeOrders(null));
+		TreeNode root = TreeNode.createTreeNode(10, 6, 14, 4, 8, 12, 16);
+
+		TreeNode root2 = TreeNode.createTreeNode(1,2,3,4,5,6,7);
+		root2.print();
+		LogUtil.pring(threeOrders(root2));
 	}
 
 	public static List<Integer> cache = new ArrayList<>();

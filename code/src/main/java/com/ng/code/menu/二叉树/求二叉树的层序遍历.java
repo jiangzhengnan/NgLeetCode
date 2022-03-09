@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class 求二叉树的层序遍历 {
 
 	public static void main(String[] args) {
+
 		LogUtil.pring(levelOrder(null).toString());
 	}
 

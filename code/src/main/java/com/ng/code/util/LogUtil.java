@@ -10,6 +10,11 @@ public class LogUtil {
 		System.out.println(node.toString());
 	}
 
+	public static void pring(TreeNode treeNode) {
+		treeNode.print();
+	}
+
+
 	public static void pring(boolean str) {
 		System.out.println(str + "");
 	}
