@@ -3,6 +3,9 @@ package com.ng.code.menu.二叉树;
 import com.ng.code.util.Solution;
 import com.ng.code.util.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 日期:
  * 原题链接:https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5?tpId=295&tqId=23253&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
@@ -35,20 +38,71 @@ import com.ng.code.util.TreeNode;
 public class 二叉搜索树与双向链表 {
 
     public static void main(String[] args) {
-        TreeNode data = TreeNode.createTreeNode(10,6,14,4,8,12,16);
+        TreeNode data = TreeNode.createTreeNode(10, 6, 14, 4, 8, 12, 16);
+        HardSolution.Convert(data);
+        //LogUtil.pring(data);
     }
 
+    /**
+     * 中序遍历存起来，然后再依次连接每一位
+     * 但是这样相当于创建了新的节点
+     */
     private static class EasySolution {
+        static List<TreeNode> treeList;
 
         public static TreeNode Convert(TreeNode pRootOfTree) {
+            if (pRootOfTree == null) {
+                return pRootOfTree;
+            }
+            treeList = new ArrayList<>();
+            midQuery(pRootOfTree);
+            for (int i = 0; i < treeList.size() - 1; i++) {
+                treeList.get(i).right = treeList.get(i + 1);
+                treeList.get(i + 1).left = treeList.get(i);
+            }
+            return treeList.get(0);
+        }
 
-            return null;
+        //中序遍历
+        private static void midQuery(TreeNode pRootOfTree) {
+            if (pRootOfTree == null) {
+                return;
+            }
+            midQuery(pRootOfTree.left);
+            treeList.add(pRootOfTree);
+            midQuery(pRootOfTree.right);
         }
 
     }
 
+    /**
+     * 1.使用一个节点 preNode 指向前继
+     * 原     10,6,14,4,8,12,16
+     * 中序后  4,6,8,10,12,14,16
+     * 4就是6的前继
+     * 2.对于当前节点， left指向preNode， 然后preNode的right指向后继，这样就变成一个双向链表了
+     */
     private static class HardSolution {
 
+        static TreeNode pre = null;
+        static TreeNode root = null;
+
+        public static TreeNode Convert(TreeNode pRootOfTree) {
+            if (pRootOfTree == null) return null;
+            Convert(pRootOfTree.left);
+
+            if (root == null) {
+                root = pRootOfTree;
+            }
+            if (pre != null) {
+                pRootOfTree.left = pre;
+                pre.right = pRootOfTree;
+            }
+            pre = pRootOfTree;
+
+            Convert(pRootOfTree.right);
+            return root;
+        }
     }
 
 }
