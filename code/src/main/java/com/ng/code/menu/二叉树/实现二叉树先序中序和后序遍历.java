@@ -13,6 +13,7 @@ import java.util.List;
  *
  * 输入：
  * {1,2,3}
+ * 前 中 后
  * [[1,2,3],[2,1,3],[2,3,1]]
  */
 @Solution(easy = 1, hard = 0)

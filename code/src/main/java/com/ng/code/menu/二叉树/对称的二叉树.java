@@ -14,6 +14,8 @@ import java.util.List;
  * 原题链接:https://www.nowcoder.com/practice/ff05d44dfdb04e1d83bdbdab320efbcb?tpId=295&tqId=23452&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
  * 原题描述:
  * 给定一棵二叉树，判断其是否是自身的镜像（即：是否对称）
+ *
+ * [标准的层序遍历]
  */
 @Solution(easy = 0, hard = 0)
 public class 对称的二叉树 {
