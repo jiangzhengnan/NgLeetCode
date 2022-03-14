@@ -2,8 +2,6 @@ package com.ng.ngleetcode;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
@@ -11,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView mNavigationView;
     private ActivityMainBinding binding;
     private HomeFragment mHomeFragment;
+    private ConstraintLayout mRootLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +43,16 @@ public class MainActivity extends AppCompatActivity {
 
         binding = com.ng.ngleetcode.databinding.ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        mRootLayout = binding.appBarMain.layoutMain.getRoot();
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            float degree = 180;
+            float degree = 360;
 
             @Override
             public void onClick(View view) {
                 binding.appBarMain.fab.animate().rotation(degree).start();
-                degree += 180;
+                degree += 360;
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

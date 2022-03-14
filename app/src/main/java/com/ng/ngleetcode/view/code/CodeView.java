@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Html;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.webkit.JavascriptInterface;
@@ -322,7 +321,7 @@ public class CodeView extends WebView {
         //body
         sb.append("body {");
         sb.append("font-size:").append(String.format("%dpx;", (int) getFontSize()));
-        sb.append("margin: 0px; line-height: 1.2;");
+        sb.append("margin: 0px; line-height: 0.7;");
         sb.append("}\n");
         //.hljs
         sb.append(".hljs {");
@@ -437,7 +436,6 @@ public class CodeView extends WebView {
         @Override
         public void onScaleEnd(ScaleGestureDetector detector) {
             CodeView.this.fontSize = fontSize;
-            Log.d("nangua","最终字体: " + fontSize);
             super.onScaleEnd(detector);
         }
 
