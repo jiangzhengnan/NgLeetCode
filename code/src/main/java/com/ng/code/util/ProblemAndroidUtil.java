@@ -1,21 +1,20 @@
 package com.ng.code.util;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.MenuItem;
-
 
 import androidx.annotation.NonNull;
+
+import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.tree.CodeDirNode;
+import com.ng.code.util.tree.CodeNode;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com
@@ -74,30 +73,54 @@ public class ProblemAndroidUtil {
         return result;
     }
 
+    private List<BaseNode> getEntity() {
+        List<BaseNode> secondNodeList = new ArrayList<>();
+        for (int n = 0; n <= 5; n++) {
+            List<BaseNode> thirdNodeList = new ArrayList<>();
+            for (int t = 0; t <= 3; t++) {
+                CodeNode node = new CodeNode("Third Node " + t);
+                thirdNodeList.add(node);
+            }
+            CodeDirNode seNode = new CodeDirNode(thirdNodeList, "Second Node " + n);
+            secondNodeList.add(seNode);
+        }
+//        FirstNode entity = new FirstNode(secondNodeList, "First Node " + i);
+//
+//        // 模拟 默认第0个是展开的
+//        entity.setExpanded(i == 0);
+//        list.add(entity);
+        return secondNodeList;
+    }
+
     @NonNull
-    public static List<CodeDir> getJavaCodeList(Context context) {
-        List<CodeDir> result = new ArrayList<>();
+    public static List<BaseNode> getJavaCodeList(Context context) {
+        //entity.setExpanded(i == 0);
+        List<BaseNode> dirList = new ArrayList<>();
         try {
             String[] files = context.getAssets().list("");
             for (String temp : files) {
-                CodeDir tempDir = new CodeDir(IdGenerator.generateID());
-                tempDir.title = temp;
-                List<CodeBean> tempList = new ArrayList<>();
+                List<BaseNode> codeList = new ArrayList<>();
+
+                boolean needAdd = false;
                 for (String subTemp : context.getAssets().list(temp)) {
                     String realFilePath = temp + "/" + subTemp;
                     if (realFilePath.endsWith(".java")) {
-                        tempList.add(new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
+                        //tempList.add(new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
+                        CodeNode node = new CodeNode(subTemp.replace(".java", ""));
+                        codeList.add(node);
+                        needAdd = true;
                     }
                 }
-                if (tempList.size() > 0) {
-                    tempDir.dataList = tempList;
-                    result.add(tempDir);
+
+                if (needAdd) {
+                    CodeDirNode dirNode = new CodeDirNode(codeList, temp);
+                    dirList.add(dirNode);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
+        return dirList;
     }
 
     /**

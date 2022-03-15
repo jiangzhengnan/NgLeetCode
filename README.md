@@ -1,6 +1,8 @@
 # 题库
 ## 排序
 * [快速排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/快速排序.java)
+## 栈堆队列
+* [包含min函数的栈](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/包含min函数的栈.java)
 ## other
 * [寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/other/寻找第K大.java)
 * [最小的K个数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/other/最小的K个数.java)

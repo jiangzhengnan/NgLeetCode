@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
 }
 
+
 android {
     compileSdkVersion 31
 
@@ -39,8 +40,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-fragment:2.4.0'
     implementation 'androidx.navigation:navigation-ui:2.4.0'
-
-
 
     implementation project(path: ':code')
 }

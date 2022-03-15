@@ -8,4 +8,8 @@
         <attr name="positiveImgId" format="reference" />
         <attr name="reverseImgId" format="reference" />
     </declare-styleable>
+
+    <style name="AppBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="selectableItemBackground">@null</item>
+    </style>
 </resources>

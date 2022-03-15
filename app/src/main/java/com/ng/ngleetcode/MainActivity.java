@@ -1,51 +1,52 @@
 package com.ng.ngleetcode;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.google.android.material.navigation.NavigationView;
-import com.ng.code.util.CodeBean;
-import com.ng.code.util.CodeDir;
+import com.ng.code.util.ItemInfo;
 import com.ng.code.util.ProblemAndroidUtil;
-import com.ng.ngleetcode.databinding.ActivityMainBinding;
+import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
 import com.ng.ngleetcode.ui.home.HomeFragment;
-import com.ng.ngleetcode.utils.UIUtil;
-import com.ng.ngleetcode.view.rounded.RoundedImageView;
+import com.ng.ngleetcode.view.adapter.LeftListAdapter;
+import com.ng.ngleetcode.view.adapter.NodeTreeAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
-    private AppBarConfiguration mAppBarConfiguration;
-    private NavigationView mNavigationView;
-    private ActivityMainBinding binding;
+public class MainActivity extends AppCompatActivity implements LeftListAdapter.OnLeftItemClick {
+    private ActivityMainVpBinding binding;
+    private final List<ItemInfo> mLeftMenuList = new ArrayList<>();
+    private final List<ItemInfo> mFragList = new ArrayList<>();
     private HomeFragment mHomeFragment;
-    private ConstraintLayout mRootLayout;
+    private NodeTreeAdapter adapter = new NodeTreeAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        binding = com.ng.ngleetcode.databinding.ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainVpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        mRootLayout = binding.appBarMain.layoutMain.getRoot();
+        initViewsAndEvents();
+    }
 
+    private void initViewsAndEvents() {
+        mHomeFragment = (HomeFragment) getFragment(HomeFragment.class);
+        binding.appBarMain.toolbar.setTitle(mHomeFragment.refreshData());
         setSupportActionBar(binding.appBarMain.toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_nav);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             float degree = 360;
 
@@ -53,40 +54,41 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 binding.appBarMain.fab.animate().rotation(degree).start();
                 degree += 360;
+                binding.appBarMain.toolbar.setTitle(mHomeFragment.refreshData());
             }
         });
-        DrawerLayout drawer = binding.drawerLayout;
-        mNavigationView = binding.navView;
+        initRv();
+    }
 
-        RoundedImageView headerIv = ((RoundedImageView) binding.navView.getHeaderView(0).findViewById(R.id.header_imageView));
-        headerIv.setCornerRadius(UIUtil.dp2px(this, 22.5f));
+    private void initRv() {
+        binding.leftRv.setLayoutManager(new LinearLayoutManager(this));
+        binding.leftRv.setAdapter(adapter);
+        adapter.setList(ProblemAndroidUtil.getJavaCodeList(this));
+    }
 
-        initMenu();
+    @Override
+    public void onItem(int pos) {
+        //刷新某一个
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        // Passing each menu ID as a set of Ids because each65
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(mNavigationView, navController);
-
-        mHomeFragment = (HomeFragment) getFragment(HomeFragment.class);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            float degree = 180;
-
-            @SuppressLint("WrongConstant")
-            @Override
-            public void onClick(View v) {
-                mHomeFragment.refreshData();
-                binding.appBarMain.fab.animate().rotation(degree).start();
-                degree += 180;
-            }
-        });
-
-        ((TextView) binding.navView.getHeaderView(0).findViewById(R.id.navHeaderMainDesc)).setText(ProblemAndroidUtil.getNowProgressAndroid(this));
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (binding.drawerMain.isDrawerOpen(GravityCompat.START)) {
+                    binding.drawerMain.closeDrawers();
+                } else {
+                    binding.drawerMain.openDrawer(GravityCompat.START);
+                }
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //clazz传入fragment类：如：HomeFragment.class
@@ -105,45 +107,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return null;
-    }
-
-    private void initMenu() {
-        List<CodeDir> codeList = ProblemAndroidUtil.getJavaCodeList(this);
-        if (codeList.size() == 0) {
-            return;
-        }
-        for (CodeDir codeDir : codeList) {
-            List<CodeBean> tempCodeList = codeDir.dataList;
-            if (tempCodeList == null || tempCodeList.size() == 0) {
-                continue;
-            }
-            SubMenu subMenu = mNavigationView.getMenu().addSubMenu("【" + codeDir.title + "】");
-            for (CodeBean codeBean : tempCodeList) {
-                subMenu.add(codeDir.id, codeBean.id, 0, codeBean.title);
-                subMenu.findItem(codeBean.id).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        mHomeFragment.refreshData(codeBean);
-                        binding.drawerLayout.closeDrawers();
-                        return false;
-                    }
-                });
-            }
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
     }
 }

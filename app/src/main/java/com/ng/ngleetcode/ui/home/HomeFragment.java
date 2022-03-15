@@ -46,20 +46,20 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
                 .setShowLineNumber(false)
                 .setStartLineNumber(0)
                 .apply();
-
-        showRandomProblem();
         return root;
     }
 
-    private void showRandomProblem() {
+    private String showRandomProblem() {
         CodeBean codeBean = ProblemAndroidUtil.getRandomProblemJavaContent(getContext());
         binding.codeView.setCode(codeBean.content).apply();
-        setTitle(codeBean.title);
+        String parentTitle = codeBean.title.split("/")[1];
+        setTitle(parentTitle);
+        return codeBean.title.split("/")[0];
     }
 
-    public void refreshData() {
-        showRandomProblem();
+    public String refreshData() {
         showAnim();
+        return showRandomProblem();
     }
 
     private void showAnim() {
@@ -73,13 +73,11 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
 
     @SuppressLint("Recycle")
     private void startAnim(View target) {
-        ObjectAnimator animator1 = ObjectAnimator.ofFloat(target, "rotation", 0, -360f);
-        ObjectAnimator animator2 = ObjectAnimator.ofFloat(target, "scaleX", 1f, 0.1f, 1f);
-        ObjectAnimator animator3 = ObjectAnimator.ofFloat(target, "scaleY", 1f, 0.1f, 1f);
+        ObjectAnimator animator2 = ObjectAnimator.ofFloat(target, "alpha", 1f, 0.7f, 1f);
         target.setPivotX(target.getMeasuredWidth());
         target.setPivotY(target.getMeasuredHeight());
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(animator1, animator2, animator3);
+        animatorSet.playTogether(animator2);
         animatorSet.start();
     }
 
