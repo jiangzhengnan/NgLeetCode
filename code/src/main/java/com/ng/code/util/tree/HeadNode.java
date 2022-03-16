@@ -7,13 +7,11 @@ import com.chad.library.adapter.base.entity.node.BaseNode;
 
 import java.util.List;
 
-public class FirstNode extends BaseExpandNode {
+public class HeadNode extends BaseExpandNode {
 
-    private List<BaseNode> childNode;
     private String title;
 
-    public FirstNode(List<BaseNode> childNode, String title) {
-        this.childNode = childNode;
+    public HeadNode(String title) {
         this.title = title;
 
         setExpanded(false);
@@ -27,6 +25,6 @@ public class FirstNode extends BaseExpandNode {
     @Nullable
     @Override
     public List<BaseNode> getChildNode() {
-        return childNode;
+        return null;
     }
 }

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.code.util.tree.CodeDirNode;
 import com.ng.code.util.tree.CodeNode;
+import com.ng.code.util.tree.HeadNode;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -73,29 +74,11 @@ public class ProblemAndroidUtil {
         return result;
     }
 
-    private List<BaseNode> getEntity() {
-        List<BaseNode> secondNodeList = new ArrayList<>();
-        for (int n = 0; n <= 5; n++) {
-            List<BaseNode> thirdNodeList = new ArrayList<>();
-            for (int t = 0; t <= 3; t++) {
-                CodeNode node = new CodeNode("Third Node " + t);
-                thirdNodeList.add(node);
-            }
-            CodeDirNode seNode = new CodeDirNode(thirdNodeList, "Second Node " + n);
-            secondNodeList.add(seNode);
-        }
-//        FirstNode entity = new FirstNode(secondNodeList, "First Node " + i);
-//
-//        // 模拟 默认第0个是展开的
-//        entity.setExpanded(i == 0);
-//        list.add(entity);
-        return secondNodeList;
-    }
-
     @NonNull
     public static List<BaseNode> getJavaCodeList(Context context) {
         //entity.setExpanded(i == 0);
         List<BaseNode> dirList = new ArrayList<>();
+        dirList.add(new HeadNode(""));
         try {
             String[] files = context.getAssets().list("");
             for (String temp : files) {
@@ -106,7 +89,7 @@ public class ProblemAndroidUtil {
                     String realFilePath = temp + "/" + subTemp;
                     if (realFilePath.endsWith(".java")) {
                         //tempList.add(new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
-                        CodeNode node = new CodeNode(subTemp.replace(".java", ""));
+                        CodeNode node = new CodeNode(subTemp.replace(".java", ""), new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
                         codeList.add(node);
                         needAdd = true;
                     }

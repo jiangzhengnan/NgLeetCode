@@ -3,6 +3,10 @@
 * [快速排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/快速排序.java)
 ## 栈堆队列
 * [包含min函数的栈](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/包含min函数的栈.java)
+* [寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/寻找第K大.java)
+* [最小的K个数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/最小的K个数.java)
+* [有效括号序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/有效括号序列.java)
+* [滑动窗口的最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/滑动窗口的最大值.java)
 ## other
 * [寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/other/寻找第K大.java)
 * [最小的K个数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/other/最小的K个数.java)

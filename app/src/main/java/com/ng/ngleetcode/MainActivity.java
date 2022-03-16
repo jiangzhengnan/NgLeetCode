@@ -13,22 +13,21 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.ng.code.util.ItemInfo;
+import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.CodeBean;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
 import com.ng.ngleetcode.ui.home.HomeFragment;
-import com.ng.ngleetcode.view.adapter.LeftListAdapter;
 import com.ng.ngleetcode.view.adapter.NodeTreeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LeftListAdapter.OnLeftItemClick {
+public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.OnLeftItemClick {
     private ActivityMainVpBinding binding;
-    private final List<ItemInfo> mLeftMenuList = new ArrayList<>();
-    private final List<ItemInfo> mFragList = new ArrayList<>();
     private HomeFragment mHomeFragment;
-    private NodeTreeAdapter adapter = new NodeTreeAdapter();
+    private NodeTreeAdapter adapter;
+    private List<BaseNode> mData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +61,10 @@ public class MainActivity extends AppCompatActivity implements LeftListAdapter.O
 
     private void initRv() {
         binding.leftRv.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new NodeTreeAdapter(this);
         binding.leftRv.setAdapter(adapter);
-        adapter.setList(ProblemAndroidUtil.getJavaCodeList(this));
-    }
-
-    @Override
-    public void onItem(int pos) {
-        //刷新某一个
+        mData = ProblemAndroidUtil.getJavaCodeList(this);
+        adapter.setList(mData);
     }
 
     @Override
@@ -107,5 +103,11 @@ public class MainActivity extends AppCompatActivity implements LeftListAdapter.O
             }
         }
         return null;
+    }
+
+    @Override
+    public void onItem(CodeBean codeBean) {
+        mHomeFragment.refreshData(codeBean);
+        binding.drawerMain.closeDrawers();
     }
 }
