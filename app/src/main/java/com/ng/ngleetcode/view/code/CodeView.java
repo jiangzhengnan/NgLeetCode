@@ -321,7 +321,7 @@ public class CodeView extends WebView {
         //body
         sb.append("body {");
         sb.append("font-size:").append(String.format("%dpx;", (int) getFontSize()));
-        sb.append("margin: 0px; line-height: 0.7;");
+        sb.append("margin: 0px; line-height: 0.9;");
         sb.append("}\n");
         //.hljs
         sb.append(".hljs {");
