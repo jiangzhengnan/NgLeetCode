@@ -13,7 +13,7 @@ import com.ng.code.util.Solution;
  * 2.假设 nums[-1] = nums[n] = -\infty−∞
  * 3.对于所有有效的 i 都有 nums[i] != nums[i + 1]
  * 4.你可以使用O(logN)的时间复杂度实现此问题吗？
- * <p>
+ *
  * 输入：
  * [2,4,1,2,7,8,4]
  * 返回值：
