@@ -5,6 +5,7 @@ import android.view.View;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.chad.library.adapter.base.provider.BaseNodeProvider;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.tree.HeadLayoutNode;
 import com.ng.ngleetcode.R;
 
@@ -24,8 +25,7 @@ public class HeadProvider extends BaseNodeProvider {
 
     @Override
     public void convert(@NotNull BaseViewHolder helper, @NotNull BaseNode data) {
-        HeadLayoutNode entity = (HeadLayoutNode) data;
-        helper.setText(R.id.navHeaderMainDesc, entity.getTitle());
+        helper.setText(R.id.navHeaderMainDesc, ProblemAndroidUtil.getNowProgressAndroid(context));
     }
 
     @Override

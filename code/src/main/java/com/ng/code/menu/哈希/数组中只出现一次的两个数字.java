@@ -9,7 +9,7 @@ import java.util.Iterator;
 /**
  * 日期:
  * 原题链接:https://www.nowcoder.com/practice/389fc1c3d3be4479a154f63f495abff8?tpId=295&tqId=1375231&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
- * <p>
+ *
  * 原题描述:
  * 描述
  * 一个整型数组里除了两个数字只出现一次，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
@@ -40,6 +40,9 @@ public class 数组中只出现一次的两个数字 {
         LogUtil.pring(EasySolution.FindNumsAppearOnce(data2));
     }
 
+    /**
+     * 用桶计算
+     */
     private static class EasySolution {
 
         public static int[] FindNumsAppearOnce(int[] array) {

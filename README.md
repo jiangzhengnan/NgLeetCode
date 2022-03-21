@@ -54,4 +54,8 @@
 ## 暂未分类
 * [PracticeClass](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/PracticeClass.java)
 ## 哈希
+* [三数之和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/三数之和.java)
 * [数组中只出现一次的两个数字](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/数组中只出现一次的两个数字.java)
+* [缺失的第一个正整数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/缺失的第一个正整数.java)
+## 递归回溯
+* [没有重复项数字的全排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/没有重复项数字的全排列.java)

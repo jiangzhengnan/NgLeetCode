@@ -71,7 +71,13 @@ public class ProblemAndroidUtil {
                 hardCount++;
             }
         }
-        return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount;
+        int readCount = 0 ;
+        for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
+            if (temp.state == 2) {
+                readCount ++ ;
+            }
+        }
+        return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount +" read:" + readCount;
     }
 
 
@@ -102,7 +108,7 @@ public class ProblemAndroidUtil {
             CodeDataModel.getInstance().mCodeStateList.clear();
         }
         List<BaseNode> dirList = new ArrayList<>();
-        dirList.add(new HeadLayoutNode(getNowProgressAndroid(context)));
+        dirList.add(new HeadLayoutNode(""));
         try {
             String[] files = context.getAssets().list("");
             for (String temp : files) {
