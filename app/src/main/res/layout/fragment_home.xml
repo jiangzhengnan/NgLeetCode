@@ -23,10 +23,11 @@
             android:textStyle="bold" />
 
         <com.ng.ngleetcode.view.ToggleView
+            android:id="@+id/toggle_code"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            app:positiveImgId="@drawable/ic_check"
-            app:reverseImgId="@drawable/ic_close" />
+            app:positiveImgId="@drawable/ic_close"
+            app:reverseImgId="@drawable/ic_check" />
 
     </LinearLayout>
 

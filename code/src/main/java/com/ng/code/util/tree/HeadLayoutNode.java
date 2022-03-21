@@ -7,11 +7,11 @@ import com.chad.library.adapter.base.entity.node.BaseNode;
 
 import java.util.List;
 
-public class HeadNode extends BaseExpandNode {
+public class HeadLayoutNode extends BaseExpandNode {
 
     private String title;
 
-    public HeadNode(String title) {
+    public HeadLayoutNode(String title) {
         this.title = title;
 
         setExpanded(false);

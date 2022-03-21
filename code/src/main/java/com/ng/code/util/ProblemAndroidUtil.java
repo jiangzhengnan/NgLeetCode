@@ -5,9 +5,11 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.model.CodeDataModel;
+import com.ng.code.util.model.CodeState;
 import com.ng.code.util.tree.CodeDirNode;
 import com.ng.code.util.tree.CodeNode;
-import com.ng.code.util.tree.HeadNode;
+import com.ng.code.util.tree.HeadLayoutNode;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -24,15 +26,34 @@ import java.util.Random;
  */
 public class ProblemAndroidUtil {
 
-    /**
-     * 从assets中随机抽取一道题
-     */
-    public static CodeBean getRandomProblemJavaContent(Context context) {
-        List<String> codeList = getAssetsJavaCodeList(context);
-        int randNum = new Random().nextInt(codeList.size() - 1);
-        String content = readAssets(context, codeList.get(randNum));
-        return new CodeBean(codeList.get(randNum), content);
+    public static CodeNode getRandomProblemJavaContentNew(Context context) {
+        List<CodeNode> realNodeList = new ArrayList<>();
+        List<BaseNode> mCodeData = CodeDataModel.getInstance().getCodeData(context);
+        for (BaseNode tempNode : mCodeData) {
+            if (tempNode instanceof CodeDirNode) {
+                CodeDirNode codeDirNode = (CodeDirNode) tempNode;
+                if (codeDirNode.getChildNode() != null) {
+                    for (BaseNode tempCodeNode : codeDirNode.getChildNode()) {
+                        if (tempCodeNode instanceof CodeNode) {
+                            realNodeList.add((CodeNode) tempCodeNode);
+                        }
+                    }
+                }
+            }
+        }
+        int randNum = new Random().nextInt(realNodeList.size() - 1);
+        return realNodeList.get(randNum);
     }
+
+//    /**
+//     * 从assets中随机抽取一道题
+//     */
+//    public static CodeNode getRandomProblemJavaContent(Context context) {
+//        List<String> codeList = getAssetsJavaCodeList(context);
+//        int randNum = new Random().nextInt(codeList.size() - 1);
+//        String content = readAssets(context, codeList.get(randNum));
+//        return new CodeNode(codeList.get(randNum), content);
+//    }
 
     public static String getNowProgressAndroid(Context context) {
         List<String> codeList = getAssetsJavaCodeList(context);
@@ -77,8 +98,11 @@ public class ProblemAndroidUtil {
     @NonNull
     public static List<BaseNode> getJavaCodeList(Context context) {
         //entity.setExpanded(i == 0);
+        if (CodeDataModel.getInstance().isLocalCodeStateListIsNull(context)) {
+            CodeDataModel.getInstance().mCodeStateList.clear();
+        }
         List<BaseNode> dirList = new ArrayList<>();
-        dirList.add(new HeadNode(""));
+        dirList.add(new HeadLayoutNode(getNowProgressAndroid(context)));
         try {
             String[] files = context.getAssets().list("");
             for (String temp : files) {
@@ -88,8 +112,11 @@ public class ProblemAndroidUtil {
                 for (String subTemp : context.getAssets().list(temp)) {
                     String realFilePath = temp + "/" + subTemp;
                     if (realFilePath.endsWith(".java")) {
-                        //tempList.add(new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
-                        CodeNode node = new CodeNode(subTemp.replace(".java", ""), new CodeBean(IdGenerator.generateID(), subTemp.replace(".java", ""), realFilePath, ""));
+                        int id = IdGenerator.generateID();
+                        if (CodeDataModel.getInstance().isLocalCodeStateListIsNull(context)) {
+                            CodeDataModel.getInstance().mCodeStateList.add(new CodeState(id, -1));
+                        }
+                        CodeNode node = new CodeNode(subTemp.replace(".java", ""), id, realFilePath, "");
                         codeList.add(node);
                         needAdd = true;
                     }
@@ -102,6 +129,9 @@ public class ProblemAndroidUtil {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        if (CodeDataModel.getInstance().isLocalCodeStateListIsNull(context)) {
+            CodeDataModel.getInstance().saveLocalCodeStateList(context);
         }
         return dirList;
     }

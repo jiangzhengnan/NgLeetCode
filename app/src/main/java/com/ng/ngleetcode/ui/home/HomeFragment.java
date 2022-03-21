@@ -14,19 +14,27 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.ng.code.util.CodeBean;
+import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
+import com.ng.code.util.model.CodeDataModel;
+import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.FragmentHomeBinding;
 import com.ng.ngleetcode.utils.UIUtil;
+import com.ng.ngleetcode.view.ToggleView;
 import com.ng.ngleetcode.view.code.CodeView;
 import com.ng.ngleetcode.view.code.Language;
 import com.ng.ngleetcode.view.code.Theme;
 
+import java.util.List;
+import java.util.Random;
 
-public class HomeFragment extends Fragment implements CodeView.OnHighlightListener {
+
+public class HomeFragment extends Fragment implements CodeView.OnHighlightListener, ToggleView.OnToggleListener {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    private CodeNode mNowData;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -36,6 +44,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.codeContent.setRadius(UIUtil.dp2px(getContext(), 5));
+        binding.toggleCode.setOnToggleListener(this);
         binding.codeView.setOnHighlightListener(this)
                 .setOnHighlightListener(this)
                 .setTheme(Theme.ANDROIDSTUDIO)
@@ -50,11 +59,9 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     }
 
     private String showRandomProblem() {
-        CodeBean codeBean = ProblemAndroidUtil.getRandomProblemJavaContent(getContext());
-        binding.codeView.setCode(codeBean.content).apply();
-        String parentTitle = codeBean.title.split("/")[1];
-        setTitle(parentTitle);
-        return codeBean.title.split("/")[0];
+        mNowData = ProblemAndroidUtil.getRandomProblemJavaContentNew(getContext());
+        refreshData(mNowData);
+        return mNowData.contentPath.split("/")[0];
     }
 
     public String refreshData() {
@@ -82,10 +89,14 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     }
 
 
-    public void refreshData(CodeBean codeBean) {
-        codeBean.content = ProblemAndroidUtil.readAssets(getContext(), codeBean.contentPath);
-        binding.codeView.setCode(codeBean.content).apply();
-        setTitle(codeBean.title);
+    public void refreshData(CodeNode codeBean) {
+        mNowData = codeBean;
+        mNowData.content = ProblemAndroidUtil.readAssets(getContext(), mNowData.contentPath);
+        binding.codeView.setCode(mNowData.content).apply();
+        setTitle(mNowData.title);
+        int state = CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.id, -1);
+        LogUtil.d("当前:" + mNowData.title + " state:" + state);
+        binding.toggleCode.setPositive(state != 2);
         showAnim();
     }
 
@@ -123,5 +134,12 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     @Override
     public void onLineClicked(int lineNumber, String content) {
 
+    }
+
+    @Override
+    public void onToggle(boolean isPositive) {
+        if (getActivity() != null) {
+            CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.id, isPositive ? 1 : 2);
+        }
     }
 }

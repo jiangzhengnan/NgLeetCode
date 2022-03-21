@@ -2,10 +2,9 @@ package com.ng.ngleetcode.view.adapter;
 
 import com.chad.library.adapter.base.BaseNodeAdapter;
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.CodeBean;
 import com.ng.code.util.tree.CodeDirNode;
 import com.ng.code.util.tree.CodeNode;
-import com.ng.code.util.tree.HeadNode;
+import com.ng.code.util.tree.HeadLayoutNode;
 import com.ng.ngleetcode.view.provider.CodeDirProvider;
 import com.ng.ngleetcode.view.provider.CodeProvider;
 import com.ng.ngleetcode.view.provider.HeadProvider;
@@ -27,14 +26,14 @@ public class NodeTreeAdapter extends BaseNodeAdapter {
 
 
     public interface OnLeftItemClick {
-        void onItem(CodeBean codeBean);
+        void onItem(CodeNode codeBean);
     }
 
 
     @Override
     protected int getItemType(@NotNull List<? extends BaseNode> data, int position) {
         BaseNode node = data.get(position);
-        if (node instanceof HeadNode) {
+        if (node instanceof HeadLayoutNode) {
             return 1;
         } else if (node instanceof CodeDirNode) {
             return 2;

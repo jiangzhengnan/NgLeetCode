@@ -6,7 +6,7 @@ import com.ng.code.util.ProgressUtil;
 /**
  * 随机抽题模拟器
  */
-public class StartCode {
+public final class StartCode {
 
     public static void main(String[] args) {
         //当前进度

@@ -5,6 +5,7 @@ import android.view.View;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.chad.library.adapter.base.provider.BaseNodeProvider;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.ng.code.util.tree.HeadLayoutNode;
 import com.ng.ngleetcode.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,13 +24,9 @@ public class HeadProvider extends BaseNodeProvider {
 
     @Override
     public void convert(@NotNull BaseViewHolder helper, @NotNull BaseNode data) {
-//        HeadNode entity = (HeadNode) data;
-//        helper.setText(R.id.title, entity.getTitle());
-//        helper.setImageResource(R.id.iv, R.mipmap.arrow_r);
-
+        HeadLayoutNode entity = (HeadLayoutNode) data;
+        helper.setText(R.id.navHeaderMainDesc, entity.getTitle());
     }
-
-
 
     @Override
     public void onClick(@NotNull BaseViewHolder helper, @NotNull View view, BaseNode data, int position) {

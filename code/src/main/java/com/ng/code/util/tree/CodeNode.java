@@ -3,31 +3,32 @@ package com.ng.code.util.tree;
 import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.CodeBean;
 
 import java.util.List;
 
 public class CodeNode extends BaseNode {
-    private String title;
-    private CodeBean codeBean;
+    public String title;
+    public int id;
+    public String contentPath;
+    public String content;
 
-    public CodeNode(String title, CodeBean codeBean) {
+
+    public CodeNode(String title, int id, String contentPath, String content) {
         this.title = title;
-        this.codeBean = codeBean;
+        this.id = id;
+        this.contentPath = contentPath;
+        this.content = content;
     }
 
+    public CodeNode(String s, String content) {
+        this.title = s;
+        this.content = content;
+    }
 
     public String getTitle() {
         return title;
     }
 
-    public CodeBean getCodeBean() {
-        return codeBean;
-    }
-
-    public void setCodeBean(CodeBean codeBean) {
-        this.codeBean = codeBean;
-    }
 
     @Nullable
     @Override

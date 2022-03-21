@@ -14,8 +14,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.CodeBean;
 import com.ng.code.util.ProblemAndroidUtil;
+import com.ng.code.util.model.CodeDataModel;
+import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
 import com.ng.ngleetcode.ui.home.HomeFragment;
 import com.ng.ngleetcode.view.adapter.NodeTreeAdapter;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
         binding.leftRv.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NodeTreeAdapter(this);
         binding.leftRv.setAdapter(adapter);
-        mData = ProblemAndroidUtil.getJavaCodeList(this);
+        mData = CodeDataModel.getInstance().getCodeData(this);
         adapter.setList(mData);
     }
 
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                adapter.notifyDataSetChanged();
                 if (binding.drawerMain.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerMain.closeDrawers();
                 } else {
@@ -106,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
     }
 
     @Override
-    public void onItem(CodeBean codeBean) {
+    public void onItem(CodeNode codeBean) {
         mHomeFragment.refreshData(codeBean);
         binding.drawerMain.closeDrawers();
     }

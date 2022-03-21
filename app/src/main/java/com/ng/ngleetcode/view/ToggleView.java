@@ -62,6 +62,22 @@ public class ToggleView extends View {
 
     private Paint mBitmapPaint;
 
+    @Nullable
+    private OnToggleListener onToggleListener;
+
+    public void setOnToggleListener(OnToggleListener onToggleListener) {
+        this.onToggleListener = onToggleListener;
+    }
+
+    public interface OnToggleListener {
+        void onToggle(boolean isPositive);
+    }
+
+    public void setPositive(boolean positive) {
+        isPositive = positive;
+        postInvalidate();
+    }
+
     public ToggleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -132,6 +148,9 @@ public class ToggleView extends View {
                 super.onAnimationEnd(animation);
                 isAnimRunning = false;
                 isPositive = !isPositive;
+                if (onToggleListener != null) {
+                    onToggleListener.onToggle(isPositive);
+                }
                 thickness = 0f;
             }
         });
