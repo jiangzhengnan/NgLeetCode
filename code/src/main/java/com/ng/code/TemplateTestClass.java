@@ -3,9 +3,7 @@ package com.ng.code;
 import com.ng.code.util.Solution;
 
 /**
- * 日期:
- * 原题链接:
- *
+ * link:
  * 原题描述:
  *
  * 示例:

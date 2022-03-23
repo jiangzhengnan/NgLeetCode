@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
         mNowData.content = ProblemAndroidUtil.readAssets(getContext(), mNowData.contentPath);
         binding.codeView.setCode(mNowData.content).apply();
         setTitle(mNowData.title);
-        int state = CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.id, -1);
+        int state = CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.title, -1);
         LogUtil.d("当前:" + mNowData.title + " state:" + state);
         binding.toggleCode.setPositive(state != 2);
         showAnim();
@@ -139,7 +139,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     @Override
     public void onToggle(boolean isPositive) {
         if (getActivity() != null) {
-            CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.id, isPositive ? 1 : 2);
+            CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.title, isPositive ? 1 : 2);
         }
     }
 }

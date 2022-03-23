@@ -71,13 +71,13 @@ public class ProblemAndroidUtil {
                 hardCount++;
             }
         }
-        int readCount = 0 ;
+        int readCount = 0;
         for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
             if (temp.state == 2) {
-                readCount ++ ;
+                readCount++;
             }
         }
-        return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount +" read:" + readCount;
+        return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount + " read:" + readCount;
     }
 
 
@@ -119,10 +119,11 @@ public class ProblemAndroidUtil {
                     String realFilePath = temp + "/" + subTemp;
                     if (realFilePath.endsWith(".java")) {
                         int id = IdGenerator.generateID();
+                        String name = subTemp.replace(".java", "");
                         if (CodeDataModel.getInstance().isLocalCodeStateListIsNull(context)) {
-                            CodeDataModel.getInstance().mCodeStateList.add(new CodeState(id, -1));
+                            CodeDataModel.getInstance().mCodeStateList.add(new CodeState(name, -1));
                         }
-                        CodeNode node = new CodeNode(subTemp.replace(".java", ""), id, realFilePath, "");
+                        CodeNode node = new CodeNode(name, id, realFilePath, "");
                         codeList.add(node);
                         needAdd = true;
                     }

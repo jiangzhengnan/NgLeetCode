@@ -42,7 +42,7 @@ public class CodeProvider extends BaseNodeProvider {
     public void convert(@NotNull BaseViewHolder helper, @NotNull BaseNode data) {
         CodeNode entity = (CodeNode) data;
         helper.setText(R.id.title, entity.getTitle());
-        int state = CodeDataModel.getInstance().loopCodeState(getContext(), entity.id, -1);
+        int state = CodeDataModel.getInstance().loopCodeState(getContext(), entity.title, -1);
         if (state == 2) {
             ((TextView) helper.getView(R.id.title)).setTextColor(Color.GREEN);
         } else {

@@ -8,24 +8,17 @@ import java.io.Serializable;
  * @description :
  */
 public class CodeState implements Serializable {
-    public int id;
+    public String name;
     public int state;
 
     public CodeState() {
     }
 
-    public CodeState(int id, int state) {
-        this.id = id;
+    public CodeState(String name, int state) {
+        this.name = name;
         this.state = state;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getState() {
         return state;
@@ -38,7 +31,7 @@ public class CodeState implements Serializable {
     @Override
     public String toString() {
         return "CodeState{" +
-                "id=" + id +
+                "name=" + name +
                 ", state=" + state +
                 '}';
     }

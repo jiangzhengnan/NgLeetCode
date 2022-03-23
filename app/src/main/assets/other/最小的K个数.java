@@ -1,5 +1,5 @@
 
-package com.ng.code.menu.other;
+package com.ng.code.menu.模拟;
 
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;

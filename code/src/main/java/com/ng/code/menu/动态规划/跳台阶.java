@@ -1,4 +1,4 @@
-package com.ng.code.menu.模拟;
+package com.ng.code.menu.动态规划;
 
 
 import com.ng.code.util.LogUtil;

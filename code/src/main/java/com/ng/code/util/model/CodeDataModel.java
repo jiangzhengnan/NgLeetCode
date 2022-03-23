@@ -65,18 +65,18 @@ public class CodeDataModel {
         return mCodeData;
     }
 
-    public int loopCodeState(@NonNull Context context, int id, int state) {
+    public int loopCodeState(@NonNull Context context, String title, int state) {
         for (int i = 0; i < mCodeStateList.size(); i++) {
-            if (id == mCodeStateList.get(i).id) {
+            if (title.contains(mCodeStateList.get(i).name)) {
                 if (state != -1) {
                     mCodeStateList.get(i).state = state;
                     saveLocalCodeStateList(context);
-                    LogUtil.d("刷新成功:" + id + " " + state);
+                    LogUtil.d("刷新成功:" + title + " " + state);
                 }
                 return mCodeStateList.get(i).state;
             }
         }
-        LogUtil.d("刷新失败:" + id + " " + state);
+        LogUtil.d("刷新失败:" + title + " " + state);
         return -1;
     }
 
