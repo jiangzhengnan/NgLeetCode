@@ -50,7 +50,7 @@ import java.util.Map;
  */
 @Solution(easy = 1, hard = 1)
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class 设计LRU缓存结构 {
+public class Ⅱ_设计LRU缓存结构 {
 
 	private static Map<Integer, Node> map = new HashMap<>();
 	private static Node head = new Node(-1, -1);

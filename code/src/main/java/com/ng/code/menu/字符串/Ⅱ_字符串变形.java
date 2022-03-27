@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * "SAMPLE A IS tHIS"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_字符串变形 {
 
     public static void main(String[] args) {

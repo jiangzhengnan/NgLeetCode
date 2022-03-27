@@ -44,7 +44,7 @@ public class CodeProvider extends BaseNodeProvider {
         helper.setText(R.id.title, entity.getTitle());
         int state = CodeDataModel.getInstance().loopCodeState(getContext(), entity.title, -1);
         if (state == 2) {
-            ((TextView) helper.getView(R.id.title)).setTextColor(Color.GREEN);
+            ((TextView) helper.getView(R.id.title)).setTextColor(Color.parseColor("#00800D"));
         } else {
             ((TextView) helper.getView(R.id.title)).setTextColor(Color.BLACK);
         }

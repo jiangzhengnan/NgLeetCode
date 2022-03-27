@@ -67,7 +67,7 @@ public class CodeDataModel {
 
     public int loopCodeState(@NonNull Context context, String title, int state) {
         for (int i = 0; i < mCodeStateList.size(); i++) {
-            if (title.contains(mCodeStateList.get(i).name)) {
+            if (title.contains(mCodeStateList.get(i).name) || mCodeStateList.get(i).name.contains(title)) {
                 if (state != -1) {
                     mCodeStateList.get(i).state = state;
                     saveLocalCodeStateList(context);

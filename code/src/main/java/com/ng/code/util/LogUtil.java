@@ -81,4 +81,9 @@ public class LogUtil {
         }
         System.out.println(result);
     }
+
+    public static void pring(long value) {
+        System.out.println(value + "");
+
+    }
 }
