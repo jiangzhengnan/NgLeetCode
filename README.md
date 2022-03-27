@@ -28,6 +28,8 @@
 * [序列化二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/序列化二叉树.java)
 * [在二叉树中找到两个节点的最近公共祖先](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/在二叉树中找到两个节点的最近公共祖先.java)
 * [重建二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/重建二叉树.java)
+## 字符串
+* [Ⅱ_字符串变形](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串变形.java)
 ## 链表
 * [单链表的排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/单链表的排序.java)
 * [判断一个链表是否为回文结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/判断一个链表是否为回文结构.java)
@@ -41,6 +43,7 @@
 * [链表中倒数最后k个结点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/链表中倒数最后k个结点.java)
 * [删除有序链表中重复的元素一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/删除有序链表中重复的元素一.java)
 * [链表的奇偶重排](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/链表的奇偶重排.java)
+* [Ⅰ_链表反转](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅰ_链表反转.java)
 * [链表相加二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/链表相加二.java)
 ## 二分法
 * [数组中的逆序对](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/数组中的逆序对.java)
@@ -49,12 +52,14 @@
 * [寻找峰值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/寻找峰值.java)
 * [二分查找一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/二分查找一.java)
 ## 动态规划
+* [买卖股票的最好时机一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/买卖股票的最好时机一.java)
 * [最长公共子序列二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/最长公共子序列二.java)
 * [数字字符串转化成IP地址](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/数字字符串转化成IP地址.java)
 * [连续子数组的最大和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/连续子数组的最大和.java)
 * [最长公共子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/最长公共子串.java)
 * [正则表达式匹配](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/正则表达式匹配.java)
 * [兑换零钱一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/兑换零钱一.java)
+* [Ⅲ_买卖股票的最好时机三](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_买卖股票的最好时机三.java)
 * [最长回文子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/最长回文子串.java)
 * [跳台阶](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/跳台阶.java)
 * [最长的括号子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/最长的括号子串.java)
@@ -65,6 +70,8 @@
 * [把数字翻译成字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/把数字翻译成字符串.java)
 * [编辑距离一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/编辑距离一.java)
 * [最小花费爬楼梯](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/最小花费爬楼梯.java)
+* [Ⅰ_买卖股票的最好时机二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_买卖股票的最好时机二.java)
+* [打家劫舍二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/打家劫舍二.java)
 ## 暂未分类
 * [PracticeClass](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/PracticeClass.java)
 ## 哈希

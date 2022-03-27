@@ -22,7 +22,7 @@ import com.ng.code.util.TreeNode;
  * 返回值：
  * true
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 判断是不是平衡二叉树 {
 
     public static void main(String[] args) {

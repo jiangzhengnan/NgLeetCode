@@ -16,7 +16,7 @@ import java.util.HashMap;
  * 返回值：
  * [1,3,5]
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 输出二叉树的右视图 {
 
     public static void main(String[] args) {

@@ -34,7 +34,7 @@ import com.ng.code.util.Solution;
  * 6.支付 1 ，向上爬一个台阶，到达楼梯顶部。
  * 总花费为 6 。
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 最小花费爬楼梯 {
 
     public static void main(String[] args) {

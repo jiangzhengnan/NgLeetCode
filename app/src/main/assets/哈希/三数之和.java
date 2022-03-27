@@ -40,7 +40,7 @@ import java.util.Map;
  * 返回值：
  * []
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 三数之和 {
 
     public static void main(String[] args) {

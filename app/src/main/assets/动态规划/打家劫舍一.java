@@ -3,6 +3,8 @@ package com.ng.code.menu.动态规划;
 import com.ng.code.util.Solution;
 
 /**
+ * https://www.nowcoder.com/practice/c5fbf7325fbd4c0ea3d0c3ea6bc6cc79?tpId=295&tqId=2285793&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ *
  * 原题描述:
  * 你是一个经验丰富的小偷，准备偷沿街的一排房间，每个房间都存有一定的现金，为了防止被发现，你不能偷相邻的两家，
  * 即，如果偷了第一家，就不能再偷第二家；如果偷了第二家，那么就不能偷第一家和第三家。
@@ -26,7 +28,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 最优方案是偷第 1，3个房间
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 打家劫舍一 {
 
     public static void main(String[] args) {

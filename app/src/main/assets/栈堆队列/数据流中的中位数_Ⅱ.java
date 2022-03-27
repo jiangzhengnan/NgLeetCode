@@ -32,7 +32,7 @@ import java.util.TreeSet;
  * 返回值：
  * "1.00 1.00 1.00 "
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 数据流中的中位数_Ⅱ {
 
     public static void main(String[] args) {

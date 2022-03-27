@@ -3,7 +3,7 @@ package com.ng.code.menu.排序;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 快速排序 {
 
 	public static void main(String[] args) {
@@ -21,8 +21,6 @@ public class 快速排序 {
 		int i = start;
 		int j = end;
 
-		LogUtil.pring("基线:" + pivot);
-
 		while (i<j) {
 			while ((i<j)&&(arr[j]>pivot)) {
 				j--;
@@ -30,8 +28,6 @@ public class 快速排序 {
 			while ((i<j)&&(arr[i]<pivot)) {
 				i++;
 			}
-			LogUtil.pring("基线:" + pivot);
-
 			if ((arr[i]==arr[j])&&(i<j)) {
 				i++;
 			} else {

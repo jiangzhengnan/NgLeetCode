@@ -14,7 +14,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * version1 中下标为 0 的修订号是 "1"，version2 中下标为 0 的修订号是 "2" 。1 < 2，所以 version1 < version2，返回-1
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 比较版本号 {
 
     public static void main(String[] args) {

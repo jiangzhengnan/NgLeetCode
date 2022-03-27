@@ -15,4 +15,6 @@ public @interface Solution {
 
     int hard() default 0;
 
+    int partice() default 0;
+
 }

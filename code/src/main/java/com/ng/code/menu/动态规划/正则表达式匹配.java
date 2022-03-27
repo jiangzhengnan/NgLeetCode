@@ -34,7 +34,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 因为这里 c 为 0 个，a被重复一次， * 表示零个或多个a。因此可以匹配字符串 "aad"。
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 正则表达式匹配 {
 
     public static void main(String[] args) {

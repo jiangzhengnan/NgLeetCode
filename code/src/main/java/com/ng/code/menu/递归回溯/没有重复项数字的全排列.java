@@ -33,7 +33,7 @@ import java.util.LinkedList;
  * 返回值：
  * [[1]]
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 没有重复项数字的全排列 {
 
     public static void main(String[] args) {

@@ -26,7 +26,7 @@ import java.util.ArrayList;
  * 返回值：
  * []
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 最小的K个数 {
 
     public static void main(String[] args) {

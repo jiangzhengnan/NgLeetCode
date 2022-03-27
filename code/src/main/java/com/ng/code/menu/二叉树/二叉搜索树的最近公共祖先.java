@@ -26,7 +26,7 @@ import com.ng.code.util.TreeNode;
  * 说明：
  * 节点1 和 节点12的最近公共祖先是7
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 二叉搜索树的最近公共祖先 {
 
     public static void main(String[] args) {

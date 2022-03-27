@@ -20,7 +20,7 @@ import java.util.PriorityQueue;
  * 返回值：
  * 2
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 寻找第K大 {
 
     public static void main(String[] args) {

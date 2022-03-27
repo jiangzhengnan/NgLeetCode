@@ -22,7 +22,7 @@ import java.util.List;
  * 对于 k = 2k=2 , 你应该返回 2→1→4→3→5
  * 对于 k = 3k=3 , 你应该返回 3→2→1→4→5
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 链表中的节点每k个一组翻转 {
 
 	public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {

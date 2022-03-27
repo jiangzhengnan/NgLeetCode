@@ -21,7 +21,7 @@ import java.util.Set;
  * 例如当输入4时，对应的返回值为2，
  * 输入8返回92
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class N皇后问题 {
 
     public static void main(String[] args) {

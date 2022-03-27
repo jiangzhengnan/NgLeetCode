@@ -36,7 +36,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 5
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 编辑距离一 {
 
     public static void main(String[] args) {

@@ -29,7 +29,7 @@ import java.util.Deque;
  * 返回值：
  * 26
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 表达式求值_Ⅱ {
 
     public static void main(String[] args) {

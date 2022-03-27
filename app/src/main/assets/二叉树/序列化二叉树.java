@@ -23,7 +23,7 @@ import java.util.Deque;
  * 说明：
  * 如题面图
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class 序列化二叉树 {
 
     public static void main(String[] args) {
