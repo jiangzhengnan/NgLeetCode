@@ -16,7 +16,6 @@ import com.ng.code.util.Solution;
  * "12"
  * 返回值：
  * 2
- *
  * 说明：
  * 2种可能的译码结果（”ab” 或”l”）
  * 示例2

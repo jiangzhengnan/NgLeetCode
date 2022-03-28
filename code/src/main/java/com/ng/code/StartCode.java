@@ -10,11 +10,11 @@ public final class StartCode {
 
     public static void main(String[] args) {
         //当前进度
-        ProgressUtil.getNowProgress();
-        refreshLocalProjects();
+        //ProgressUtil.getNowProgress();
+        //refreshLocalProjects();
 
         //随机得到几个题目
-        //ProblemUtil.getRandomTest(5);
+        ProblemUtil.getRandomTest(5);
     }
 
     //刷新本地目录，补充题库
