@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
- * @creation : 2022/03/18
- * @description :
+ * 动态规划
+ * 递归回溯
+ * 贪心算法
  */
 public class PracticeClass {
 

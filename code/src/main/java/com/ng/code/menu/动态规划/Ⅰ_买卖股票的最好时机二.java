@@ -34,6 +34,7 @@ public class Ⅰ_买卖股票的最好时机二 {
         LogUtil.pring(EasySolution.maxProfit(data));
     }
 
+    //直接求每一天比前一天赚了多少，累加
     private static class EasySolution {
 
         public static int maxProfit(int[] prices) {

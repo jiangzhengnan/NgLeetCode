@@ -11,7 +11,7 @@ import com.ng.code.util.Solution;
  * 输出 6
  */
 @Solution(easy = 1, hard = 0)
-public class 二分查找一 {
+public class Ⅰ_二分查找一 {
 
     public static void main(String[] args) {
         LogUtil.pring(HardSolution.search(new int[]{-1, 0, 3, 4, 6, 10, 13, 14}, 13));

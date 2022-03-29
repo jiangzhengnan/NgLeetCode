@@ -21,7 +21,7 @@ import java.util.PriorityQueue;
  * 2
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 寻找第K大 {
+public class Ⅱ_寻找第K大 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 3, 5, 2, 2};

@@ -31,7 +31,7 @@ import java.util.Iterator;
  * [1,9]
  */
 @Solution(easy = 1, hard = 0)
-public class 数组中只出现一次的两个数字 {
+public class Ⅰ_数组中只出现一次的两个数字 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 4, 1, 6};

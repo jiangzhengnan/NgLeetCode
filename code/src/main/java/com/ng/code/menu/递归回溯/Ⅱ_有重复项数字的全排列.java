@@ -30,7 +30,7 @@ import java.util.LinkedList;
  * [[0,1],[1,0]]
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 有重复项数字的全排列 {
+public class Ⅱ_有重复项数字的全排列 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 1, 2};

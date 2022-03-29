@@ -34,7 +34,7 @@ import com.ng.code.util.Solution;
  * 存在7，返回true
  */
 @Solution(easy = 1, hard = 0)
-public class 二维数组中的查找 {
+public class Ⅰ_二维数组中的查找 {
 
     public static void main(String[] args) {
         int[][] data = new int[][]{

@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * {1,2}
  */
 @Solution(easy = 1, hard = 1)
-public class 删除有序链表中重复的元素一 {
+public class Ⅰ_删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 1, 2, 3, 3);

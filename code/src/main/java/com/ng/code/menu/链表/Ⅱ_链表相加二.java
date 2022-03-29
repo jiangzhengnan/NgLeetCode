@@ -18,7 +18,7 @@ import java.util.Stack;
  * 例如：链表 1 为 9->3->7，链表 2 为 6->3，最后生成新的结果链表为 1->0->0->0。
  */
 @Solution(easy = 1, hard = 1)
-public class 链表相加二 {
+public class Ⅱ_链表相加二 {
 
     public static void main(String[] args) {
         ListNode node1 = ListNode.getNodeList(5,9,7,5,7,1,2,6,4,2,7,8,9,6,1,6,6,1,1,4,2,9,5,5,0,4,6,3,0,4,3,5,6,7,0,5,5,4,4,0);
