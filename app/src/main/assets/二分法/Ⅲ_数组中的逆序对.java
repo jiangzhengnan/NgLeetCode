@@ -27,7 +27,7 @@ import com.ng.code.util.Solution;
  * 返回值：7
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 数组中的逆序对 {
+public class Ⅲ_数组中的逆序对 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1,2,3,4,5,6,7,0};

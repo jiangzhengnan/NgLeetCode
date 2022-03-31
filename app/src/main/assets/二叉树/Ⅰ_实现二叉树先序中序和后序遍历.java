@@ -17,7 +17,7 @@ import java.util.List;
  * [[1,2,3],[2,1,3],[2,3,1]]
  */
 @Solution(easy = 1, hard = 0)
-public class 实现二叉树先序中序和后序遍历 {
+public class Ⅰ_实现二叉树先序中序和后序遍历 {
 
 	public static void main(String[] args) {
 		TreeNode root = TreeNode.createTreeNode(10, 6, 14, 4, 8, 12, 16);

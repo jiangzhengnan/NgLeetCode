@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 4和8都是峰值元素，返回4的索引1或者8的索引5都可以
  */
 @Solution(easy = 1, hard = 0)
-public class 寻找峰值 {
+public class Ⅰ_寻找峰值 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
