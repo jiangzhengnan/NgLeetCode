@@ -35,7 +35,7 @@ import com.ng.code.util.Solution;
  * 1->2->3->4
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 矩阵最长递增路径 {
+public class Ⅱ_矩阵最长递增路径 {
 
     public static void main(String[] args) {
         int[][] data = new int[][]{

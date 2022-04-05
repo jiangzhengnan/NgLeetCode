@@ -45,7 +45,7 @@ import java.util.Set;
  * []
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 字符串的排列 {
+public class Ⅱ_字符串的排列 {
 
     public static void main(String[] args) {
         String data = "abc";

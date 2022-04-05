@@ -29,7 +29,7 @@ import java.util.ArrayList;
  * ["(())","()()"]
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 括号生成 {
+public class Ⅱ_括号生成 {
 
     public static void main(String[] args) {
         LogUtil.pring(EasySolution.generateParenthesis(2).toString());

@@ -48,7 +48,7 @@ import java.util.Queue;
  * 1
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 岛屿数量 {
+public class Ⅱ_岛屿数量 {
 
     public static void main(String[] args) {
         char[][] data = new char[][]{

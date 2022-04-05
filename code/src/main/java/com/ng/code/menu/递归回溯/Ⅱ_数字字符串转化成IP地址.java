@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * "[]"
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 数字字符串转化成IP地址 {
+public class Ⅱ_数字字符串转化成IP地址 {
 
     public static void main(String[] args) {
 
