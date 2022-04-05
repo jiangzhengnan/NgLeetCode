@@ -3,10 +3,12 @@ package com.ng.code.menu;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.TreeNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * Ⅰ Ⅱ Ⅲ
  * 动态规划
  * 递归回溯
  * 贪心算法
@@ -14,30 +16,27 @@ import java.util.Queue;
 public class PracticeClass {
 
     public static void main(String[] args) {
-        TreeNode data1 = TreeNode.createTreeNode(1, 2, 3, 4, 5, 6, 7);
-        TreeNode data2 = TreeNode.createTreeNode(1, 2, 3, 4, 5, -1, 6);
-        LogUtil.pring( isCompleteTree(data1));
-    }
 
-    //层序遍历
-    private static boolean isCompleteTree(TreeNode root) {
-        if (root == null) {
-            return false;
-        }
-        Queue<TreeNode> data = new LinkedList<>();
-        data.add(root);
-        while (!data.isEmpty()) {
-            TreeNode now = data.poll();
-            LogUtil.pring(now == null ? "null" : now.val+"");
-            if (now != null) {
-                data.add(now.left);
-                data.add(now.right);
-            }
-
-        }
-
-        return true;
+        LogUtil.pring(jumpFloorII(2));
     }
 
 
+    //f(n)=f(n-1)+f(n-2)+...+f(0)
+
+    /**
+     * f(0) = 1
+     *
+     */
+    public static int jumpFloorII(int target) {
+        if (target <= 1) {
+            return target;
+        }
+        int result = 1;
+        for (int i = 1; i < target; i++) {
+            result += jumpFloorII(target - i);
+        }
+
+        return result;
+
+    }
 }
