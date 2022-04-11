@@ -44,6 +44,8 @@ public class ProblemUtil {
     }
 
     public static void copyJavaToAssets() {
+        File newPathFile = new File(Constants.ASSETS_DIR_PATH);
+        FileUtil.deleteFile(newPathFile);
         FileUtil.copyDir(Constants.JAVA_DIR_PATH,Constants.ASSETS_DIR_PATH);
     }
 

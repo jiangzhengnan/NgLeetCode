@@ -10,11 +10,11 @@ import com.ng.code.util.Solution;
  *
  * 示例:
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 1, partice = 1)
 public class Ⅰ_链表反转 {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(1, 2, 3, 4, 5);
+        ListNode data = ListNode.getNodeList(36,4);
         LogUtil.pring(data);
 
         //LogUtil.pring(EasySolution.reverseList(data));

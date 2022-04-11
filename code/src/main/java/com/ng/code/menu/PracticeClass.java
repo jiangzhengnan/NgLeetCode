@@ -1,5 +1,6 @@
 package com.ng.code.menu;
 
+import com.ng.code.util.ListNode;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.TreeNode;
 
@@ -16,27 +17,42 @@ import java.util.Queue;
 public class PracticeClass {
 
     public static void main(String[] args) {
+        ListNode data = ListNode.getNodeList(1, 1);
+        LogUtil.pring(deleteDuplication(data));
+    }
 
-        LogUtil.pring(jumpFloorII(2));
+    public static ListNode deleteDuplication(ListNode pHead) {
+        if (pHead == null) {
+            return null;
+        }
+
+        ListNode ya = new ListNode(-1);
+        ya.next = pHead;
+
+        ListNode pre = ya;
+        ListNode now = pHead;
+        ListNode next = now.next;
+
+        while (next != null) {
+
+            if (now.val == next.val) {
+                while (next != null && now.val == next.val) {
+                    next = next.next;
+                }
+                pre.next = next;
+            } else {
+                pre = now;
+            }
+            now = next;
+
+            if (next != null) {
+                next = next.next;
+            }
+        }
+
+
+        return ya.next;
     }
 
 
-    //f(n)=f(n-1)+f(n-2)+...+f(0)
-
-    /**
-     * f(0) = 1
-     *
-     */
-    public static int jumpFloorII(int target) {
-        if (target <= 1) {
-            return target;
-        }
-        int result = 1;
-        for (int i = 1; i < target; i++) {
-            result += jumpFloorII(target - i);
-        }
-
-        return result;
-
-    }
 }

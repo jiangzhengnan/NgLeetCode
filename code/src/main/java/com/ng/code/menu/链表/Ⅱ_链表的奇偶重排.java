@@ -21,7 +21,7 @@ import java.util.List;
  * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
  */
 @Solution(easy = 1, hard = 0)
-public class 链表的奇偶重排 {
+public class Ⅱ_链表的奇偶重排 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(2, 1, 3, 5, 6, 4, 7);

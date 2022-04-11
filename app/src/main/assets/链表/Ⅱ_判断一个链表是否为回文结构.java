@@ -13,7 +13,7 @@ import java.util.Stack;
  * 1 2 2 1
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 判断一个链表是否为回文结构 {
+public class Ⅱ_判断一个链表是否为回文结构 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3, 3, 2, 1);

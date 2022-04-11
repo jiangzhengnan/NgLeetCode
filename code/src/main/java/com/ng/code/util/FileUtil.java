@@ -31,8 +31,9 @@ public class FileUtil {
             File file = new File(sourcePath);
             String[] filePath = file.list();
 
-            if (!(new File(newPath)).exists()) {
-                (new File(newPath)).mkdir();
+            File newPathFile = new File(newPath);
+            if (!newPathFile.exists()) {
+                newPathFile.mkdir();
             }
 
             for (int i = 0; i < filePath.length; i++) {
@@ -66,4 +67,16 @@ public class FileUtil {
         in.close();
         out.close();
     }
+
+    public static void deleteFile(File dir) {
+        File[] listFiles = dir.listFiles();
+        for(int i=0;i<listFiles.length;i++) {
+            File temp=listFiles[i];
+            if(temp.isDirectory() && !temp.getName().contains("highlightjs")) {
+                deleteFile(temp);
+            }
+            temp.delete();
+        }
+    }
+
 }

@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 给一个长度为n链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。
  */
 @Solution(easy = 1, hard = 0)
-public class 链表中环的入口结点 {
+public class Ⅱ_链表中环的入口结点 {
 
     public static void main(String[] args) {
 

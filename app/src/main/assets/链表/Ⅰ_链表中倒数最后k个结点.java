@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 递归
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 链表中倒数最后k个结点 {
+public class Ⅰ_链表中倒数最后k个结点 {
 
     public static void main(String[] args) {
         LogUtil.pring(HardSolution.FindKthToTail(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));

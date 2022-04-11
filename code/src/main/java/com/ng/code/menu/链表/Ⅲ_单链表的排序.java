@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 原题描述:
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 单链表的排序 {
+public class Ⅲ_单链表的排序 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);

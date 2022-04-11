@@ -28,7 +28,7 @@ import java.util.ArrayList;
  * {1,1,2,4,5,6}
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 合并k个已排序的链表 {
+public class Ⅲ_合并k个已排序的链表 {
 
     public static void main(String[] args) {
         LogUtil.pring(EasySolution.mergeKLists(getData()));

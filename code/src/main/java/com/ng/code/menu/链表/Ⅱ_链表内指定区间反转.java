@@ -17,7 +17,7 @@ import com.ng.code.util.Solution;
  * 进阶：时间复杂度 O(n)O(n)，空间复杂度 O(1)O(1)
  */
 @Solution(easy = 1, hard = 0)
-public class 链表内指定区间反转 {
+public class Ⅱ_链表内指定区间反转 {
 
     public static void main(String[] args) {
         LogUtil.pring(
