@@ -9,11 +9,11 @@ import com.ng.code.util.Solution;
  * 原题链接:
  * 原题描述:
  */
-@Solution(easy = 1, hard = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅱ_删除链表的倒数第n个节点 {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(new int[]{1, 2});
+        ListNode data = ListNode.getNodeList(1, 2);
         LogUtil.pring(HardSolution.removeNthFromEnd(data, 0));
     }
 

@@ -26,11 +26,15 @@ public class Ⅱ_链表内指定区间反转 {
 
     //一次遍历法
     // 固定子区间外的节点，在反转区间内，每遍历到一个节点，让这个新节点来到反转部分的起始位置。
+    // 不断的把2后面的挪到pre后面来
     private static class HardSolution {
         public static ListNode reverseBetween(ListNode head, int m, int n) {
             ListNode dummyNode = new ListNode(-1);
             dummyNode.next = head;
             ListNode pre = dummyNode;
+
+            LogUtil.pring(dummyNode);
+
 
             //确定头节点
             for (int i = 0; i < m - 1; i++) {
@@ -39,10 +43,15 @@ public class Ⅱ_链表内指定区间反转 {
             ListNode cur = pre.next;
             ListNode Cur_next = null;
             for (int i = 0; i < n - m; i++) {
+                LogUtil.pring("cur:" + cur.val);
+                LogUtil.pring("cur_next:" + (Cur_next == null ? "null" : Cur_next.val+""));
+
                 Cur_next = cur.next;
                 cur.next = Cur_next.next;
                 Cur_next.next = pre.next;
                 pre.next = Cur_next;
+
+
             }
             return dummyNode.next;
         }

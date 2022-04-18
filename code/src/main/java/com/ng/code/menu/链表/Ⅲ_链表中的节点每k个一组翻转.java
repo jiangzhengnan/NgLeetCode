@@ -25,41 +25,6 @@ import java.util.List;
 @Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅲ_链表中的节点每k个一组翻转 {
 
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-        List<ListNode> map = new ArrayList();
-        while (true) {
-            if (!insert(map, pHead1)) {
-                return pHead1;
-            }
-            if (!insert(map, pHead2)) {
-                return pHead2;
-            }
-
-            if (pHead1.next == null && pHead2.next == null) {
-                break;
-            }
-
-            if (pHead1.next != null) {
-                pHead1 = pHead1.next;
-            }
-            if (pHead2.next != null) {
-                pHead2 = pHead2.next;
-            }
-
-        }
-
-        return null;
-    }
-
-    public boolean insert(List<ListNode> map, ListNode temp) {
-        if (map.contains(temp)) {
-            return false;
-        } else {
-            map.add(temp);
-            return true;
-        }
-    }
-
     public static void main(String[] args) {
         LogUtil.pring(reverseGroup(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));
     }

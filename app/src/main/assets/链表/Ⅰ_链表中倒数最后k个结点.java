@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 双指针
  * 递归
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 1, partice = 1)
 public class Ⅰ_链表中倒数最后k个结点 {
 
     public static void main(String[] args) {

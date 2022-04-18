@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     }
 
 
-    public void refreshData(CodeNode codeBean) {
+    public String refreshData(CodeNode codeBean) {
         mNowData = codeBean;
         mNowData.content = ProblemAndroidUtil.readAssets(getContext(), mNowData.contentPath);
         binding.codeView.setCode(mNowData.content).apply();
@@ -98,6 +98,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
         LogUtil.d("当前:" + mNowData.title + " state:" + state);
         binding.toggleCode.setPositive(state != 2);
         showAnim();
+        return mNowData.contentPath.split("/")[0];
     }
 
     public void setTitle(String title) {

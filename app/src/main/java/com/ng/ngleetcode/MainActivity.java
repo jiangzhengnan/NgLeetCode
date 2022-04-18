@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
 
     @Override
     public void onItem(CodeNode codeBean) {
-        mHomeFragment.refreshData(codeBean);
+        binding.appBarMain.toolbar.setTitle(mHomeFragment.refreshData(codeBean));
         binding.drawerMain.closeDrawers();
     }
 }

@@ -17,42 +17,24 @@ import java.util.Queue;
 public class PracticeClass {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(1, 1);
-        LogUtil.pring(deleteDuplication(data));
+        ListNode data = ListNode.getNodeList(2, 1, 3, 5, 6, 4, 7);
+
+        LogUtil.pring(oddEvenList(data));
     }
 
-    public static ListNode deleteDuplication(ListNode pHead) {
-        if (pHead == null) {
-            return null;
+    public static ListNode oddEvenList(ListNode head) {
+        ListNode ji = head;
+        ListNode ou = head.next;
+        ListNode tail = ou;
+
+        while (ou != null && ou.next != null) {
+            ji.next = ou.next;
+            ji = ji.next;
+            ou.next = ji.next;
+            ou = ou.next;
         }
-
-        ListNode ya = new ListNode(-1);
-        ya.next = pHead;
-
-        ListNode pre = ya;
-        ListNode now = pHead;
-        ListNode next = now.next;
-
-        while (next != null) {
-
-            if (now.val == next.val) {
-                while (next != null && now.val == next.val) {
-                    next = next.next;
-                }
-                pre.next = next;
-            } else {
-                pre = now;
-            }
-            now = next;
-
-            if (next != null) {
-                next = next.next;
-            }
-        }
-
-
-        return ya.next;
+        ji.next = tail;
+        return head;
     }
-
 
 }
