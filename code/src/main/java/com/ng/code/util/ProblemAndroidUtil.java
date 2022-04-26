@@ -59,23 +59,27 @@ public class ProblemAndroidUtil {
         List<String> codeList = getAssetsJavaCodeList(context);
         int easyCount = 0;
         int hardCount = 0;
-        for (String codeStr : codeList) {
-            //@Solution(easy = 1, hard = 0)
-            String content = readAssets(context, codeStr);
-            int easyIndex = content.indexOf("easy = ");
-            if (Integer.parseInt(content.substring(easyIndex + 7, easyIndex + 8)) > 0) {
-                easyCount++;
-            }
-            int hardIndex = content.indexOf("hard = ");
-            if (Integer.parseInt(content.substring(hardIndex + 7, hardIndex + 8)) > 0) {
-                hardCount++;
-            }
-        }
         int readCount = 0;
-        for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
-            if (temp.state == 2) {
-                readCount++;
+        try {
+            for (String codeStr : codeList) {
+                //@Solution(easy = 1, hard = 0)
+                String content = readAssets(context, codeStr);
+                int easyIndex = content.indexOf("easy = ");
+                if (Integer.parseInt(content.substring(easyIndex + 7, easyIndex + 8)) > 0) {
+                    easyCount++;
+                }
+                int hardIndex = content.indexOf("hard = ");
+                if (Integer.parseInt(content.substring(hardIndex + 7, hardIndex + 8)) > 0) {
+                    hardCount++;
+                }
             }
+            for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
+                if (temp.state == 2) {
+                    readCount++;
+                }
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
         return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount + " read:" + readCount;
     }

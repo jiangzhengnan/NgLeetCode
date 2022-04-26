@@ -6,35 +6,46 @@ import com.ng.code.util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * 动态规划
- * 递归回溯
- * 贪心算法
  */
 public class PracticeClass {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(2, 1, 3, 5, 6, 4, 7);
 
-        LogUtil.pring(oddEvenList(data));
+        String strvalue =null;
+        LogUtil.pring(parseInt(strvalue));
     }
 
-    public static ListNode oddEvenList(ListNode head) {
-        ListNode ji = head;
-        ListNode ou = head.next;
-        ListNode tail = ou;
+    public static int parseInt(String aValue) {
+        return parseInt(aValue, 0);
+    }
 
-        while (ou != null && ou.next != null) {
-            ji.next = ou.next;
-            ji = ji.next;
-            ou.next = ji.next;
-            ou = ou.next;
+
+    public static int parseInt(String aValue, int aDefault){
+        if (aValue == null || aValue.length() == 0)
+            return aDefault;
+        int result = aDefault;
+        boolean isHex = false;
+        if(isHex = aValue.startsWith("0x")){
+            aValue = aValue.substring(2);
         }
-        ji.next = tail;
-        return head;
+        try {
+            if (!isHex) {
+                result = Integer.parseInt(aValue);
+            } else {
+                result = (int) Long.parseLong(aValue, 16);
+            }
+        }
+        catch (Exception ex) {
+            //#if (debug == true)
+            //#endif
+        }
+        return result;
     }
+
 
 }

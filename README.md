@@ -83,6 +83,7 @@
 * [Ⅱ_设计LRU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_设计LRU缓存结构.java)
 * [Ⅱ_螺旋矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_螺旋矩阵.java)
 * [Ⅱ_顺时针旋转矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_顺时针旋转矩阵.java)
+* [生产者消费者模式](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/生产者消费者模式.java)
 * [Ⅲ_设计LFU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅲ_设计LFU缓存结构.java)
 * [Ⅰ_旋转数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅰ_旋转数组.java)
 ## 贪心算法
