@@ -6,6 +6,7 @@ import com.ng.code.util.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -14,25 +15,36 @@ import java.util.Queue;
 public class PracticeClass {
 
     public static void main(String[] args) {
-        int[][] op = new int[][]{
-                {1, 1, 1},
-                {1, 2, 2},
-                {2, 1},
-                {1, 3, 3},
-                {2, 2},
-                {1, 4, 4},
-                {2, 1},
-                {2, 3},
-                {2, 4}
-        };
-        LogUtil.pring(LRU(op, 2));
-        // 1 -1 -1 3 4
 
+        String strvalue =null;
+        LogUtil.pring(parseInt(strvalue));
     }
 
-    public static int[] LRU(int[][] operators, int k) {
+    public static int parseInt(String aValue) {
+        return parseInt(aValue, 0);
+    }
 
-        return null;
+
+    public static int parseInt(String aValue, int aDefault){
+        if (aValue == null || aValue.length() == 0)
+            return aDefault;
+        int result = aDefault;
+        boolean isHex = false;
+        if(isHex = aValue.startsWith("0x")){
+            aValue = aValue.substring(2);
+        }
+        try {
+            if (!isHex) {
+                result = Integer.parseInt(aValue);
+            } else {
+                result = (int) Long.parseLong(aValue, 16);
+            }
+        }
+        catch (Exception ex) {
+            //#if (debug == true)
+            //#endif
+        }
+        return result;
     }
 
 
