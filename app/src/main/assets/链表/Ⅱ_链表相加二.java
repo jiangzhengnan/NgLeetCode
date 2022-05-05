@@ -31,7 +31,7 @@ public class Ⅱ_链表相加二 {
      */
     private static class EasySolution {
         public static ListNode addInList(ListNode head1, ListNode head2) {
-            // write code here
+            // 栈相加法
             Stack<Integer> stack1 = new Stack<>();
             while (head1 != null) {
                 stack1.push(head1.val);
@@ -42,44 +42,30 @@ public class Ⅱ_链表相加二 {
                 stack2.push(head2.val);
                 head2 = head2.next;
             }
-
-            ListNode newNode = new ListNode(-1);
-            ListNode nowNode = newNode;
-            int yu = 0;
-            while (stack1.size() > 0 || stack2.size() > 0) {
-                int temp = yu;
-                if (stack1.size() > 0) {
-                    temp += stack1.pop();
-                }
-                if (stack2.size() > 0) {
-                    temp += stack2.pop();
-                }
+            int add = 0;
+            ListNode result = new ListNode(-1);
+            ListNode last = null;
+            while (!stack1.isEmpty() || !stack2.isEmpty()) {
+                int num1 = stack1.isEmpty() ? 0 : stack1.pop();
+                int num2 = stack2.isEmpty() ? 0 : stack2.pop();
+                int temp = num1 + num2 + add;
                 if (temp >= 10) {
-                    yu = 1;
-                    temp = temp % 10;
+                    add = 1;
+                    temp %= 10;
                 } else {
-                    yu = 0;
+                    add = 0;
                 }
-                nowNode.next = new ListNode(temp);
-                nowNode = nowNode.next;
+                ListNode tempNode = new ListNode(temp);
+                result.next = tempNode;
+                tempNode.next = last;
+                last = tempNode;
             }
-            if (yu == 1) {
-                nowNode.next = new ListNode(1);
+            if (add > 0) {
+                ListNode tempNode = new ListNode(1);
+                result.next = tempNode;
+                tempNode.next = last;
             }
-            nowNode = reverse(newNode.next);
-            return nowNode;
-
-        }
-
-        private static ListNode reverse(ListNode now) {
-            ListNode pre = null;
-            while (now != null) {
-                ListNode next = now.next;
-                now.next = pre;
-                pre = now;
-                now = next;
-            }
-            return pre;
+            return result.next;
         }
     }
 

@@ -4,6 +4,8 @@ import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
+ * https://www.nowcoder.com/practice/166eaff8439d4cd898e3ba933fbc6358?tpId=295&tqId=685&ru=%2Fpractice%2Ffe6b651b66ae47d7acce78ffdd9a96c7&qru=%2Fta%2Fformat-top101%2Fquestion-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ *
  * 原题描述:
  * 一个机器人在m×n大小的地图的左上角（起点）。
  * 机器人每次可以向下或向右移动。机器人要到达地图的右下角（终点）。
@@ -26,7 +28,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 2
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅱ_不同路径的数目一 {
 
     public static void main(String[] args) {
@@ -47,27 +49,19 @@ public class Ⅱ_不同路径的数目一 {
     private static class EasySolution {
 
         public static int uniquePaths(int m, int n) {
-            // 定义dp数组
             int[][] dp = new int[m][n];
-
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    // 当 i = 0：dp[0][j] = dp[0][j-1]
-                    if (i == 0) {
-                        dp[i][j] = 1; // 都是1是因为dp[0][j] = dp[0][j-1]，所以干脆全部赋值为1
-                        continue;
-                    }
-                    // 当 j = 0：dp[i][0] = dp[i-1][0]
-                    if (j == 0) {
+                    if (i == 0 || j == 0) {
                         dp[i][j] = 1;
-                        continue;
+                    } else {
+                        dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                     }
-                    // 当 i > 1 && j > 1 :  dp[i][j] = dp[i][j-1] + dp[i-1][j]
-                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1];
                 }
             }
             LogUtil.pring(dp);
-            return dp[m - 1][n - 1]; // 返回到达终点的所有可行路径
+
+            return dp[m - 1][n - 1];
         }
     }
 

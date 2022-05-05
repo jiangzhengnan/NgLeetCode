@@ -14,6 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author : jiangzhengnan.jzn@alibaba-inc.com
  * @creation : 2022/04/19
  * @description :
+ * 需要参考
+ * https://blog.csdn.net/skz980619/article/details/119703042
  */
 @Solution(easy = 0, hard = 0, partice = 0)
 public class 生产者消费者模式 {
@@ -55,7 +57,7 @@ public class 生产者消费者模式 {
     }
 
     //生产者
-    public static class Producer implements Runnable{
+    public static class Producer implements Runnable {
         //共享阻塞队列
         private BlockingDeque<Data> queue;
         //是否还在运行
@@ -65,55 +67,55 @@ public class 生产者消费者模式 {
         //生成随机数
         private static Random random = new Random();
 
-        public Producer(BlockingDeque<Data> queue){
+        public Producer(BlockingDeque<Data> queue) {
             this.queue = queue;
         }
 
         @Override
         public void run() {
             try {
-                while(isRunning){
+                while (isRunning) {
                     //模拟注水耗时
                     Thread.sleep(random.nextInt(1000));
                     int num = count.incrementAndGet();
                     Data data = new Data(num, num);
-                    System.out.println("当前>>注水管:"+Thread.currentThread().getName()+"注水容量(L):"+num);
-                    if(!queue.offer(data,2, TimeUnit.SECONDS)){
+                    System.out.println("当前>>注水管:" + Thread.currentThread().getName() + "注水容量(L):" + num);
+                    if (!queue.offer(data, 2, TimeUnit.SECONDS)) {
                         System.out.println("注水失败...");
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
-        public void stop(){
+        public void stop() {
             isRunning = false;
         }
     }
 
     //消费者
-    public static class Consumer implements Runnable{
+    public static class Consumer implements Runnable {
 
-        private BlockingDeque<Data> queue ;
+        private BlockingDeque<Data> queue;
 
         private static Random random = new Random();
 
-        public Consumer(BlockingDeque<Data> queue){
+        public Consumer(BlockingDeque<Data> queue) {
             this.queue = queue;
         }
 
         @Override
         public void run() {
-            while (true){
+            while (true) {
                 try {
                     Data data = queue.take();
                     //模拟抽水耗时
                     Thread.sleep(random.nextInt(1000));
-                    if(data != null){
-                        System.out.println("当前<<抽水管:"+Thread.currentThread().getName()+",抽取水容量(L):"+data.getNum());
+                    if (data != null) {
+                        System.out.println("当前<<抽水管:" + Thread.currentThread().getName() + ",抽取水容量(L):" + data.getNum());
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
