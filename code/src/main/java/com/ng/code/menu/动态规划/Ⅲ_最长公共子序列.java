@@ -46,13 +46,16 @@ public class Ⅲ_最长公共子序列 {
             // write code here
             int str1Len = s1.length();
             int str2Len = s2.length();
-            int[][] cLenNUm = new int[s1.length() + 1][s2.length() + 1];//默认赋值，[0][?],[?][0]默认两侧皆0,类似公式中0的场景
+            int[][] cLenNUm = new int[s1.length() + 1][s2.length() + 1];
+            //默认赋值，[0][?],[?][0]默认两侧皆0,类似公式中0的场景
             //构造一个LCS长度数组
             for (int i = 1; i <= str1Len; i++) {
                 for (int j = 1; j <= str2Len; j++) {
-                    if (s1.charAt(i - 1) == s2.charAt(j - 1)) {//对应公式第二条相等
+                    if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+                        //对应公式第二条相等
                         cLenNUm[i][j] = cLenNUm[i - 1][j - 1] + 1;
-                    } else {//对应公式第三条不相等
+                    } else {
+                        //对应公式第三条不相等
                         cLenNUm[i][j] = Math.max(cLenNUm[i][j - 1], cLenNUm[i - 1][j]);
                     }
                 }

@@ -4,6 +4,22 @@
     <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
     <groovy codeStyle="LEGACY" />
   </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.26979166666666665" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/drawable/progress_horizontal.xml" value="0.1255" />
+        <entry key="../../Library/Android/sdk/platforms/android-31/data/res/drawable/progress_indeterminate_horizontal.xml" value="0.118" />
+        <entry key="app/src/main/res/drawable/bg_pb.xml" value="0.1255" />
+        <entry key="app/src/main/res/drawable/bg_progress.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.1255" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3988439306358382" />
+        <entry key="app/src/main/res/layout/item_node_code_code.xml" value="0.16259057971014493" />
+        <entry key="app/src/main/res/layout/item_node_first.xml" value="0.1296875" />
+        <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.1296875" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

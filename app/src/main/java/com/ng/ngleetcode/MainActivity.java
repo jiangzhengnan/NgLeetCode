@@ -1,7 +1,7 @@
 package com.ng.ngleetcode;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,12 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
@@ -59,6 +59,27 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
             }
         });
         initRv();
+        binding.drawerMain.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
     }
 
     private void initRv() {
@@ -79,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                adapter.notifyDataSetChanged();
                 if (binding.drawerMain.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerMain.closeDrawers();
                 } else {

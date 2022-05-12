@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="myNavigationDrawerStyle" >
+
+    <style name="myNavigationDrawerStyle">
         <item name="android:textSize">15dp</item>
     </style>
 
@@ -11,5 +12,11 @@
 
     <style name="AppBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="selectableItemBackground">@null</item>
+    </style>
+
+    <style name="myPb" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/bg_pb</item>
+        <item name="minHeight">1dp</item>
+        <item name="maxHeight">1dp</item>
     </style>
 </resources>

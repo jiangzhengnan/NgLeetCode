@@ -17,7 +17,7 @@ import java.util.HashMap;
  * [1,3,5]
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 输出二叉树的右视图 {
+public class Ⅱ_输出二叉树的右视图 {
 
     public static void main(String[] args) {
         LogUtil.pring(EasySolution.solve(new int[]{1, 2, 4, 5, 3},

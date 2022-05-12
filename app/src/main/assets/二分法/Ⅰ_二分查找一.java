@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * -1, 0, 3, 4, 6, 10, 13, 14     13
  * 输出 6
  */
-@Solution(easy = 1, hard = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅰ_二分查找一 {
 
     public static void main(String[] args) {

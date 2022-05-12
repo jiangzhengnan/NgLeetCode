@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.model.CodeDataModel;
@@ -25,9 +24,6 @@ import com.ng.ngleetcode.view.ToggleView;
 import com.ng.ngleetcode.view.code.CodeView;
 import com.ng.ngleetcode.view.code.Language;
 import com.ng.ngleetcode.view.code.Theme;
-
-import java.util.List;
-import java.util.Random;
 
 
 public class HomeFragment extends Fragment implements CodeView.OnHighlightListener, ToggleView.OnToggleListener {
@@ -56,6 +52,14 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
                 .setStartLineNumber(0)
                 .apply();
         return root;
+    }
+
+    private void refreshNowProgressBar() {
+        ProblemAndroidUtil.getNowProgressAndroid(getContext());
+        int allPro = ProblemAndroidUtil.codeNum;
+        int readPro = ProblemAndroidUtil.readNum;
+        binding.nowPb.setProgress(readPro);
+        binding.nowPb.setMax(allPro);
     }
 
     private String showRandomProblem() {
@@ -96,6 +100,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
         setTitle(mNowData.title);
         int state = CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.title, -1);
         LogUtil.d("当前:" + mNowData.title + " state:" + state);
+        refreshNowProgressBar();
         binding.toggleCode.setPositive(state != 2);
         showAnim();
         return mNowData.contentPath.split("/")[0];
@@ -141,6 +146,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     public void onToggle(boolean isPositive) {
         if (getActivity() != null) {
             CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.title, isPositive ? 1 : 2);
+            refreshNowProgressBar();
         }
     }
 }

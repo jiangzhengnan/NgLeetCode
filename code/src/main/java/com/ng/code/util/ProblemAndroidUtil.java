@@ -26,6 +26,8 @@ import java.util.Random;
  * @description :
  */
 public class ProblemAndroidUtil {
+    public static int codeNum = 0;
+    public static int readNum = 0;
 
     public static CodeNode getRandomProblemJavaContentNew(Context context) {
         List<CodeNode> realNodeList = new ArrayList<>();
@@ -61,26 +63,28 @@ public class ProblemAndroidUtil {
         int easyCount = 0;
         int hardCount = 0;
         int readCount = 0;
-            for (String codeStr : codeList) {
-                //@Solution(easy = 1, hard = 0)
-                Log.d("nangua","遍历:" + codeStr);
-                String content = readAssets(context, codeStr);
-                if (content.contains("@Solution")) {
-                    int easyIndex = content.indexOf("easy = ");
-                    if (Integer.parseInt(content.substring(easyIndex + 7, easyIndex + 8)) > 0) {
-                        easyCount++;
-                    }
-                    int hardIndex = content.indexOf("hard = ");
-                    if (Integer.parseInt(content.substring(hardIndex + 7, hardIndex + 8)) > 0) {
-                        hardCount++;
-                    }
+        for (String codeStr : codeList) {
+            //@Solution(easy = 1, hard = 0)
+            Log.d("nangua", "遍历:" + codeStr);
+            String content = readAssets(context, codeStr);
+            if (content.contains("@Solution")) {
+                int easyIndex = content.indexOf("easy = ");
+                if (Integer.parseInt(content.substring(easyIndex + 7, easyIndex + 8)) > 0) {
+                    easyCount++;
+                }
+                int hardIndex = content.indexOf("hard = ");
+                if (Integer.parseInt(content.substring(hardIndex + 7, hardIndex + 8)) > 0) {
+                    hardCount++;
                 }
             }
-            for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
-                if (temp.state == 2) {
-                    readCount++;
-                }
+        }
+        for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
+            if (temp.state == 2) {
+                readCount++;
             }
+        }
+        codeNum = codeList.size();
+        readNum = readCount;
         return "all: " + codeList.size() + " easy: " + easyCount + " hard: " + hardCount + " read:" + readCount;
     }
 

@@ -4,9 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:paddingBottom="8dp">
+
+    <ProgressBar
+        android:id="@+id/nowPb"
+        style="@style/myPb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:gravity="center_vertical"
@@ -31,8 +39,11 @@
 
     </LinearLayout>
 
+
     <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
         android:id="@+id/codeContent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

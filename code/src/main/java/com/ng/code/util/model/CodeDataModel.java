@@ -3,7 +3,6 @@ package com.ng.code.util.model;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.entity.node.BaseNode;
@@ -23,7 +22,7 @@ public class CodeDataModel {
     private final static String CODE_STATE = "code_state";
 
     @NonNull
-    private List<BaseNode> mCodeData;
+    public List<BaseNode> mCodeData;
 
     @NonNull
     public List<CodeState> mCodeStateList = new ArrayList<>();

@@ -28,11 +28,11 @@ import java.util.Stack;
  * 返回值：
  * {1,2,5,3,4,6,7}
  */
-@Solution(easy = 0, hard = 0, partice = 0)
-public class 重建二叉树 {
+@Solution(easy = 0, hard = 0, partice = 1)
+public class Ⅱ_重建二叉树 {
 
     public static void main(String[] args) {
-        EasySolution.reConstructBinaryTree(new int[]{1, 2, 4, 7, 3, 5, 6, 8},
+        HardSolution.reConstructBinaryTree(new int[]{1, 2, 4, 7, 3, 5, 6, 8},
                 new int[]{4, 7, 2, 1, 5, 3, 8, 6}).print();
 
     }
@@ -99,7 +99,7 @@ public class 重建二叉树 {
             TreeNode root = new TreeNode(preorder[0]);
             TreeNode cur = root;
             for (int i = 1, j = 0; i < preorder.length; i++) {
-                //第一种情况
+                //第一种情况, i 是m左子树节点的值
                 if (cur.val != inorder[j]) {
                     cur.left = new TreeNode(preorder[i]);
                     s.push(cur);

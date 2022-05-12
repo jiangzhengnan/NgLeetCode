@@ -1,7 +1,5 @@
 package com.ng.code.menu.二叉树;
 
-import android.util.Log;
-
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 import com.ng.code.util.TreeNode;
@@ -21,8 +19,8 @@ import java.util.LinkedList;
  * 返回值：
  * [[8],[10,6],[5,7,9,11]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
-public class 按之字形顺序打印二叉树 {
+@Solution(easy = 1, hard = 1, partice = 1)
+public class Ⅱ_按之字形顺序打印二叉树 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(8, 6, 10, 5, 7, 9, 11);
