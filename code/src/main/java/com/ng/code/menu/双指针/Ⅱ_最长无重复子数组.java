@@ -28,9 +28,10 @@ import java.util.Queue;
 public class Ⅱ_最长无重复子数组 {
 
     public static void main(String[] args) {
-        int[] data = new int[]{1,2,3,4,1,5,6,7,8,1};
-
+        int[] data = new int[]{1,2,1,4,1,5,6,7,8,1};
         LogUtil.pring(EasySolution.maxLength(data));
+
+        LogUtil.pring(HardSolution.maxLength(data));
     }
 
     private static class EasySolution {
@@ -67,7 +68,7 @@ public class Ⅱ_最长无重复子数组 {
     //队列，把元素不停的加入到队列中，如果有相同的元素，就把队首的元素移除，这样我们就可以保证队列中永远都没有重复的元素
     private static class HardSolution {
 
-        public int maxLength(int[] arr) {
+        public static int maxLength(int[] arr) {
             //用链表实现队列，队列是先进先出的
             Queue<Integer> queue = new LinkedList<>();
             int res = 0;

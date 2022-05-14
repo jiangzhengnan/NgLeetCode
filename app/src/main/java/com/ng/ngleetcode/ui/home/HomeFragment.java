@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.model.CodeDataModel;
@@ -35,22 +34,22 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+          new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.codeContent.setRadius(UIUtil.dp2px(getContext(), 5));
         binding.toggleCode.setOnToggleListener(this);
         binding.codeView.setOnHighlightListener(this)
-                .setOnHighlightListener(this)
-                .setTheme(Theme.ANDROIDSTUDIO)
-                .setLanguage(Language.JAVA)
-                .setWrapLine(false)
-                .setFontSize(8)
-                .setZoomEnabled(true)
-                .setShowLineNumber(false)
-                .setStartLineNumber(0)
-                .apply();
+                        .setOnHighlightListener(this)
+                        .setTheme(Theme.ANDROIDSTUDIO)
+                        .setLanguage(Language.JAVA)
+                        .setWrapLine(false)
+                        .setFontSize(8)
+                        .setZoomEnabled(true)
+                        .setShowLineNumber(false)
+                        .setStartLineNumber(0)
+                        .apply();
         return root;
     }
 
@@ -60,6 +59,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
         int readPro = ProblemAndroidUtil.readNum;
         binding.nowPb.setProgress(readPro);
         binding.nowPb.setMax(allPro);
+        binding.tvPb.setText(readPro + " - " + allPro);
     }
 
     private String showRandomProblem() {
@@ -75,9 +75,9 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
 
     private void showAnim() {
         PropertyValuesHolder pvhAlpha = PropertyValuesHolder.ofFloat(
-                "alpha", 1.0f, 0f, 1.0f);
+          "alpha", 1.0f, 0f, 1.0f);
         ValueAnimator valueAnimator = ObjectAnimator
-                .ofPropertyValuesHolder(binding.tvTitle, pvhAlpha);
+                                        .ofPropertyValuesHolder(binding.tvTitle, pvhAlpha);
         valueAnimator.start();
         startAnim(binding.codeView);
     }
@@ -145,7 +145,8 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
     @Override
     public void onToggle(boolean isPositive) {
         if (getActivity() != null) {
-            CodeDataModel.getInstance().loopCodeState(getActivity(), mNowData.title, isPositive ? 1 : 2);
+            CodeDataModel.getInstance()
+                         .loopCodeState(getActivity(), mNowData.title, isPositive ? 1 : 2);
             refreshNowProgressBar();
         }
     }
