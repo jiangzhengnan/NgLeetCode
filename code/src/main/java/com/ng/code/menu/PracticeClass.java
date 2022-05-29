@@ -1,9 +1,9 @@
 package com.ng.code.menu;
 
 
-import com.ng.code.util.LogUtil;
+import android.text.TextUtils;
 
-import java.util.HashMap;
+import androidx.annotation.Nullable;
 
 /**
  * 不会的:
@@ -14,21 +14,42 @@ import java.util.HashMap;
 public class PracticeClass {
 
     public static void main(String[] args) {
-        LogUtil.pring(lengthOfLongestSubstring("df"));
+        String className = "com/ng/xerath/func/DataMethodUtil";
+        System.out.println(getPkgNameFromOwner(className));
+        System.out.println(getClassNameFromOwner(className));
+
     }
 
-    public static int lengthOfLongestSubstring(String s) {
-        int start = -1;
-        int ub = 1;
-        HashMap<Character, Integer> chara = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (chara.containsKey(s.charAt(i))) {
-                start = Math.max(start, chara.get(s.charAt(i)));
-            }
-            chara.put(s.charAt(i), i);
-            ub = Math.max(ub, i - start);
+    /**
+     * 传入格式:
+     * owner: com/ng/xerath/func/DataMethodUtil
+     * 返回格式:
+     * com.ng.xerath.func
+     */
+    public static String getPkgNameFromOwner(@Nullable String owner) {
+        if (owner == null || owner.length() == 0 || !owner.contains("/")) {
+            return "";
         }
-        return ub;
+        String[] tempArray = owner.split("/");
+        int classNameStrLength = tempArray[tempArray.length - 1].length();
+        return owner.replaceAll("/", ".")
+                    .substring(0, owner.length() - classNameStrLength - 1);
+    }
+
+    /**
+     * 传入格式:
+     * owner: com/ng/xerath/func/DataMethodUtil
+     * 返回格式:
+     * DataMethodUtil
+     */
+    public static String getClassNameFromOwner(@Nullable String owner) {
+        if (owner == null || owner.length() == 0 || !owner.contains("/")) {
+            return "";
+        }
+        String[] tempArray = owner.split("/");
+        int classNameStrLength = tempArray[tempArray.length - 1].length();
+        return owner.replaceAll("/", ".")
+                    .substring(owner.length() - classNameStrLength, owner.length());
     }
 
 }

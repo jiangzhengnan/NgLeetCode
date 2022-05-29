@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -16,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.SharedPreferencesUtils;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
@@ -105,6 +107,11 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
                 } else {
                     binding.drawerMain.openDrawer(GravityCompat.START);
                 }
+                break;
+            case R.id.action_settings:
+                SharedPreferencesUtils.saveString(MainActivity.this, CodeDataModel.CODE_STATE, "");
+                mHomeFragment.refreshData();
+                Toast.makeText(MainActivity.this, "清空数据", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);

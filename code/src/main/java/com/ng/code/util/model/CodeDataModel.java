@@ -19,7 +19,7 @@ import java.util.List;
  * @description :
  */
 public class CodeDataModel {
-    private final static String CODE_STATE = "code_state";
+    public final static String CODE_STATE = "code_state";
 
     @NonNull
     public List<BaseNode> mCodeData;
