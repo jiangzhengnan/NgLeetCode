@@ -12,7 +12,7 @@ import com.ng.code.util.Solution;
  * https://www.cnblogs.com/luomeng/p/10618709.html
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class Ⅲ_堆排序 {
+public class Ⅱ_堆排序 {
 
     public static void main(String[] args) {
         int[] arr = {16, 7, 3, 20, 17, 8};
@@ -21,7 +21,6 @@ public class Ⅲ_堆排序 {
             System.out.print(i + " ");
         }
     }
-
 
     /**
      * 创建堆，
