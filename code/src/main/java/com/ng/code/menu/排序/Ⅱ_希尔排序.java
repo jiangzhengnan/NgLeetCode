@@ -7,8 +7,10 @@ import com.ng.code.util.Solution;
  * @author : jiangzhengnan.jzn@alibaba-inc.com
  * @creation : 2022/04/16
  * @description :
- * 算法复杂度：O(nlog2n)
- * 算法空间复杂度：O(1)
+ * 平均时间复杂度：O(Nlog2N)
+ * 最佳时间复杂度：
+ * 最差时间复杂度：O(N^2)
+ * 空间复杂度：O(1)
  */
 @Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_希尔排序 {

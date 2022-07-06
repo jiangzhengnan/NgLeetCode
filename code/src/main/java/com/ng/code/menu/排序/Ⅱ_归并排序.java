@@ -20,13 +20,49 @@ public class Ⅱ_归并排序 {
         LogUtil.pring(array);
     }
 
-    /**
-     * 分
-     * 治 排序
-     *
-     */
-    private static void sort(int[] array) {
+    protected static void sort(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return;
+        }
+        //归并排序
+        mergeSort(0, nums.length - 1, nums);
+    }
 
+    static int[] temp = new int[9];
 
+    private static void mergeSort(int star, int end, int[] nums) {
+        //递归终止条件
+        if (star >= end) {
+            return;
+        }
+        int mid = star + (end - star) / 2;
+        //左边进行归并排序
+        mergeSort(star, mid, nums);
+        //右边进行归并排序
+        mergeSort(mid + 1, end, nums);
+        //合并左右
+        merge(star, end, mid, nums);
+    }
+
+    private static void merge(int star, int end, int mid, int[] nums) {
+        int index = 0;
+        int left = star;
+        int right = mid + 1;
+        while (left <= mid && right <= end) {
+            if (nums[left] > nums[right]) {
+                temp[index++] = nums[right++];
+            } else {
+                temp[index++] = nums[left++];
+            }
+        }
+        while (left <= mid) {
+            temp[index++] = nums[left++];
+        }
+        while (right <= end) {
+            temp[index++] = nums[right++];
+        }
+        for (int k = 0; k < index; k++) {
+            nums[star + k] = temp[k];
+        }
     }
 }
