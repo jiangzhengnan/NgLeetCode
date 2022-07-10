@@ -1,0 +1,45 @@
+package com.ng.code.menu.排序;
+
+import com.ng.code.util.LogUtil;
+import com.ng.code.util.Solution;
+
+/**
+ * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @creation : 2022/07/04
+ * @description :
+ * 平均时间复杂度：O(n²)
+ * 空间复杂度：O(1)
+ */
+@Solution(easy = 0, hard = 0, partice = 0)
+public class Ⅰ_插入排序 {
+
+    public static void main(String[] args) {
+        int[] array = new int[]{9, 8, 7, 3, 2, 1, 4, 5, 6};
+        sort(array);
+        LogUtil.pring(array);
+    }
+
+    /**
+     * 第一个元素默认已排序
+     * 遍历0到length-1的下标元素
+     * 每个元素每一次从i到0位置遍历，遇到比自己大的就后挪，比自己小的就留在当前位置
+     */
+    private static void sort(int[] array) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+
+        for (int i = 0; i < array.length - 1; i++) {
+            int cur = array[i + 1];
+            int preIndex = i;
+            while (preIndex >= 0 && cur < array[preIndex]) {
+                array[preIndex + 1] = array[preIndex];
+                preIndex -- ;
+            }
+            array[preIndex + 1] = cur;
+        }
+
+    }
+
+
+}
