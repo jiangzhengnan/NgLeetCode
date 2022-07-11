@@ -8,7 +8,7 @@ import com.ng.code.util.Solution;
  * @creation : 2022/07/04
  * @description :
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 1, partice = 1)
 public class Ⅰ_冒泡排序 {
 
     public static void main(String[] args) {
@@ -17,23 +17,15 @@ public class Ⅰ_冒泡排序 {
         LogUtil.pring(data);
     }
 
-    //maopao
     public static void sort(int[] array) {
-
         for (int i = 0; i < array.length; i++) {
-            int maxIndex = 0;
-            for (int j = 0; j < (array.length - i); j++) {
-                if (array[j] >= array[maxIndex]) {
-                    maxIndex = j;
+            for (int j = 0; j + 1 < array.length - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
-            LogUtil.pring(i + "交换:" + array[array.length - i - 1] +" " + array[maxIndex]);
-
-            int temp = array[array.length - i - 1];
-            array[array.length - i - 1] = array[maxIndex];
-            array[maxIndex] = temp;
-
-            LogUtil.pring(array);
         }
     }
 
