@@ -20,49 +20,44 @@ public class Ⅱ_归并排序 {
         LogUtil.pring(array);
     }
 
-    protected static void sort(int[] nums) {
-        if (nums == null || nums.length < 2) {
+    private static void sort(int[] array) {
+        if (array == null || array.length < 2) {
             return;
         }
-        //归并排序
-        mergeSort(0, nums.length - 1, nums);
+        sort(array, 0, array.length - 1);
     }
 
-    static int[] temp = new int[9];
-
-    private static void mergeSort(int star, int end, int[] nums) {
-        //递归终止条件
-        if (star >= end) {
+    private static void sort(int[] array, int start, int end) {
+        if (start >= end) {
             return;
         }
-        int mid = star + (end - star) / 2;
-        //左边进行归并排序
-        mergeSort(star, mid, nums);
-        //右边进行归并排序
-        mergeSort(mid + 1, end, nums);
-        //合并左右
-        merge(star, end, mid, nums);
+        int mid = (start + end) / 2;
+        sort(array, start, mid);
+        sort(array, mid + 1, end);
+        merge(array, start, end);
     }
 
-    private static void merge(int star, int end, int mid, int[] nums) {
-        int index = 0;
-        int left = star;
+    private static void merge(int[] array, int start, int end) {
+        int mid = (start + end) / 2;
+        int left = start;
         int right = mid + 1;
+        int[] newArray = new int[end - start + 1];
+        int index = 0;
         while (left <= mid && right <= end) {
-            if (nums[left] > nums[right]) {
-                temp[index++] = nums[right++];
+            if (array[left] > array[right]) {
+                newArray[index++] = array[left++];
             } else {
-                temp[index++] = nums[left++];
+                newArray[index++] = array[right++];
             }
         }
         while (left <= mid) {
-            temp[index++] = nums[left++];
+            newArray[index++] = array[left++];
         }
         while (right <= end) {
-            temp[index++] = nums[right++];
+            newArray[index++] = array[right++];
         }
-        for (int k = 0; k < index; k++) {
-            nums[star + k] = temp[k];
+        for (int i = 0; i < index; i++) {
+            array[start + i] = newArray[i];
         }
     }
 }
