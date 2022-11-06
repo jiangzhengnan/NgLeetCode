@@ -1,6 +1,11 @@
 package com.ng.code;
 
 
+import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
+
+import android.util.SparseArray;
+
 import com.ng.code.util.LogUtil;
 
 public class PracticeClass {
@@ -8,10 +13,17 @@ public class PracticeClass {
 
     public static void main(String[] args) {
 
-        for (int i = 30; i >= 0; i--) {
-            LogUtil.pring(" " + i);
-        }
+        //long startTime = System.currentTimeMillis();
+        //new Thread(new Runnable() {
+        //    @Override
+        //    public void run() {
+        //        haoshiFF();
+        //    }
+        //}).start();
+        //System.out.println("耗时:" + (System.currentTimeMillis() - startTime));
+
     }
+
 
 
 }
