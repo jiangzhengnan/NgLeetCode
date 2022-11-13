@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 示例:
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class TemplateTestClass {
+public class Ⅰ_Ⅱ_Ⅲ_TemplateTestClass {
 
     public static void main(String[] args) {
 

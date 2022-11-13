@@ -1,19 +1,23 @@
 package com.ng.code.menu.动态规划;
 
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
+ * todo
+ *
+ * https://leetcode.cn/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
  * 原题描述:
  * 对于长度为n的一个字符串A（仅包含数字，大小写英文字母），请设计一个高效算法，计算其中最长回文子串的长度。
  * 进阶:  空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
- *
+ * <p>
  * 示例:
  * 示例1
  * 输入：
  * "ababc"
  * 返回值：
  * 3
- *
+ * <p>
  * 说明：
  * 最长的回文子串为"aba"与"bab"，长度都为3
  * 示例2
@@ -21,7 +25,7 @@ import com.ng.code.util.Solution;
  * "abbba"
  * 返回值：
  * 5
- *
+ * <p>
  * 示例3
  * 输入：
  * "b"
@@ -32,40 +36,67 @@ import com.ng.code.util.Solution;
 public class Ⅲ_最长回文子串 {
 
     public static void main(String[] args) {
+        LogUtil.pring(EasySolution.longestPalindrome("ababa"));
 
     }
 
     /**
-     * 这个题目用到了动态规划的思想具体
-     * 注意字符串的遍历顺序一定是从后向前的，因为这样才能解决之前没有计算而直接出答案的问题。这里的dp数组比较难想，
-     * 是应该存储所经过的子字符串是否是回文数
+     * 思路与算法
+     * 对于一个子串而言，如果它是回文串，并且长度大于 22，那么将它首尾的两个字母去除之后，它仍然是个回文串。
+     * 例如对于字符串  “ababa”，如果我们已经知道 bab” 是回文串，那么  “ababa” 一定是回文串，
+     * 这是因为它的首尾两个字母都是  “a”。
+     * 根据这样的思路，我们就可以用动态规划的方法解决本题。
+     * 我们用 P(i,j)P(i,j) 表示字符串 ss 的第 ii 到 jj 个字母组成的串（下文表示成 s[i:j]s[i:j]）是否为回文串：
+     * P(i,j)=P(i+1,j−1) (Si ==  Sj)
      */
     private static class EasySolution {
 
-        public static int getLongestPalindrome(String A, int n) {
-            // write code here
-            char[] aa = A.toCharArray();
-            int max = 1;
-            boolean[][] dp = new boolean[n][n];
-            for (int i = 0; i < n; i++) {
+        public static String longestPalindrome(String s) {
+            int len = s.length();
+            if (len < 2) {
+                return s;
+            }
+
+            int maxLen = 1;
+            int begin = 0;
+            // dp[i][j] 表示 s[i..j] 是否是回文串
+            boolean[][] dp = new boolean[len][len];
+            // 初始化：所有长度为 1 的子串都是回文串
+            for (int i = 0; i < len; i++) {
                 dp[i][i] = true;
             }
-            for (int i = 1; i < n; i++)//i指向的是字符的最后一位
-                for (int j = i - 1; j >= 0; j--) {//j指向的是字符的前部。
-                    if (i - j == 1) {//当两个指针靠近时，直接判断
-                        dp[j][i] = (aa[i] == aa[j]);
-                        if (max < i - j + 1)
-                            max = i - j + 1;
+
+            char[] charArray = s.toCharArray();
+            // 递推开始
+            // 先枚举子串长度
+            for (int L = 2; L <= len; L++) {
+                // 枚举左边界，左边界的上限设置可以宽松一些
+                for (int i = 0; i < len; i++) {
+                    // 由 L 和 i 可以确定右边界，即 j - i + 1 = L 得
+                    int j = L + i - 1;
+                    // 如果右边界越界，就可以退出当前循环
+                    if (j >= len) {
+                        break;
+                    }
+
+                    if (charArray[i] != charArray[j]) {
+                        dp[i][j] = false;
                     } else {
-                        if (dp[j + 1][i - 1] && aa[i] == aa[j]) {
-                            dp[j][i] = true;
-                            if (max < i - j + 1)
-                                max = i - j + 1;
-                        } else
-                            dp[j][i] = false;
+                        if (j - i < 3) {
+                            dp[i][j] = true;
+                        } else {
+                            dp[i][j] = dp[i + 1][j - 1];
+                        }
+                    }
+
+                    // 只要 dp[i][L] == true 成立，就表示子串 s[i..L] 是回文，此时记录回文长度和起始位置
+                    if (dp[i][j] && j - i + 1 > maxLen) {
+                        maxLen = j - i + 1;
+                        begin = i;
                     }
                 }
-            return max;
+            }
+            return s.substring(begin, begin + maxLen);
         }
 
     }

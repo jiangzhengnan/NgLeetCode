@@ -33,6 +33,10 @@ public class LogUtil {
         System.out.println(number + "");
     }
 
+    public static void pring(char c) {
+        System.out.println(c + "");
+    }
+
     public static void printCharArray(char[] arrays) {
         String result = "";
         for (char temp : arrays) {
