@@ -17,7 +17,7 @@ import com.ng.code.util.TreeNode;
  * 如题面图
  */
 @Solution(easy = 1, hard = 1)
-public class 合并二叉树 {
+public class Ⅰ_合并二叉树 {
 
     public static void main(String[] args) {
         TreeNode t1 = TreeNode.createTreeNode(1, 3, 2, 5);

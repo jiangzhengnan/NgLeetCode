@@ -1,5 +1,6 @@
 package com.ng.code.menu.哈希;
 
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
@@ -44,7 +45,8 @@ import java.util.Map;
 public class Ⅱ_三数之和 {
 
     public static void main(String[] args) {
-
+        int[] data = new int[]{-10, 0, 10, 20, -10, -40};
+        LogUtil.pring(EasySolution.threeSum(data).toString());
     }
 
     /**
@@ -53,7 +55,7 @@ public class Ⅱ_三数之和 {
      * 空间O1
      */
     private static class EasySolution {
-        public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
+        public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
             //存放最终答案的二维数组
             ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
             int len = num.length;

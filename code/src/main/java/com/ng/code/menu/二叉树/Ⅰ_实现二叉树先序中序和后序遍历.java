@@ -20,9 +20,7 @@ import java.util.List;
 public class Ⅰ_实现二叉树先序中序和后序遍历 {
 
 	public static void main(String[] args) {
-		TreeNode root = TreeNode.createTreeNode(10, 6, 14, 4, 8, 12, 16);
-
-		TreeNode root2 = TreeNode.createTreeNode(1,2,3,4,5,6,7);
+		TreeNode root2 = TreeNode.createTreeNode(1,2,3,4,5,6,7,8);
 		root2.print();
 		LogUtil.pring(threeOrders(root2));
 	}

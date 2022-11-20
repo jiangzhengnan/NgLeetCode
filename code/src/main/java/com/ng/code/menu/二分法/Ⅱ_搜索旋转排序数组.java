@@ -1,5 +1,6 @@
 package com.ng.code.menu.二分法;
 
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -27,7 +28,8 @@ import com.ng.code.util.Solution;
 public class Ⅱ_搜索旋转排序数组 {
 
     public static void main(String[] args) {
-
+        int[] data = new int[]{4, 5, 6, 7, 0, 1, 2};
+        LogUtil.pring(EasySolution.search(data, 0));
     }
 
     /**
@@ -38,7 +40,7 @@ public class Ⅱ_搜索旋转排序数组 {
      */
     private static class EasySolution {
 
-        public int search(int[] nums, int target) {
+        public static int search(int[] nums, int target) {
             int n = nums.length;
             if (n == 0) {
                 return -1;

@@ -9,7 +9,7 @@ import com.ng.code.util.Solution;
  * 原题链接:https://www.nowcoder.com/practice/f23604257af94d939848729b1a5cda08?tpId=295&tqId=1008897&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
  * 原题描述:
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅲ_单链表的排序 {
 
     public static void main(String[] args) {
@@ -31,7 +31,7 @@ public class Ⅲ_单链表的排序 {
             if (head == null || head.next == null) {
                 return head;
             }
-            //寻找中点, 这里取head.next很重要!
+            //寻找中点, 这里取head.next很重要!!
             ListNode fast = head.next;
             ListNode slow = head;
             while (fast != null && fast.next != null) {

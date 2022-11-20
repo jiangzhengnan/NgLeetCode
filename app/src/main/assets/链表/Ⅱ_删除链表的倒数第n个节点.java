@@ -5,6 +5,8 @@ import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
+ * link:https://leetcode.cn/problems/remove-nth-node-from-end-of-list/?favorite=2cktkvj
+ *
  * 日期:
  * 原题链接:
  * 原题描述:
@@ -60,7 +62,7 @@ public class Ⅱ_删除链表的倒数第n个节点 {
                 return 0;
             }
             int pos = length(node.next, n) + 1;
-            if (pos == n + 1) {
+            if (pos == n + 1) { //这里+1是为了找到需要删除的节点左边一位节点
                 node.next = node.next.next;
             }
             return pos;
