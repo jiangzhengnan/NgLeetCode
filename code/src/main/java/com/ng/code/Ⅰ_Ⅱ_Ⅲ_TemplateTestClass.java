@@ -13,6 +13,8 @@ import com.ng.code.util.Solution;
 public class Ⅰ_Ⅱ_Ⅲ_TemplateTestClass {
 
     public static void main(String[] args) {
+        EasySolution easySolution = new EasySolution();
+        HardSolution hardSolution = new HardSolution();
 
     }
 

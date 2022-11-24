@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.locks.ReentrantLock;
 
 import android.annotation.SuppressLint;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.SparseArray;
@@ -48,119 +54,6 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
         binding = ActivityMainVpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initViewsAndEvents();
-
-        ConcurrentExecutor concurrentExecutor = new ConcurrentExecutor(0);
-
-
-        List<Integer> adnList = new ArrayList<>();
-        //3个腾讯
-        adnList.add(1);
-        adnList.add(1);
-        adnList.add(1);
-
-        //2个百度
-        adnList.add(2);
-        adnList.add(2);
-
-        //3个京东
-        adnList.add(3);
-        adnList.add(3);
-
-        for (int i = 0; i< 10; i++) {
-            //10个别的
-            adnList.add(4);
-        }
-
-        List<Runnable> runnableList = new ArrayList<>();
-        for (int i = 0; i < adnList.size(); i++) {
-            int adnId = adnList.get(i);
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    createAdn(adnId);
-
-
-                }
-            };
-            runnableList.add(runnable);
-
-        }
-        concurrentExecutor.execute(runnableList);
-    }
-
-    private static Set<Integer> mLoadedSplitModules = new HashSet<>();
-
-    public static void createAdn(int adnId) {
-        long startTime = System.currentTimeMillis();
-        Log.d("xigua", "创建adn:" + getDesc(adnId));
-
-        ReentrantLock lock;
-        synchronized (sLoadDependencyLock) {
-            lock = sLocks.get(adnId);
-            if (lock == null) {
-                lock = new ReentrantLock();
-                sLocks.put(adnId, lock);
-            }
-        }
-
-        // 防止同一个adn重入
-        Log.d("xigua", "尝试拿到锁:" + getDesc(adnId));
-
-        lock.lock();
-        Log.d("xigua", "拿到锁:" + getDesc(adnId));
-
-        try {
-            Thread.sleep(50);
-            if (mLoadedSplitModules.contains(adnId)) {
-                Log.d("xigua", "创建adn结束1:"  +
-                               (System.currentTimeMillis() - startTime) + " " + getDesc(adnId));
-                return;
-            }
-
-            Log.d("xigua", "创建adn结束2:"  +
-                           (System.currentTimeMillis() - startTime) + " " + getDesc(adnId));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            Log.d("xigua", "释放锁:" + getDesc(adnId));
-            lock.unlock();
-        }
-
-
-
-    }
-
-    private static String getDesc(final int adnId) {
-        return "[" + adnId +"] -" +  Thread.currentThread()
-                                         .getName();
-    }
-
-    private void test() {
-        List<Runnable> runnableList = new ArrayList<>();
-        ConcurrentExecutor concurrentExecutor = new ConcurrentExecutor(0);
-
-        for (int i = 0; i < 20; i++) {
-            int finalI = i;
-            Runnable tempRunnable = new Runnable() {
-                @Override
-                public void run() {
-                    Log.d("xigua", Thread.currentThread().getName() + " 创建adn:" + finalI);
-
-                    Runnable sucRunnable = new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.d("xigua", Thread.currentThread()
-                                                 .getName() + " 创建adn 成功:" + finalI);
-                        }
-                    };
-
-                    concurrentExecutor.callback(sucRunnable);
-                }
-            };
-            runnableList.add(tempRunnable);
-        }
-        concurrentExecutor.execute(runnableList);
-
     }
 
     private void initViewsAndEvents() {

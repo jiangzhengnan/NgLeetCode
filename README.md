@@ -26,6 +26,7 @@
 * [Ⅱ_字符串变形](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串变形.java)
 * [Ⅲ_字符串相乘](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅲ_字符串相乘.java)
 * [Ⅰ_最长公共前缀](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅰ_最长公共前缀.java)
+* [Ⅱ_字母异位词分组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字母异位词分组.java)
 ## 二分法
 * [Ⅲ_数组中的逆序对](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅲ_数组中的逆序对.java)
 * [Ⅱ_比较版本号](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_比较版本号.java)
@@ -79,6 +80,7 @@
 ## 排序
 * [Ⅱ_桶排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_桶排序.java)
 * [Ⅱ_希尔排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_希尔排序.java)
+* [Ⅱ_颜色分类](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_颜色分类.java)
 * [Ⅰ_冒泡排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_冒泡排序.java)
 * [Ⅰ_快速排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_快速排序.java)
 * [Ⅰ_插入排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_插入排序.java)
@@ -96,6 +98,7 @@
 * [有效括号序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/有效括号序列.java)
 * [滑动窗口的最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/滑动窗口的最大值.java)
 ## 模拟
+* [Ⅱ_旋转图像](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_旋转图像.java)
 * [Ⅱ_设计LRU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_设计LRU缓存结构.java)
 * [Ⅱ_螺旋矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_螺旋矩阵.java)
 * [Ⅱ_顺时针旋转矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_顺时针旋转矩阵.java)
@@ -103,6 +106,7 @@
 * [Ⅲ_设计LFU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅲ_设计LFU缓存结构.java)
 * [Ⅰ_旋转数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅰ_旋转数组.java)
 ## 贪心算法
+* [Ⅱ_跳跃游戏](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏.java)
 * [Ⅲ_下一个排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅲ_下一个排列.java)
 * [Ⅱ_主持人调度二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_主持人调度二.java)
 * [Ⅱ_分糖果问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_分糖果问题.java)
@@ -130,6 +134,8 @@
 * [Ⅱ_数字字符串转化成IP地址](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_数字字符串转化成IP地址.java)
 * [Ⅱ_电话号码的字母组合](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_电话号码的字母组合.java)
 * [Ⅰ_没有重复项数字的全排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅰ_没有重复项数字的全排列.java)
+* [Ⅱ_单词搜索](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_单词搜索.java)
 * [Ⅱ_矩阵最长递增路径](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_矩阵最长递增路径.java)
+* [Ⅲ_组合总和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅲ_组合总和.java)
 * [Ⅱ_有重复项数字的全排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_有重复项数字的全排列.java)
 * [Ⅱ_字符串的排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_字符串的排列.java)
