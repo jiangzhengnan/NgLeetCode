@@ -1,14 +1,16 @@
 package com.ng.code.menu.二叉树;
 
+import java.util.Stack;
+
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 import com.ng.code.util.TreeNode;
 
-import java.util.Stack;
-
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/a69242b39baf45dea217815c7dedb52b?tpId=295&tqId=2288088&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/validate-binary-search-tree/
+ * <p>
  * 原题描述:
  * 给定一个二叉树根节点，请你判断这棵树是不是二叉搜索树。
  * 二叉搜索树满足每个节点的左子树上的所有节点均小于当前节点且右子树上的所有节点均大于当前节点。
@@ -24,7 +26,7 @@ import java.util.Stack;
  * true
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 判断是不是二叉搜索树 {
+public class Ⅱ_判断是不是二叉搜索树 {
 
     public static void main(String[] args) {
         TreeNode data1 = TreeNode.createTreeNode(1, 2, 3);
@@ -40,19 +42,25 @@ public class 判断是不是二叉搜索树 {
      */
     private static class EasySolution {
 
-        public static boolean isValidBST(TreeNode root) {
-            return dfs(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        public boolean isValidBST(TreeNode root) {
+            return isValidBST(root, null, null);
         }
 
-        private static boolean dfs(TreeNode root, int minValue, int maxValue) {
+        public boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
             if (root == null) {
                 return true;
             }
-            //合格区间
-            if (root.val < minValue || root.val > maxValue) {
+            //		 首先，当前节点的值不能小于最小值，不能大于最大值（左子节点无最小值限制，最大值为当前节点值；右节点无最大值，限制最小值为当前节点值）
+            if (min != null && root.val <= min.val) {
                 return false;
             }
-            return dfs(root.left, minValue, root.val) && dfs(root.right, root.val, maxValue);
+            if (max != null && root.val >= max.val) {
+                return false;
+            }
+            //		 由上向下递归，将当前节点值作为，左节点的最大限制值，右节点的最小限制值
+            return isValidBST(root.left, min, root)
+                   && isValidBST(root.right, root, max);
+
         }
     }
 

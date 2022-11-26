@@ -1,4 +1,4 @@
-package com.ng.code.menu.模拟;
+package com.ng.code.menu.多线程;
 
 import com.ng.code.util.Solution;
 

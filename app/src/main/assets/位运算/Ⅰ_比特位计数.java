@@ -1,4 +1,4 @@
-package com.ng.code.menu.数字;
+package com.ng.code.menu.位运算;
 
 import com.ng.code.util.Solution;
 

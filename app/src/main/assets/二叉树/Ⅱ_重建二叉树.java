@@ -1,19 +1,21 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import com.ng.code.util.LogUtil;
+import com.ng.code.util.Solution;
+import com.ng.code.util.TreeNode;
+
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/8a19cbe657394eeaac2f6ea9b0f6fcf6?tpId=295&tqId=23282&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/?favorite=2ckc81c
  * 原题描述:
  * 给定节点数为 n 的二叉树的前序遍历和中序遍历结果，请重建出该二叉树并返回它的头结点。
  * 例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建出如下图所示。
- *
+ * <p>
  * 示例1
  * 输入：
  * [1,2,4,7,3,5,6,8],[4,7,2,1,5,3,8,6]
@@ -21,7 +23,7 @@ import java.util.Stack;
  * {1,2,3,4,#,5,6,#,7,#,#,8}
  * 说明：
  * 返回根节点，系统会输出整颗二叉树对比结果，重建结果如题面图示
- *
+ * <p>
  * 示例3
  * 输入：
  * [1,2,3,4,5,6,7],[3,2,4,1,6,5,7]
@@ -32,8 +34,9 @@ import java.util.Stack;
 public class Ⅱ_重建二叉树 {
 
     public static void main(String[] args) {
-        HardSolution.reConstructBinaryTree(new int[]{1, 2, 4, 7, 3, 5, 6, 8},
-                new int[]{4, 7, 2, 1, 5, 3, 8, 6}).print();
+
+        LogUtil.pring(EasySolution.buildTree(new int[]{3, 9, 20, 15, 7},
+                                             new int[]{9, 3, 15, 20, 7}).toString());
 
     }
 
@@ -46,7 +49,7 @@ public class Ⅱ_重建二叉树 {
      */
     private static class EasySolution {
 
-        public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
+        public static TreeNode buildTree(int[] pre, int[] in) {
             //把前序遍历的值和中序遍历的值放到list中
             List<Integer> preorderList = new ArrayList<>();
             List<Integer> inorderList = new ArrayList<>();
@@ -58,8 +61,9 @@ public class Ⅱ_重建二叉树 {
         }
 
         private static TreeNode helper(List<Integer> preorderList, List<Integer> inorderList) {
-            if (inorderList.size() == 0)
+            if (inorderList.size() == 0) {
                 return null;
+            }
             //前序遍历的第一个值就是根节点
             int rootVal = preorderList.remove(0);
             //创建跟结点
@@ -92,8 +96,9 @@ public class Ⅱ_重建二叉树 {
      */
     private static class HardSolution {
         public static TreeNode reConstructBinaryTree(int[] preorder, int[] inorder) {
-            if (preorder.length == 0)
+            if (preorder.length == 0) {
                 return null;
+            }
             Stack<TreeNode> s = new Stack<>();
             //前序的第一个其实就是根节点
             TreeNode root = new TreeNode(preorder[0]);

@@ -1,5 +1,7 @@
 package com.ng.code.util;
 
+import java.util.List;
+
 import android.util.Log;
 
 public class LogUtil {
@@ -20,6 +22,9 @@ public class LogUtil {
         treeNode.print();
     }
 
+    public static void pring(List<String> list) {
+        System.out.println(list.toString());
+    }
 
     public static void pring(boolean str) {
         System.out.println(str + "");
@@ -89,5 +94,9 @@ public class LogUtil {
     public static void pring(long value) {
         System.out.println(value + "");
 
+    }
+
+    public static void pring(final double value) {
+        System.out.println(value + "");
     }
 }
