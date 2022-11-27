@@ -5,7 +5,8 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/fcf87540c4f347bcb4cf720b5b350c76?tpId=295&tqId=2227748&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/find-peak-element/?favorite=2ckc81c
  * 原题描述:
  * 描述
  * 给定一个长度为n的数组nums，请你找到峰值并返回其索引。数组可能包含多个峰值，在这种情况下，返回任何一个所在位置即可。
@@ -13,7 +14,7 @@ import com.ng.code.util.Solution;
  * 2.假设 nums[-1] = nums[n] = -\infty−∞
  * 3.对于所有有效的 i 都有 nums[i] != nums[i + 1]
  * 4.你可以使用O(logN)的时间复杂度实现此问题吗？
- *
+ * <p>
  * 输入：
  * [2,4,1,2,7,8,4]
  * 返回值：

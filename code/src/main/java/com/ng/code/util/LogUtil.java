@@ -83,6 +83,18 @@ public class LogUtil {
         System.out.println(result);
     }
 
+    public static void pring(char[][] arrays) {
+        String result = "";
+        for (char[] temp : arrays) {
+            result += "{";
+            for (char temp2 : temp) {
+                result += " " + temp2;
+            }
+            result += "}\n";
+        }
+        System.out.println(result);
+    }
+
     public static void pring(char[] arrays) {
         String result = "";
         for (int temp : arrays) {
