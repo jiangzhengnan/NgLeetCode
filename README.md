@@ -27,6 +27,7 @@
 * [Ⅱ_字母异位词分组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字母异位词分组.java)
 * [Ⅱ_字符串变形](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串变形.java)
 * [Ⅱ_字符串转换整数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串转换整数.java)
+* [Ⅱ_至少有K个重复字符的最长子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_至少有K个重复字符的最长子串.java)
 * [Ⅱ_验证IP地址](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_验证IP地址.java)
 * [Ⅲ_字符串相乘](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅲ_字符串相乘.java)
 ## 二分法
@@ -84,11 +85,13 @@
 ## 哈希
 * [Ⅰ_数组中只出现一次的两个数字](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅰ_数组中只出现一次的两个数字.java)
 * [Ⅱ_三数之和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_三数之和.java)
+* [Ⅱ_四数相加](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_四数相加.java)
 * [Ⅱ_最长连续序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_最长连续序列.java)
 * [缺失的第一个正整数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/缺失的第一个正整数.java)
 ## 位运算
 * [Ⅰ_比特位计数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅰ_比特位计数.java)
 * [Ⅰ_汉明距离](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅰ_汉明距离.java)
+* [Ⅱ_两整数之和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅱ_两整数之和.java)
 * [Ⅱ_颠倒二进制位](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅱ_颠倒二进制位.java)
 ## 排序
 * [Ⅰ_冒泡排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_冒泡排序.java)
@@ -103,6 +106,7 @@
 ## 栈堆队列
 * [Ⅰ_包含min函数的栈](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅰ_包含min函数的栈.java)
 * [Ⅰ_翻转单词序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅰ_翻转单词序列.java)
+* [Ⅱ_前K个高频元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_前K个高频元素.java)
 * [Ⅱ_基本计算器II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_基本计算器II.java)
 * [Ⅱ_寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_寻找第K大.java)
 * [Ⅱ_数据流中的中位数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_数据流中的中位数.java)
@@ -123,6 +127,7 @@
 * [Ⅱ_主持人调度二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_主持人调度二.java)
 * [Ⅱ_分糖果问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_分糖果问题.java)
 * [Ⅱ_最大数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最大数.java)
+* [Ⅱ_最长递增子序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最长递增子序列.java)
 * [Ⅱ_跳跃游戏](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏.java)
 * [Ⅲ_下一个排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅲ_下一个排列.java)
 ## 多线程

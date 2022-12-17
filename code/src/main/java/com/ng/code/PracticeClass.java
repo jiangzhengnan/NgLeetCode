@@ -8,63 +8,45 @@ import com.ng.code.util.TreeNode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
+/**
+ * 给你一个sn x ns矩阵smatrix ，其中每行和每列元素均按升序排序，找到矩阵中第 k 小的元素。
+ * 请注意，它是 排序后 的第 k 小元素，而不是第 k 个 不同 的元素。
+ * <p>
+ * 你必须找到一个内存复杂度优于sO(n2) 的解决方案。
+ * <p>
+ * 示例 1：
+ * <p>
+ * 输入：matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8
+ * 输出：13
+ * 解释：矩阵中的元素为 [1,5,9,10,11,12,13,13,15]，第 8 小元素是 13
+ */
 public class PracticeClass {
 
     //nowtodo: 240 , 还差15个题
     //https://leetcode.cn/problem-list/2ckc81c/?difficulty=MEDIUM&page=1
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);
-        //LogUtil.pring(trailingZeroes(5));
-        int[] arrays = new int[]{2, 1, 1, 2};
-
-        LogUtil.pring(kthSmallest(TreeNode.createTreeNode(5, 3, 6, 2, 4, -1, -1, 1), 3));
+        int[][] matrix = new int[][]{
+                {1, 5, 9},
+                {10, 11, 13},
+                {12, 13, 15}
+        };
+        LogUtil.pring(kthSmallest(matrix, 8));
     }
 
 
-    static List<Integer> list = new ArrayList<>();
+    public static int kthSmallest(int[][] matrix, int k) {
+        int hor =    k % matrix[0].length  - 1;
+        int ver = k / matrix.length;
 
-    public static int kthSmallest(TreeNode root, int k) {
-        loop(root);
-        return list.get(k - 1);
+        LogUtil.pring(ver +" " + hor);
+        return matrix[ver][hor];
     }
-
-    private static void loop(TreeNode root) {
-        if (root.left != null) {
-            loop(root.left);
-        }
-        list.add(root.val);
-        if (root.right != null) {
-            loop(root.right);
-        }
-    }
-
-//    public static int kthSmallest(TreeNode root, int k) {
-//        LinkedList<TreeNode> tong = new LinkedList<>();
-//
-//        tong.add(root);
-//
-//        while (tong.size() > 0) {
-//            int tempSize = tong.size();
-//
-//            for (int i = 0; i < tempSize; i++) {
-//                TreeNode node = tong.pollFirst();
-//                if (node.left != null) {
-//                    tong.add(node.left);
-//                }
-//                if (node.right != null) {
-//                    tong.add(node.right);
-//                }
-//            }
-//
-//
-//        }
-//
-//
-//        return -1;
-//    }
 
 }
 

@@ -5,6 +5,7 @@ import com.ng.code.util.Solution;
 
 /**
  * 原题描述:
+ * https://leetcode.cn/problems/coin-change/?favorite=2ckc81c
  * 给定数组arr，arr中所有的值都为正整数且不重复。每个值代表一种面值的货币，每种面值的货币可以使用任意张，再给定一个aim，代表要找的钱数，求组成aim的最少货币数。
  * 如果无解，请返回-1.
  * 数据范围：数组大小满足 0 \le n \le 100000≤n≤10000 ， 数组中每个数字都满足 0 < val \le 100000<val≤10000，0 \le aim \le 50000≤aim≤5000
@@ -27,7 +28,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_兑换零钱一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.minMoney(new int[]{5, 2, 3}, 20));
+        LogUtil.pring(EasySolution.minMoney(new int[]{3,5,7}, 11));
 
     }
 
@@ -54,13 +55,16 @@ public class Ⅱ_兑换零钱一 {
             for (int i = 0; i <= aim; i++) {
                 dp[i] = aim + 1;
             }
+            LogUtil.pring(dp);
 
             dp[0] = 0;
             for (int i = 1; i <= aim; i++) {
                 for (int j = 0; j < arr.length; j++) {
                     if (arr[j] <= i) {
                         //给了一张 3 元钱，小于 需要找零的4 元钱，那 就等于 1 + 需要找零剩下的钱dp[i -arr[j]] 4 - 3
-                        dp[i] = Math.min(dp[i], dp[i - arr[j]] + 1);
+                        int now = dp[i];
+                        int zhao = dp[i - arr[j]] + 1;
+                        dp[i] = Math.min(now, zhao);
                     }
                 }
             }
