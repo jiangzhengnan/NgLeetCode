@@ -56,7 +56,7 @@ public class ProgressUtil {
                            "![Java](https://img.shields.io/badge/language-Java-red.svg)\n" +
                            "![visitors](https://visitor-badge.laobi.icu/badge?page_id=jiangzhengnan.ngleetcode.read.me)\n" +
                            "<br/>\n" +
-                           " 尊贵切免费的多功能刷题本，可根据个人爱好进行各种定制<br />");
+                           " 尊贵且免费的多功能刷题本，可根据个人爱好进行各种定制<br />");
 
         directorySb.append("<table>\n" +
                            "\t<tr>\n" +
