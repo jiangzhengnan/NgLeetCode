@@ -15,7 +15,8 @@
 			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg" height = 400/>
 		  </td>
 	</tr>
-</table>
+</table><br />
+
 # 题库
 ## 二叉树
 * [判断是不是平衡二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/判断是不是平衡二叉树.java)
