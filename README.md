@@ -15,23 +15,8 @@
 			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg" height = 400/>
 		  </td>
 	</tr>
-</table></br>
+</table>
 # 题库
-### Preview
-<table>
-	<tr>
-		<th>题库主页</th>
-		<th>右滑列表</th>
-	</tr>
-	<tr>
-		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.jpg" height = 400/>
-		  </td>
-		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg" height = 400/>
-		  </td>
-	</tr>
-</table></br>
 ## 二叉树
 * [判断是不是平衡二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/判断是不是平衡二叉树.java)
 * [Ⅰ_实现二叉树先序中序和后序遍历](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅰ_实现二叉树先序中序和后序遍历.java)

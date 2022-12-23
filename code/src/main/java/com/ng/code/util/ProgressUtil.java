@@ -71,7 +71,7 @@ public class ProgressUtil {
                            "\t\t\t  <img src=\"https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg\" height = 400/>\n" +
                            "\t\t  </td>\n" +
                            "\t</tr>\n" +
-                           "</table></br>");
+                           "</table>");
         directorySb.append("\n");
         HashMap<String, List<MyCodeProblem>> classMap = getClassMap(Constants.CODE_PKG_NAME);
         directorySb.append("# 题库").append("\n");
