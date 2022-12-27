@@ -22,7 +22,7 @@ import java.util.Stack;
  * 如题面所示
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 二叉树的镜像 {
+public class Ⅱ_二叉树的镜像 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(8, 6, 10, 5, 7, 9, 11);

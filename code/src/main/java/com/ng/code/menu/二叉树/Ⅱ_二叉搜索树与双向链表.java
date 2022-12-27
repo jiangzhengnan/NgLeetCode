@@ -35,7 +35,7 @@ import java.util.List;
  * 输入题面图中二叉树，输出的时候将双向链表的头节点返回即可。
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 二叉搜索树与双向链表 {
+public class Ⅱ_二叉搜索树与双向链表 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(10, 6, 14, 4, 8, 12, 16);

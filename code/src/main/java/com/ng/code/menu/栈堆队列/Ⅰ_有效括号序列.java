@@ -16,7 +16,7 @@ import java.util.Stack;
  * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
  */
 @Solution(easy = 1, hard = 1)
-public class 有效括号序列 {
+public class Ⅰ_有效括号序列 {
 
     public static void main(String[] args) {
         String data = "([)]";

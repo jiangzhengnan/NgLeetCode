@@ -24,7 +24,7 @@ import java.util.Deque;
  * 如题面图
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 序列化二叉树 {
+public class Ⅲ_序列化二叉树 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(1, 2, 3, -1, -1, 6, 7);
