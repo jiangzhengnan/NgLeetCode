@@ -52,6 +52,28 @@ public class ProgressUtil {
     public static void refreshReadMe() {
         StringBuilder directorySb = new StringBuilder();
 
+        directorySb.append("# NgLeetCode\n" +
+                           "![Java](https://img.shields.io/badge/language-Java-red.svg)\n" +
+                           "![visitors](https://visitor-badge.laobi.icu/badge?page_id=jiangzhengnan.ngleetcode.read.me)\n" +
+                           "<br/>\n" +
+                           " 尊贵且免费的多功能刷题本，可根据个人爱好进行各种定制<br />");
+
+        directorySb.append("<table>\n" +
+                           "\t<tr>\n" +
+                           "\t\t<th>题库主页</th>\n" +
+                           "\t\t<th>右滑列表</th>\n" +
+                           "\t</tr>\n" +
+                           "\t<tr>\n" +
+                           "\t\t  <td>\n" +
+                           "\t\t\t  <img src=\"https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.jpg\" height = 400/>\n" +
+                           "\t\t  </td>\n" +
+                           "\t\t  <td>\n" +
+                           "\t\t\t  <img src=\"https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg\" height = 400/>\n" +
+                           "\t\t  </td>\n" +
+                           "\t</tr>\n" +
+                           "</table><br />");
+        directorySb.append("\n");
+        directorySb.append("\n");
         HashMap<String, List<MyCodeProblem>> classMap = getClassMap(Constants.CODE_PKG_NAME);
         directorySb.append("# 题库").append("\n");
         for (String key : classMap.keySet()) {
