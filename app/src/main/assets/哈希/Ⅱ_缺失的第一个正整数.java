@@ -43,7 +43,7 @@ import java.util.HashMap;
  */
 @Solution(easy = 0, hard = 0, partice = 0)
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class 缺失的第一个正整数 {
+public class Ⅱ_缺失的第一个正整数 {
 
     public static void main(String[] args) {
         int[] data = new int[]{-2, 1,11,12,13};

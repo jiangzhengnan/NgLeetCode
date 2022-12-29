@@ -21,8 +21,9 @@ public class Ⅰ_插入排序 {
 
     /**
      * 第一个元素默认已排序
-     * 遍历0到length-1的下标元素
-     * 每个元素每一次从i到0位置遍历，遇到比自己大的就后挪，比自己小的就留在当前位置
+     * 遍历0到length-1的下标元素,i
+     * 每个元素每一次从 i + 1 到0位置遍历，遇到比自己大的就后挪，
+     * 比自己小的就留在当前位置
      */
     private static void sort(int[] array) {
         if (array == null || array.length < 2) {

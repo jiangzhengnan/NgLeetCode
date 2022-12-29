@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * []
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 最小的K个数 {
+public class Ⅰ_最小的K个数 {
 
     public static void main(String[] args) {
         int[] data1 = new int[]{4, 5, 1, 6, 2, 7, 3, 8};

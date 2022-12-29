@@ -30,7 +30,7 @@ import java.util.Set;
  * 3
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 在二叉树中找到两个节点的最近公共祖先 {
+public class Ⅱ_在二叉树中找到两个节点的最近公共祖先 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(3, 5, 1, 6, 2, 0, 8, -1, -1, 7, 4);
