@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  *
  * 示例:
  */
-@Solution(easy = 1, hard = 1, partice = 2)
+@Solution(easy = 0, hard = 1, partice = 2)
 public class Ⅰ_链表反转 {
 
     public static void main(String[] args) {

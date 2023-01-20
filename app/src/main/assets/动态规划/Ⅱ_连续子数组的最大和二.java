@@ -25,7 +25,7 @@ import java.util.List;
  * 说明：
  * 经分析可知，输入数组的子数组[3,10,-4,7,2]可以求得最大和为18，故返回[3,10,-4,7,2]
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_连续子数组的最大和二 {
 
     public static void main(String[] args) {

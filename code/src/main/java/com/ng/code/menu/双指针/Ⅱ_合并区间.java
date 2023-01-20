@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * [[10,60],[80,100],[150,180]]
  */
-@Solution(easy = 1, hard = 1, partice = 0)
+@Solution(easy = 0, hard = 1, partice = 0)
 public class Ⅱ_合并区间 {
 
     public static void main(String[] args) {

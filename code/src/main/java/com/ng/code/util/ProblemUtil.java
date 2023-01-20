@@ -29,16 +29,22 @@ public class ProblemUtil {
         ArrayList<Class<?>> list = new ArrayList(codeSet);
         List<Integer> repeatList = new ArrayList<>();
 
-        for (int i = 0; i < num; i++) {
+        int result = 0;
+        while (result < num) {
             int randomIndex = new Random().nextInt(list.size());
             while (repeatList.contains(randomIndex)) {
                 randomIndex = new Random().nextInt(list.size());
             }
             repeatList.add(randomIndex);
             Class<?> randomItem = list.get(randomIndex);
-            LogUtil.pring(randomItem.getSimpleName());
-            if (i >= codeSet.size() - 1) {
-                return;
+
+            Annotation[] annos = randomItem.getAnnotations();
+            for (Annotation anno : annos) {
+                Solution solution = (Solution) anno;
+                if (solution.easy() == 0) {
+                    LogUtil.pring(randomItem.getSimpleName() +" " + solution.easy());
+                    result ++;
+                }
             }
         }
     }

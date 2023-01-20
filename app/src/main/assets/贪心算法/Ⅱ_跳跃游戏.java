@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输出：false
  * 解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_跳跃游戏 {
 
     public static void main(String[] args) {

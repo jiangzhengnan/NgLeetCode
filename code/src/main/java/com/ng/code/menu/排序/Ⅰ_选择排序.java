@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 时间复杂度：O(n²)
  * 空间复杂度：O(1)
  */
-@Solution(easy = 1, hard = 1, partice = 1)
+@Solution(easy = 0, hard = 1, partice = 1)
 public class Ⅰ_选择排序 {
 
     public static void main(String[] args) {

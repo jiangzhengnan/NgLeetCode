@@ -14,7 +14,7 @@ import com.ng.code.util.Solution;
  * 输入：board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
  * 输出：true
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_单词搜索 {
 
     public static void main(String[] args) {

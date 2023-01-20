@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * "dcba"
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅰ_反转字符串 {
 
     public static void main(String[] args) {

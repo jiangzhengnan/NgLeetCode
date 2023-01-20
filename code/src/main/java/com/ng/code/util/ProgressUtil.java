@@ -3,12 +3,17 @@ package com.ng.code.util;
 import java.io.File;
 import java.io.FileFilter;
 import java.lang.annotation.Annotation;
+import java.math.RoundingMode;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
+import android.util.Log;
 
 
 /**
@@ -37,7 +42,20 @@ public class ProgressUtil {
                 }
             }
         }
-        LogUtil.pring("题库总数: " + list.size() + " 简单完成: " + easy + " 困难完成: " + hard);
+        int all = list.size();
+        LogUtil.pring("题库总数: " + all
+                      + " 简单完成: " + easy + myPercent(easy, all)
+                      + " 困难完成: " + hard + myPercent(hard, all)
+                     );
+    }
+
+    public static String myPercent(int x, int y) {
+        double d1 = x * 1.0;
+        double d2 = y * 1.0;
+        NumberFormat percentInstance = NumberFormat.getPercentInstance();
+        // 设置保留几位小数，这里设置的是保留两位小数
+        percentInstance.setMinimumFractionDigits(2);
+        return " (" + percentInstance.format(d1 / d2) + ")";
     }
 
     /**
@@ -81,7 +99,11 @@ public class ProgressUtil {
             directorySb.append("## ").append(key).append("\n");
             if (problems != null) {
                 for (MyCodeProblem problem : problems) {
-                    directorySb.append("* [").append(problem.name).append("](").append(problem.link).append(")\n");
+                    directorySb.append("* [")
+                               .append(problem.name)
+                               .append("](")
+                               .append(problem.link)
+                               .append(")\n");
                 }
             }
         }

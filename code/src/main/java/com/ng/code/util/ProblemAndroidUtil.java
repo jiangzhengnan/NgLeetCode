@@ -64,7 +64,7 @@ public class ProblemAndroidUtil {
         int hardCount = 0;
         int readCount = 0;
         for (String codeStr : codeList) {
-            //@Solution(easy = 1, hard = 0)
+            //@Solution(easy = 0, hard = 0)
             Log.d("nangua", "遍历:" + codeStr);
             String content = readAssets(context, codeStr);
             if (content.contains("@Solution")) {

@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * "abc"
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅰ_最长公共前缀 {
 
     public static void main(String[] args) {

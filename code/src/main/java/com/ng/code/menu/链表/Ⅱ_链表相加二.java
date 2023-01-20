@@ -17,7 +17,7 @@ import java.util.Stack;
  *
  * 例如：链表 1 为 9->3->7，链表 2 为 6->3，最后生成新的结果链表为 1->0->0->0。
  */
-@Solution(easy = 1, hard = 1)
+@Solution(easy = 0, hard = 1)
 public class Ⅱ_链表相加二 {
 
     public static void main(String[] args) {
