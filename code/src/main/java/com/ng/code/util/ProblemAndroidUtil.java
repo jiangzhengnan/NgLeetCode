@@ -38,25 +38,39 @@ public class ProblemAndroidUtil {
                 if (codeDirNode.getChildNode() != null) {
                     for (BaseNode tempCodeNode : codeDirNode.getChildNode()) {
                         if (tempCodeNode instanceof CodeNode) {
+                            CodeNode codeNode = (CodeNode) tempCodeNode;
                             realNodeList.add((CodeNode) tempCodeNode);
                         }
                     }
                 }
             }
         }
-        int randNum = new Random().nextInt(realNodeList.size() - 1);
+
+        List<CodeNode> unReadList = new ArrayList<>();
+        for (CodeNode node : realNodeList) {
+            int state = CodeDataModel.getInstance().loopCodeState(context, node.title, -1);
+            if (state == -1) {
+                unReadList.add(node);
+            }
+        }
+        int randNum = 0;
+        if (unReadList.size() > 1) {
+            randNum = new Random().nextInt(unReadList.size() - 1);
+            return unReadList.get(randNum);
+        }
+        randNum = new Random().nextInt(realNodeList.size() - 1);
         return realNodeList.get(randNum);
     }
 
-//    /**
-//     * 从assets中随机抽取一道题
-//     */
-//    public static CodeNode getRandomProblemJavaContent(Context context) {
-//        List<String> codeList = getAssetsJavaCodeList(context);
-//        int randNum = new Random().nextInt(codeList.size() - 1);
-//        String content = readAssets(context, codeList.get(randNum));
-//        return new CodeNode(codeList.get(randNum), content);
-//    }
+    //    /**
+    //     * 从assets中随机抽取一道题
+    //     */
+    //    public static CodeNode getRandomProblemJavaContent(Context context) {
+    //        List<String> codeList = getAssetsJavaCodeList(context);
+    //        int randNum = new Random().nextInt(codeList.size() - 1);
+    //        String content = readAssets(context, codeList.get(randNum));
+    //        return new CodeNode(codeList.get(randNum), content);
+    //    }
 
     public static String getNowProgressAndroid(Context context) {
         List<String> codeList = getAssetsJavaCodeList(context);
@@ -169,8 +183,9 @@ public class ProblemAndroidUtil {
                 ByteArrayOutputStream arrayOutputStream = new ByteArrayOutputStream();
                 while (true) {
                     int readLength = is.read(buffer);
-                    if (readLength == -1)
+                    if (readLength == -1) {
                         break;
+                    }
                     arrayOutputStream.write(buffer, 0, readLength);
                 }
                 is.close();
@@ -185,8 +200,9 @@ public class ProblemAndroidUtil {
             content = null;
         } finally {
             try {
-                if (is != null)
+                if (is != null) {
                     is.close();
+                }
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
