@@ -13,7 +13,7 @@ public final class StartCode {
         refreshLocalProjects();
 
         //随机得到几个题目
-        ProblemUtil.getRandomTest(15);
+        ProblemUtil.getRandomTest(2);
     }
 
     //刷新本地目录，补充题库

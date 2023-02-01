@@ -4,6 +4,7 @@ import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -22,14 +23,14 @@ import java.util.LinkedList;
  * 返回值：
  * [4,4,6,6,6,5]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_滑动窗口的最大值 {
 
     public static void main(String[] args) {
         int[] data = new int[]{
                 2, 3, 4, 2, 6, 2, 5, 1
         };
-        LogUtil.pring(EasySolution.maxInWindows(data, 3).toString());
+        //LogUtil.pring(EasySolution.maxInWindows(data, 3).toString());
         LogUtil.pring(HardSolution.maxInWindows(data, 3).toString());
 
     }
@@ -72,13 +73,13 @@ public class Ⅱ_滑动窗口的最大值 {
      */
     private static class HardSolution {
 
-        private static ArrayList<Integer> maxInWindows(int[] num, int w) {
+        private static ArrayList<Integer> maxInWindows(int[] num, int size) {
             /**
              * Description:利用双向单调队列实现
              * @auther
              */
             ArrayList<Integer> res = new ArrayList<>();
-            if (num == null || num.length < w || w <= 0) {
+            if (num == null || num.length < size || size <= 0) {
                 return res;
             }
             LinkedList<Integer> wQ = new LinkedList<>();
@@ -87,12 +88,13 @@ public class Ⅱ_滑动窗口的最大值 {
                     wQ.pollLast(); //队列里面是由大到小，如果有更大的进来，尾部弹出，直到为空或者里面放的值大于新进入的值
                 }
                 wQ.addLast(i); //新值入队（存放的是坐标！）
-                if (wQ.peekFirst() == i - w) {//去旧值，如果存放的坐标已经不再窗口内，肯定去除啊。
+                if (wQ.peekFirst() == i - size) {//去旧值，如果存放的坐标已经不再窗口内，肯定去除啊。
                     wQ.pollFirst();
                 }
-                if (i >= w - 1) {
+                if (i >= size - 1) {
                     res.add(num[wQ.peekFirst()]); //依次储存最大值即可
                 }
+                LogUtil.pring("wq:" + wQ.toString());
             }
             return res;
         }

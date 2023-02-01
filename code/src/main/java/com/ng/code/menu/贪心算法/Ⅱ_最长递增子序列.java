@@ -27,13 +27,15 @@ import com.ng.code.util.Solution;
  * 输入：nums = [7,7,7,7,7,7,7]
  * 输出：1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_最长递增子序列 {
 
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
         int[] arrays = new int[]{10, 9, 2, 5, 3, 7, 101, 18};
+
+
 
         LogUtil.pring(easySolution.lengthOfLIS(arrays));
     }
