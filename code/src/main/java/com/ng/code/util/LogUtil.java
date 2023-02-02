@@ -1,5 +1,6 @@
 package com.ng.code.util;
 
+import java.util.Deque;
 import java.util.List;
 
 import android.util.Log;
@@ -110,5 +111,9 @@ public class LogUtil {
 
     public static void pring(final double value) {
         System.out.println(value + "");
+    }
+
+    public static void pring(Deque<Integer> deque) {
+        System.out.println(deque.toString());
     }
 }

@@ -34,7 +34,7 @@ import java.util.List;
  * 说明：
  * 输入题面图中二叉树，输出的时候将双向链表的头节点返回即可。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 1, partice = 0)
 public class Ⅱ_二叉搜索树与双向链表 {
 
     public static void main(String[] args) {

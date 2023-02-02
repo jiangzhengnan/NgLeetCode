@@ -15,7 +15,7 @@ import com.ng.code.util.TreeNode;
  * 描述:
  * 给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
  */
-@Solution(easy = 0, hard = 0, partice = 1)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅰ_求二叉树的层序遍历 {
 
     public static void main(String[] args) {

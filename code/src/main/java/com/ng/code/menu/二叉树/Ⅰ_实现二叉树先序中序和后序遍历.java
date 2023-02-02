@@ -16,7 +16,7 @@ import java.util.List;
  * 前 中 后
  * [[1,2,3],[2,1,3],[2,3,1]]
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 0)
 public class Ⅰ_实现二叉树先序中序和后序遍历 {
 
 	public static void main(String[] args) {

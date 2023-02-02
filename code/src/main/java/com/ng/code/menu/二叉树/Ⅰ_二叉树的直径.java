@@ -1,5 +1,6 @@
 package com.ng.code.menu.二叉树;
 
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 import com.ng.code.util.TreeNode;
 
@@ -16,24 +17,29 @@ import com.ng.code.util.TreeNode;
  * / \
  * 4   5
  * 返回3, 它的长度是路径 [4,2,1,3] 或者[5,2,1,3]。
+ *
+ * [求树的深度]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅰ_二叉树的直径 {
 
     public static void main(String[] args) {
-
+        TreeNode treeNode = TreeNode.createTreeNode(1, 2, 3, 4, 5);
+        LogUtil.pring(treeNode);
+        LogUtil.pring(Ⅰ_二叉树的直径.EasySolution.diameterOfBinaryTree(treeNode));
     }
 
     private static class EasySolution {
 
-        int max = 0;
+        static int max = 0;
 
-        public int diameterOfBinaryTree(TreeNode root) {
+        public static int diameterOfBinaryTree(TreeNode root) {
             depth(root);
             return max;
         }
 
-        public int depth(TreeNode node) {
+        public static int depth(TreeNode node) {
             if (node == null) {
                 return 0;
             }
