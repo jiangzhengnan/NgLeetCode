@@ -32,7 +32,7 @@ import java.util.Queue;
  * 返回值：
  * false
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_判断是不是完全二叉树 {
 
     public static void main(String[] args) {

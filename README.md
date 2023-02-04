@@ -32,13 +32,11 @@
 * [Ⅱ_判断是不是二叉搜索树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是二叉搜索树.java)
 * [Ⅱ_判断是不是完全二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是完全二叉树.java)
 * [Ⅱ_判断是不是平衡二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是平衡二叉树.java)
-* [Ⅱ_在二叉树中找到两个节点的最近公共祖先](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_在二叉树中找到两个节点的最近公共祖先.java)
 * [Ⅱ_对称二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_对称二叉树.java)
 * [Ⅱ_将有序数组转换为二叉搜索树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_将有序数组转换为二叉搜索树.java)
 * [Ⅱ_按之字形顺序打印二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_按之字形顺序打印二叉树.java)
 * [Ⅱ_输出二叉树的右视图](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_输出二叉树的右视图.java)
 * [Ⅱ_重建二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_重建二叉树.java)
-* [Ⅲ_序列化二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅲ_序列化二叉树.java)
 ## 字符串
 * [Ⅰ_无重复字符的最长子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅰ_无重复字符的最长子串.java)
 * [Ⅰ_最长公共前缀](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅰ_最长公共前缀.java)

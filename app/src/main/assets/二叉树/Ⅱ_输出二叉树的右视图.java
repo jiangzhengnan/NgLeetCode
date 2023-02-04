@@ -2,8 +2,11 @@ package com.ng.code.menu.二叉树;
 
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
+import com.ng.code.util.TreeNode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * 日期:
@@ -16,7 +19,7 @@ import java.util.HashMap;
  * 返回值：
  * [1,3,5]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_输出二叉树的右视图 {
 
     public static void main(String[] args) {
@@ -33,18 +36,18 @@ public class Ⅱ_输出二叉树的右视图 {
      */
     private static class EasySolution {
 
-        private static HashMap<Integer, Integer> ans = new HashMap<>();
-        private static HashMap<Integer, Integer> map = new HashMap<>();
-        private static int j = 0;
+        public static HashMap<Integer, Integer> ans = new HashMap<>();
 
-        public static int[] solve(int[] xianxu, int[] zhongxu) {
-            //将xianxu节点的值映射到相应的中序节点的下标。
-            for (int i = 0; i < zhongxu.length; i++) {
-                map.put(zhongxu[i], i);
+        static int level = 0;
+
+        public static int[] solve(int[] preorder, int[] inorder) {
+            List<Integer> preList = new ArrayList<>();
+            List<Integer> inList = new ArrayList<>();
+            for (int i = 0; i < preorder.length; i++) {
+                preList.add(preorder[i]);
+                inList.add(inorder[i]);
             }
-            //开始构建二叉树。
-            build(xianxu, zhongxu, 0, xianxu.length - 1, 0);
-
+            build(preList, inList, 0);
             //创建放回答案的数组
             int[] temp = new int[ans.size()];
 
@@ -52,21 +55,25 @@ public class Ⅱ_输出二叉树的右视图 {
             for (int i = 0; i < ans.size(); i++) {
                 temp[i] = ans.get(i);
             }
-
             return temp;
         }
 
-        public static void build(int[] xianxu, int[] zhongxu, int left, int right, int i) {
-            if (left > right) {
-                return;
+
+        private static TreeNode build(List<Integer> preList, List<Integer> inList, int level) {
+            if (inList.size() == 0) {
+                return null;
             }
-            int index = map.get(xianxu[j++]);
-            //构建左子树
-            build(xianxu, zhongxu, left, index - 1, i + 1);
-            //构建右子树
-            build(xianxu, zhongxu, index + 1, right, i + 1);
+            int rootVal = preList.remove(0);
+
+            TreeNode root = new TreeNode(rootVal);
+
+
+            int mid = inList.indexOf(rootVal);
+            root.left = build(preList, inList.subList(0, mid), level + 1);
+            root.right = build(preList, inList.subList(mid + 1, inList.size()), level + 1);
             //存储第i层的最右边的那个节点。
-            ans.put(i, zhongxu[index]);
+            ans.put(level, root.val);
+            return root;
         }
 
     }

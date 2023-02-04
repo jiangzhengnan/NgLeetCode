@@ -1,5 +1,6 @@
 package com.ng.code.menu.二叉树;
 
+import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 import com.ng.code.util.TreeNode;
 
@@ -15,13 +16,15 @@ import com.ng.code.util.TreeNode;
  * 输出：3
  * 解释：节点 5 和节点 1 的最近公共祖先是节点 3 。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_二叉树的最近公共祖先 {
 
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-
+        TreeNode data = TreeNode.createTreeNode(7, 1, 12, 0, 4, 11, 14, -1, -1, 3, 5);
+        data.print();
+        //LogUtil.pring(Ⅱ_二叉树的最近公共祖先.EasySolution.lowestCommonAncestor(data, 0, 3));
     }
 
     private static class EasySolution {
@@ -54,7 +57,25 @@ public class Ⅱ_二叉树的最近公共祖先 {
     }
 
     private static class HardSolution {
+        public static int lowestCommonAncestor(TreeNode root, int o1, int o2) {
+            return helper(root, o1, o2).val;
+        }
 
+        public static TreeNode helper(TreeNode root, int o1, int o2) {
+            if (root == null || root.val == o1 || root.val == o2)
+                return root;
+            TreeNode left = helper(root.left, o1, o2);
+            TreeNode right = helper(root.right, o1, o2);
+            //如果left为空，说明这两个节点在root结点的右子树上，我们只需要返回右子树查找的结果即可
+            if (left == null)
+                return right;
+            //同上
+            if (right == null)
+                return left;
+            //如果left和right都不为空，说明这两个节点一个在root的左子树上一个在root的右子树上，
+            //我们只需要返回cur结点即可。
+            return root;
+        }
     }
 
 }

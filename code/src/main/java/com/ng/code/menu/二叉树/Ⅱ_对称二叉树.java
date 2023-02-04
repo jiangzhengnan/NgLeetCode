@@ -19,13 +19,13 @@ import java.util.List;
  * 1.[标准的层序遍历]
  * 2.迭代
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_对称二叉树 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(1, 2, 2, 3, 4, 4, 3);
-        LogUtil.pring(EasySolution.isSymmetrical(data));
-        LogUtil.pring(HardSolution.isSymmetrical(data));
+        LogUtil.pring(EasySolution.isSymmetric(data));
+        LogUtil.pring(HardSolution.isSymmetric(data));
     }
 
     /**
@@ -38,7 +38,7 @@ public class Ⅱ_对称二叉树 {
         static int INF = 0x3f3f3f3f;
         static TreeNode emptyNode = new TreeNode(INF);
 
-        static boolean isSymmetrical(TreeNode root) {
+        static boolean isSymmetric(TreeNode root) {
             if (root == null) return true;
 
             Deque<TreeNode> d = new ArrayDeque<>();
@@ -86,7 +86,7 @@ public class Ⅱ_对称二叉树 {
      * 空间:On
      */
     private static class HardSolution {
-        static public boolean isSymmetrical(TreeNode root) {
+        static public boolean isSymmetric(TreeNode root) {
             return check(root, root);
         }
 

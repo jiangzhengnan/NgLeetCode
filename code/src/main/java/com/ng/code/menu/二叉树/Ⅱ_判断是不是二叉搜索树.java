@@ -25,14 +25,14 @@ import com.ng.code.util.TreeNode;
  * 返回值：
  * true
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_判断是不是二叉搜索树 {
 
     public static void main(String[] args) {
         TreeNode data1 = TreeNode.createTreeNode(1, 2, 3);
-        TreeNode data2 = TreeNode.createTreeNode(2, 1, 3);
+        TreeNode data2 = TreeNode.createTreeNode(5,1,4,-1,-1,3,6);
 
-        LogUtil.pring(HardSolution.isValidBST(data1));
+        LogUtil.pring(EasySolution.isValidBST(data1));
         LogUtil.pring(HardSolution.isValidBST(data2));
 
     }
@@ -42,11 +42,11 @@ public class Ⅱ_判断是不是二叉搜索树 {
      */
     private static class EasySolution {
 
-        public boolean isValidBST(TreeNode root) {
+        public static boolean isValidBST(TreeNode root) {
             return isValidBST(root, null, null);
         }
 
-        public boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
+        public static boolean isValidBST(TreeNode root, TreeNode min, TreeNode max) {
             if (root == null) {
                 return true;
             }

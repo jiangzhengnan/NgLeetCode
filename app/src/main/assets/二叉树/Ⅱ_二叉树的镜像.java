@@ -21,7 +21,7 @@ import java.util.Stack;
  * 说明：
  * 如题面所示
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_二叉树的镜像 {
 
     public static void main(String[] args) {

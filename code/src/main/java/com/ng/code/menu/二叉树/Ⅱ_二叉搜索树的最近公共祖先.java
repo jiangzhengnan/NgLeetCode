@@ -26,7 +26,7 @@ import com.ng.code.util.TreeNode;
  * 说明：
  * 节点1 和 节点12的最近公共祖先是7
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_二叉搜索树的最近公共祖先 {
 
     public static void main(String[] args) {
@@ -60,7 +60,28 @@ public class Ⅱ_二叉搜索树的最近公共祖先 {
      * 无
      */
     private static class HardSolution {
+        public static int lowestCommonAncestor(TreeNode root, int p, int q) {
+            return query(root, p, q);
+        }
 
+        private static int query(TreeNode node, int p, int q) {
+            if (node == null) {
+                return -1;
+            }
+            if (node.val == p) {
+                return p;
+            }
+            if (node.val == q) {
+                return q;
+            }
+            if (node.val < p && node.val < q) {
+                return query(node.right, p, q);
+            } else if (node.val > p && node.val > q) {
+                return query(node.left, p, q);
+            } else {
+                return node.val;
+            }
+        }
     }
 
 }
