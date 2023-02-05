@@ -29,11 +29,11 @@ import com.ng.code.util.Solution;
  * 返回值：
  * -10
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅰ_连续子数组的最大和 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.FindGreatestSumOfSubArray(new int[]{-2, -8, -1, -5, -9}));
+        LogUtil.pring(EasySolution.FindGreatestSumOfSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5}));
     }
 
     //动态规划

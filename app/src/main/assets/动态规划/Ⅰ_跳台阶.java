@@ -8,7 +8,7 @@ import com.ng.code.util.Solution;
  * 类似斐波那契
  * 递归解法比较简单这里不提了
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 0)
 public class Ⅰ_跳台阶 {
 
     public static void main(String[] args) {

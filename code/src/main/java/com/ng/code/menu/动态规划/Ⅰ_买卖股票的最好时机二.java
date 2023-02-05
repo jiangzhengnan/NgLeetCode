@@ -26,7 +26,7 @@ import com.ng.code.util.Solution;
  * 在第5天(股票价格=4)买入，第6天(股票价格=7)卖出，获利7-4=3
  * 总获利1+3+3=7，返回7
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 0)
 public class Ⅰ_买卖股票的最好时机二 {
 
     public static void main(String[] args) {
