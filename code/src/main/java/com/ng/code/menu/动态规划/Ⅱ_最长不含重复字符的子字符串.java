@@ -3,10 +3,7 @@ package com.ng.code.menu.动态规划;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Ⅰ Ⅱ Ⅲ
@@ -22,7 +19,7 @@ import java.util.Map;
  * 说明：
  * 因为无重复字符的最长子串是"abc"，所以其长度为 3。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_最长不含重复字符的子字符串 {
 
     public static void main(String[] args) {

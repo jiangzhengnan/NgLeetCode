@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输出: 0
  * 解释: Node结果不能为 2, 因为 [-2,-1] 不是子数组。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_乘积最大子数组 {
 
     public static void main(String[] args) {

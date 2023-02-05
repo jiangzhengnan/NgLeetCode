@@ -28,7 +28,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 2
  */
-@Solution(easy = 0, hard = 0, partice = 2)
+@Solution(easy = 1, hard = 0, partice = 2)
 public class Ⅱ_不同路径的数目一 {
 
     public static void main(String[] args) {

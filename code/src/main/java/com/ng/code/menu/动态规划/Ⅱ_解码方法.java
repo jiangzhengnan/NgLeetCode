@@ -59,7 +59,8 @@ public class Ⅱ_解码方法 {
                     f[i] += f[i - 1];
                 }
                 //这里下标差1是因为fi = 表示s.char[i-1]处的动态规划
-                if (i > 1 && s.charAt(i - 2) != '0' && ((s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0') <= 26)) {
+                if (i > 1 && s.charAt(i - 2) != '0' &&
+                        ((s.charAt(i - 2) - '0') * 10 + (s.charAt(i - 1) - '0') <= 26)) {
                     f[i] += f[i - 2];
                 }
             }

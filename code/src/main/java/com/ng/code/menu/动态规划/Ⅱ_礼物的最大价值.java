@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * <p>
  * Ⅱ_矩阵的最小路径和的镜像题
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_礼物的最大价值 {
 
     public static void main(String[] args) {

@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 7
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 0)
 public class Ⅱ_矩阵的最小路径和 {
 
     public static void main(String[] args) {
