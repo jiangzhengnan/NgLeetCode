@@ -30,7 +30,7 @@ import java.util.Arrays;
 public class Ⅱ_兑换零钱一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.coinChange(new int[]{2}, 3));
+        LogUtil.pring(EasySolution.coinChange(new int[]{1, 2, 5}, 11));
 
     }
 
@@ -38,9 +38,8 @@ public class Ⅱ_兑换零钱一 {
 
         /**
          * https://leetcode.cn/problems/coin-change/solution/322-ling-qian-dui-huan-by-leetcode-solution/
-         * @param coins
-         * @param amount
-         * @return
+         * 判断金额凑不出的小技巧：先初始化DP table各个元素为amount + 1（代表不可能存在的情况），
+         * 在遍历时如果金额凑不出则不更新，于是若最后结果仍然是amount + 1，则表示金额凑不出
          */
         public static int coinChange(int[] coins, int amount) {
             int max = amount +1 ;
@@ -49,7 +48,7 @@ public class Ⅱ_兑换零钱一 {
             dp[0] = 0;
             for (int i = 1; i <= amount; i++) {
                 for (int j = 0; j < coins.length; j++) {
-                    if (coins[j] <= i) {
+                    if ( i >= coins[j]) {
                         dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
                     }
                 }

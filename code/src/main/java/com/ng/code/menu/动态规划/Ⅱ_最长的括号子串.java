@@ -3,11 +3,12 @@ package com.ng.code.menu.动态规划;
 import com.ng.code.util.LogUtil;
 import com.ng.code.util.Solution;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * 原题描述:
+ * https://leetcode.cn/problems/longest-valid-parentheses/
+ *
  * 给出一个长度为 n 的，仅包含字符 '(' 和 ')' 的字符串，计算最长的格式正确的括号子串的长度。
  * 例1: 对于字符串 "(()" 来说，最长的格式正确的子串是 "()" ，长度为 2 .
  * 例2：对于字符串 ")()())" , 来说, 最长的格式正确的子串是 "()()" ，长度为 4 .
@@ -43,7 +44,7 @@ public class Ⅱ_最长的括号子串 {
             }
             int max = 0;
             char[] c = s.toCharArray();
-            Deque<Integer> stack = new LinkedList<>();
+            Stack<Integer> stack = new Stack<>();
             stack.push(-1);
             for (int i = 0; i < n; i++) {
                 if (c[i] == '(') {
