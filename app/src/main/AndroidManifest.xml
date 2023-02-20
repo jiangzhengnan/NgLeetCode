@@ -17,6 +17,10 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MyApplication.NoActionBar">
+        </activity>
+
+        <activity android:name="com.ng.train.handler.TestHandlerActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

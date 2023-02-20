@@ -1,3 +1,5 @@
 rootProject.name = "NgLeetCode"
 include ':app'
 include ':code'
+include ':train'
+include ':opensource'

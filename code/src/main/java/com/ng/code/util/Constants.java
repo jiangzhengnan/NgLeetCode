@@ -14,7 +14,7 @@ public class Constants {
     public static final String GITHUB_LINK_HEAD = "https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/";
 
     //private static final String OS_PROJECTS_PATH = "/Users/yeziqing/AndroidStudioProjects/NgLeetCode/";
-    private static final String OS_PROJECTS_PATH = "/Users/xiaoguagua/AndroidProjects/MyProjects/NgLeetCode/";
+    private static final String OS_PROJECTS_PATH = "/Users/xiaoguagua/AndroidProjects/OpenSourceProjects/NgLeetCode/";
     //private static final String OS_PROJECTS_PATH = "/D:/AndroidStudioProjects/NgLeetCode/";
 
     public static final String README_FILE_PATH = OS_PROJECTS_PATH + "README.md";
