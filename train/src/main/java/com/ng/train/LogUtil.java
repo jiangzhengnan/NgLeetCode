@@ -1,7 +1,5 @@
 package com.ng.train;
 
-import android.util.Log;
-
 import androidx.annotation.Nullable;
 
 /**
@@ -10,12 +8,6 @@ import androidx.annotation.Nullable;
  * @description :
  */
 public class LogUtil {
-    public static void d(@Nullable String msg) {
-        if (msg == null) {
-            return;
-        }
-        Log.d("nangua", msg);
-    }
 
     public static void print(@Nullable String msg) {
         if (msg == null) {
