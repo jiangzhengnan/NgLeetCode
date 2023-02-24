@@ -2,7 +2,7 @@ package com.ng.code.menu.双指针;
 
 import java.util.Arrays;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**

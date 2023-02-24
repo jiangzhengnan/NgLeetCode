@@ -1,4 +1,4 @@
-package com.ng.code.util;
+package com.ng.base;
 
 public class TreeNode {
     public int val = 0;

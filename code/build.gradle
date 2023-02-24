@@ -37,4 +37,5 @@ dependencies {
     api 'com.alibaba:fastjson:1.1.55.android'
     api 'androidx.recyclerview:recyclerview:1.2.0-alpha03'
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7'
+    implementation project(path: ':base')
 }

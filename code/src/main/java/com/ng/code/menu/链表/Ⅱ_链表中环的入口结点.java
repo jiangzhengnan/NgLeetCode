@@ -1,6 +1,6 @@
 package com.ng.code.menu.链表;
 
-import com.ng.code.util.ListNode;
+import com.ng.base.ListNode;
 import com.ng.code.util.Solution;
 
 /**

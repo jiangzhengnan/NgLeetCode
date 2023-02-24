@@ -1,6 +1,6 @@
 package com.ng.code.menu.位运算;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**

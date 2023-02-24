@@ -1,7 +1,7 @@
 package com.ng.code.menu.二叉树;
 
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.Stack;
 

@@ -15,6 +15,8 @@ import java.util.Set;
 
 import android.util.Log;
 
+import com.ng.base.LogUtil;
+
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com

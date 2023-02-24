@@ -1,4 +1,4 @@
-package com.ng.code.util;
+package com.ng.base;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com

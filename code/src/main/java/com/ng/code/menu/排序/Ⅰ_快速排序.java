@@ -1,6 +1,6 @@
 package com.ng.code.menu.排序;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 @Solution(easy = 0, hard = 0, partice = 0)

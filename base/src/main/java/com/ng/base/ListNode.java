@@ -1,4 +1,4 @@
-package com.ng.code.util;
+package com.ng.base;
 
 public class ListNode {
     public int val;

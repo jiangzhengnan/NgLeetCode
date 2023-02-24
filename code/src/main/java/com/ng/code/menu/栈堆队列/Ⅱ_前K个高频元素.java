@@ -2,7 +2,7 @@ package com.ng.code.menu.栈堆队列;
 
 import android.annotation.SuppressLint;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Comparator;

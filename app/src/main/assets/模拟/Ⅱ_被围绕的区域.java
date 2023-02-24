@@ -3,7 +3,7 @@ package com.ng.code.menu.模拟;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
