@@ -43,7 +43,7 @@ public class Ⅱ_矩阵最长递增路径 {
                 {4, 5, 6},
                 {7, 8, 9},
         };
-        LogUtil.pring(EasySolution.solve(data));
+        LogUtil.print(EasySolution.solve(data));
     }
 
     /**

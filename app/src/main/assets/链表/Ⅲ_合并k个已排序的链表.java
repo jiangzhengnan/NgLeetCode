@@ -31,8 +31,8 @@ import java.util.ArrayList;
 public class Ⅲ_合并k个已排序的链表 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.mergeKLists(getData()));
-        LogUtil.pring(HardSolution.mergeKLists(getData()));
+        LogUtil.print(EasySolution.mergeKLists(getData()));
+        LogUtil.print(HardSolution.mergeKLists(getData()));
     }
 
     private static ArrayList<ListNode> getData() {

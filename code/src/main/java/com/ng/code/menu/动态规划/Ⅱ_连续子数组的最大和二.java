@@ -29,7 +29,7 @@ import java.util.List;
 public class Ⅱ_连续子数组的最大和二 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.FindGreatestSumOfSubArray(new int[]{-2, -8, -1, -5, -9}));
+        LogUtil.print(EasySolution.FindGreatestSumOfSubArray(new int[]{-2, -8, -1, -5, -9}));
 
     }
 

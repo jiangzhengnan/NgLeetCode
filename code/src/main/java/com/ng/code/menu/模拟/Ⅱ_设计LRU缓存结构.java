@@ -122,7 +122,7 @@ public class Ⅱ_设计LRU缓存结构 {
 				{2,3},
 				{2,4}
 		};
-		LogUtil.pring(LRU(op,2));
+		LogUtil.print(LRU(op, 2));
 		// 1 -1 -1 3 4
 	}
 

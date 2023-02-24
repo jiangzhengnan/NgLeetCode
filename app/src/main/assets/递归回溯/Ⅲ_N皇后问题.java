@@ -25,7 +25,7 @@ import java.util.Set;
 public class Ⅲ_N皇后问题 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.Nqueen(8));
+        LogUtil.print(EasySolution.Nqueen(8));
     }
 
     /**

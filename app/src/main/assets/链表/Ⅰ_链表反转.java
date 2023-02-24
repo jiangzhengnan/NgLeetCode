@@ -15,10 +15,10 @@ public class Ⅰ_链表反转 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(36,4);
-        LogUtil.pring(data);
+        LogUtil.print(data);
 
         //LogUtil.pring(EasySolution.reverseList(data));
-        LogUtil.pring(HardSolution.reverseList(data));
+        LogUtil.print(HardSolution.reverseList(data));
     }
 
     //递归

@@ -23,7 +23,7 @@ public class Ⅱ_将有序数组转换为二叉搜索树 {
         HardSolution hardSolution = new HardSolution();
         int[] arrayData = new int[]{-10, -3, 0, 5, 9};
 
-        LogUtil.pring(easySolution.sortedArrayToBST(arrayData));
+        LogUtil.print(easySolution.sortedArrayToBST(arrayData));
     }
 
     /**

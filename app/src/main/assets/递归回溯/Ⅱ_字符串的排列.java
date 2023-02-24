@@ -49,7 +49,7 @@ public class Ⅱ_字符串的排列 {
 
     public static void main(String[] args) {
         String data = "abc";
-        LogUtil.pring(HardSolution.Permutation(data).toString());
+        LogUtil.print(HardSolution.Permutation(data).toString());
     }
 
     /**
@@ -104,7 +104,7 @@ public class Ⅱ_字符串的排列 {
         public static void recur(String str, String cur, ArrayList<String> result) {
             if (str.length() == 0) {
                 if (!result.contains(cur)) {
-                    LogUtil.pring("添加合集:" + cur);
+                    LogUtil.print("添加合集:" + cur);
                     result.add(cur);
                 }
             }

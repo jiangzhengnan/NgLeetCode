@@ -21,8 +21,8 @@ public class Ⅰ_有效括号序列 {
     public static void main(String[] args) {
         String data = "([)]";
         String data2 = "[()]";
-        LogUtil.pring(EasySolution.isValid(data));
-        LogUtil.pring(EasySolution.isValid(data2));
+        LogUtil.print(EasySolution.isValid(data));
+        LogUtil.print(EasySolution.isValid(data2));
     }
 
     /**

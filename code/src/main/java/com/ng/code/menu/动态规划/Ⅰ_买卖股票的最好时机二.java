@@ -31,7 +31,7 @@ public class Ⅰ_买卖股票的最好时机二 {
 
     public static void main(String[] args) {
         int[] data = new int[]{8, 9, 2, 5, 4, 7, 1};
-        LogUtil.pring(EasySolution.maxProfit(data));
+        LogUtil.print(EasySolution.maxProfit(data));
     }
 
     //直接求每一天比前一天赚了多少，累加

@@ -16,7 +16,7 @@ public class Ⅱ_桶排序 {
     public static void main(String[] args) {
         int[] array = new int[]{99, 88, 77, 33, 25, 14, 45, 55, 61};
         sort(array);
-        LogUtil.pring(array);
+        LogUtil.print(array);
     }
 
     public static void sort(int[] nums) {
@@ -38,7 +38,7 @@ public class Ⅱ_桶排序 {
         for (int i = 0; i < length; i++) {
             //找到桶的下标
             int index = (nums[i] - min) / length;
-            LogUtil.pring("下表:" + index );
+            LogUtil.print("下表:" + index);
             //添加到指定下标的桶里，并且使用插入排序排序
             bucketArrays[index] = insertSortArrays(bucketArrays[index], nums[i]);
         }
@@ -57,7 +57,7 @@ public class Ⅱ_桶排序 {
 
     //每个桶使用插入排序进行排序
     private static int[] insertSortArrays(int[] arr, int num) {
-        LogUtil.pring(arr);
+        LogUtil.print(arr);
         if (arr == null || arr.length == 0) {
             return new int[]{num};
         }
@@ -75,7 +75,7 @@ public class Ⅱ_桶排序 {
         //插入需要添加的值
         temp[i + 1] = num;
         //返回
-        LogUtil.pring(temp);
+        LogUtil.print(temp);
         return temp;
     }
 }

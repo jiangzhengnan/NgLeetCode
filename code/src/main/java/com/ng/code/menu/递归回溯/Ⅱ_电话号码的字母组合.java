@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_电话号码的字母组合 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.letterCombinations("23").toString());
+        LogUtil.print(EasySolution.letterCombinations("23").toString());
     }
 
     private static class EasySolution {

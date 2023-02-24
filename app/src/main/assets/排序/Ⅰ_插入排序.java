@@ -16,7 +16,7 @@ public class Ⅰ_插入排序 {
     public static void main(String[] args) {
         int[] array = new int[]{9, 8, 7, 3, 2, 1, 4, 5, 6};
         sort(array);
-        LogUtil.pring(array);
+        LogUtil.print(array);
     }
 
     /**

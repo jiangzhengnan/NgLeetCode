@@ -26,8 +26,8 @@ public class Ⅰ_二叉树的直径 {
 
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.createTreeNode(1, 2, 3, 4, 5);
-        LogUtil.pring(treeNode);
-        LogUtil.pring(Ⅰ_二叉树的直径.EasySolution.diameterOfBinaryTree(treeNode));
+        LogUtil.print(treeNode);
+        LogUtil.print(Ⅰ_二叉树的直径.EasySolution.diameterOfBinaryTree(treeNode));
     }
 
     private static class EasySolution {

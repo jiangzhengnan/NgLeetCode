@@ -28,7 +28,7 @@ public class Ⅱ_字符串变形 {
     public static void main(String[] args) {
         String a = "h i ";
 
-        LogUtil.pring(EasySolution.trans(a, 4));
+        LogUtil.print(EasySolution.trans(a, 4));
 //        LogUtil.pring(EasySolution.trans(b, 3));
 
     }

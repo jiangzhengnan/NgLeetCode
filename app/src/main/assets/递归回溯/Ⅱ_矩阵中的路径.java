@@ -22,7 +22,7 @@ public class Ⅱ_矩阵中的路径 {
                 {'s', 'f', 'c', 's'},
                 {'a', 'd', 'e', 'e'},
         };
-        LogUtil.pring(EasySolution.hasPath(data, "abcced"));
+        LogUtil.print(EasySolution.hasPath(data, "abcced"));
     }
 
     private static class EasySolution {

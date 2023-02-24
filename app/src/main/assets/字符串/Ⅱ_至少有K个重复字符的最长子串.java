@@ -35,7 +35,7 @@ public class Ⅱ_至少有K个重复字符的最长子串 {
         HardSolution hardSolution = new HardSolution();
 
         String s = "aaabb";
-        LogUtil.pring(easySolution.longestSubstring(s, 3));
+        LogUtil.print(easySolution.longestSubstring(s, 3));
     }
 
     /**

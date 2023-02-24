@@ -31,7 +31,7 @@ public class Ⅱ_礼物的最大价值 {
         int[][] data = new int[][]{
                 {9, 1, 4, 8}
         };
-        LogUtil.pring(EasySolution.maxValue(data));
+        LogUtil.print(EasySolution.maxValue(data));
     }
 
     /**
@@ -69,7 +69,7 @@ public class Ⅱ_礼物的最大价值 {
                     dp[x][y] = Math.max(dp[x - 1][y], dp[x][y - 1]) + grid[i][j];
                 }
             }
-            LogUtil.pring(dp);
+            LogUtil.print(dp);
             return dp[grid.length][grid[0].length];
         }
 

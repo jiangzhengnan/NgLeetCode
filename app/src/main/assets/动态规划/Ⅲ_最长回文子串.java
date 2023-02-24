@@ -36,7 +36,7 @@ import com.ng.code.util.Solution;
 public class Ⅲ_最长回文子串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.longestPalindrome("ababa"));
+        LogUtil.print(EasySolution.longestPalindrome("ababa"));
 
     }
 

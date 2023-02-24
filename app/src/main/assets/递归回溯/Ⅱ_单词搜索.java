@@ -29,7 +29,7 @@ public class Ⅱ_单词搜索 {
           {'S', 'F', 'C', 'S'},
           {'A', 'D', 'E', 'F'}
         };
-        LogUtil.pring(easySolution.exist(stringsData2, "ABCCED"));
+        LogUtil.print(easySolution.exist(stringsData2, "ABCCED"));
     }
 
     /**

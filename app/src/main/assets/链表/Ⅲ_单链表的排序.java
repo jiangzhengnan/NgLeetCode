@@ -14,7 +14,7 @@ public class Ⅲ_单链表的排序 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);
-        LogUtil.pring(HardSolution.sortInList(data));
+        LogUtil.print(HardSolution.sortInList(data));
     }
 
     //辅助数组排序

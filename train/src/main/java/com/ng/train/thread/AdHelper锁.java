@@ -38,7 +38,7 @@ public class AdHelper锁 {
                 public void run() {
                     randomSleep();
 
-                    LogUtil.pring(Thread.currentThread()
+                    LogUtil.print(Thread.currentThread()
                                         .getName() + " init run :" + sCallbacks.size());
 
                     //sInitLock.lock();
@@ -49,17 +49,17 @@ public class AdHelper锁 {
                     //sInitLock.unlock();
                     sInitLockNew.readLock().unlock();
 
-                    LogUtil.pring(callbacksCopy.size() + " ");
+                    LogUtil.print(callbacksCopy.size() + " ");
 
                     Iterator<AdnInitCallback> it = callbacksCopy.iterator();
                     int index = 0;
                     while (it.hasNext()) {
                         AdnInitCallback callback = it.next();
                         if (callback != null) {
-                            LogUtil.pring(index + " do");
+                            LogUtil.print(index + " do");
                             callback.success();
                         } else {
-                            LogUtil.pring(index + " null");
+                            LogUtil.print(index + " null");
                         }
                         index++;
                         it.remove();
@@ -89,7 +89,7 @@ public class AdHelper锁 {
 
                         @Override
                         public void success() {
-                            LogUtil.pring(Thread.currentThread()
+                            LogUtil.print(Thread.currentThread()
                                                 .getName() + " success" + (System.currentTimeMillis() - startTime));
                         }
 
@@ -98,7 +98,7 @@ public class AdHelper锁 {
 
                         }
                     });
-                    LogUtil.pring(Thread.currentThread()
+                    LogUtil.print(Thread.currentThread()
                                         .getName() + " test run :" + sCallbacks.size());
 
                 }

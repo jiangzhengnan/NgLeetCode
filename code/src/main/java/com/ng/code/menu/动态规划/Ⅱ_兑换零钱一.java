@@ -30,7 +30,7 @@ import java.util.Arrays;
 public class Ⅱ_兑换零钱一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.coinChange(new int[]{1, 2, 5}, 11));
+        LogUtil.print(EasySolution.coinChange(new int[]{1, 2, 5}, 11));
 
     }
 

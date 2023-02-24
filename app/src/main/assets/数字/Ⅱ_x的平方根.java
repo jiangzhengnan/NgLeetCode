@@ -27,7 +27,7 @@ public class Ⅱ_x的平方根 {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
 
-        LogUtil.pring(easySolution.mySqrt(25));
+        LogUtil.print(easySolution.mySqrt(25));
     }
 
     /**

@@ -29,7 +29,7 @@ public class Ⅱ_分割回文串 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-        LogUtil.pring(easySolution.partition("cdd").toString());
+        LogUtil.print(easySolution.partition("cdd").toString());
     }
 
     /**

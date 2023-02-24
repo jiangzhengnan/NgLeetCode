@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_最长公共子串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.LCS("1AB2345CD", "12345EF"));
+        LogUtil.print(EasySolution.LCS("1AB2345CD", "12345EF"));
     }
 
     /**

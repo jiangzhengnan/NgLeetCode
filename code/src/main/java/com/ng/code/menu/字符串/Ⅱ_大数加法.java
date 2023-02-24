@@ -26,7 +26,7 @@ import java.util.Stack;
 public class Ⅱ_大数加法 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.solve("1", "99"));
+        LogUtil.print(EasySolution.solve("1", "99"));
     }
 
     //栈

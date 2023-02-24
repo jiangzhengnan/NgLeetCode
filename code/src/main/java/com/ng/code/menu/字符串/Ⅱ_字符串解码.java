@@ -37,9 +37,9 @@ public class Ⅱ_字符串解码 {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
         String data = "3[a2[c]]3[a]2[bc]";
-        LogUtil.pring(easySolution.decodeString(data));
+        LogUtil.print(easySolution.decodeString(data));
 
-        LogUtil.pring(hardSolution.decodeString(data));
+        LogUtil.print(hardSolution.decodeString(data));
 
     }
 

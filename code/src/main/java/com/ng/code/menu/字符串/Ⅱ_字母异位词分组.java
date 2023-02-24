@@ -25,7 +25,7 @@ public class Ⅱ_字母异位词分组 {
     public static void main(String[] args) {
         String[] data = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
         //[["bat"],["nat","tan"],["ate","eat","tea"]]
-        LogUtil.pring(EasySolution.groupAnagrams(data).toString());
+        LogUtil.print(EasySolution.groupAnagrams(data).toString());
     }
 
     private static class EasySolution {

@@ -34,7 +34,7 @@ public class Ⅱ_有重复项数字的全排列 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 1, 2};
-        LogUtil.pring(EasySolution.permuteUnique(data).toString());
+        LogUtil.print(EasySolution.permuteUnique(data).toString());
     }
 
     /**

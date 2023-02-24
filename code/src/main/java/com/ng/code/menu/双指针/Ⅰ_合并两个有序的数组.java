@@ -28,7 +28,7 @@ public class Ⅰ_合并两个有序的数组 {
         int[] a = new int[]{4, 5, 6, 0, 0, 0};
         int[] b = new int[]{1, 2, 3};
         EasySolution.merge(a, 3, b, 3);
-        LogUtil.pring(a);
+        LogUtil.print(a);
     }
 
     private static class EasySolution {

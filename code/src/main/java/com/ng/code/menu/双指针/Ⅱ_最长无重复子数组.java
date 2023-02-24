@@ -1,6 +1,5 @@
 package com.ng.code.menu.双指针;
 
-import com.ng.base.ListNode;
 import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
@@ -27,9 +26,9 @@ public class Ⅱ_最长无重复子数组 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1,2,1,4,1,5,6,7,8,1};
-        LogUtil.pring(EasySolution.maxLength(data));
+        LogUtil.print(EasySolution.maxLength(data));
 
-        LogUtil.pring(HardSolution.maxLength(data));
+        LogUtil.print(HardSolution.maxLength(data));
     }
 
     private static class EasySolution {

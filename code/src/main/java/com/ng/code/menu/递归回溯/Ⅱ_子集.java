@@ -28,7 +28,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_子集 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.subsets(new int[]{1, 2, 3}).toString());
+        LogUtil.print(EasySolution.subsets(new int[]{1, 2, 3}).toString());
 
     }
 

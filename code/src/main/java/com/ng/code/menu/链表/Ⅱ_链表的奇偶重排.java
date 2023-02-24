@@ -26,7 +26,7 @@ public class Ⅱ_链表的奇偶重排 {
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3, 4, 5, 6, 7, 8);
 
-        LogUtil.pring(HardSolution.oddEvenList(data));
+        LogUtil.print(HardSolution.oddEvenList(data));
     }
 
     private static class EasySolution {

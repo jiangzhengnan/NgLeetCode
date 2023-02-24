@@ -26,8 +26,8 @@ public class Ⅱ_寻找第K大 {
     public static void main(String[] args) {
         int[] data = new int[]{1, 3, 5, 2, 2};
 
-        LogUtil.pring(EasySolution.findKth(data, 5, 3));
-        LogUtil.pring(HardSolution.findKth(data, 5, 3));
+        LogUtil.print(EasySolution.findKth(data, 5, 3));
+        LogUtil.print(HardSolution.findKth(data, 5, 3));
 
     }
 

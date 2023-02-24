@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_最长上升子序列一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.LIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
+        LogUtil.print(EasySolution.LIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
     }
 
     /**

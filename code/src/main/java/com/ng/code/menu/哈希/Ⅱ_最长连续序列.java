@@ -31,8 +31,8 @@ public class Ⅱ_最长连续序列 {
 
         int[] array1 = new int[]{100, 4, 200, 1, 3, 2};
         int[] array2 = new int[]{0, 3, 7, 2, 5, 8, 4, 6, 0, 1};
-        LogUtil.pring(easySolution.longestConsecutive(array1));
-        LogUtil.pring(easySolution.longestConsecutive(array2));
+        LogUtil.print(easySolution.longestConsecutive(array1));
+        LogUtil.print(easySolution.longestConsecutive(array2));
     }
 
     private static class EasySolution {

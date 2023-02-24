@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_链表内指定区间反转 {
 
     public static void main(String[] args) {
-        LogUtil.pring(
+        LogUtil.print(
                 HardSolution.reverseBetween(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5, 6}), 2, 4));
     }
 
@@ -33,7 +33,7 @@ public class Ⅱ_链表内指定区间反转 {
             dummyNode.next = head;
             ListNode pre = dummyNode;
 
-            LogUtil.pring(dummyNode);
+            LogUtil.print(dummyNode);
 
 
             //确定头节点
@@ -43,8 +43,8 @@ public class Ⅱ_链表内指定区间反转 {
             ListNode cur = pre.next;
             ListNode Cur_next = null;
             for (int i = 0; i < n - m; i++) {
-                LogUtil.pring("cur:" + cur.val);
-                LogUtil.pring("cur_next:" + (Cur_next == null ? "null" : Cur_next.val+""));
+                LogUtil.print("cur:" + cur.val);
+                LogUtil.print("cur_next:" + (Cur_next == null ? "null" : Cur_next.val + ""));
 
                 Cur_next = cur.next;
                 cur.next = Cur_next.next;

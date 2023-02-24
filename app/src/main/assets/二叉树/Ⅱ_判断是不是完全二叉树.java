@@ -38,8 +38,8 @@ public class Ⅱ_判断是不是完全二叉树 {
     public static void main(String[] args) {
         TreeNode data1 = TreeNode.createTreeNode(1, 2, 3, 4, 5, 6, 7);
         TreeNode data2 = TreeNode.createTreeNode(1, 2, 3, 4, 5, -1, 6);
-        LogUtil.pring(EasySolution.isCompleteTree(data1));
-        LogUtil.pring(EasySolution.isCompleteTree(data2));
+        LogUtil.print(EasySolution.isCompleteTree(data1));
+        LogUtil.print(EasySolution.isCompleteTree(data2));
     }
 
     /**

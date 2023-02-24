@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
 public class Ⅲ_链表中的节点每k个一组翻转 {
 
     public static void main(String[] args) {
-        LogUtil.pring(reverseGroup(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));
+        LogUtil.print(reverseGroup(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2));
     }
 
     // pre ->start        end -> next

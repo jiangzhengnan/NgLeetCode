@@ -23,8 +23,8 @@ import java.util.List;
 public class Ⅱ_输出二叉树的右视图 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.solve(new int[]{1, 2, 4, 5, 3},
-                new int[]{4, 2, 5, 1, 3}));
+        LogUtil.print(EasySolution.solve(new int[]{1, 2, 4, 5, 3},
+                                         new int[]{4, 2, 5, 1, 3}));
     }
 
     /**

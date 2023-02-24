@@ -34,7 +34,7 @@ public class Ⅱ_被围绕的区域 {
           };
 
         easySolution.solve(board);
-        LogUtil.pring(board);
+        LogUtil.print(board);
     }
 
     /**

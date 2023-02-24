@@ -12,7 +12,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_跳台阶 {
 
     public static void main(String[] args) {
-        LogUtil.pring(jumpFloor(7));
+        LogUtil.print(jumpFloor(7));
     }
 
     public static int jumpFloor(int n) {

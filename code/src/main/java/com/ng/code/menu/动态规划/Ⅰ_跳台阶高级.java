@@ -20,7 +20,7 @@ public class Ⅰ_跳台阶高级 {
 
     public static void main(String[] args) {
 
-        LogUtil.pring( 2 << 1);
+        LogUtil.print(2 << 1);
     }
 
     /**

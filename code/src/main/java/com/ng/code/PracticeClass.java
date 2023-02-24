@@ -1,15 +1,12 @@
 package com.ng.code;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.ng.base.LogUtil;
 
 public class PracticeClass {
@@ -29,21 +26,21 @@ public class PracticeClass {
             public void run() {
                 randomSleep();
 
-                LogUtil.pring(Thread.currentThread().getName() + " init run :" + sCallbacks.size());
+                LogUtil.print(Thread.currentThread().getName() + " init run :" + sCallbacks.size());
                 sInitLock.lock();
                 List<AdnInitCallback> callbacksCopy = new ArrayList<>(sCallbacks);
                 sInitLock.unlock();
-                LogUtil.pring(callbacksCopy.size() + " ");
+                LogUtil.print(callbacksCopy.size() + " ");
 
                 Iterator<AdnInitCallback> it = callbacksCopy.iterator();
                 int index = 0;
                 while (it.hasNext()) {
                     AdnInitCallback callback = it.next();
                     if (callback != null) {
-                        LogUtil.pring(index + " do");
+                        LogUtil.print(index + " do");
                         callback.success();
                     } else {
-                        LogUtil.pring(index + " null");
+                        LogUtil.print(index + " null");
                     }
                     index++;
                     it.remove();
@@ -72,7 +69,7 @@ public class PracticeClass {
 
                         @Override
                         public void success() {
-                            LogUtil.pring(Thread.currentThread().getName() + " success");
+                            LogUtil.print(Thread.currentThread().getName() + " success");
                         }
 
                         @Override
@@ -80,7 +77,7 @@ public class PracticeClass {
 
                         }
                     });
-                    LogUtil.pring(Thread.currentThread()
+                    LogUtil.print(Thread.currentThread()
                                         .getName() + " test run :" + sCallbacks.size());
 
                 }

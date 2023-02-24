@@ -32,7 +32,7 @@ public class Ⅱ_逆波兰表达式求值 {
         HardSolution hardSolution = new HardSolution();
 
         String[] tokens = new String[]{"2", "1", "+", "3", "*"};
-        LogUtil.pring(easySolution.evalRPN(tokens));
+        LogUtil.print(easySolution.evalRPN(tokens));
 
     }
 

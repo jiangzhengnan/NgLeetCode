@@ -36,7 +36,7 @@ import java.util.Arrays;
 public class Ⅱ_打家劫舍二 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.getRob(new int[]{1, 2, 3, 4}));
+        LogUtil.print(EasySolution.getRob(new int[]{1, 2, 3, 4}));
     }
 
     /**

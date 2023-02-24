@@ -36,7 +36,7 @@ public class Ⅱ_解码方法 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-        LogUtil.pring(easySolution.numDecodings("226"));
+        LogUtil.print(easySolution.numDecodings("226"));
 
     }
 

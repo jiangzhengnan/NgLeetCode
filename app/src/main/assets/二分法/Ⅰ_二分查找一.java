@@ -14,7 +14,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_二分查找一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(HardSolution.search(new int[]{-1, 0, 3, 4, 6, 10, 13, 14}, 13));
+        LogUtil.print(HardSolution.search(new int[]{-1, 0, 3, 4, 6, 10, 13, 14}, 13));
     }
 
     /**

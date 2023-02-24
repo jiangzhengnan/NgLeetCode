@@ -43,7 +43,7 @@ public class Ⅰ_二维数组中的查找 {
                 {4, 7, 10, 13},
                 {6, 8, 11, 15}
         };
-        LogUtil.pring(HardSolution.Find(7, data));
+        LogUtil.print(HardSolution.Find(7, data));
     }
 
     //暴力法

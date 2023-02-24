@@ -31,7 +31,7 @@ public class Ⅱ_两个数组的交集 {
         int[] arrayData = new int[]{1, 2, 2, 1};
         int[] arrayData2 = new int[]{2, 2};
 
-        LogUtil.pring(easySolution.intersect(arrayData, arrayData2));
+        LogUtil.print(easySolution.intersect(arrayData, arrayData2));
     }
 
     private static class EasySolution {

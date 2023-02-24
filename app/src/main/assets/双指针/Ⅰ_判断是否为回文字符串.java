@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_判断是否为回文字符串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.judge("absba"));
+        LogUtil.print(EasySolution.judge("absba"));
     }
 
     private static class EasySolution {

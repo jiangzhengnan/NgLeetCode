@@ -24,7 +24,7 @@ public class Ⅰ_翻转单词序列 {
 
     public static void main(String[] args) {
         String data = "nowcoder. a am I";
-        LogUtil.pring(EasySolution.ReverseSentence(data));
+        LogUtil.print(EasySolution.ReverseSentence(data));
     }
 
     //栈的基本使用

@@ -37,7 +37,7 @@ public class Ⅰ_没有重复项数字的全排列 {
 
     public static void main(String[] args) {
         int[] data = new int[] {1,2,3};
-        LogUtil.pring(EasySolution.permute(data).toString());
+        LogUtil.print(EasySolution.permute(data).toString());
     }
 
     /**

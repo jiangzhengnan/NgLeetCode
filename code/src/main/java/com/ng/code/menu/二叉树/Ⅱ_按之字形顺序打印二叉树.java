@@ -25,7 +25,7 @@ public class Ⅱ_按之字形顺序打印二叉树 {
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(8, 6, 10, 5, 7, 9, 11);
         data.print();
-        LogUtil.pring(EasySolution.Print(data).toString());
+        LogUtil.print(EasySolution.Print(data).toString());
     }
 
     /**

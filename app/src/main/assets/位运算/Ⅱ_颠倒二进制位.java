@@ -29,7 +29,7 @@ public class Ⅱ_颠倒二进制位 {
         //LogUtil.pring(Integer.parseInt(hex, 2));
 
         int result = easySolution.reverseBits(Integer.parseInt(hex, 2));
-        LogUtil.pring(Integer.toString(result, 2));
+        LogUtil.print(Integer.toString(result, 2));
 
     }
 
@@ -40,10 +40,10 @@ public class Ⅱ_颠倒二进制位 {
         public int reverseBits(int n) {
             int ans = 0;
             for (int i = 32; i > 0; i--) {
-                LogUtil.pring(" ");
-                LogUtil.pring("ans:" + Integer.toString(ans, 2));
-                LogUtil.pring("n:" + Integer.toString(n, 2));
-                LogUtil.pring("n & 1:" + Integer.toString(n & 1, 2));
+                LogUtil.print(" ");
+                LogUtil.print("ans:" + Integer.toString(ans, 2));
+                LogUtil.print("n:" + Integer.toString(n, 2));
+                LogUtil.print("n & 1:" + Integer.toString(n & 1, 2));
                 ans <<= 1;
                 ans += (n & 1);
                 n >>= 1;

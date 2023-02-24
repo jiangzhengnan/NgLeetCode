@@ -31,7 +31,7 @@ import java.util.Stack;
 public class Ⅱ_最长的括号子串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.longestValidParentheses(")()(())"));
+        LogUtil.print(EasySolution.longestValidParentheses(")()(())"));
     }
 
     private static class EasySolution {

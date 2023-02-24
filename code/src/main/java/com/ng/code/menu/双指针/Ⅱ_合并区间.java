@@ -31,7 +31,7 @@ public class Ⅱ_合并区间 {
           {1, 3}, {2, 6}, {8, 10}, {15, 18}
         };
 
-        LogUtil.pring(EasySolution.merge(data));
+        LogUtil.print(EasySolution.merge(data));
         //[[1,6],[8,10],[15,18]]
 
     }

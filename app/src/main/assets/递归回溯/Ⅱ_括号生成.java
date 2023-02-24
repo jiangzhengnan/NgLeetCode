@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class Ⅱ_括号生成 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.generateParenthesis(2).toString());
+        LogUtil.print(EasySolution.generateParenthesis(2).toString());
     }
 
     /**

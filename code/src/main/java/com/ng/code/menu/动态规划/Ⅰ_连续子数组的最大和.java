@@ -33,7 +33,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_连续子数组的最大和 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.FindGreatestSumOfSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5}));
+        LogUtil.print(EasySolution.FindGreatestSumOfSubArray(new int[]{1, -2, 3, 10, -4, 7, 2, -5}));
     }
 
     //动态规划

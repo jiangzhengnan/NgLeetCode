@@ -17,7 +17,7 @@ public class Ⅱ_判断一个链表是否为回文结构 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3,4, 3, 2, 1);
-        LogUtil.pring(HardSolution.isPail(data));
+        LogUtil.print(HardSolution.isPail(data));
 
     }
 

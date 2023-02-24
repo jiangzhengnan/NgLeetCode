@@ -46,7 +46,7 @@ public class Ⅱ_三数之和 {
 
     public static void main(String[] args) {
         int[] data = new int[]{-10, 0, 10, 20, -10, -40};
-        LogUtil.pring(EasySolution.threeSum(data).toString());
+        LogUtil.print(EasySolution.threeSum(data).toString());
     }
 
     /**

@@ -22,8 +22,8 @@ public class Ⅱ_二叉搜索树中第K小的元素 {
 
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.createTreeNode(3,1,4,-1,2);
-        LogUtil.pring(treeNode);
-        LogUtil.pring(EasySolution.kthSmallest(treeNode, 3));
+        LogUtil.print(treeNode);
+        LogUtil.print(EasySolution.kthSmallest(treeNode, 3));
     }
 
     private static class EasySolution {

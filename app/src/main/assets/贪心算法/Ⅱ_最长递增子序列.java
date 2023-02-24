@@ -37,7 +37,7 @@ public class Ⅱ_最长递增子序列 {
 
 
 
-        LogUtil.pring(easySolution.lengthOfLIS(arrays));
+        LogUtil.print(easySolution.lengthOfLIS(arrays));
     }
 
     /**

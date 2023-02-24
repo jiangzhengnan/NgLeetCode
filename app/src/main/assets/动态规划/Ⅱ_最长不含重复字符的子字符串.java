@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Ⅱ_最长不含重复字符的子字符串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.lengthOfLongestSubstring("abcabcbb"));
+        LogUtil.print(EasySolution.lengthOfLongestSubstring("abcabcbb"));
 
     }
 

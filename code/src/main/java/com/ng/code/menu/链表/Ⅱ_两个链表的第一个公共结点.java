@@ -20,7 +20,7 @@ public class Ⅱ_两个链表的第一个公共结点 {
         ListNode.mergeNodeList(phead1, phead3);
         ListNode.mergeNodeList(phead2, phead3);
 
-        LogUtil.pring(EasySolution.FindFirstCommonNode(phead1, phead2));
+        LogUtil.print(EasySolution.FindFirstCommonNode(phead1, phead2));
     }
 
     /**

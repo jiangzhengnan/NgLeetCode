@@ -20,7 +20,7 @@ public class Ⅰ_求二叉树的层序遍历 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(3, 9, 20, -1, -1, 15, 7);
-        LogUtil.pring(levelOrder(data).toString());
+        LogUtil.print(levelOrder(data).toString());
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {

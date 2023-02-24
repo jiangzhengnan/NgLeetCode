@@ -24,8 +24,8 @@ public class Ⅱ_对称二叉树 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(1, 2, 2, 3, 4, 4, 3);
-        LogUtil.pring(EasySolution.isSymmetric(data));
-        LogUtil.pring(HardSolution.isSymmetric(data));
+        LogUtil.print(EasySolution.isSymmetric(data));
+        LogUtil.print(HardSolution.isSymmetric(data));
     }
 
     /**

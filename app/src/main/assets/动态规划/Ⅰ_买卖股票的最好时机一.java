@@ -38,7 +38,7 @@ public class Ⅰ_买卖股票的最好时机一 {
 
     public static void main(String[] args) {
         int[] data = new int[]{8, 9, 2, 5, 4, 7, 1};
-        LogUtil.pring(EasySolution.maxProfit(data));
+        LogUtil.print(EasySolution.maxProfit(data));
     }
 
 

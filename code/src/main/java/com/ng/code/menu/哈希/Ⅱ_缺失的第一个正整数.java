@@ -1,7 +1,6 @@
 package com.ng.code.menu.哈希;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -47,7 +46,7 @@ public class Ⅱ_缺失的第一个正整数 {
 
     public static void main(String[] args) {
         int[] data = new int[]{-2, 1,11,12,13};
-        LogUtil.pring(HardSolution.minNumberDisappeared(data));
+        LogUtil.print(HardSolution.minNumberDisappeared(data));
     }
 
     //桶

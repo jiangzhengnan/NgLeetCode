@@ -1,8 +1,9 @@
 package com.ng.train.thread;
 
-import com.ng.train.LogUtil;
 
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import com.ng.base.LogUtil;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com

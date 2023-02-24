@@ -23,7 +23,7 @@ public class Ⅱ_旋转图像 {
           {7, 8, 9}
         };
         EasySolution.rotate(matrix);
-        LogUtil.pring(matrix);
+        LogUtil.print(matrix);
 
     }
 

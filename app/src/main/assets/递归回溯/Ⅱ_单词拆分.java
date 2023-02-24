@@ -33,7 +33,7 @@ public class Ⅱ_单词拆分 {
         wordDict.add("goals");
         wordDict.add("special");
 
-        LogUtil.pring(easySolution.wordBreak("goalspecial", wordDict));
+        LogUtil.print(easySolution.wordBreak("goalspecial", wordDict));
     }
 
     private static class EasySolution {
