@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -28,7 +28,7 @@ import java.util.Queue;
 public class Ⅱ_二叉树中和为某一值的路径一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(HardSolution.hasPathSum(TreeNode.createTreeNode(5,4,8,1,11,-1,9,-1,-1,2,7), 22));
+        LogUtil.print(HardSolution.hasPathSum(TreeNode.createTreeNode(5, 4, 8, 1, 11, -1, 9, -1, -1, 2, 7), 22));
     }
 
     /**

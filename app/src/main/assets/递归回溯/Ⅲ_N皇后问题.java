@@ -1,6 +1,6 @@
 package com.ng.code.menu.递归回溯;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashSet;
@@ -25,7 +25,7 @@ import java.util.Set;
 public class Ⅲ_N皇后问题 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.Nqueen(8));
+        LogUtil.print(EasySolution.Nqueen(8));
     }
 
     /**

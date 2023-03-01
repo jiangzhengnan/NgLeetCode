@@ -2,9 +2,9 @@ package com.ng.code.menu.二叉树;
 
 import java.util.Stack;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * 日期:
@@ -32,8 +32,8 @@ public class Ⅱ_判断是不是二叉搜索树 {
         TreeNode data1 = TreeNode.createTreeNode(1, 2, 3);
         TreeNode data2 = TreeNode.createTreeNode(5,1,4,-1,-1,3,6);
 
-        LogUtil.pring(EasySolution.isValidBST(data1));
-        LogUtil.pring(HardSolution.isValidBST(data2));
+        LogUtil.print(EasySolution.isValidBST(data1));
+        LogUtil.print(HardSolution.isValidBST(data2));
 
     }
 

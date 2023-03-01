@@ -1,6 +1,6 @@
 package com.ng.code.menu.哈希;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashMap;
@@ -36,8 +36,8 @@ public class Ⅰ_数组中只出现一次的两个数字 {
     public static void main(String[] args) {
         int[] data = new int[]{1, 4, 1, 6};
         int[] data2 = new int[]{1, 2, 3, 3, 2, 9};
-        LogUtil.pring(EasySolution.FindNumsAppearOnce(data));
-        LogUtil.pring(EasySolution.FindNumsAppearOnce(data2));
+        LogUtil.print(EasySolution.FindNumsAppearOnce(data));
+        LogUtil.print(EasySolution.FindNumsAppearOnce(data2));
     }
 
     /**

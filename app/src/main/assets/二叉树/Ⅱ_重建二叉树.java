@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class Ⅱ_重建二叉树 {
 
     public static void main(String[] args) {
 
-        LogUtil.pring(EasySolution.buildTree(new int[]{3, 9, 20, 15, 7},
+        LogUtil.print(EasySolution.buildTree(new int[]{3, 9, 20, 15, 7},
                                              new int[]{9, 3, 15, 20, 7}).toString());
 
     }

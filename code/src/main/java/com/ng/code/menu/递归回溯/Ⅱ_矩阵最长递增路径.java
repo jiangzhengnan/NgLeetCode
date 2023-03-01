@@ -1,6 +1,6 @@
 package com.ng.code.menu.递归回溯;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -43,7 +43,7 @@ public class Ⅱ_矩阵最长递增路径 {
                 {4, 5, 6},
                 {7, 8, 9},
         };
-        LogUtil.pring(EasySolution.solve(data));
+        LogUtil.print(EasySolution.solve(data));
     }
 
     /**

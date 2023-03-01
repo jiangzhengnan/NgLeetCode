@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -28,7 +28,7 @@ public class Ⅱ_乘积最大子数组 {
         HardSolution hardSolution = new HardSolution();
         int[] array1 = new int[]{-2, 3, -4};
 
-        LogUtil.pring(easySolution.maxProduct(array1));
+        LogUtil.print(easySolution.maxProduct(array1));
     }
 
     /**

@@ -2,7 +2,7 @@ package com.ng.code.menu.栈堆队列;
 
 import android.annotation.SuppressLint;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Comparator;
@@ -32,7 +32,7 @@ public class Ⅱ_前K个高频元素 {
         HardSolution hardSolution = new HardSolution();
         int[] arrays = new int[]{1, 2,2,3,3,3,4,4,4,4,5,5,5,5,5};
 
-        LogUtil.pring(easySolution.topKFrequent(arrays, 2));
+        LogUtil.print(easySolution.topKFrequent(arrays, 2));
     }
 
     private static class EasySolution {

@@ -1,6 +1,6 @@
 package com.ng.code.menu.字符串;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.LinkedList;
@@ -37,9 +37,9 @@ public class Ⅱ_字符串解码 {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
         String data = "3[a2[c]]3[a]2[bc]";
-        LogUtil.pring(easySolution.decodeString(data));
+        LogUtil.print(easySolution.decodeString(data));
 
-        LogUtil.pring(hardSolution.decodeString(data));
+        LogUtil.print(hardSolution.decodeString(data));
 
     }
 

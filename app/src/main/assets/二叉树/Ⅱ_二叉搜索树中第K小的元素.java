@@ -3,9 +3,9 @@ package com.ng.code.menu.二叉树;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * Ⅰ Ⅱ Ⅲ
@@ -22,8 +22,8 @@ public class Ⅱ_二叉搜索树中第K小的元素 {
 
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.createTreeNode(3,1,4,-1,2);
-        LogUtil.pring(treeNode);
-        LogUtil.pring(EasySolution.kthSmallest(treeNode, 3));
+        LogUtil.print(treeNode);
+        LogUtil.print(EasySolution.kthSmallest(treeNode, 3));
     }
 
     private static class EasySolution {

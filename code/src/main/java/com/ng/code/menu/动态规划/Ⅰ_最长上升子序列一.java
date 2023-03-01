@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_最长上升子序列一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.LIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
+        LogUtil.print(EasySolution.LIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
     }
 
     /**

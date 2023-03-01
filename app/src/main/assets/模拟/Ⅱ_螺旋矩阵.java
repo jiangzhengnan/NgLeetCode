@@ -1,6 +1,6 @@
 package com.ng.code.menu.模拟;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class Ⅱ_螺旋矩阵 {
                 {4, 5, 6},
                 {7, 8, 9}
         };
-        LogUtil.pring(EasySolution.spiralOrder(data).toString());
+        LogUtil.print(EasySolution.spiralOrder(data).toString());
     }
 
     //按照从左到右、从上到下、从右到左、从下到上的顺序依此遍历。

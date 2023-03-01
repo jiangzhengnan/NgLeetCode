@@ -1,10 +1,9 @@
 package com.ng.code.menu.栈堆队列;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
@@ -31,7 +30,7 @@ public class Ⅱ_滑动窗口的最大值 {
                 2, 3, 4, 2, 6, 2, 5, 1
         };
         //LogUtil.pring(EasySolution.maxInWindows(data, 3).toString());
-        LogUtil.pring(HardSolution.maxInWindows(data, 3).toString());
+        LogUtil.print(HardSolution.maxInWindows(data, 3).toString());
 
     }
 
@@ -94,7 +93,7 @@ public class Ⅱ_滑动窗口的最大值 {
                 if (i >= size - 1) {
                     res.add(num[wQ.peekFirst()]); //依次储存最大值即可
                 }
-                LogUtil.pring("wq:" + wQ.toString());
+                LogUtil.print("wq:" + wQ.toString());
             }
             return res;
         }

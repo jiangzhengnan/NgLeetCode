@@ -1,6 +1,6 @@
 package com.ng.code.menu.字符串;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Stack;
@@ -26,7 +26,7 @@ import java.util.Stack;
 public class Ⅱ_大数加法 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.solve("1", "99"));
+        LogUtil.print(EasySolution.solve("1", "99"));
     }
 
     //栈

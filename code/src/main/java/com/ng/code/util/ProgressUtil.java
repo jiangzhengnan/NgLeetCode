@@ -3,9 +3,7 @@ package com.ng.code.util;
 import java.io.File;
 import java.io.FileFilter;
 import java.lang.annotation.Annotation;
-import java.math.RoundingMode;
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -13,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-import android.util.Log;
+import com.ng.base.LogUtil;
 
 
 /**
@@ -43,7 +41,7 @@ public class ProgressUtil {
             }
         }
         int all = list.size();
-        LogUtil.pring("题库总数: " + all
+        LogUtil.print("题库总数: " + all
                       + " 简单完成: " + easy + myPercent(easy, all)
                       + " 困难完成: " + hard + myPercent(hard, all)
                      );

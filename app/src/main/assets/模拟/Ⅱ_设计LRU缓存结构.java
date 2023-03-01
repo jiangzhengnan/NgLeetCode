@@ -4,7 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Node;
 import com.ng.code.util.Solution;
 
@@ -122,7 +122,7 @@ public class Ⅱ_设计LRU缓存结构 {
 				{2,3},
 				{2,4}
 		};
-		LogUtil.pring(LRU(op,2));
+		LogUtil.print(LRU(op, 2));
 		// 1 -1 -1 3 4
 	}
 

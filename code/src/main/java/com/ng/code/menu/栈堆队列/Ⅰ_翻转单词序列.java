@@ -1,6 +1,6 @@
 package com.ng.code.menu.栈堆队列;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Stack;
@@ -24,7 +24,7 @@ public class Ⅰ_翻转单词序列 {
 
     public static void main(String[] args) {
         String data = "nowcoder. a am I";
-        LogUtil.pring(EasySolution.ReverseSentence(data));
+        LogUtil.print(EasySolution.ReverseSentence(data));
     }
 
     //栈的基本使用

@@ -1,6 +1,6 @@
 package com.ng.code.menu.递归回溯;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -29,7 +29,7 @@ public class Ⅱ_单词搜索 {
           {'S', 'F', 'C', 'S'},
           {'A', 'D', 'E', 'F'}
         };
-        LogUtil.pring(easySolution.exist(stringsData2, "ABCCED"));
+        LogUtil.print(easySolution.exist(stringsData2, "ABCCED"));
     }
 
     /**

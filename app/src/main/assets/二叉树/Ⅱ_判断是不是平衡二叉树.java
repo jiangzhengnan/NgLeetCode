@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * 日期:
@@ -27,7 +27,7 @@ public class Ⅱ_判断是不是平衡二叉树 {
 
     public static void main(String[] args) {
         TreeNode data1 = TreeNode.createTreeNode(1, 2, 3, 4, 5, 6, 7);
-        LogUtil.pring(EasySolution.IsBalanced_Solution(data1));
+        LogUtil.print(EasySolution.IsBalanced_Solution(data1));
     }
 
     /**

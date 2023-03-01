@@ -1,6 +1,6 @@
 package com.ng.code.menu.字符串;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -36,7 +36,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_字符串转换整数 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.myAtoi(" -21"));
+        LogUtil.print(EasySolution.myAtoi(" -21"));
 
     }
 

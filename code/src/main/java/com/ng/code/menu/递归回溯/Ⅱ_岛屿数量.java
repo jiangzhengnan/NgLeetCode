@@ -1,12 +1,7 @@
 package com.ng.code.menu.递归回溯;
 
-import android.util.Log;
-
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * 日期:
@@ -58,7 +53,7 @@ public class Ⅱ_岛屿数量 {
                 {'0', '0', '0', '0', '0'},
                 {'0', '0', '1', '1', '1'}
         };
-        LogUtil.pring(EasySolution.solve(data));
+        LogUtil.print(EasySolution.solve(data));
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Arrays;
@@ -30,7 +30,7 @@ import java.util.Arrays;
 public class Ⅱ_兑换零钱一 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.coinChange(new int[]{1, 2, 5}, 11));
+        LogUtil.print(EasySolution.coinChange(new int[]{1, 2, 5}, 11));
 
     }
 

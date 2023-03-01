@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -29,7 +29,7 @@ public class Ⅱ_分割回文串 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-        LogUtil.pring(easySolution.partition("cdd").toString());
+        LogUtil.print(easySolution.partition("cdd").toString());
     }
 
     /**

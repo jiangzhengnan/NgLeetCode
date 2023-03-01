@@ -1,6 +1,6 @@
 package com.ng.code.menu.双指针;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_反转字符串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.solve("abcd"));
+        LogUtil.print(EasySolution.solve("abcd"));
     }
 
     private static class EasySolution {

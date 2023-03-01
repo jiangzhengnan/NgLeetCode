@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,7 +25,7 @@ public class Ⅱ_按之字形顺序打印二叉树 {
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(8, 6, 10, 5, 7, 9, 11);
         data.print();
-        LogUtil.pring(EasySolution.Print(data).toString());
+        LogUtil.print(EasySolution.Print(data).toString());
     }
 
     /**

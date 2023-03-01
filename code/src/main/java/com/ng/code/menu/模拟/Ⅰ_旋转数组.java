@@ -1,6 +1,6 @@
 package com.ng.code.menu.模拟;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -24,7 +24,7 @@ public class Ⅰ_旋转数组 {
 
     public static void main(String[] args) {
 
-        LogUtil.pring(EasySolution.solve(6, 2, new int[]{1, 2, 3, 4, 5, 6}));
+        LogUtil.print(EasySolution.solve(6, 2, new int[]{1, 2, 3, 4, 5, 6}));
     }
 
     //new一个数组，依次取值

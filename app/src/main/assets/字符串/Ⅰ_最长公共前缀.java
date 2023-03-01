@@ -1,6 +1,6 @@
 package com.ng.code.menu.字符串;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -30,7 +30,7 @@ public class Ⅰ_最长公共前缀 {
         String[] data = new String[]{"abca", "abc", "abca", "abc", "abcc"};
         String[] dat2 = new String[]{"a"};
 
-        LogUtil.pring(EasySolution.longestCommonPrefix(dat2));
+        LogUtil.print(EasySolution.longestCommonPrefix(dat2));
     }
 
     private static class EasySolution {

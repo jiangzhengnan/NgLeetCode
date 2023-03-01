@@ -43,5 +43,6 @@ dependencies {
 
     implementation project(path: ':code')
     implementation project(path: ':train')
+    implementation project(path: ':base')
 
 }

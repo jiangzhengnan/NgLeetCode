@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ public class Ⅱ_对称二叉树 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(1, 2, 2, 3, 4, 4, 3);
-        LogUtil.pring(EasySolution.isSymmetric(data));
-        LogUtil.pring(HardSolution.isSymmetric(data));
+        LogUtil.print(EasySolution.isSymmetric(data));
+        LogUtil.print(HardSolution.isSymmetric(data));
     }
 
     /**

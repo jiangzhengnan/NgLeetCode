@@ -4,7 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashMap;
@@ -35,7 +35,7 @@ public class Ⅱ_至少有K个重复字符的最长子串 {
         HardSolution hardSolution = new HardSolution();
 
         String s = "aaabb";
-        LogUtil.pring(easySolution.longestSubstring(s, 3));
+        LogUtil.print(easySolution.longestSubstring(s, 3));
     }
 
     /**

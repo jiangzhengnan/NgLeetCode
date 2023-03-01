@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.chad.library.adapter.base.provider.BaseNodeProvider;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.R;

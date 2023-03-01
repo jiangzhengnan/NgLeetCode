@@ -1,6 +1,6 @@
 package com.ng.code.menu.递归回溯;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -22,7 +22,7 @@ public class Ⅱ_矩阵中的路径 {
                 {'s', 'f', 'c', 's'},
                 {'a', 'd', 'e', 'e'},
         };
-        LogUtil.pring(EasySolution.hasPath(data, "abcced"));
+        LogUtil.print(EasySolution.hasPath(data, "abcced"));
     }
 
     private static class EasySolution {

@@ -1,80 +1,101 @@
 package com.ng.code;
 
-import com.ng.code.util.LogUtil;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * 输入：
- * [1,-2,3,10,-4,7,2,-5]
- * 返回值：
- * 18
- */
+import androidx.annotation.NonNull;
+import com.ng.base.LogUtil;
+
 public class PracticeClass {
+    private static volatile List<AdnInitCallback> sCallbacks = new ArrayList<>();
+    private static final ReentrantLock sInitLock = new ReentrantLock();
+
     public static void main(String[] args) {
-        PracticeClass testClass = new PracticeClass();
-        String a = "abcd";
-
-        LogUtil.pring(testClass.decodeString("3(a2(c))3(a)2(bc)"));
-        //18
+        PracticeClass practiceClass = new PracticeClass();
+        practiceClass.test();
+        practiceClass.init();
     }
 
-    /**
-     * 递归
-     */
-    public String decodeString(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
-        }
+    private void init() {
 
-        char[] sArray = s.toCharArray();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                randomSleep();
 
-        String res = "";
-        int index = 0;
-        while (index < s.length() && !isNumber(sArray[index])) {
-            res += sArray[index++];
-        }
-        if (index >= s.length()) {
-            return res;
-        }
-        int number = sArray[index] - '0';
-        index++;
-        int kNumber = 0;
-        int start = index;
-        while (index < sArray.length) {
-            char temp = sArray[index];
-            if (temp == '(') {
-                kNumber++;
-            } else if (temp == ')') {
-                kNumber--;
+                LogUtil.print(Thread.currentThread().getName() + " init run :" + sCallbacks.size());
+                sInitLock.lock();
+                List<AdnInitCallback> callbacksCopy = new ArrayList<>(sCallbacks);
+                sInitLock.unlock();
+                LogUtil.print(callbacksCopy.size() + " ");
+
+                Iterator<AdnInitCallback> it = callbacksCopy.iterator();
+                int index = 0;
+                while (it.hasNext()) {
+                    AdnInitCallback callback = it.next();
+                    if (callback != null) {
+                        LogUtil.print(index + " do");
+                        callback.success();
+                    } else {
+                        LogUtil.print(index + " null");
+                    }
+                    index++;
+                    it.remove();
+                }
             }
-            if (kNumber == 0) {
-                break;
-            }
-            index++;
-        }
-        for (int i = 0; i < number; i++) {
-            res += decodeString(s.substring(start + 1, index));
-        }
-        if (index + 1 < s.length()) {
-            res += decodeString(s.substring(index + 1));
-        }
-        return res;
+        }).start();
     }
 
-    private boolean isNumber(char c) {
-        return c >= '0' && c <= '9';
+    private void randomSleep() {
+        try {
+            long time = new Random().nextInt(10) + 1;
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-//    /**
-//     * 迭代
-//     */
-//    public String decodeString(String s) {
-//        String res = "";
-//        Stack<Character> data = new Stack<>();
-//        int index = 0;
-//
-//        return res;
-//    }
+    private void test() {
 
+        for (int i = 0; i < 10000; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    randomSleep();
+                    checkInit(new AdnInitCallback() {
+
+                        @Override
+                        public void success() {
+                            LogUtil.print(Thread.currentThread().getName() + " success");
+                        }
+
+                        @Override
+                        public void error(final int code, final String msg) {
+
+                        }
+                    });
+                    LogUtil.print(Thread.currentThread()
+                                        .getName() + " test run :" + sCallbacks.size());
+
+                }
+            }).start();
+        }
+    }
+
+    public void checkInit(@NonNull final AdnInitCallback callback) {
+        sInitLock.lock();
+        sCallbacks.add(callback);
+        sInitLock.unlock();
+    }
+
+    interface AdnInitCallback {
+        void success();
+
+        void error(int code, String msg);
+    }
 }
 
 

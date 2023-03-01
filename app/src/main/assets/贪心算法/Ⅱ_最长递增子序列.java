@@ -1,6 +1,6 @@
 package com.ng.code.menu.贪心算法;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -37,7 +37,7 @@ public class Ⅱ_最长递增子序列 {
 
 
 
-        LogUtil.pring(easySolution.lengthOfLIS(arrays));
+        LogUtil.print(easySolution.lengthOfLIS(arrays));
     }
 
     /**

@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * Ⅰ Ⅱ Ⅲ
@@ -23,7 +23,7 @@ public class Ⅱ_将有序数组转换为二叉搜索树 {
         HardSolution hardSolution = new HardSolution();
         int[] arrayData = new int[]{-10, -3, 0, 5, 9};
 
-        LogUtil.pring(easySolution.sortedArrayToBST(arrayData));
+        LogUtil.print(easySolution.sortedArrayToBST(arrayData));
     }
 
     /**

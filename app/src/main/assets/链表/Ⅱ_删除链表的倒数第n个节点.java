@@ -1,7 +1,7 @@
 package com.ng.code.menu.链表;
 
-import com.ng.code.util.ListNode;
-import com.ng.code.util.LogUtil;
+import com.ng.base.ListNode;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -16,7 +16,7 @@ public class Ⅱ_删除链表的倒数第n个节点 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2);
-        LogUtil.pring(HardSolution.removeNthFromEnd(data, 0));
+        LogUtil.print(HardSolution.removeNthFromEnd(data, 0));
     }
 
     //双指针

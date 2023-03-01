@@ -1,7 +1,7 @@
 package com.ng.code.menu.链表;
 
-import com.ng.code.util.ListNode;
-import com.ng.code.util.LogUtil;
+import com.ng.base.ListNode;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -20,7 +20,7 @@ public class Ⅱ_两个链表的第一个公共结点 {
         ListNode.mergeNodeList(phead1, phead3);
         ListNode.mergeNodeList(phead2, phead3);
 
-        LogUtil.pring(EasySolution.FindFirstCommonNode(phead1, phead2));
+        LogUtil.print(EasySolution.FindFirstCommonNode(phead1, phead2));
     }
 
     /**

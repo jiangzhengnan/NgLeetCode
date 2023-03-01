@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class Ⅰ_实现二叉树先序中序和后序遍历 {
 	public static void main(String[] args) {
 		TreeNode root2 = TreeNode.createTreeNode(5,1,4,-1,-1,3,6);
 		root2.print();
-		LogUtil.pring(threeOrders(root2));
+		LogUtil.print(threeOrders(root2));
 	}
 
 	public static List<Integer> cache = new ArrayList<>();

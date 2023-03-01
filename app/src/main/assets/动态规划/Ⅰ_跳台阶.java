@@ -1,7 +1,7 @@
 package com.ng.code.menu.动态规划;
 
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -12,7 +12,7 @@ import com.ng.code.util.Solution;
 public class Ⅰ_跳台阶 {
 
     public static void main(String[] args) {
-        LogUtil.pring(jumpFloor(7));
+        LogUtil.print(jumpFloor(7));
     }
 
     public static int jumpFloor(int n) {

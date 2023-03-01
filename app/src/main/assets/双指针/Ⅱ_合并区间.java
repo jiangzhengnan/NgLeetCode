@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -31,7 +31,7 @@ public class Ⅱ_合并区间 {
           {1, 3}, {2, 6}, {8, 10}, {15, 18}
         };
 
-        LogUtil.pring(EasySolution.merge(data));
+        LogUtil.print(EasySolution.merge(data));
         //[[1,6],[8,10],[15,18]]
 
     }

@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
 public class Ⅱ_最长公共子串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.LCS("1AB2345CD", "12345EF"));
+        LogUtil.print(EasySolution.LCS("1AB2345CD", "12345EF"));
     }
 
     /**

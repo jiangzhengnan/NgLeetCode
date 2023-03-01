@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.SharedPreferencesUtils;
 

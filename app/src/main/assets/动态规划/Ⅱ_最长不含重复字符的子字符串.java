@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import java.util.HashMap;
 public class Ⅱ_最长不含重复字符的子字符串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.lengthOfLongestSubstring("abcabcbb"));
+        LogUtil.print(EasySolution.lengthOfLongestSubstring("abcabcbb"));
 
     }
 

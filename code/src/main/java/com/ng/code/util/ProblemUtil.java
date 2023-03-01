@@ -14,6 +14,8 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import com.ng.base.LogUtil;
+
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com
  * @creation : 2022/02/27
@@ -24,7 +26,7 @@ public class ProblemUtil {
      * 抽题机
      */
     public static void getRandomTest(int num) {
-        LogUtil.pring("抽取 " + num + " 道题目");
+        LogUtil.print("抽取 " + num + " 道题目");
         Set<Class<?>> codeSet = getClassSet(Constants.CODE_PKG_NAME);
         ArrayList<Class<?>> list = new ArrayList(codeSet);
         List<Integer> repeatList = new ArrayList<>();
@@ -42,7 +44,7 @@ public class ProblemUtil {
             for (Annotation anno : annos) {
                 Solution solution = (Solution) anno;
                 if (solution.easy() == 0) {
-                    LogUtil.pring(randomItem.getSimpleName() +" " + solution.easy());
+                    LogUtil.print(randomItem.getSimpleName() + " " + solution.easy());
                     result ++;
                 }
             }

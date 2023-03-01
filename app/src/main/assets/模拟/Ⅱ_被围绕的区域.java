@@ -3,7 +3,7 @@ package com.ng.code.menu.模拟;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -34,7 +34,7 @@ public class Ⅱ_被围绕的区域 {
           };
 
         easySolution.solve(board);
-        LogUtil.pring(board);
+        LogUtil.print(board);
     }
 
     /**

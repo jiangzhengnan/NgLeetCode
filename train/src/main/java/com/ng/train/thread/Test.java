@@ -1,6 +1,12 @@
 package com.ng.train.thread;
 
+import java.util.HashMap;
 import java.util.concurrent.locks.ReentrantLock;
+
+import android.os.Handler;
+import android.os.Message;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com
@@ -11,43 +17,40 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Test {
 
-    static class TestRunnable implements Runnable {
-
-        private ReentrantLock reentrantLock;
-
-        public TestRunnable(ReentrantLock reentrantLock) {
-            this.reentrantLock = reentrantLock;
-        }
-
-        @Override
-        public void run() {
-            while (true) {
-                reentrantLock.lock();
-                try {
-                    System.out.println(Thread.currentThread().getName() + " get lock");
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    reentrantLock.unlock();
-                }
-            }
-        }
-    }
-
 
     public static void main(String[] args) {
+        Handler handler = new Handler() {
+            @Override
+            public void dispatchMessage(@NonNull final Message msg) {
+                super.dispatchMessage(msg);
+            }
+        };
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-        ReentrantLock reentrantLock = new ReentrantLock(true);
+            }
+        },2000);
 
-        TestRunnable reentrantLockDemo01 = new TestRunnable(reentrantLock);
+        AdHelper1 adHelper1 = new AdHelper1();
+        AdHelper2 adHelper2 = new AdHelper2();
 
-        Thread thread1 = new Thread(reentrantLockDemo01);
-        Thread thread2 = new Thread(reentrantLockDemo01);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-        thread1.start();
-        thread2.start();
+                adHelper1.writeData();
 
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                adHelper2.writeData();
+
+            }
+        }).start();
     }
 
 }

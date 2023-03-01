@@ -1,6 +1,6 @@
 package com.ng.code.menu.栈堆队列;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class Ⅰ_最小的K个数 {
 
     public static void main(String[] args) {
         int[] data1 = new int[]{4, 5, 1, 6, 2, 7, 3, 8};
-        LogUtil.pring(EasySolution.GetLeastNumbers_Solution(data1, 4).toString());
+        LogUtil.print(EasySolution.GetLeastNumbers_Solution(data1, 4).toString());
     }
 
     /**
@@ -69,7 +69,7 @@ public class Ⅰ_最小的K个数 {
                     arr[j] = temp;
                 }
 
-                LogUtil.pring(arr);
+                LogUtil.print(arr);
             }
             if (i - 1 > start) arr = qsort(arr, start, i - 1);
             if (j + 1 < end) arr = qsort(arr, j + 1, end);

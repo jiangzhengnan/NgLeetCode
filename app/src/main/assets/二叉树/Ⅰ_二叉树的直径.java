@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * Ⅰ Ⅱ Ⅲ
@@ -26,8 +26,8 @@ public class Ⅰ_二叉树的直径 {
 
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.createTreeNode(1, 2, 3, 4, 5);
-        LogUtil.pring(treeNode);
-        LogUtil.pring(Ⅰ_二叉树的直径.EasySolution.diameterOfBinaryTree(treeNode));
+        LogUtil.print(treeNode);
+        LogUtil.print(Ⅰ_二叉树的直径.EasySolution.diameterOfBinaryTree(treeNode));
     }
 
     private static class EasySolution {

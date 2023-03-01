@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Stack;
@@ -31,7 +31,7 @@ import java.util.Stack;
 public class Ⅱ_最长的括号子串 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.longestValidParentheses(")()(())"));
+        LogUtil.print(EasySolution.longestValidParentheses(")()(())"));
     }
 
     private static class EasySolution {

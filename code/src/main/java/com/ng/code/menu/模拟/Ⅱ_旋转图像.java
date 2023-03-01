@@ -1,6 +1,6 @@
 package com.ng.code.menu.模拟;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -23,7 +23,7 @@ public class Ⅱ_旋转图像 {
           {7, 8, 9}
         };
         EasySolution.rotate(matrix);
-        LogUtil.pring(matrix);
+        LogUtil.print(matrix);
 
     }
 

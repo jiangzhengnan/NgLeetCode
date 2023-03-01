@@ -1,4 +1,4 @@
-package com.ng.code.util;
+package com.ng.base;
 
 import java.util.Deque;
 import java.util.List;
@@ -11,7 +11,7 @@ public class LogUtil {
         Log.d("nangua", str);
     }
 
-    public static void pring(ListNode node) {
+    public static void print(ListNode node) {
         if (node == null) {
             System.out.println("null");
             return;
@@ -19,27 +19,27 @@ public class LogUtil {
         System.out.println(node.toString());
     }
 
-    public static void pring(TreeNode treeNode) {
+    public static void print(TreeNode treeNode) {
         treeNode.print();
     }
 
-    public static void pring(List<String> list) {
+    public static void print(List<String> list) {
         System.out.println(list.toString());
     }
 
-    public static void pring(boolean str) {
+    public static void print(boolean str) {
         System.out.println(str + "");
     }
 
-    public static void pring(String str) {
+    public static void print(String str) {
         System.out.println(str);
     }
 
-    public static void pring(int number) {
+    public static void print(int number) {
         System.out.println(number + "");
     }
 
-    public static void pring(char c) {
+    public static void print(char c) {
         System.out.println(c + "");
     }
 
@@ -51,7 +51,7 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(int[] arrays) {
+    public static void print(int[] arrays) {
         if (arrays == null) {
             System.out.println("null");
             return;
@@ -64,7 +64,7 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(String[] arrays) {
+    public static void print(String[] arrays) {
         String result = "";
         for (String temp : arrays) {
             result += " " + temp;
@@ -72,7 +72,7 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(int[][] arrays) {
+    public static void print(int[][] arrays) {
         String result = "";
         for (int[] temp : arrays) {
             result += "{";
@@ -84,7 +84,7 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(char[][] arrays) {
+    public static void print(char[][] arrays) {
         String result = "";
         for (char[] temp : arrays) {
             result += "{";
@@ -96,7 +96,7 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(char[] arrays) {
+    public static void print(char[] arrays) {
         String result = "";
         for (int temp : arrays) {
             result += " " + temp;
@@ -104,16 +104,16 @@ public class LogUtil {
         System.out.println(result);
     }
 
-    public static void pring(long value) {
+    public static void print(long value) {
         System.out.println(value + "");
 
     }
 
-    public static void pring(final double value) {
+    public static void print(final double value) {
         System.out.println(value + "");
     }
 
-    public static void pring(Deque<Integer> deque) {
+    public static void print(Deque<Integer> deque) {
         System.out.println(deque.toString());
     }
 }

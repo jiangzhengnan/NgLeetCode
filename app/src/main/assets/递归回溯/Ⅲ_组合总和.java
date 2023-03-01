@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -32,7 +32,7 @@ public class Ⅲ_组合总和 {
     public static void main(String[] args) {
         int[] candidates = new int[]{2, 3, 6, 7};
 
-        LogUtil.pring(EasySolution.combinationSum(candidates, 7).toString());
+        LogUtil.print(EasySolution.combinationSum(candidates, 7).toString());
     }
 
     private static class EasySolution {

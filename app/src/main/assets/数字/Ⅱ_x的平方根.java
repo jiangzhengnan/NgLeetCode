@@ -1,6 +1,6 @@
 package com.ng.code.menu.数字;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -27,7 +27,7 @@ public class Ⅱ_x的平方根 {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
 
-        LogUtil.pring(easySolution.mySqrt(25));
+        LogUtil.print(easySolution.mySqrt(25));
     }
 
     /**

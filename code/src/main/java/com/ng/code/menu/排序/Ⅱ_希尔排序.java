@@ -1,6 +1,6 @@
 package com.ng.code.menu.排序;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -18,7 +18,7 @@ public class Ⅱ_希尔排序 {
     public static void main(String[] args) {
         int[] array = new int[]{9, 8, 7, 3, 2, 1, 4, 5, 6};
         sort(array);
-        LogUtil.pring(array);
+        LogUtil.print(array);
     }
 
     /**

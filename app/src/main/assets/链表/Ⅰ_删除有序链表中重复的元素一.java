@@ -1,7 +1,7 @@
 package com.ng.code.menu.链表;
 
-import com.ng.code.util.ListNode;
-import com.ng.code.util.LogUtil;
+import com.ng.base.ListNode;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -27,7 +27,7 @@ public class Ⅰ_删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 1, 2, 3, 3);
-        LogUtil.pring(EasySolution.deleteDuplicates(data));
+        LogUtil.print(EasySolution.deleteDuplicates(data));
 
     }
 

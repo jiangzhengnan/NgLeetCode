@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -39,7 +39,7 @@ public class Ⅱ_最小花费爬楼梯 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 100, 1, 1, 1, 90, 1, 1, 80, 1};
-        LogUtil.pring(EasySolution.minCostClimbingStairs(data));
+        LogUtil.print(EasySolution.minCostClimbingStairs(data));
     }
 
     /**

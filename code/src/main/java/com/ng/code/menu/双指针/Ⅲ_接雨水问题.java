@@ -1,6 +1,6 @@
 package com.ng.code.menu.双指针;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
 public class Ⅲ_接雨水问题 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.maxWater(new int[]{4, 5, 1, 3, 2}));
+        LogUtil.print(EasySolution.maxWater(new int[]{4, 5, 1, 3, 2}));
     }
 
     /**

@@ -1,6 +1,6 @@
 package com.ng.code.menu.排序;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 @Solution(easy = 0, hard = 0, partice = 0)
@@ -8,7 +8,7 @@ public class Ⅰ_快速排序 {
 
     public static void main(String[] args) {
         int[] array = new int[]{9, 7, 6, 5, 3, 1, 10, 4, 9, 8, -1};
-        LogUtil.pring(qSort(array));
+        LogUtil.print(qSort(array));
     }
 
     public static int[] qSort(int[] array) {

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -33,7 +33,7 @@ public class Ⅱ_单词拆分 {
         wordDict.add("goals");
         wordDict.add("special");
 
-        LogUtil.pring(easySolution.wordBreak("goalspecial", wordDict));
+        LogUtil.print(easySolution.wordBreak("goalspecial", wordDict));
     }
 
     private static class EasySolution {

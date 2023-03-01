@@ -1,6 +1,6 @@
 package com.ng.code.menu.双指针;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -23,7 +23,7 @@ public class Ⅰ_盛水最多的容器 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1, 7, 3, 2, 4, 5, 8, 2, 7};
-        LogUtil.pring(EasySolution.maxArea(data));
+        LogUtil.print(EasySolution.maxArea(data));
     }
 
     /**

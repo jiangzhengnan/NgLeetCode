@@ -1,6 +1,6 @@
 package com.ng.code.menu.递归回溯;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class Ⅱ_括号生成 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.generateParenthesis(2).toString());
+        LogUtil.print(EasySolution.generateParenthesis(2).toString());
     }
 
     /**

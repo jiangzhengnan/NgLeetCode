@@ -1,6 +1,6 @@
 package com.ng.code.menu.二分法;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -31,7 +31,7 @@ public class Ⅲ_数组中的逆序对 {
 
     public static void main(String[] args) {
         int[] data = new int[]{1,2,3,4,5,6,7,0};
-        LogUtil.pring(HardSolution.InversePairs(data));
+        LogUtil.print(HardSolution.InversePairs(data));
 
     }
 
@@ -67,7 +67,7 @@ public class Ⅲ_数组中的逆序对 {
         public static void merge(int[] array, int start, int mid, int end) {
             //临时数组
             int[] tmp = new int[end - start + 1];
-            LogUtil.pring(array);
+            LogUtil.print(array);
             //i和j表示两个分数组的左下标，k表示临时数组的当前下标
             int i = start, j = mid + 1, k = 0;
             while (i <= mid && j <= end) {

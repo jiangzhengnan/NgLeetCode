@@ -1,6 +1,6 @@
 package com.ng.code.menu.排序;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -30,7 +30,7 @@ public class Ⅱ_颜色分类 {
 
         int[] data = new int[]{2,0,2,1,1,0};
         hardSolution.sortColors(data);
-        LogUtil.pring(data);
+        LogUtil.print(data);
     }
 
     private static class EasySolution {

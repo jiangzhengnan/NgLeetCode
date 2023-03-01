@@ -1,8 +1,8 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * 日期:
@@ -32,7 +32,7 @@ public class Ⅱ_二叉搜索树的最近公共祖先 {
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(7, 1, 12, 0, 4, 11, 14, -1, -1, 3, 5);
         data.print();
-        LogUtil.pring(EasySolution.lowestCommonAncestor(data, 0, 3));
+        LogUtil.print(EasySolution.lowestCommonAncestor(data, 0, 3));
 
     }
 

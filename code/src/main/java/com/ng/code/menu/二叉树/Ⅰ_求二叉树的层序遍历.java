@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.code.util.TreeNode;
+import com.ng.base.TreeNode;
 
 /**
  * 日期:
@@ -20,7 +20,7 @@ public class Ⅰ_求二叉树的层序遍历 {
 
     public static void main(String[] args) {
         TreeNode data = TreeNode.createTreeNode(3, 9, 20, -1, -1, 15, 7);
-        LogUtil.pring(levelOrder(data).toString());
+        LogUtil.print(levelOrder(data).toString());
     }
 
     public static List<List<Integer>> levelOrder(TreeNode root) {

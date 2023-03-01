@@ -1,6 +1,6 @@
 package com.ng.code.menu.动态规划;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -36,7 +36,7 @@ import com.ng.code.util.Solution;
 public class Ⅲ_最长公共子序列 {
 
     public static void main(String[] args) {
-        LogUtil.pring(EasySolution.LCS("1A2C3D4B56", "B1D23A456A"));
+        LogUtil.print(EasySolution.LCS("1A2C3D4B56", "B1D23A456A"));
     }
 
     //解法:https://blog.csdn.net/hrn1216/article/details/51534607
@@ -61,7 +61,7 @@ public class Ⅲ_最长公共子序列 {
                 }
             }
 
-            LogUtil.pring(cLenNUm);
+            LogUtil.print(cLenNUm);
 
             //反推结果
             int i = str1Len;

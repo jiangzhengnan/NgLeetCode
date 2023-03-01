@@ -1,7 +1,7 @@
 package com.ng.code.menu.链表;
 
-import com.ng.code.util.ListNode;
-import com.ng.code.util.LogUtil;
+import com.ng.base.ListNode;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -14,7 +14,7 @@ public class Ⅲ_单链表的排序 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);
-        LogUtil.pring(HardSolution.sortInList(data));
+        LogUtil.print(HardSolution.sortInList(data));
     }
 
     //辅助数组排序

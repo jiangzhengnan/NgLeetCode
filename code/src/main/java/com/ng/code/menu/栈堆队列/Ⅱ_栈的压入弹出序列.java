@@ -1,6 +1,6 @@
 package com.ng.code.menu.栈堆队列;
 
-import com.ng.code.util.LogUtil;
+import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Stack;
@@ -30,8 +30,8 @@ public class Ⅱ_栈的压入弹出序列 {
         int[] popA = new int[]{1, 2, 0};
         int[] popB = new int[]{4, 3, 5, 1, 2};
 
-        LogUtil.pring(EasySolution.IsPopOrder(pushA, popA));
-        LogUtil.pring(EasySolution.IsPopOrder(pushA, popB));
+        LogUtil.print(EasySolution.IsPopOrder(pushA, popA));
+        LogUtil.print(EasySolution.IsPopOrder(pushA, popB));
 
     }
 
