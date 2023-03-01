@@ -1,4 +1,4 @@
-package com.ng.train.ad;
+package com.ng.train.rtb;
 
 import android.os.Handler;
 import android.os.Looper;

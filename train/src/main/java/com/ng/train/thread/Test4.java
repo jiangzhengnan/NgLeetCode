@@ -87,11 +87,10 @@ public class Test4 {
         return node == null ? -1 : node.value;
     }
 
-    private synchronized void moveToHead(@Nullable Node node) {
+    private void moveToHead(@Nullable Node node) {
         if (node == null) {
             return;
         }
-        mLock.writeLock().lock();
         Node nodePre = node.pre;
         Node nodeNext = node.next;
         if (nodePre != null && nodeNext != null) {
