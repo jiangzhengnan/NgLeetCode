@@ -5,14 +5,13 @@ import androidx.annotation.Nullable;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author : jiangzhengnan.jzn@alibaba-inc.com
  * @creation : 2023/02/15
  * @description :
  */
-public class Test4 {
+public class Test5 {
 
     public class Node {
         Node pre;
@@ -30,7 +29,7 @@ public class Test4 {
     }
 
     @NonNull
-    private volatile HashMap<Integer, Node> map;
+    private final HashMap<Integer, Node> map;
     @NonNull
     private final Node head;
     @NonNull
@@ -38,45 +37,37 @@ public class Test4 {
 
     private final int mMaxSize;
 
-    @NonNull
-    private final ReentrantReadWriteLock mLock;
 
     @NonNull
     public HashMap<Integer, Node> getMap() {
         return map;
     }
 
-    public Test4() {
+    public Test5() {
         this.head = new Node(-1);
         this.tail = new Node(-1);
         head.next = tail;
         tail.pre = head;
         map = new HashMap<>();
         mMaxSize = 2;
-        mLock = new ReentrantReadWriteLock();
     }
 
-    public void put(int key, int value) {
-        try {
-            mLock.writeLock().lock();
-            String msg = "start write i:" + key + " value:" + value + " now:" + map + " size:" + map.size();
-            removeTailNode();
-            Node node;
-            if (map.containsKey(key)) {
-                node = map.get(key);
-                node.value = value;
-            } else {
-                node = new Node(key);
-                map.put(key, node);
-            }
-            moveToHead(node);
-            print(msg + "      result: " + map);
-        } finally {
-            mLock.writeLock().unlock();
+    public synchronized void put(int key, int value) {
+        String msg = "start write i:" + key + " value:" + value + " now:" + map + " size:" + map.size();
+        removeTailNode();
+        Node node;
+        if (map.containsKey(key)) {
+            node = map.get(key);
+            node.value = value;
+        } else {
+            node = new Node(key);
+            map.put(key, node);
         }
+        moveToHead(node);
+        print(msg + "      result: " + map);
     }
 
-    public Integer get(int key) {
+    public synchronized Integer get(int key) {
         Node node;
         if (map.containsKey(key) && map.get(key) != null) {
             node = map.get(key);
@@ -87,11 +78,10 @@ public class Test4 {
         return node == null ? -1 : node.value;
     }
 
-    private synchronized void moveToHead(@Nullable Node node) {
+    private void moveToHead(@Nullable Node node) {
         if (node == null) {
             return;
         }
-        mLock.writeLock().lock();
         Node nodePre = node.pre;
         Node nodeNext = node.next;
         if (nodePre != null && nodeNext != null) {
@@ -130,10 +120,11 @@ public class Test4 {
 
     //用 Java 实现一个并发安全的 LRU，读写操作都要有。性能要尽可能得高。
     public static void main(String[] args) {
-        Test4 test4 = new Test4();
+        Test5 test4 = new Test5();
         mIndex = new AtomicInteger(0);
         mStartTime = System.currentTimeMillis();
         for (int i = 0; i < 100; i++) {
+            int finalI = i;
             new Thread(new Runnable() {
                 @Override
                 public void run() {
