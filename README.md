@@ -165,8 +165,8 @@
 * [Ⅱ_链表中环的入口结点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_链表中环的入口结点.java)
 * [Ⅱ_判断一个链表是否为回文结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_判断一个链表是否为回文结构.java)
 ## 多线程
-* [生产者消费者模式](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/生产者消费者模式.java)
-* [两个线程交替打印](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/两个线程交替打印.java)
+* [Ⅰ_两个线程交替打印](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Ⅰ_两个线程交替打印.java)
+* [Ⅰ_生产者消费者模式](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Ⅰ_生产者消费者模式.java)
 ## 递归回溯
 * [Ⅲ_N皇后问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅲ_N皇后问题.java)
 * [Ⅱ_岛屿数量](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_岛屿数量.java)

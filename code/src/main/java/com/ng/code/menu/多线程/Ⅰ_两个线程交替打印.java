@@ -3,13 +3,13 @@ package com.ng.code.menu.多线程;
 import com.ng.code.util.Solution;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/04/19
  * @description :
  * 算法题：两个线程分别持续打印奇数和偶数，实现两个线程的交替打印（从小到大）
  */
 @Solution(easy = 0, hard = 0, partice = 0)
-public class 两个线程交替打印 {
+public class Ⅰ_两个线程交替打印 {
 
     public static void main(String[] args) {
         Counter counter = new Counter();

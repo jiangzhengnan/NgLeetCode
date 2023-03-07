@@ -3,7 +3,7 @@ package com.ng.code.设计模式.创建型.建造者模式;
 import android.text.TextUtils;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/01
  * @description :
  */

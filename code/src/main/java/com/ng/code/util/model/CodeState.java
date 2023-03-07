@@ -3,7 +3,7 @@ package com.ng.code.util.model;
 import java.io.Serializable;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/03/21
  * @description :
  */

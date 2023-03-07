@@ -17,7 +17,7 @@ import java.util.jar.JarFile;
 import com.ng.base.LogUtil;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/02/27
  * @description :
  */

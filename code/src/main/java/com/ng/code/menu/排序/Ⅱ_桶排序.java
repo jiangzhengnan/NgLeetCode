@@ -4,7 +4,7 @@ import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/04/16
  * @description :
  * 算法复杂度：O(nlogn)

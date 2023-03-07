@@ -6,7 +6,7 @@ import static com.ng.code.设计模式.行为型.状态模式.查表法.State.SM
 import static com.ng.code.设计模式.行为型.状态模式.查表法.State.SUPER;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/05
  * @description :
  * 查表法：

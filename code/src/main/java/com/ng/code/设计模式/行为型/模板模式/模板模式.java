@@ -1,7 +1,7 @@
 package com.ng.code.设计模式.行为型.模板模式;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/05
  * @description :
  * 概念：

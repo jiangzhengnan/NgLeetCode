@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import com.ng.base.LogUtil;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2023/02/15
  * @description :
  * ReentrantReadWriteLock lock = new ReentrantReadWriteLock();

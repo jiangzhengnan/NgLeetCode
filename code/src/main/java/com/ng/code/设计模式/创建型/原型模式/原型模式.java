@@ -1,7 +1,7 @@
 package com.ng.code.设计模式.创建型.原型模式;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/04
  * @description :
  * 概念：

@@ -1,7 +1,7 @@
 package com.ng.code.设计模式.结构型.代理模式;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/01
  * @description :
  * 概念：

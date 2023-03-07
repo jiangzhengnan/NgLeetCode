@@ -1,4 +1,4 @@
-package com.ng.code.多线程;
+package com.ng.base;
 
 import java.util.ArrayList;
 import java.util.List;

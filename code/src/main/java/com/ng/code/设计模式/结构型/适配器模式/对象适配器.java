@@ -1,7 +1,7 @@
 package com.ng.code.设计模式.结构型.适配器模式;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/10/04
  * @description :
  * 示例：

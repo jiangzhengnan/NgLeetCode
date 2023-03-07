@@ -4,7 +4,7 @@ import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/07/04
  * @description :
  * 平均时间复杂度：O(n²)

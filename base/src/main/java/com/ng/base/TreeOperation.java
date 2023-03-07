@@ -1,7 +1,7 @@
 package com.ng.base;
 
 /**
- * @author : jiangzhengnan.jzn@alibaba-inc.com
+ * @author : 
  * @creation : 2022/03/07
  * @description :
  */

@@ -1,20 +1,11 @@
 package com.ng.ngleetcode;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.locks.ReentrantLock;
 
 import android.annotation.SuppressLint;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +24,6 @@ import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.code.util.SharedPreferencesUtils;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
-import com.ng.code.多线程.ConcurrentExecutor;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
 import com.ng.ngleetcode.ui.home.HomeFragment;
 import com.ng.ngleetcode.view.adapter.NodeTreeAdapter;
