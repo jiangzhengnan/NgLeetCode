@@ -1,15 +1,20 @@
 package com.ng.base;
 
+import android.util.Log;
+
 import java.util.Deque;
 import java.util.List;
-
-import android.util.Log;
 
 public class LogUtil {
 
     public static void d(String str) {
         Log.d("nangua", str);
     }
+
+    public static void d(String tag, String str) {
+        Log.d("nangua", "[" + tag + "] " + str);
+    }
+
 
     public static void print(ListNode node) {
         if (node == null) {

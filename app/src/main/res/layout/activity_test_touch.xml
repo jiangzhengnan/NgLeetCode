@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+
+    <com.ng.ngleetcode.train.touch.ParentLayout
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="164dp"
+        android:background="#ff0000"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.ng.ngleetcode.train.touch.MidVIew
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="164dp"
+            android:background="#00ff00">
+
+            <com.ng.ngleetcode.train.touch.LittleView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="164dp"
+                android:background="#0000ff">
+
+
+            </com.ng.ngleetcode.train.touch.LittleView>
+        </com.ng.ngleetcode.train.touch.MidVIew>
+
+    </com.ng.ngleetcode.train.touch.ParentLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

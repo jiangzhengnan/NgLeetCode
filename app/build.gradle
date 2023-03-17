@@ -42,7 +42,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.4.0'
 
     implementation project(path: ':code')
-    implementation project(path: ':train')
     implementation project(path: ':base')
 
 }
