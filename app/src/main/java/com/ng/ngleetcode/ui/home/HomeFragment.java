@@ -150,10 +150,4 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
             refreshNowProgressBar();
         }
     }
-
-    public void onToggle() {
-        if (getActivity() != null) {
-            binding.toggleCode.toggle();
-        }
-    }
 }

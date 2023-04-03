@@ -1,5 +1,17 @@
 package com.ng.code.util;
 
+import android.content.Context;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.model.CodeDataModel;
+import com.ng.code.util.model.CodeState;
+import com.ng.code.util.tree.CodeDirNode;
+import com.ng.code.util.tree.CodeNode;
+import com.ng.code.util.tree.HeadLayoutNode;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,16 +19,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import android.content.Context;
-
-import androidx.annotation.NonNull;
-import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.model.CodeDataModel;
-import com.ng.code.util.model.CodeState;
-import com.ng.code.util.tree.CodeDirNode;
-import com.ng.code.util.tree.CodeNode;
-import com.ng.code.util.tree.HeadLayoutNode;
 
 /**
  * @author : 
@@ -77,7 +79,7 @@ public class ProblemAndroidUtil {
         int readCount = 0;
         for (String codeStr : codeList) {
             //@Solution(easy = 0, hard = 0)
-            //Log.d("nangua", "遍历:" + codeStr);
+            Log.d("nangua", "遍历:" + codeStr);
             String content = readAssets(context, codeStr);
             if (content.contains("@Solution")) {
                 int easyIndex = content.indexOf("easy = ");
