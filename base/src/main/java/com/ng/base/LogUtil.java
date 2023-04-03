@@ -1,9 +1,9 @@
 package com.ng.base;
 
-import android.util.Log;
-
 import java.util.Deque;
 import java.util.List;
+
+import android.util.Log;
 
 public class LogUtil {
 
@@ -120,5 +120,18 @@ public class LogUtil {
 
     public static void print(Deque<Integer> deque) {
         System.out.println(deque.toString());
+    }
+
+    public interface Function {
+        void fun();
+    }
+
+    public static void calculateTime(String tag, int times, Function function) {
+        long time = System.currentTimeMillis();
+        for (int i = 0; i < times; i++) {
+            function.fun();
+        }
+        print(tag + " 执行耗时:" + (System.currentTimeMillis() - time));
+
     }
 }
