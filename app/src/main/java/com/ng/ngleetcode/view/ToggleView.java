@@ -78,6 +78,14 @@ public class ToggleView extends View {
         postInvalidate();
     }
 
+    public boolean isPositive() {
+        return isPositive;
+    }
+
+    public void toggle() {
+        startChangeAnim();
+    }
+
     public ToggleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -94,8 +102,6 @@ public class ToggleView extends View {
         //init paint
         mBitmapPaint = new Paint();
         mBitmapPaint.setAntiAlias(true);
-
-
     }
 
     public ToggleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -109,7 +115,6 @@ public class ToggleView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startLitterAnim();
-
                 return true;
 
             case MotionEvent.ACTION_UP:
@@ -243,9 +248,9 @@ public class ToggleView extends View {
         canvas.drawCircle(centerX, mEdge / 2, mEdge / 2, mBitmapPaint);
 
         Rect mRect = new Rect((int) (centerX - mEdge / 2),
-                0,
-                (int) (centerX + mEdge / 2),
-                (int) mEdge);
+                              0,
+                              (int) (centerX + mEdge / 2),
+                              (int) mEdge);
         Bitmap bitmap = getBitmapFromVectorDrawable(mContext, imgId);
         canvas.drawBitmap(bitmap, null, mRect, mBitmapPaint);
 
@@ -269,7 +274,7 @@ public class ToggleView extends View {
             drawable = (DrawableCompat.wrap(drawable)).mutate();
         }
         Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
-                Bitmap.Config.ARGB_8888);
+                                            Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);

@@ -65,6 +65,14 @@ public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.O
                 binding.appBarMain.toolbar.setTitle(mHomeFragment.refreshData());
             }
         });
+
+        binding.appBarMain.check.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                mHomeFragment.onToggle();
+            }
+        });
         initRv();
         binding.drawerMain.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
