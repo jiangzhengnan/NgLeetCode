@@ -1,10 +1,10 @@
 package com.ng.code.menu.链表;
 
+import java.util.ArrayList;
+
 import com.ng.base.ListNode;
 import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-
-import java.util.ArrayList;
 
 /**
  * 日期:
@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * 返回值：
  * {1,1,2,4,5,6}
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅲ_合并k个已排序的链表 {
 
     public static void main(String[] args) {
