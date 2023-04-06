@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * {1,2}
  */
-@Solution(easy = 0, hard = 1, partice = 3)
+@Solution(easy = 1, hard = 1, partice = 4)
 public class Ⅰ_删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {
@@ -40,16 +40,13 @@ public class Ⅰ_删除有序链表中重复的元素一 {
         public static ListNode deleteDuplicates(ListNode head) {
             ListNode pre = null;
             ListNode now = head;
-            ListNode next;
             while (now != null) {
-                next = now.next;
                 if (pre != null && pre.val == now.val) {
-                    pre.next = next;
-                    now = next;
+                    pre.next = now.next;
                 } else {
                     pre = now;
-                    now = now.next;
                 }
+                now = now.next;
             }
             return head;
         }

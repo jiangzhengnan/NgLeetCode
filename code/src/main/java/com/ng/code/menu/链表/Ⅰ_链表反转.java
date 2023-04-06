@@ -5,16 +5,16 @@ import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * link:
+ * link:https://leetcode.cn/problems/UHnkqh/
  * 原题描述:
- *
+ * <p>
  * 示例:
  */
-@Solution(easy = 0, hard = 1, partice = 2)
+@Solution(easy = 1, hard = 1, partice = 3)
 public class Ⅰ_链表反转 {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(36,4);
+        ListNode data = ListNode.getNodeList(36, 4);
         LogUtil.print(data);
 
         //LogUtil.pring(EasySolution.reverseList(data));

@@ -6,40 +6,48 @@ import com.ng.code.util.Solution;
 
 /**
  * link:https://leetcode.cn/problems/remove-nth-node-from-end-of-list/?favorite=2cktkvj
- *
+ * <p>
  * 日期:
  * 原题链接:
  * 原题描述:
  */
-@Solution(easy = 0, hard = 0, partice = 1)
+@Solution(easy = 1, hard = 1, partice = 2)
 public class Ⅱ_删除链表的倒数第n个节点 {
 
     public static void main(String[] args) {
-        ListNode data = ListNode.getNodeList(1, 2);
-        LogUtil.print(HardSolution.removeNthFromEnd(data, 0));
+        ListNode data = ListNode.getNodeList(1, 2, 3, 4, 5);
+        LogUtil.print(EasySolution.removeNthFromEnd(data, 2));
+        LogUtil.print(HardSolution.removeNthFromEnd(data, 2));
     }
 
     //双指针
     private static class EasySolution {
         public static ListNode removeNthFromEnd(ListNode head, int n) {
-            // write code here
+            if (head == null) {
+                return null;
+            }
             ListNode slow = head;
             ListNode fast = head;
 
-            for (int i = 0; i < n; i++) {
+            while (n-- > 0) {
+                if (fast == null) {
+                    return null;
+                }
                 fast = fast.next;
             }
-
-            //如果fast为空，表示删除的是头结点
+            // 说明fast递归到尾部，k=size，要删除的是头节点
             if (fast == null) {
                 return head.next;
             }
 
+            ListNode pre = slow;
             while (fast != null) {
-                fast = fast.next;
+                pre = slow;
                 slow = slow.next;
+                fast = fast.next;
             }
-            slow.next = slow.next.next;
+            pre.next = pre.next.next;
+
             return head;
 
         }
