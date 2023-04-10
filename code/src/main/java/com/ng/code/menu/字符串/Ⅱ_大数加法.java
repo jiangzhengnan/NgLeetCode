@@ -1,6 +1,6 @@
 package com.ng.code.menu.字符串;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Stack;

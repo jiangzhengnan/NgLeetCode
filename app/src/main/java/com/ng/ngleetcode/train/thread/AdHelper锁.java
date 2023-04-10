@@ -2,7 +2,7 @@ package com.ng.ngleetcode.train.thread;
 
 import androidx.annotation.NonNull;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.Iterator;

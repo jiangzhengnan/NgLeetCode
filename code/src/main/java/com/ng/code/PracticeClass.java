@@ -1,7 +1,7 @@
 package com.ng.code;
 
-import com.ng.base.ListNode;
-import com.ng.base.LogUtil;
+import com.ng.base.utils.ListNode;
+import com.ng.base.utils.LogUtil;
 
 public class PracticeClass {
 

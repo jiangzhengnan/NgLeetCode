@@ -4,7 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashMap;

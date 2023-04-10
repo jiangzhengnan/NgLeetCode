@@ -14,7 +14,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 /**
  * @author : 

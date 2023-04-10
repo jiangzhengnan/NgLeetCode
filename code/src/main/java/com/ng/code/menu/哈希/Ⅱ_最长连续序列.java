@@ -3,7 +3,7 @@ package com.ng.code.menu.哈希;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**

@@ -1,8 +1,7 @@
 package com.ng.code.menu.二叉树;
 
-import com.ng.base.LogUtil;
 import com.ng.code.util.Solution;
-import com.ng.base.TreeNode;
+import com.ng.base.utils.TreeNode;
 
 /**
  * Ⅰ Ⅱ Ⅲ

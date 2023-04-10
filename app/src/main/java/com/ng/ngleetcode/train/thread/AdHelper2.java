@@ -1,6 +1,6 @@
 package com.ng.ngleetcode.train.thread;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 /**
  * @author : 

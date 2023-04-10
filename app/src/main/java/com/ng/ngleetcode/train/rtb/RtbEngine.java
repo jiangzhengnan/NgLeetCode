@@ -1,6 +1,6 @@
 package com.ng.ngleetcode.train.rtb;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;

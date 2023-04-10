@@ -8,7 +8,7 @@ import android.view.ViewParent;
 
 import androidx.annotation.Nullable;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 public class LittleView extends View {
     private final static String TAG = "LittleView";

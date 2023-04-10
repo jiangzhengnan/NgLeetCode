@@ -1,4 +1,4 @@
-package com.ng.base;
+package com.ng.base.utils;
 
 import java.util.ArrayList;
 import java.util.List;

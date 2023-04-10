@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**

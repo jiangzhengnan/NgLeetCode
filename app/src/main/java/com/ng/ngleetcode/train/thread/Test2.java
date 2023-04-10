@@ -1,7 +1,7 @@
 package com.ng.ngleetcode.train.thread;
 
 
-import com.ng.base.LogUtil;
+import com.ng.base.utils.LogUtil;
 
 import java.util.concurrent.locks.ReentrantLock;
 
