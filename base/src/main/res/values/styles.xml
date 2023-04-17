@@ -2,7 +2,7 @@
 
 
     <!--    白天主题-->
-    <style name="AppTheme" parent="Theme.Design.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -28,7 +28,7 @@
 
 
     <!--    夜晚主题-->
-    <style name="AppTheme_Night" parent="Theme.Design.Light.NoActionBar">
+    <style name="AppTheme_Night" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">#999999</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#EF3939</item>

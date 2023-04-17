@@ -7,6 +7,8 @@
 
     <fragment
         android:id="@+id/main_fragment"
-        android:label="MainFragment"></fragment>
+        android:name="com.ng.ngleetcode.ui.home.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main"></fragment>
 
 </navigation>

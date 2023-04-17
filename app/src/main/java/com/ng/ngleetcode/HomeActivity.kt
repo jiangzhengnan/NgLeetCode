@@ -16,14 +16,13 @@ class HomeActivity : BaseActivity() {
     override fun layoutId(): Int = R.layout.activity_home
 
     override fun initView(savedInstanceState: Bundle?) {
-        TODO("Not yet implemented")
     }
 
     override fun initData() {
-        TODO("Not yet implemented")
+        
     }
 
     override fun onRetryBtnClick() {
-        TODO("Not yet implemented")
+        
     }
 }

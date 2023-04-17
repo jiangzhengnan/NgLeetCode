@@ -15,7 +15,6 @@ import android.widget.Toast
 import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
@@ -29,7 +28,6 @@ import com.ng.base.utils.ToastUtils
 import com.ng.base.view.StateLayout
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import java.lang.reflect.ParameterizedType
 
 
 /**
@@ -74,7 +72,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
     private var mParent: View? = null
 
 
-    protected abstract fun createViewBinding(inflater: LayoutInflater): VB?
+    protected abstract fun createViewBinding(): VB?
     protected abstract fun createViewModel(): VM?
 
 
@@ -114,8 +112,8 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (createViewBinding(inflater) != null) {
-            mBinding = createViewBinding(inflater)!!
+        if (createViewBinding() != null) {
+            mBinding = createViewBinding()!!
             mCustomView = mBinding!!.root
         } else {
             mLayoutId = getLayoutId()
@@ -252,7 +250,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
     private fun setStatusColor(color: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             requireActivity().window.statusBarColor =
-                if (color == 0) ColorUtil.getColor(activity!!, R.color.colorPrimaryDark) else color
+                if (color == 0) ColorUtil.getColor(requireActivity(), R.color.colorPrimaryDark) else color
         }
         if (ColorUtils.calculateLuminance(Color.TRANSPARENT) >= 0.5) {
             // 设置状态栏中字体的颜色为黑色
