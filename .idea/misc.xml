@@ -7,8 +7,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_home.xml" value="0.20923913043478262" />
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_main.xml" value="0.19972826086956522" />
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_main_vp.xml" value="0.15526849037487336" />
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_splash.xml" value="0.15602836879432624" />
         <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_test_handler.xml" value="0.1661600810536981" />
         <entry key="..\:/AndroidStudioProjects/NgLeetCode/app/src/main/res/layout/activity_test_touch.xml" value="0.1661600810536981" />
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/base/src/main/res/layout/dialog_confirm.xml" value="0.15602836879432624" />
+        <entry key="..\:/AndroidStudioProjects/NgLeetCode/base/src/main/res/layout/dialog_loading.xml" value="0.15602836879432624" />
         <entry key="..\:/AndroidStudioProjects/NgLeetCode/train/src/main/res/layout/activity_test_touch.xml" value="0.16793313069908813" />
         <entry key="app/src/main/res/layout/activity_main_vp.xml" value="0.16236068895643363" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.16236068895643363" />

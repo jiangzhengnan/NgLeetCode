@@ -11,6 +11,13 @@
     <dimen name="WheelIndicatorSize">2dp</dimen>
     <dimen name="WheelMargins">0dp</dimen>
     <dimen name="dialog_width">120dp</dimen>
-
+    <dimen name="text_1">15.5dp</dimen>
+    <dimen name="text_2">13.5dp</dimen>
+    <dimen name="text_3">11.5dp</dimen>
+    <dimen name="text_title">19dp</dimen>
+    <dimen name="dialog_text_content">17dp</dimen>
+    <dimen name="padding">16dp</dimen>
+    <dimen name="set_padding">26dp</dimen>
+    <dimen name="dividing_line">30dp</dimen>
 
 </resources>

@@ -19,4 +19,9 @@
         <item name="minHeight">1dp</item>
         <item name="maxHeight">1dp</item>
     </style>
+
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
 </resources>

@@ -110,4 +110,12 @@ dependencies {
 
     //事件
     api 'org.greenrobot:eventbus:3.2.0'
+
+    //权限管理
+    api 'pub.devrel:easypermissions:3.0.0'
+
+    //navigation
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    api 'androidx.navigation:navigation-ui-ktx:2.3.0'
+
 }
