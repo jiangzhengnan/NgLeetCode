@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        binding.codeContent.setRadius(UIUtil.dp2px(getContext(), 5));
+        binding.codeContent.setRadius(UIUtil.INSTANCE.dp2px(getContext(), 5));
         binding.toggleCode.setOnToggleListener(this);
         binding.codeView.setOnHighlightListener(this)
                         .setOnHighlightListener(this)

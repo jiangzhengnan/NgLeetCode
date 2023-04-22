@@ -25,18 +25,15 @@ import com.ng.base.view.StateLayout
  * @date 2020/6/19
  */
 @Suppress("UNCHECKED_CAST")
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatActivity() {
 
-    protected val mViewModel by lazy {
-        createViewModel()
-    }
+    protected var mViewModel: VM? = null
 
-    protected val mBinding by lazy {
-        createViewBinding()
-    }
+    protected var mBinding: VB? = null
 
-    protected abstract fun createViewBinding(): ViewBinding?
-    protected abstract fun createViewModel(): BaseViewModel?
+
+    protected abstract fun createViewBinding(): VB?
+    protected abstract fun createViewModel(): VM?
 
 
     private var dialog: MaterialDialog? = null
@@ -52,6 +49,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mBinding = createViewBinding()
+        mViewModel = createViewModel()
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
             //注册 UI事件
@@ -59,17 +58,18 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         if (createViewBinding() != null) {
+            mBinding = createViewBinding()!!
             mCustomView = mBinding!!.root
         } else {
             mLayoutId = layoutId()
             if (mLayoutId == 0) {
                 throw NullPointerException("布局为空")
             }
-            mCustomView = LayoutInflater.from(this).inflate(layoutId(), null, false)
+            mCustomView = LayoutInflater.from(this).inflate(layoutId(),null,false)
         }
 
         if (isNeedLoad()) {
-            val basicView = LayoutInflater.from(this).inflate(R.layout.activity_basic, null, false);
+            val basicView =  LayoutInflater.from(this).inflate(R.layout.activity_basic,null,false);
             mStateLayout = basicView.findViewById<View>(R.id.loading_layout) as StateLayout
             mContentFrameLayout = basicView.findViewById<View>(R.id.content_layout) as FrameLayout
             mContentFrameLayout!!.addView(mCustomView)

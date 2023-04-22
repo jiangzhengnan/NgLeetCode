@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+
+    <color name="tab1_color">#F05B1A</color>
+    <color name="tab2_color">#F05B1A</color>
+    <color name="tab3_color">#F05B1A</color>
 </resources>

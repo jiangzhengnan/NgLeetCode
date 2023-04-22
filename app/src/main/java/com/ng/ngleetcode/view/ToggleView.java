@@ -85,7 +85,7 @@ public class ToggleView extends View {
 
     private void init(Context context, @Nullable AttributeSet attrs) {
         mContext = context;
-        mCircleWidth = UIUtil.dp2px(context, 2);
+        mCircleWidth = UIUtil.INSTANCE.dp2px(context, 2);
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ToggleView);
 
         mPositiveImgId = ta.getResourceId(R.styleable.ToggleView_positiveImgId, 0);

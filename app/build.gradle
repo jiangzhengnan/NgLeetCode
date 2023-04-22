@@ -46,4 +46,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.3"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.3"
 
+    //tab
+    api 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
+
 }

@@ -17,6 +17,16 @@ import com.ng.ngleetcode.databinding.FragmentMineBinding
  * @date 2020-05-14
  */
 class MineFragment : BaseFragment<EmptyViewModel, FragmentMineBinding>() {
+
+    companion object {
+        fun getInstance(title: String): MineFragment {
+            val fragment = MineFragment()
+            val bundle = Bundle()
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
+
     override fun createViewBinding(): FragmentMineBinding =
         FragmentMineBinding.inflate(layoutInflater)
 

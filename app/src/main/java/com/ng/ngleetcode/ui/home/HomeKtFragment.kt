@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.ui.info
+package com.ng.ngleetcode.ui.home
 
 
 import android.os.Bundle
@@ -8,27 +8,21 @@ import com.ng.ngbaselib.BaseFragment
 import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.EmptyViewModel
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.databinding.FragmentInfoBinding
+import com.ng.ngleetcode.databinding.FragmentTestBinding
 
-
-/**
- * des 我的
- * @author zs
- * @date 2020-05-14
- */
-class InfoFragment : BaseFragment<EmptyViewModel, FragmentInfoBinding>() {
+class HomeKtFragment : BaseFragment<EmptyViewModel, FragmentTestBinding>() {
 
     companion object {
-        fun getInstance(title: String): InfoFragment {
-            val fragment = InfoFragment()
+        fun getInstance(title: String): HomeKtFragment {
+            val fragment = HomeKtFragment()
             val bundle = Bundle()
             fragment.arguments = bundle
             return fragment
         }
     }
 
-    override fun createViewBinding(): FragmentInfoBinding =
-        FragmentInfoBinding.inflate(layoutInflater)
+    override fun createViewBinding(): FragmentTestBinding =
+        FragmentTestBinding.inflate(layoutInflater)
 
     override fun createViewModel(): EmptyViewModel =
         ViewModelProvider(this, ViewModelFactory()).get(EmptyViewModel::class.java)

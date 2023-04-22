@@ -15,7 +15,7 @@ import pub.devrel.easypermissions.EasyPermissions
 /**
  * 开屏页
  */
-class SplashActivity : BaseActivity(),
+class SplashActivity : BaseActivity<EmptyViewModel, ActivitySplashBinding>(),
     EasyPermissions.PermissionCallbacks {
 
     private val tips = "玩安卓现在要向您申请存储权限，用于访问您的本地音乐，您也可以在设置中手动开启或者取消。"
