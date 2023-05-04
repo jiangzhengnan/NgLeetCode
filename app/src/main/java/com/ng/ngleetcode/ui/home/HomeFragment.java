@@ -24,6 +24,8 @@ import com.ng.ngleetcode.view.code.CodeView;
 import com.ng.ngleetcode.view.code.Language;
 import com.ng.ngleetcode.view.code.Theme;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class HomeFragment extends Fragment implements CodeView.OnHighlightListener, ToggleView.OnToggleListener {
 
@@ -149,5 +151,14 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
                          .loopCodeState(getActivity(), mNowData.title, isPositive ? 1 : 2);
             refreshNowProgressBar();
         }
+    }
+
+    @NotNull
+    public static Fragment getInstance(@NotNull String string) {
+        //        val fragment = InfoFragment()
+//        val bundle = Bundle()
+//        fragment.arguments = bundle
+//        return fragment
+        return new HomeFragment();
     }
 }

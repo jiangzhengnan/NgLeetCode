@@ -8,9 +8,9 @@ import com.ng.ngbaselib.BaseFragment
 import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.EmptyViewModel
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.databinding.FragmentTestBinding
+import com.ng.ngleetcode.databinding.FragmentHomeKtBinding
 
-class HomeKtFragment : BaseFragment<EmptyViewModel, FragmentTestBinding>() {
+class HomeKtFragment : BaseFragment<EmptyViewModel, FragmentHomeKtBinding>() {
 
     companion object {
         fun getInstance(title: String): HomeKtFragment {
@@ -21,8 +21,8 @@ class HomeKtFragment : BaseFragment<EmptyViewModel, FragmentTestBinding>() {
         }
     }
 
-    override fun createViewBinding(): FragmentTestBinding =
-        FragmentTestBinding.inflate(layoutInflater)
+    override fun createViewBinding(): FragmentHomeKtBinding =
+        FragmentHomeKtBinding.inflate(layoutInflater)
 
     override fun createViewModel(): EmptyViewModel =
         ViewModelProvider(this, ViewModelFactory()).get(EmptyViewModel::class.java)

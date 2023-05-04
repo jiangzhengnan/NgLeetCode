@@ -12,7 +12,7 @@ import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.EmptyViewModel
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.databinding.ActivityHomeBinding
-import com.ng.ngleetcode.ui.home.HomeKtFragment
+import com.ng.ngleetcode.ui.home.HomeFragment
 import com.ng.ngleetcode.ui.info.InfoFragment
 import com.ng.ngleetcode.ui.mine.MineFragment
 import com.ng.ngleetcode.utils.UIUtil
@@ -108,7 +108,7 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
         FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> HomeKtFragment.getInstance(UIUtil.getString(R.string.tab_1))
+                0 -> HomeFragment.getInstance(UIUtil.getString(R.string.tab_1))
                 1 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_2))
                 2 -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
                 else -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
