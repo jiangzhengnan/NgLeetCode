@@ -69,7 +69,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
 
     private var mContentView: View? = null
 
-    private var mParent: View? = null
+    private var mRootView: View? = null
 
 
     protected abstract fun createViewBinding(): VB?
@@ -149,11 +149,11 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
 
 
     protected open fun getRoot(): View? {
-        return this.mParent
+        return this.mRootView
     }
 
     protected open fun setRoot(view: View) {
-        this.mParent = view
+        this.mRootView = view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -264,7 +264,7 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
     }
 
     open fun <T : View?> findViewById(id: Int): T? {
-        return if (mParent == null) null else mParent?.findViewById<View>(id) as T
+        return if (mRootView == null) null else mRootView?.findViewById<View>(id) as T
     }
 
     /**

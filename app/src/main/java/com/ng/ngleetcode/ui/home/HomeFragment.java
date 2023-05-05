@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.FragmentHomeBinding;
-import com.ng.ngleetcode.utils.UIUtil;
 import com.ng.ngleetcode.view.ToggleView;
 import com.ng.ngleetcode.view.code.CodeView;
 import com.ng.ngleetcode.view.code.Language;
@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        binding.codeContent.setRadius(UIUtil.INSTANCE.dp2px(getContext(), 5));
+       // binding.codeContent.setRadius(UIUtil.INSTANCE.dp2px(getContext(), 5));
         binding.toggleCode.setOnToggleListener(this);
         binding.codeView.setOnHighlightListener(this)
                         .setOnHighlightListener(this)
@@ -52,6 +52,7 @@ public class HomeFragment extends Fragment implements CodeView.OnHighlightListen
                         .setShowLineNumber(false)
                         .setStartLineNumber(0)
                         .apply();
+        showRandomProblem();
         return root;
     }
 

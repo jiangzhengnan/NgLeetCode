@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.home
+package com.ng.ngleetcode
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,20 +6,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
 import com.ng.ngbaselib.BaseActivity
 import com.ng.ngbaselib.ViewModelFactory
-import com.ng.ngleetcode.EmptyViewModel
-import com.ng.ngleetcode.R
 import com.ng.ngleetcode.databinding.ActivityHomeBinding
-import com.ng.ngleetcode.ui.home.HomeFragment
+import com.ng.ngleetcode.ui.home.HomeKtFragment
 import com.ng.ngleetcode.ui.info.InfoFragment
 import com.ng.ngleetcode.ui.mine.MineFragment
 import com.ng.ngleetcode.utils.UIUtil
 import me.majiajie.pagerbottomtabstrip.NavigationController
 import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 
-class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
+class NewHomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
 
     override fun createViewBinding(): ActivityHomeBinding =
@@ -108,7 +107,7 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
         FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> HomeFragment.getInstance(UIUtil.getString(R.string.tab_1))
+                0 -> HomeKtFragment.getInstance(UIUtil.getString(R.string.tab_1))
                 1 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_2))
                 2 -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
                 else -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
@@ -123,6 +122,25 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // when (item.itemId) {
         return true
+    }
+
+    //clazz传入fragment类：如：HomeFragment.class
+    fun getFragment(clazz: Class<*>?): Fragment? {
+        val fragments = supportFragmentManager.fragments
+        if (fragments.size > 0) {
+            val navHostFragment = fragments[0] as NavHostFragment
+            val childFragments = navHostFragment.childFragmentManager
+                .fragments
+            if (childFragments.size > 0) {
+                for (j in childFragments.indices) {
+                    val fragment = childFragments[j]
+                    if (fragment.javaClass.isAssignableFrom(clazz)) {
+                        return fragment
+                    }
+                }
+            }
+        }
+        return null
     }
 
 

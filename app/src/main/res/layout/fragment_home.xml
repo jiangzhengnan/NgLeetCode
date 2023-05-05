@@ -1,73 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingBottom="8dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
 
 
     <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ProgressBar
-                android:id="@+id/nowPb"
-                style="@style/myPb"
-                android:layout_centerInParent="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:id="@+id/nowPb"
+            style="@style/myPb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
 
         <TextView
-                android:id="@+id/tvPb"
-                android:text="0 - 0"
-                android:layout_centerInParent="true"
-                android:textSize="11dp"
-                android:layout_width="wrap_content"
-                android:textColor="#000"
-                android:layout_height="wrap_content"/>
+            android:id="@+id/tvPb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="0 - 0"
+            android:textColor="#000"
+            android:textSize="11dp" />
 
     </RelativeLayout>
 
     <LinearLayout
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textColor="@color/black"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
         <com.ng.ngleetcode.view.ToggleView
-                android:id="@+id/toggle_code"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                app:positiveImgId="@drawable/ic_close"
-                app:reverseImgId="@drawable/ic_check" />
+            android:id="@+id/toggle_code"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:positiveImgId="@drawable/ic_close"
+            app:reverseImgId="@drawable/ic_check" />
 
     </LinearLayout>
 
 
     <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
-            android:id="@+id/codeContent"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:id="@+id/codeContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1">
 
         <com.ng.ngleetcode.view.code.CodeView
-                android:id="@+id/codeView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:id="@+id/codeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </com.ng.ngleetcode.view.rounded.RoundedFrameLayout>
 
