@@ -5,11 +5,9 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
 import com.ng.ngbaselib.BaseActivity
-import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.databinding.ActivityHomeBinding
 import com.ng.ngleetcode.ui.home.HomeKtFragment
 import com.ng.ngleetcode.ui.info.InfoFragment
@@ -21,19 +19,9 @@ import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener
 class NewHomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
     NavigationView.OnNavigationItemSelectedListener {
 
-    override fun createViewBinding(): ActivityHomeBinding =
-        ActivityHomeBinding.inflate(layoutInflater)
-
-    override fun createViewModel(): EmptyViewModel =
-        ViewModelProvider(this, ViewModelFactory()).get(EmptyViewModel::class.java)
-
-    override fun layoutId(): Int = R.layout.activity_home
-
     private lateinit var mNavigationController: NavigationController
 
-
     override fun initView(savedInstanceState: Bundle?) {
-
 
         // 禁止手势滑动
         mNavigationController =

@@ -1,11 +1,14 @@
 package com.ng.ngbaselib
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
@@ -13,8 +16,11 @@ import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ng.base.BaseViewModel
 import com.ng.base.R
 import com.ng.base.event.Message
+import com.ng.base.utils.BindingUtil
 import com.ng.base.utils.ToastUtils
 import com.ng.base.view.StateLayout
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 
 
 /**
@@ -31,10 +37,19 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
 
     protected var mBinding: VB? = null
 
+    private fun <VB> createVb(): VB? {
+        val type = this.javaClass.genericSuperclass ?: return null
+        // 获取 所包含的泛型参数列表
+        val types: Array<Type> = (type as ParameterizedType).actualTypeArguments
+        val viewBindClass = types[1] as Class<out ViewBinding?>
+        return BindingUtil.createViewBinding(viewBindClass, layoutInflater)
+    }
 
-    protected abstract fun createViewBinding(): VB?
-    protected abstract fun createViewModel(): VM?
-
+    private fun viewModelClass(): Class<VM> {
+        val type = this.javaClass.genericSuperclass
+        val types: Array<Type> = (type as ParameterizedType).actualTypeArguments
+        return types[0] as Class<VM>
+    }
 
     private var dialog: MaterialDialog? = null
     private var mCustomView: View? = null
@@ -43,33 +58,28 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
     private var mContentFrameLayout: FrameLayout? = null
 
     //是否需要Loading布局
-    private fun isNeedLoad(): Boolean {
+    protected fun isNeedLoad(): Boolean {
         return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = createViewBinding()
-        mViewModel = createViewModel()
+        mBinding = createVb()
+        if (mBinding == null) {
+            throw java.lang.NullPointerException("mBinding is null")
+        }
+
+        mViewModel = ViewModelProvider(this, ViewModelFactory()).get(viewModelClass())
         if (mViewModel != null) {
             lifecycle.addObserver(mViewModel!!)
             //注册 UI事件
             registorDefUIChange()
         }
 
-        if (createViewBinding() != null) {
-            mBinding = createViewBinding()!!
-            mCustomView = mBinding!!.root
-        } else {
-            mLayoutId = layoutId()
-            if (mLayoutId == 0) {
-                throw NullPointerException("布局为空")
-            }
-            mCustomView = LayoutInflater.from(this).inflate(layoutId(),null,false)
-        }
+        mCustomView = (mBinding as ViewBinding).root;
 
         if (isNeedLoad()) {
-            val basicView =  LayoutInflater.from(this).inflate(R.layout.activity_basic,null,false);
+            val basicView = LayoutInflater.from(this).inflate(R.layout.activity_basic, null, false);
             mStateLayout = basicView.findViewById<View>(R.id.loading_layout) as StateLayout
             mContentFrameLayout = basicView.findViewById<View>(R.id.content_layout) as FrameLayout
             mContentFrameLayout!!.addView(mCustomView)
@@ -78,17 +88,13 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
             setContentView(mCustomView)
         }
 
-
-
         initView(savedInstanceState)
         initData()
     }
 
-
-    abstract fun layoutId(): Int
     abstract fun initView(savedInstanceState: Bundle?)
-    abstract fun initData()
 
+    abstract fun initData()
 
     /**
      * 注册 UI 事件
@@ -175,6 +181,11 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
             mStateLayout?.visibility = View.GONE
             mStateLayout?.pauseAnimation()
         }
+    }
+
+    open fun startTo(targetClass: Class<out Activity>) {
+        val intent = Intent(this, targetClass)
+        startActivity(intent)
     }
 
 }

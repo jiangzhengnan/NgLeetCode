@@ -16,17 +16,10 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".splash.SplashActivity"
             android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
-
-        </activity>
-
-        <activity
-            android:name=".NewHomeActivity"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,6 +27,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".NewHomeActivity"
+            android:theme="@style/Theme.MyApplication.NoActionBar">
+
+        </activity>
 
         <activity
             android:name=".MainActivity"
