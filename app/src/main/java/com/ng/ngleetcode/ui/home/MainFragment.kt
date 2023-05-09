@@ -3,9 +3,7 @@ package com.ng.ngleetcode.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.ng.ngbaselib.BaseFragment
-import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.EmptyViewModel
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.databinding.FragmentMainBinding
@@ -40,16 +38,7 @@ class MainFragment : BaseFragment<EmptyViewModel, FragmentMainBinding>() {
         }
     }
 
-
-    override fun createViewBinding(): FragmentMainBinding =
-        FragmentMainBinding.inflate(layoutInflater)
-
-
-    override fun createViewModel(): EmptyViewModel =
-        ViewModelProvider(this, ViewModelFactory()).get(EmptyViewModel::class.java)
-
     override fun getLayoutId(): Int = R.layout.fragment_main
-
 
     override fun initListener() {
         

@@ -7,13 +7,11 @@ import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
 import com.ng.base.utils.LogUtil
 import com.ng.code.util.ProblemAndroidUtil
 import com.ng.code.util.model.CodeDataModel
 import com.ng.code.util.tree.CodeNode
 import com.ng.ngbaselib.BaseFragment
-import com.ng.ngbaselib.ViewModelFactory
 import com.ng.ngleetcode.EmptyViewModel
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.databinding.FragmentHomeKtBinding
@@ -34,12 +32,6 @@ class HomeKtFragment : BaseFragment<EmptyViewModel, FragmentHomeKtBinding>(), On
             return fragment
         }
     }
-
-    override fun createViewBinding(): FragmentHomeKtBinding =
-        FragmentHomeKtBinding.inflate(layoutInflater)
-
-    override fun createViewModel(): EmptyViewModel =
-        ViewModelProvider(this, ViewModelFactory()).get(EmptyViewModel::class.java)
 
 
     override fun getLayoutId(): Int = R.layout.fragment_info
