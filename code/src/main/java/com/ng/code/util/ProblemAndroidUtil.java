@@ -1,7 +1,6 @@
 package com.ng.code.util;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -79,7 +78,6 @@ public class ProblemAndroidUtil {
         int readCount = 0;
         for (String codeStr : codeList) {
             //@Solution(easy = 0, hard = 0)
-            Log.d("nangua", "遍历:" + codeStr);
             String content = readAssets(context, codeStr);
             if (content.contains("@Solution")) {
                 int easyIndex = content.indexOf("easy = ");
@@ -93,7 +91,7 @@ public class ProblemAndroidUtil {
             }
         }
         for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
-            if (temp.state == 2) {
+            if (temp.state == 1) {
                 readCount++;
             }
         }

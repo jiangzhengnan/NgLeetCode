@@ -11,7 +11,12 @@ public class CodeNode extends BaseNode {
     public int id;
     public String contentPath;
     public String content;
+    public int state;
 
+    @Nullable
+    public String getMenu() {
+        return contentPath == null ? null : contentPath.split("/")[0];
+    }
 
     public CodeNode(String title, int id, String contentPath, String content) {
         this.title = title;

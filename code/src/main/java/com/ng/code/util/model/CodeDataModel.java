@@ -1,22 +1,27 @@
 package com.ng.code.util.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.SharedPreferencesUtils;
+import com.ng.code.util.tree.CodeNode;
+import com.ng.code.work.train.monitor.utils.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * @author : 
+ * @author :
  * @creation : 2022/03/21
  * @description :
- * 方便各个业务取用，所以这里是单例 */
+ * 方便各个业务取用，所以这里是单例
+ */
 public class CodeDataModel {
     public final static String CODE_STATE = "code_state";
 
@@ -63,7 +68,27 @@ public class CodeDataModel {
         return mCodeData;
     }
 
-    public int loopCodeState(@NonNull Context context, String title, int state) {
+    public void toggleCodeState(@NonNull Context context, @Nullable CodeNode codeNode, int state) {
+        if (codeNode == null) {
+            return;
+        }
+        String title = codeNode.title;
+        if (StringUtils.isEmpty(title)) {
+            return;
+        }
+        for (int i = 0; i < mCodeStateList.size(); i++) {
+            if (title.contains(mCodeStateList.get(i).name) || mCodeStateList.get(i).name.contains(title)) {
+                mCodeStateList.get(i).state = state;
+                saveLocalCodeStateList(context);
+                LogUtil.d("刷新成功:" + title + " " + state);
+            }
+        }
+    }
+
+    public int loopCodeState(@NonNull Context context, @Nullable String title, int state) {
+        if (StringUtils.isEmpty(title)) {
+            return -1;
+        }
         for (int i = 0; i < mCodeStateList.size(); i++) {
             if (title.contains(mCodeStateList.get(i).name) || mCodeStateList.get(i).name.contains(title)) {
                 if (state != -1) {

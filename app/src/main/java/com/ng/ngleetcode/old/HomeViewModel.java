@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.model.code;
+package com.ng.ngleetcode.old;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

@@ -4,33 +4,30 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ng.base.BaseFragment
-import com.ng.base.utils.LogUtil
 import com.ng.code.util.ProblemAndroidUtil
-import com.ng.code.util.model.CodeDataModel
 import com.ng.code.util.tree.CodeNode
 import com.ng.ngbaselib.utils.ViewUtils
 import com.ng.ngleetcode.databinding.FragmentCodeBinding
-import com.ng.ngleetcode.view.ToggleView.OnToggleListener
 import com.ng.ngleetcode.view.adapter.NodeTreeAdapter
 import com.ng.ngleetcode.view.code.CodeView.OnHighlightListener
 import com.ng.ngleetcode.view.code.Language
 import com.ng.ngleetcode.view.code.Theme
 
 class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighlightListener,
-    OnToggleListener, NodeTreeAdapter.OnLeftItemClick {
+    NodeTreeAdapter.OnLeftItemClick {
 
     //左侧rv
     private lateinit var mLeftRvAdapter: NodeTreeAdapter
 
     //fab
     private var mFabDegree = 360F
-
-    private var mNowData: CodeNode? = null
 
     companion object {
         fun getInstance(title: String): CodeFragment {
@@ -56,14 +53,25 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
             .setShowLineNumber(false)
             .setStartLineNumber(0)
             .apply()
-        showRandomProblem()
+
+        mBinding.showTvLayout.setOnClickListener {
+            mBinding.drawer.openDrawer(Gravity.LEFT)
+        }
 
         //fab
         mBinding.fabRefresh.setOnClickListener {
             mBinding.fabRefresh.animate().rotation(mFabDegree).start()
             mFabDegree += 360f
-            refreshRandomCode()
-            //binding.appBarMain.toolbar.setTitle(mHomeFragment.refreshData())
+            showRandomCode()
+        }
+        mBinding.fabLeft.setOnClickListener {
+            mViewModel.refreshLeftCode()
+        }
+        mBinding.fabRight.setOnClickListener {
+            mViewModel.refreshRightCode()
+        }
+        mBinding.fabOk.setOnClickListener {
+            mViewModel.toggleState()
         }
 
         //left
@@ -89,43 +97,39 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
     }
 
     override fun initData() {
-        mViewModel.refreshData()
+        //刷新左侧菜单题库列表
+        mViewModel.refreshDataList()
+        //刷新当前题目，随机得到
+        showRandomCode()
+        //刷新进度
+        mViewModel.refreshProgress()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initObserve() {
-        mViewModel.codeLiveData.observe(this) {
+        mViewModel.menuLiveData.observe(this) {
             mLeftRvAdapter.setList(it)
+        }
+
+        mViewModel.codeLiveData.observe(this) {
+            it.content = ProblemAndroidUtil.readAssets(context, it.contentPath)
+            if (!mBinding.codeView.code.equals(it.content)) {
+                mBinding.codeView.code = it.content
+                mBinding.codeView.apply()
+            }
+            setTitle(it.title, it.state == 1)
+            setMenu(it.menu.toString())
+        }
+        mViewModel.progressLiveData.observe(this) {
+            mBinding.nowProgress.progress = it.nowPro
+            mBinding.nowProgress.max = it.allPro
+            mBinding.tvProgress.text = "${it.nowPro} - ${it.allPro}"
         }
     }
 
-    /**
-     * 随机显示一个题目
-     */
-    private fun refreshRandomCode() {
-
-
-    }
-
-
-    @SuppressLint("SetTextI18n")
-    private fun refreshNowProgressBar() {
-        ProblemAndroidUtil.getNowProgressAndroid(context)
-        val allPro = ProblemAndroidUtil.codeNum
-        val readPro = ProblemAndroidUtil.readNum
-        mBinding.nowProgress.progress = readPro
-        mBinding.nowProgress.max = allPro
-        mBinding.tvProgress.text = "$readPro - $allPro"
-    }
-
-    private fun showRandomProblem(): String? {
-        mNowData = ProblemAndroidUtil.getRandomProblemJavaContentNew(context)
-        val refreshData = refreshData(mNowData)
-        return mNowData?.contentPath?.split("/")?.toTypedArray()?.get(0)
-    }
-
-    fun refreshData(): String? {
+    private fun showRandomCode() {
         showAnim()
-        return showRandomProblem()
+        mViewModel.refreshRandomCode()
     }
 
     private fun showAnim() {
@@ -150,21 +154,17 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
         animatorSet.start()
     }
 
-    fun refreshData(codeBean: CodeNode?): String {
-        mNowData = codeBean
-        mNowData?.content = ProblemAndroidUtil.readAssets(context, mNowData?.contentPath)
-        mBinding.codeView.setCode(mNowData?.content)?.apply()
-        mNowData?.let { setTitle(it.title) }
-        val state =
-            CodeDataModel.getInstance().loopCodeState(requireActivity(), mNowData?.title, -1)
-        LogUtil.d("当前:" + mNowData?.title + " state:" + state)
-        refreshNowProgressBar()
-        showAnim()
-        return mNowData?.contentPath?.split("/")?.toTypedArray()?.get(0).toString()
+    fun setTitle(title: String, isRead: Boolean) {
+        mBinding.tvTitle.text = title.replace(".java", "")
+        if (isRead) {
+            mBinding.tvTitle.setTextColor(Color.GREEN)
+        } else {
+            mBinding.tvTitle.setTextColor(Color.BLACK)
+        }
     }
 
-    fun setTitle(title: String) {
-        mBinding.tvTitle.text = title.replace(".java", "")
+    fun setMenu(title: String) {
+        mBinding.tvMenu.text = title
     }
 
     override fun onStartCodeHighlight() {}
@@ -177,19 +177,12 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
 
     override fun onLineClicked(lineNumber: Int, content: String?) {}
 
-    override fun onToggle(isPositive: Boolean) {
-        if (activity != null) {
-            CodeDataModel.getInstance()
-                .loopCodeState(requireActivity(), mNowData!!.title, if (isPositive) 1 else 2)
-            refreshNowProgressBar()
-        }
-    }
-
     /**
      * 左侧目录点击
      */
     override fun onItem(codeBean: CodeNode?) {
-
+        mViewModel.refreshCode(codeBean)
+        mBinding.drawer.closeDrawers()
     }
 
 }

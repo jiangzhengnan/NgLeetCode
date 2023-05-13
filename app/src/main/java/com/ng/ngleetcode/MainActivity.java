@@ -25,7 +25,7 @@ import com.ng.code.util.SharedPreferencesUtils;
 import com.ng.code.util.model.CodeDataModel;
 import com.ng.code.util.tree.CodeNode;
 import com.ng.ngleetcode.databinding.ActivityMainVpBinding;
-import com.ng.ngleetcode.model.code.HomeFragment;
+import com.ng.ngleetcode.old.HomeFragment;
 import com.ng.ngleetcode.view.adapter.NodeTreeAdapter;
 
 public class MainActivity extends AppCompatActivity implements NodeTreeAdapter.OnLeftItemClick {
