@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <!--主体布局-->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="8dp">
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ProgressBar
+                        android:id="@+id/now_progress"
+                        style="@style/myPb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true" />
+
+                <TextView
+                        android:id="@+id/tv_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="0 - 0"
+                        android:textColor="#000"
+                        android:textSize="11dp" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:src="@drawable/ic_nav"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    <TextView
+                            android:id="@+id/tv_menu"
+                            android:hint="目录"
+                            android:layout_marginLeft="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+
+            <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1">
+
+                <com.ng.ngleetcode.view.code.CodeView
+                        android:id="@+id/code_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+            </com.ng.ngleetcode.view.rounded.RoundedFrameLayout>
+
+        </LinearLayout>
+
+        <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/fab_menu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="bottom|end"
+                app:menu_colorNormal="#3A4B5D"
+                app:menu_colorPressed="#204771"
+                app:menu_labels_showShadow="true"
+                android:layout_margin="@dimen/fab_margin">
+
+            <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_left"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:fab_size="mini"
+                    app:fab_colorNormal="#3A4B5D"
+                    app:fab_colorPressed="#204771"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_left_24" />
+
+            <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_right"
+                    app:fab_size="mini"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:fab_colorNormal="#3A4B5D"
+                    app:fab_colorPressed="#204771"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+            <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_refresh"
+                    app:fab_size="mini"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:fab_colorNormal="#3A4B5D"
+                    app:fab_colorPressed="#204771"
+                    android:src="@drawable/ic_baseline_refresh_24" />
+
+            <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_ok"
+                    app:fab_size="mini"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:fab_colorNormal="#3A4B5D"
+                    app:fab_colorPressed="#204771"
+                    android:src="@drawable/ic_baseline_check_circle_24" />
+
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/left_rv"
+            android:layout_width="250dp"
+            android:background="@color/white"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:orientation="vertical" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

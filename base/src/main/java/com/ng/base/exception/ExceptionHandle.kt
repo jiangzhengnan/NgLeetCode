@@ -6,6 +6,9 @@ import org.json.JSONException
 import retrofit2.HttpException
 import java.net.ConnectException
 
+/**
+ * 自定义异常处理
+ */
 object ExceptionHandle {
 
     fun handleException(e: Throwable): ResponseThrowable {

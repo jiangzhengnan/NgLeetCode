@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    //noinspection GradleCompatible
     compileSdkVersion 30
 
     defaultConfig {

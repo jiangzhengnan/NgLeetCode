@@ -1,10 +1,3 @@
-/*
- * Copyright (C) 2004 - 2017 UCWeb Inc. All Rights Reserved.
- * Description :
- *
- * Creation    :  2017-01-22
- * Author      : zhaomin.gzm@alibaba-inc.com
- */
 
 package com.ng.code.util;
 

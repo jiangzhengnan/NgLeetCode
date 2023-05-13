@@ -1,4 +1,4 @@
-package com.ng.ngbaselib
+package com.ng.base
 
 import android.app.Activity
 import android.content.Intent
@@ -7,14 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
-import com.ng.base.BaseViewModel
-import com.ng.base.R
 import com.ng.base.event.Message
 import com.ng.base.utils.BindingUtil
 import com.ng.base.utils.ToastUtils
@@ -33,16 +33,16 @@ import java.lang.reflect.Type
 @Suppress("UNCHECKED_CAST")
 abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatActivity() {
 
-    protected var mViewModel: VM? = null
+    protected lateinit var mViewModel: VM
 
-    protected var mBinding: VB? = null
+    protected lateinit var mBinding: VB
 
-    private fun <VB> createVb(): VB? {
-        val type = this.javaClass.genericSuperclass ?: return null
+    private fun <VB> createVb(): VB {
+        val type = this.javaClass.genericSuperclass
         // 获取 所包含的泛型参数列表
         val types: Array<Type> = (type as ParameterizedType).actualTypeArguments
         val viewBindClass = types[1] as Class<out ViewBinding?>
-        return BindingUtil.createViewBinding(viewBindClass, layoutInflater)
+        return BindingUtil.createViewBinding(viewBindClass, layoutInflater)!!
     }
 
     private fun viewModelClass(): Class<VM> {
@@ -64,17 +64,12 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = createVb()
-        if (mBinding == null) {
-            throw java.lang.NullPointerException("mBinding is null")
-        }
+        mBinding = createVb()!!
 
         mViewModel = ViewModelProvider(this, ViewModelFactory()).get(viewModelClass())
-        if (mViewModel != null) {
-            lifecycle.addObserver(mViewModel!!)
-            //注册 UI事件
-            registorDefUIChange()
-        }
+        lifecycle.addObserver(mViewModel)
+        //注册 UI事件
+        registorDefUIChange()
 
         mCustomView = (mBinding as ViewBinding).root;
 
@@ -100,25 +95,25 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
      * 注册 UI 事件
      */
     private fun registorDefUIChange() {
-        if (mViewModel != null) {
-            mViewModel!!.defUI.showDialog.observe(this, Observer {
-                showLoading()
-            })
-            mViewModel!!.defUI.dismissDialog.observe(this, Observer {
-                dismissLoading()
-            })
-            mViewModel!!.defUI.toastEvent.observe(this, Observer {
-                ToastUtils.showShort(baseContext, it)
-            })
-            mViewModel!!.defUI.msgEvent.observe(this, Observer {
-                handleEvent(it)
-            })
-        }
+        mViewModel.defUI.showDialog.observe(this, Observer {
+            showLoading()
+        })
+        mViewModel.defUI.dismissDialog.observe(this, Observer {
+            dismissLoading()
+        })
+        mViewModel.defUI.toastEvent.observe(this, Observer {
+            ToastUtils.showShort(baseContext, it)
+        })
+        mViewModel.defUI.msgEvent.observe(this, Observer {
+            handleEvent(it)
+        })
     }
 
     open fun handleEvent(msg: Message) {}
 
-    abstract fun onRetryBtnClick()
+    protected fun onRetryBtnClick(){
+
+    }
 
     /**
      * 打开等待框
@@ -188,4 +183,22 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
         startActivity(intent)
     }
 
+    //clazz传入fragment类：如：HomeFragment.class
+    open fun getFragment(clazz: Class<*>): Fragment? {
+        val fragments = supportFragmentManager.fragments
+        if (fragments.size > 0) {
+            val navHostFragment = fragments[0] as NavHostFragment
+            val childFragments = navHostFragment.childFragmentManager
+                .fragments
+            if (childFragments.size > 0) {
+                for (j in childFragments.indices) {
+                    val fragment = childFragments[j]
+                    if (fragment.javaClass.isAssignableFrom(clazz)) {
+                        return fragment
+                    }
+                }
+            }
+        }
+        return null
+    }
 }

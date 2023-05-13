@@ -13,8 +13,4 @@
         android:id="@+id/menu_square"
         android:icon="@mipmap/square"
         android:title="@string/tab_3" />
-    <item
-        android:id="@+id/menu_mine"
-        android:icon="@mipmap/mine"
-        android:title="@string/tab_5" />
 </menu>

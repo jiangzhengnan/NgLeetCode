@@ -6,6 +6,7 @@ plugins {
 
 
 android {
+    //noinspection GradleCompatible
     compileSdkVersion 30
 
     defaultConfig {
@@ -48,5 +49,8 @@ dependencies {
 
     //tab
     api 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
+
+    //fab
+    api 'com.github.clans:fab:1.6.4'
 
 }

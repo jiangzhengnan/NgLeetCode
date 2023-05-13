@@ -9,8 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
 
-
-    <color name="tab1_color">#F05B1A</color>
-    <color name="tab2_color">#F05B1A</color>
-    <color name="tab3_color">#F05B1A</color>
+    <color name="tab1_color">#3A4B5D</color>
+    <color name="tab2_color">#204771</color>
+    <color name="tab3_color">#0156AF</color>
+    <color name="tab4_color">#0C77E8</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.ng.ngbaselib
+package com.ng.base
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -20,11 +20,9 @@ import androidx.viewbinding.ViewBinding
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
-import com.ng.base.BaseViewModel
-import com.ng.base.R
 import com.ng.base.event.Message
 import com.ng.base.fragment.FragmentUserVisibleController
-import com.ng.base.utils.BindingUtil.createViewBinding
+import com.ng.base.utils.BindingUtil
 import com.ng.base.utils.ColorUtil
 import com.ng.base.utils.ToastUtils
 import com.ng.base.view.StateLayout
@@ -55,8 +53,8 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         return true
     }
 
-    protected var mViewModel: VM? = null
-    protected var mBinding: VB? = null
+    protected lateinit var mViewModel: VM
+    protected lateinit var mBinding: VB
 
     //是否第一次加载
     private var isFirst: Boolean = true
@@ -74,13 +72,12 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
 
     private var mRootView: View? = null
 
-
-    private fun <VB> createVb(): VB? {
-        val type = this.javaClass.genericSuperclass ?: return null
+    private fun <VB> createVb(): VB {
+        val type = this.javaClass.genericSuperclass
         // 获取 所包含的泛型参数列表
         val types: Array<Type> = (type as ParameterizedType).actualTypeArguments
         val viewBindClass = types[1] as Class<out ViewBinding?>
-        return createViewBinding(viewBindClass, layoutInflater)
+        return BindingUtil.createViewBinding(viewBindClass, layoutInflater)!!
     }
 
     private fun viewModelClass(): Class<VM> {
@@ -112,11 +109,11 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
                 parent.removeView(mContentView)
             }
         }
-
-
-        initObserve()
-
-
+        EventBus.getDefault().let {
+            if (!it.isRegistered(this)) {
+                it.register(this)
+            }
+        }
         return mContentView
     }
 
@@ -126,16 +123,11 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         savedInstanceState: Bundle?
     ): View? {
         mBinding = createVb()
-        if (mBinding == null) {
-            throw java.lang.NullPointerException("mBinding is null")
-        }
 
         mViewModel = ViewModelProvider(this, ViewModelFactory()).get(viewModelClass())
-        if (mViewModel != null) {
-            lifecycle.addObserver(mViewModel!!)
-            //注册 UI事件
-            registorDefUIChange()
-        }
+        lifecycle.addObserver(mViewModel)
+        //注册 UI事件
+        registorDefUIChange()
 
         mCustomView = (mBinding as ViewBinding).root;
 
@@ -150,15 +142,6 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
             setRoot(mCustomView!!)
         }
         return getRoot()
-    }
-
-
-    private fun initObserve() {
-        EventBus.getDefault().let {
-            if (!it.isRegistered(this)) {
-                it.register(this)
-            }
-        }
     }
 
     @Subscribe
@@ -177,12 +160,11 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (mViewModel != null)
-            lifecycle.addObserver(mViewModel!!)
+        lifecycle.addObserver(mViewModel)
         //注册 UI事件
         registorDefUIChange()
         initViewsAndEvents(mContentView, savedInstanceState)
-        initListener()
+        initObserve()
         initData()
 
     }
@@ -210,16 +192,15 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         mUserVisibleController!!.activityCreated()
     }
 
-    abstract fun getLayoutId(): Int
-
-    abstract fun initListener()
-
     abstract fun initViewsAndEvents(v: View?, savedInstanceState: Bundle?)
 
-    abstract fun onRetryBtnClick()
+    protected fun onRetryBtnClick(){
+
+    }
 
     abstract fun initData()
 
+    abstract fun initObserve()
 
     open fun showLoadingLayout(msg: String?) {
         if (mContentFrameLayout != null) {
@@ -291,26 +272,24 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
      * 注册 UI 事件
      */
     private fun registorDefUIChange() {
-        if (mViewModel != null) {
-            mViewModel!!.defUI.showDialog.observe(viewLifecycleOwner, Observer {
-                showLoading()
-            })
-            mViewModel!!.defUI.showEmpty.observe(viewLifecycleOwner, Observer {
-                showEmptyLayout()
-            })
-            mViewModel!!.defUI.showError.observe(viewLifecycleOwner, Observer {
-                showLoadingErrorLayout(getString(R.string.loading_fail))
-            })
-            mViewModel!!.defUI.dismissDialog.observe(viewLifecycleOwner, Observer {
-                dismissLoading()
-            })
-            mViewModel!!.defUI.toastEvent.observe(viewLifecycleOwner, Observer {
-                ToastUtils.showShort(context, it)
-            })
-            mViewModel!!.defUI.msgEvent.observe(viewLifecycleOwner, Observer {
-                handleEvent(it)
-            })
-        }
+        mViewModel.defUI.showDialog.observe(viewLifecycleOwner, Observer {
+            showLoading()
+        })
+        mViewModel.defUI.showEmpty.observe(viewLifecycleOwner, Observer {
+            showEmptyLayout()
+        })
+        mViewModel.defUI.showError.observe(viewLifecycleOwner, Observer {
+            showLoadingErrorLayout(getString(R.string.loading_fail))
+        })
+        mViewModel.defUI.dismissDialog.observe(viewLifecycleOwner, Observer {
+            dismissLoading()
+        })
+        mViewModel.defUI.toastEvent.observe(viewLifecycleOwner, Observer {
+            ToastUtils.showShort(context, it)
+        })
+        mViewModel.defUI.msgEvent.observe(viewLifecycleOwner, Observer {
+            handleEvent(it)
+        })
     }
 
     open fun handleEvent(msg: Message) {}
@@ -374,11 +353,9 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         return mUserVisibleController!!.isVisibleToUser
     }
 
-
     override fun callSuperSetUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
     }
-
 
     private var isFirstVisible = true
 

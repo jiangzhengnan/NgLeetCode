@@ -1,5 +1,9 @@
 package com.ng.ngleetcode.view.code;
 
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -9,16 +13,13 @@ import android.text.Html;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.ng.ngleetcode.R;
-
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 /**
@@ -66,6 +67,8 @@ public class CodeView extends WebView {
         super(context, attrs, defStyleAttr);
         //Inicialização.
         init(context, attrs);
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
     }
 
     @Override

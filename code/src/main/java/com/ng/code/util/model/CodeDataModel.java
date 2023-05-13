@@ -1,23 +1,22 @@
 package com.ng.code.util.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.SharedPreferencesUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author : 
  * @creation : 2022/03/21
  * @description :
- */
+ * 方便各个业务取用，所以这里是单例 */
 public class CodeDataModel {
     public final static String CODE_STATE = "code_state";
 

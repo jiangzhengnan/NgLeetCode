@@ -13,6 +13,7 @@ import com.ng.base.exception.ResponseThrowable
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
+@OptIn(ExperimentalCoroutinesApi::class)
 open class BaseViewModel(application: Application) : AndroidViewModel(application),
     LifecycleObserver {
     var errorResult = MutableLiveData<String>()
