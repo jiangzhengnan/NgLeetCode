@@ -90,7 +90,8 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
             return when (position) {
                 0 -> CodeFragment.getInstance(UIUtil.getString(R.string.tab_1))
                 1 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_2))
-                2 -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
+                2 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_3))
+                3 -> MineFragment.getInstance(UIUtil.getString(R.string.tab_4))
                 else -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
             }
         }
