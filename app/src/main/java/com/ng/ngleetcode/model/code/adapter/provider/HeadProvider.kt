@@ -5,7 +5,7 @@ import com.chad.library.adapter.base.entity.node.BaseNode
 import com.chad.library.adapter.base.provider.BaseNodeProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.model.code.model.ProblemAndroidUtil
+import com.ng.ngleetcode.model.code.data.ProblemAndroidUtil
 
 class HeadProvider : BaseNodeProvider() {
     override val itemViewType = 1

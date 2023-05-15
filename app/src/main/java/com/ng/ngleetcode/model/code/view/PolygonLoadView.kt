@@ -26,7 +26,7 @@ class PolygonLoadView(context: Context, attrs: AttributeSet) : View(context, att
     val SHOW_MODEL_ROUND = 0x00
     val SHOW_MODEL_TRIANGLE = 0x01
     val SHOW_MODEL_SQUARE = 0x02
-    val TIME_CIRCLE: Long = 2000
+    val TIME_CIRCLE: Long = 10000
     private var animatorSet: AnimatorSet? = null
     private var mSideLength: Float = 0.toFloat()
     private var mHalfSH: Float = 0.toFloat()
@@ -45,11 +45,11 @@ class PolygonLoadView(context: Context, attrs: AttributeSet) : View(context, att
     private var endLineX: Float = 0.toFloat()
     private var endLineY: Float = 0.toFloat()
 
+    private var hadInit = false
+
     fun setModel(model: Int) {
         if (SHOW_MODEL == SHOW_MODEL_ROUND || SHOW_MODEL == SHOW_MODEL_TRIANGLE || SHOW_MODEL == SHOW_MODEL_SQUARE) {
             this.SHOW_MODEL = model
-            init()
-            postInvalidate()
         } else {
             try {
                 throw Exception("error model")
@@ -61,6 +61,10 @@ class PolygonLoadView(context: Context, attrs: AttributeSet) : View(context, att
     }
 
     private fun init() {
+        if (hadInit) {
+            return
+        }
+        hadInit = true
         paintLine = Paint()
         paintPoint = Paint()
         animatorSet = AnimatorSet()
@@ -333,10 +337,16 @@ class PolygonLoadView(context: Context, attrs: AttributeSet) : View(context, att
         mSideLength = (if (measuredWidth > measuredHeight) measuredHeight else measuredWidth).toFloat()
         //宽必须等于高
         MLog.d("宽： $mSideLength  高：  $mSideLength")
+        if (mSideLength > 0) {
+            init()
+        }
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        if (!hadInit) {
+            return
+        }
         when (SHOW_MODEL) {
             SHOW_MODEL_ROUND -> drawRound(canvas)
             SHOW_MODEL_TRIANGLE -> drawTriangle(canvas)

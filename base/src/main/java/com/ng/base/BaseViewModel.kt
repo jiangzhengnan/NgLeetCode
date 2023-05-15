@@ -1,10 +1,7 @@
 package com.ng.base
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.ng.base.event.Message
 import com.ng.base.event.SingleLiveEvent
 import com.ng.base.exception.ExceptionHandle
@@ -234,6 +231,26 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
             } finally {
                 complete()
             }
+        }
+    }
+
+    /**
+     * 无更多数据
+     */
+    val footLiveDate = MutableLiveData<Any>()
+
+    /**
+     * 无数据
+     */
+    val emptyLiveDate = MutableLiveData<Any>()
+
+    /**
+     * 处理列表是否有更多数据
+     */
+    protected fun<T> handleList(listLiveData: LiveData<MutableList<T>>, pageSize:Int = 20){
+        val listSize = listLiveData.value?.size?:0
+        if (listSize % pageSize != 0){
+            footLiveDate.value = 1
         }
     }
 

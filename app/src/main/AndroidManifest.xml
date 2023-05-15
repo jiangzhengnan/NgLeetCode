@@ -32,9 +32,12 @@
         <activity
                 android:name=".HomeActivity"
                 android:exported="false"
-                android:theme="@style/Theme.MyApplication.NoActionBar">
+                android:theme="@style/Theme.MyApplication.NoActionBar" />
 
-        </activity>
+        <activity
+                android:name=".model.tree.TreeListActivity"
+                android:exported="false"
+                android:theme="@style/Theme.MyApplication.NoActionBar" />
 
 
     </application>

@@ -7,8 +7,8 @@ import com.ng.ngleetcode.app.MyApplication
 import com.ng.ngleetcode.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.model.code.bean.CodeNode
 import com.ng.ngleetcode.model.code.bean.CodeProgress
-import com.ng.ngleetcode.model.code.model.CodeDataModel
-import com.ng.ngleetcode.model.code.model.ProblemAndroidUtil
+import com.ng.ngleetcode.model.code.data.CodeDataModel
+import com.ng.ngleetcode.model.code.data.ProblemAndroidUtil
 import java.util.*
 
 /**

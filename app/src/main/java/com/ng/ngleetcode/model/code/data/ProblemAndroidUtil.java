@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.model.code.model;
+package com.ng.ngleetcode.model.code.data;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;

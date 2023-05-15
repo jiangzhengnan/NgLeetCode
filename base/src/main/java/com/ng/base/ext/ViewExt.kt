@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
 /**
  * des 视图扩展方法
@@ -174,6 +175,27 @@ fun EditText.keyBoardSearch(onClick: () -> Unit) {
     }
 }
 
+/**
+ * 隐藏刷新加载ui
+ */
+fun SmartRefreshLayout.smartDismiss() {
+    finishRefresh(0)
+    finishLoadMore(0)
+}
+
+/**
+ * 配置SmartRefreshLayout
+ */
+fun SmartRefreshLayout.smartConfig() {
+    //加载
+    setEnableLoadMore(true)
+    //刷新
+    setEnableRefresh(true)
+    //不满一页关闭加载
+    //setEnableLoadMoreWhenContentNotFull(false)
+    //滚动回弹
+    setEnableOverScrollDrag(true)
+}
 
 
 

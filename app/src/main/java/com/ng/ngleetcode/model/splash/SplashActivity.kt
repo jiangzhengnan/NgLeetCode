@@ -28,6 +28,9 @@ class SplashActivity : BaseActivity<EmptyViewModel, ActivitySplashBinding>() {
         }
     }
 
+    override fun initObserve() {
+    }
+
     override fun initData() {
         getPermissions(mPermissions)
     }

@@ -9,7 +9,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.model.code.adapter.NodeTreeAdapter.OnLeftItemClick
 import com.ng.ngleetcode.model.code.bean.CodeNode
-import com.ng.ngleetcode.model.code.model.CodeDataModel
+import com.ng.ngleetcode.model.code.data.CodeDataModel
 
 class CodeProvider(private var onLeftItemClick: OnLeftItemClick?) : BaseNodeProvider() {
     override val itemViewType  = 1

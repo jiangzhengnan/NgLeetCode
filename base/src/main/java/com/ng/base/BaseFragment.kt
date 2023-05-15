@@ -2,6 +2,7 @@ package com.ng.base
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
@@ -24,6 +25,7 @@ import com.ng.base.event.Message
 import com.ng.base.fragment.FragmentUserVisibleController
 import com.ng.base.utils.BindingUtil
 import com.ng.base.utils.ColorUtil
+import com.ng.base.utils.ParamUtil
 import com.ng.base.utils.ToastUtils
 import com.ng.base.view.StateLayout
 import org.greenrobot.eventbus.EventBus
@@ -92,6 +94,10 @@ abstract class BaseFragment<VM : BaseViewModel, VB : ViewBinding> : Fragment(),
         mUserVisibleController = FragmentUserVisibleController(this, this)
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        ParamUtil.initParam(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

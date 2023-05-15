@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.model.code.model;
+package com.ng.ngleetcode.model.code.data;
 
 import java.util.ArrayList;
 import java.util.List;

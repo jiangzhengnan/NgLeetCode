@@ -10,9 +10,24 @@
             android:id="@+id/iv_blur"
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:background="@color/tab4_color"
+            android:background="@color/tab3_color"
             android:scaleType="centerCrop"
             tools:ignore="UseAppTint" />
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_3"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_gravity="center" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:id="@+id/srl"

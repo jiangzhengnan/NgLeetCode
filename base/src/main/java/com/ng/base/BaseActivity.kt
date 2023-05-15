@@ -17,6 +17,7 @@ import com.afollestad.materialdialogs.customview.customView
 import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
 import com.ng.base.event.Message
 import com.ng.base.utils.BindingUtil
+import com.ng.base.utils.ParamUtil
 import com.ng.base.utils.ToastUtils
 import com.ng.base.view.StateLayout
 import java.lang.reflect.ParameterizedType
@@ -64,6 +65,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ParamUtil.initParam(this)
         mBinding = createVb()!!
 
         mViewModel = ViewModelProvider(this, ViewModelFactory()).get(viewModelClass())
@@ -84,10 +86,13 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
         }
 
         initView(savedInstanceState)
+        initObserve()
         initData()
     }
 
     abstract fun initView(savedInstanceState: Bundle?)
+
+    abstract fun initObserve()
 
     abstract fun initData()
 
@@ -111,7 +116,7 @@ abstract class BaseActivity<VM : BaseViewModel, VB : ViewBinding> : AppCompatAct
 
     open fun handleEvent(msg: Message) {}
 
-    protected fun onRetryBtnClick(){
+    open fun onRetryBtnClick(){
 
     }
 

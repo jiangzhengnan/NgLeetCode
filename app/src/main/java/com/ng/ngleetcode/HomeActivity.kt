@@ -10,8 +10,8 @@ import com.ng.base.BaseActivity
 import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.databinding.ActivityHomeBinding
 import com.ng.ngleetcode.model.code.CodeFragment
-import com.ng.ngleetcode.model.info.InfoFragment
 import com.ng.ngleetcode.model.mine.MineFragment
+import com.ng.ngleetcode.model.tree.TreeFragment
 import com.ng.ngleetcode.utils.UIUtil
 import me.majiajie.pagerbottomtabstrip.MaterialMode
 import me.majiajie.pagerbottomtabstrip.NavigationController
@@ -27,21 +27,18 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
             UIUtil.getColor(R.color.tab1_color),
             UIUtil.getColor(R.color.tab2_color),
             UIUtil.getColor(R.color.tab3_color),
-            UIUtil.getColor(R.color.tab4_color)
         )
 
         val mItemIcons = arrayListOf(
             R.mipmap.ic_book_black_24dp,
             R.mipmap.ic_baseline_account_tree_24,
-            R.mipmap.ic_baseline_newspaper_24,
-            R.mipmap.ic_baseline_person_pin_24
+            R.mipmap.ic_baseline_person_pin_24,
         )
 
         val mItemTitles = arrayListOf(
             UIUtil.getString(R.string.tab_1),
             UIUtil.getString(R.string.tab_2),
             UIUtil.getString(R.string.tab_3),
-            UIUtil.getString(R.string.tab_4)
         )
     }
 
@@ -62,11 +59,6 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
                 mItemTitles[2],
                 mItemColors[2]
             )
-            .addItem(
-                mItemIcons[3],
-                mItemTitles[3],
-                mItemColors[3]
-            )
             .enableAnimateLayoutChanges()
             .setDefaultColor(0x89FFFFFF.toInt())//未选中状态的颜色
             .setMode(MaterialMode.CHANGE_BACKGROUND_COLOR or MaterialMode.HIDE_TEXT)
@@ -83,6 +75,9 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
 
     }
 
+    override fun initObserve() {
+    }
+
     override fun initData() {
     }
 
@@ -91,9 +86,8 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> CodeFragment.getInstance(mItemTitles[position])
-                1 -> InfoFragment.getInstance(mItemTitles[position])
-                2 -> InfoFragment.getInstance(mItemTitles[position])
-                3 -> MineFragment.getInstance(mItemTitles[position])
+                1 -> TreeFragment.getInstance(mItemTitles[position])
+                2 -> MineFragment.getInstance(mItemTitles[position])
                 else -> MineFragment.getInstance(mItemTitles[position])
             }
         }
