@@ -3,12 +3,12 @@ package com.ng.ngleetcode.model.code
 import androidx.lifecycle.MutableLiveData
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.BaseViewModel
-import com.ng.code.util.ProblemAndroidUtil
-import com.ng.code.util.model.CodeDataModel
-import com.ng.code.util.tree.CodeDirNode
-import com.ng.code.util.tree.CodeNode
-import com.ng.code.util.tree.CodeProgress
-import com.ng.ngleetcode.MyApplication
+import com.ng.ngleetcode.app.MyApplication
+import com.ng.ngleetcode.model.code.bean.CodeDirNode
+import com.ng.ngleetcode.model.code.bean.CodeNode
+import com.ng.ngleetcode.model.code.bean.CodeProgress
+import com.ng.ngleetcode.model.code.model.CodeDataModel
+import com.ng.ngleetcode.model.code.model.ProblemAndroidUtil
 import java.util.*
 
 /**

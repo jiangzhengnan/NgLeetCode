@@ -9,7 +9,7 @@ import com.ng.base.utils.MLog
 import com.ng.ngbaselib.permission.PermissionResult
 import com.ng.ngbaselib.permission.PermissionUtil
 import com.ng.ngbaselib.permission.Permissions
-import com.ng.ngleetcode.EmptyViewModel
+import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.HomeActivity
 import com.ng.ngleetcode.databinding.ActivitySplashBinding
 

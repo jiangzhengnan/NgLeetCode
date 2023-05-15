@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.view.code;
+package com.ng.ngleetcode.model.code.view;
 
 /**
  * @author : 

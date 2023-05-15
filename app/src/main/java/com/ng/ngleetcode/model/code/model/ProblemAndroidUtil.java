@@ -1,15 +1,4 @@
-package com.ng.code.util;
-
-import android.content.Context;
-
-import androidx.annotation.NonNull;
-
-import com.chad.library.adapter.base.entity.node.BaseNode;
-import com.ng.code.util.model.CodeDataModel;
-import com.ng.code.util.model.CodeState;
-import com.ng.code.util.tree.CodeDirNode;
-import com.ng.code.util.tree.CodeNode;
-import com.ng.code.util.tree.HeadLayoutNode;
+package com.ng.ngleetcode.model.code.model;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -18,6 +7,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import com.chad.library.adapter.base.entity.node.BaseNode;
+import com.ng.code.util.IdGenerator;
+import com.ng.ngleetcode.model.code.bean.CodeDirNode;
+import com.ng.ngleetcode.model.code.bean.CodeNode;
 
 /**
  * @author : 
@@ -47,7 +44,7 @@ public class ProblemAndroidUtil {
 
         List<CodeNode> unReadList = new ArrayList<>();
         for (CodeNode node : realNodeList) {
-            int state = CodeDataModel.getInstance().loopCodeState(context, node.title, -1);
+            int state = CodeDataModel.getInstance().loopCodeState(context, node.getTitle(), -1);
             if (state == -1) {
                 unReadList.add(node);
             }
@@ -91,7 +88,7 @@ public class ProblemAndroidUtil {
             }
         }
         for (CodeState temp : CodeDataModel.getInstance().mCodeStateList) {
-            if (temp.state == 1) {
+            if (temp.getState() == 1) {
                 readCount++;
             }
         }
@@ -128,7 +125,7 @@ public class ProblemAndroidUtil {
             CodeDataModel.getInstance().mCodeStateList.clear();
         }
         List<BaseNode> dirList = new ArrayList<>();
-        dirList.add(new HeadLayoutNode(""));
+        //dirList.add(new HeadLayoutNode(""));
         try {
             String[] files = context.getAssets().list("");
             for (String temp : files) {

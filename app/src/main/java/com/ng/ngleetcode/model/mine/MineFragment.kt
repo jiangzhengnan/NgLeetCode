@@ -4,14 +4,13 @@ package com.ng.ngleetcode.model.mine
 import android.os.Bundle
 import android.view.View
 import com.ng.base.BaseFragment
-import com.ng.ngleetcode.EmptyViewModel
+import com.ng.ngbaselib.utils.ViewUtils
+import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.databinding.FragmentMineBinding
 
 
 /**
- * des 我的
- * @author zs
- * @date 2020-05-14
+ * 我的
  */
 class MineFragment : BaseFragment<EmptyViewModel, FragmentMineBinding>() {
 
@@ -26,11 +25,11 @@ class MineFragment : BaseFragment<EmptyViewModel, FragmentMineBinding>() {
 
 
     override fun initViewsAndEvents(v: View?, savedInstanceState: Bundle?) {
-        
+        mBinding.userIcon.cornerRadius = ViewUtils.dpToPx(40F).toFloat()
     }
 
     override fun initData() {
-        
+
     }
 
     override fun initObserve() {

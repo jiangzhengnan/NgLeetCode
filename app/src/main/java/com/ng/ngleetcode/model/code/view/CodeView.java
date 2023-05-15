@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.view.code;
+package com.ng.ngleetcode.model.code.view;
 
 import java.util.Locale;
 import java.util.regex.Matcher;

@@ -11,16 +11,15 @@ import android.view.View
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ng.base.BaseFragment
-import com.ng.code.util.ProblemAndroidUtil
-import com.ng.code.util.tree.CodeNode
 import com.ng.ngbaselib.utils.ViewUtils
 import com.ng.ngleetcode.databinding.FragmentCodeBinding
-import com.ng.ngleetcode.view.adapter.NodeTreeAdapter
-import com.ng.ngleetcode.view.code.CodeView.OnHighlightListener
-import com.ng.ngleetcode.view.code.Language
-import com.ng.ngleetcode.view.code.Theme
+import com.ng.ngleetcode.model.code.adapter.NodeTreeAdapter
+import com.ng.ngleetcode.model.code.bean.CodeNode
+import com.ng.ngleetcode.model.code.model.ProblemAndroidUtil
+import com.ng.ngleetcode.model.code.view.Language
+import com.ng.ngleetcode.model.code.view.Theme
 
-class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighlightListener,
+class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(),
     NodeTreeAdapter.OnLeftItemClick {
 
     //左侧rv
@@ -38,13 +37,15 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
         }
     }
 
+    @SuppressLint("RtlHardcoded")
     override fun initViewsAndEvents(v: View?, savedInstanceState: Bundle?) {
+        mBinding.plAnim.post {
+            mBinding.plAnim.setModel(mBinding.plAnim.SHOW_MODEL_SQUARE)
+        }
         mBinding.content.apply {
             setRadius(ViewUtils.dip2px(requireContext(), 5F))
         }
         mBinding.codeView
-            .setOnHighlightListener(this)
-            .setOnHighlightListener(this)
             .setTheme(Theme.ANDROIDSTUDIO)
             .setLanguage(Language.JAVA)
             .setWrapLine(false)
@@ -54,7 +55,8 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
             .setStartLineNumber(0)
             .apply()
 
-        mBinding.showTvLayout.setOnClickListener {
+        //toolbar
+        mBinding.toolbar.setNavigationOnClickListener {
             mBinding.drawer.openDrawer(Gravity.LEFT)
         }
 
@@ -75,7 +77,8 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
         }
 
         //left
-        mLeftRvAdapter = NodeTreeAdapter(this)
+        mLeftRvAdapter =
+            NodeTreeAdapter(this)
         mBinding.leftRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = mLeftRvAdapter
@@ -117,8 +120,8 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
                 mBinding.codeView.code = it.content
                 mBinding.codeView.apply()
             }
-            setTitle(it.title, it.state == 1)
-            setMenu(it.menu.toString())
+            setCodeTitle(it.title, it.state == 1)
+            setCodeMenu(it.getMenuStr().toString())
         }
         mViewModel.progressLiveData.observe(this) {
             mBinding.nowProgress.progress = it.nowPro
@@ -154,7 +157,7 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
         animatorSet.start()
     }
 
-    fun setTitle(title: String, isRead: Boolean) {
+    private fun setCodeTitle(title: String, isRead: Boolean) {
         mBinding.tvTitle.text = title.replace(".java", "")
         if (isRead) {
             mBinding.tvTitle.setTextColor(Color.GREEN)
@@ -163,19 +166,9 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(), OnHighl
         }
     }
 
-    fun setMenu(title: String) {
+    private fun setCodeMenu(title: String) {
         mBinding.tvMenu.text = title
     }
-
-    override fun onStartCodeHighlight() {}
-
-    override fun onFinishCodeHighlight() {}
-
-    override fun onLanguageDetected(language: Language?, relevance: Int) {}
-
-    override fun onFontSizeChanged(sizeInPx: Int) {}
-
-    override fun onLineClicked(lineNumber: Int, content: String?) {}
 
     /**
      * 左侧目录点击

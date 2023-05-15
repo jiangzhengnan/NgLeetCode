@@ -1,20 +1,18 @@
-package com.ng.code.util.model;
+package com.ng.ngleetcode.model.code.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.alibaba.fastjson.JSON;
 import com.chad.library.adapter.base.entity.node.BaseNode;
 import com.ng.base.utils.LogUtil;
-import com.ng.code.util.ProblemAndroidUtil;
 import com.ng.code.util.SharedPreferencesUtils;
-import com.ng.code.util.tree.CodeNode;
 import com.ng.code.work.train.monitor.utils.StringUtils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.ng.ngleetcode.model.code.bean.CodeNode;
 
 /**
  * @author :
@@ -72,13 +70,13 @@ public class CodeDataModel {
         if (codeNode == null) {
             return;
         }
-        String title = codeNode.title;
+        String title = codeNode.getTitle();
         if (StringUtils.isEmpty(title)) {
             return;
         }
         for (int i = 0; i < mCodeStateList.size(); i++) {
-            if (title.contains(mCodeStateList.get(i).name) || mCodeStateList.get(i).name.contains(title)) {
-                mCodeStateList.get(i).state = state;
+            if (title.contains(mCodeStateList.get(i).getName()) || mCodeStateList.get(i).getName().contains(title)) {
+                mCodeStateList.get(i).setState(state);
                 saveLocalCodeStateList(context);
                 LogUtil.d("刷新成功:" + title + " " + state);
             }
@@ -90,13 +88,13 @@ public class CodeDataModel {
             return -1;
         }
         for (int i = 0; i < mCodeStateList.size(); i++) {
-            if (title.contains(mCodeStateList.get(i).name) || mCodeStateList.get(i).name.contains(title)) {
+            if (title.contains(mCodeStateList.get(i).getName()) || mCodeStateList.get(i).getName().contains(title)) {
                 if (state != -1) {
-                    mCodeStateList.get(i).state = state;
+                    mCodeStateList.get(i).setState(state);
                     saveLocalCodeStateList(context);
                     LogUtil.d("刷新成功:" + title + " " + state);
                 }
-                return mCodeStateList.get(i).state;
+                return mCodeStateList.get(i).getState();
             }
         }
         LogUtil.d("刷新失败:" + title + " " + state);

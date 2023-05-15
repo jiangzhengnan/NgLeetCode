@@ -1,11 +1,10 @@
-package com.ng.code.util.tree;
-
-import androidx.annotation.Nullable;
-
-import com.chad.library.adapter.base.entity.node.BaseExpandNode;
-import com.chad.library.adapter.base.entity.node.BaseNode;
+package com.ng.ngleetcode.old;
 
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import com.chad.library.adapter.base.entity.node.BaseExpandNode;
+import com.chad.library.adapter.base.entity.node.BaseNode;
 
 public class HeadLayoutNode extends BaseExpandNode {
 

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import com.ng.ngleetcode.MyApplication
+import com.ng.ngleetcode.app.MyApplication
 
 /**
  * @ProjectName: DXZS

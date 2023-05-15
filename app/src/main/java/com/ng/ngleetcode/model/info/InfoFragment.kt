@@ -4,13 +4,12 @@ package com.ng.ngleetcode.model.info
 import android.os.Bundle
 import android.view.View
 import com.ng.base.BaseFragment
-import com.ng.ngleetcode.EmptyViewModel
+import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.databinding.FragmentInfoBinding
 
 /**
- * des 我的
- * @author zs
- * @date 2020-05-14
+ * todo des 广场 参考jetpack mvvm工程，首页
+ * 信息流式设计
  */
 class InfoFragment : BaseFragment<EmptyViewModel, FragmentInfoBinding>() {
 

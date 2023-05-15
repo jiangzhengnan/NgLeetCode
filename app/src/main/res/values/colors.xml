@@ -13,4 +13,7 @@
     <color name="tab2_color">#204771</color>
     <color name="tab3_color">#0156AF</color>
     <color name="tab4_color">#0C77E8</color>
+
+    <color name="color_gray_dark1">#333333</color>
+
 </resources>

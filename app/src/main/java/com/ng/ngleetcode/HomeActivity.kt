@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.google.android.material.navigation.NavigationView
 import com.ng.base.BaseActivity
+import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.databinding.ActivityHomeBinding
 import com.ng.ngleetcode.model.code.CodeFragment
 import com.ng.ngleetcode.model.info.InfoFragment
@@ -21,27 +22,50 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
 
     private lateinit var mNavigationController: NavigationController
 
+    companion object {
+        val mItemColors = arrayListOf(
+            UIUtil.getColor(R.color.tab1_color),
+            UIUtil.getColor(R.color.tab2_color),
+            UIUtil.getColor(R.color.tab3_color),
+            UIUtil.getColor(R.color.tab4_color)
+        )
+
+        val mItemIcons = arrayListOf(
+            R.mipmap.ic_book_black_24dp,
+            R.mipmap.ic_baseline_account_tree_24,
+            R.mipmap.ic_baseline_newspaper_24,
+            R.mipmap.ic_baseline_person_pin_24
+        )
+
+        val mItemTitles = arrayListOf(
+            UIUtil.getString(R.string.tab_1),
+            UIUtil.getString(R.string.tab_2),
+            UIUtil.getString(R.string.tab_3),
+            UIUtil.getString(R.string.tab_4)
+        )
+    }
+
     override fun initView(savedInstanceState: Bundle?) {
         mNavigationController = mBinding.tabMain.material()
             .addItem(
-                R.mipmap.ic_book_black_24dp,
-                UIUtil.getString(R.string.tab_1),
-                UIUtil.getColor(R.color.tab1_color)
+                mItemIcons[0],
+                mItemTitles[0],
+                mItemColors[0]
             )
             .addItem(
-                R.mipmap.ic_baseline_account_tree_24,
-                UIUtil.getString(R.string.tab_2),
-                UIUtil.getColor(R.color.tab2_color)
+                mItemIcons[1],
+                mItemTitles[1],
+                mItemColors[1]
             )
             .addItem(
-                R.mipmap.ic_baseline_newspaper_24,
-                UIUtil.getString(R.string.tab_3),
-                UIUtil.getColor(R.color.tab3_color)
+                mItemIcons[2],
+                mItemTitles[2],
+                mItemColors[2]
             )
             .addItem(
-                R.mipmap.ic_baseline_person_pin_24,
-                UIUtil.getString(R.string.tab_4),
-                UIUtil.getColor(R.color.tab4_color)
+                mItemIcons[3],
+                mItemTitles[3],
+                mItemColors[3]
             )
             .enableAnimateLayoutChanges()
             .setDefaultColor(0x89FFFFFF.toInt())//未选中状态的颜色
@@ -57,42 +81,20 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
 
         }
 
-        //toolbar  暂时不需要左侧菜单栏
-        //toolbar.title = UIUtil.getString(R.string.app_name)
-        //setSupportActionBar(toolbar)
-        //val toggle = ActionBarDrawerToggle(
-        //    this,
-        //    drawer_layout_main,
-        //    toolbar,
-        //    R.string.navigation_drawer_open,
-        //    R.string.navigation_drawer_close
-        //)
-        //drawer_layout_main.addDrawerListener(toggle)
-        //toggle.syncState()
-        //nav_main.setNavigationItemSelectedListener(this)
     }
 
     override fun initData() {
-//        viewModel.refreshResult.observe(this, Observer {
-//        })
-//        viewModel.errorResult.observe(this, Observer {
-//            showToast(getString(R.string.token_need_login))
-//            UserManager.getInstance().clearUserInfo()
-//            JumpManager.jumpToLogin()
-//        })
-//        viewModel.refreshToken()
     }
-
 
     class MyViewPagerAdapter(fm: FragmentManager, private val size: Int) :
         FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> CodeFragment.getInstance(UIUtil.getString(R.string.tab_1))
-                1 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_2))
-                2 -> InfoFragment.getInstance(UIUtil.getString(R.string.tab_3))
-                3 -> MineFragment.getInstance(UIUtil.getString(R.string.tab_4))
-                else -> MineFragment.getInstance(UIUtil.getString(R.string.tab_3))
+                0 -> CodeFragment.getInstance(mItemTitles[position])
+                1 -> InfoFragment.getInstance(mItemTitles[position])
+                2 -> InfoFragment.getInstance(mItemTitles[position])
+                3 -> MineFragment.getInstance(mItemTitles[position])
+                else -> MineFragment.getInstance(mItemTitles[position])
             }
         }
 
@@ -107,6 +109,7 @@ class HomeActivity : BaseActivity<EmptyViewModel, ActivityHomeBinding>(),
 
 
     override fun onSelected(index: Int, old: Int) {
+        window.statusBarColor = mItemColors[index]
     }
 
     override fun onRepeat(index: Int) {

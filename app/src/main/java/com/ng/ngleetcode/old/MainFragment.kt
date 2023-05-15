@@ -4,38 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.ng.base.BaseFragment
-import com.ng.ngleetcode.EmptyViewModel
+import com.ng.ngleetcode.app.EmptyViewModel
 import com.ng.ngleetcode.databinding.FragmentMainBinding
-import com.ng.ngleetcode.model.info.InfoFragment
-import com.ng.ngleetcode.model.mine.MineFragment
 
 class MainFragment : BaseFragment<EmptyViewModel, FragmentMainBinding>() {
     private val fragmentList = arrayListOf<Fragment>()
-
-    /**
-     * 首页
-     */
-    private val homeFragment by lazy { HomeFragment() }
-
-
-    /**
-     * 咨询
-     */
-    private val infoFragment by lazy { InfoFragment() }
-
-
-    /**
-     * 我的
-     */
-    private val mineFragment by lazy { MineFragment() }
-
-    init {
-        fragmentList.apply {
-            add(homeFragment)
-            add(infoFragment)
-            add(mineFragment)
-        }
-    }
 
 
     override fun initViewsAndEvents(v: View?, savedInstanceState: Bundle?) {

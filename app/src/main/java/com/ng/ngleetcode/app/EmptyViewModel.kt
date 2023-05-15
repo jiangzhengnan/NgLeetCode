@@ -1,4 +1,4 @@
-package com.ng.ngleetcode
+package com.ng.ngleetcode.app
 
 import com.ng.base.BaseViewModel
 
