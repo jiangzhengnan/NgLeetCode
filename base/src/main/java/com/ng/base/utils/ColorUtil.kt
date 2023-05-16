@@ -13,13 +13,16 @@ import androidx.core.content.ContextCompat
  */
 object ColorUtil {
 
-    fun getColor(context: Context,color:Int): Int {
-        val defaultColor = ContextCompat.getColor(context!!,color)
-        var colorTheme: Int by SPreference("color", defaultColor)
-        return if (colorTheme != 0 && Color.alpha(colorTheme) != 255) {
-            defaultColor
-        } else {
-            colorTheme
+    fun getColor(context: Context?, color: Int): Int {
+        context?.let {
+            val defaultColor = ContextCompat.getColor(it, color)
+            var colorTheme: Int by SPreference("color", defaultColor)
+            return if (colorTheme != 0 && Color.alpha(colorTheme) != 255) {
+                defaultColor
+            } else {
+                colorTheme
+            }
         }
+        return color
     }
 }

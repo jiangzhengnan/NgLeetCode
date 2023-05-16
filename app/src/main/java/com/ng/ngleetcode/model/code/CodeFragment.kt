@@ -66,10 +66,14 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(),
             showRandomCode()
         }
         mBinding.fabLeft.setOnClickListener {
-            mViewModel.refreshLeftCode()
+            if (!mViewModel.showLeftCode()) {
+                mViewModel.defUI.toastEvent.value = "没有了"
+            }
         }
         mBinding.fabRight.setOnClickListener {
-            mViewModel.refreshRightCode()
+            if (!mViewModel.showRightCode()) {
+                mViewModel.defUI.toastEvent.value = "没有了"
+            }
         }
         mBinding.fabOk.setOnClickListener {
             mViewModel.toggleState()
@@ -114,7 +118,7 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(),
         }
 
         mViewModel.codeLiveData.observe(this) {
-            it.content = ProblemAndroidUtil.readAssets(context, it.contentPath)
+            it.content = ProblemAndroidUtil.readAssets(context, it.contentPath).toString()
             if (!mBinding.codeView.code.equals(it.content)) {
                 mBinding.codeView.code = it.content
                 mBinding.codeView.apply()

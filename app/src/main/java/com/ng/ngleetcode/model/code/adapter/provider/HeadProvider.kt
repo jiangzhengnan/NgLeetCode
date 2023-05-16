@@ -5,14 +5,13 @@ import com.chad.library.adapter.base.entity.node.BaseNode
 import com.chad.library.adapter.base.provider.BaseNodeProvider
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.model.code.data.ProblemAndroidUtil
 
 class HeadProvider : BaseNodeProvider() {
     override val itemViewType = 1
     override val layoutId = R.layout.item_node_first
 
     override fun convert(helper: BaseViewHolder, data: BaseNode) {
-        helper.setText(R.id.navHeaderMainDesc, ProblemAndroidUtil.getNowProgressAndroid(context))
+        //helper.setText(R.id.navHeaderMainDesc, ProblemAndroidUtil.getNowProgressAndroid(context))
     }
 
     override fun onClick(helper: BaseViewHolder, view: View, data: BaseNode, position: Int) {
