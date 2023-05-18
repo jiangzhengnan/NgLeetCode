@@ -1,8 +1,12 @@
 package com.ng.code.kotlin
 
+/**
+ * set实现委托模式
+ */
+
 
 /**
- * 教程：
+ * demo
  * https://book.kotlincn.net/text/basic-syntax.html
  */
 

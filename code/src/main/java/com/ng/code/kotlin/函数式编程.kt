@@ -1,5 +1,8 @@
 package com.ng.code.kotlin
 
+import android.content.Context
+import android.content.SharedPreferences
+
 /*
 
 定义一个函数类型
@@ -30,6 +33,18 @@ fun main() {
     inlineExample("hello", 123) { a, b ->
         println("$a $b")
     }
+
+    val context: Context? = null
+    context?.getSharedPreferences("key", Context.MODE_PRIVATE)?.open {
+        putString("key1", "value1");
+    }
+}
+
+//4.优化sp
+fun SharedPreferences.open(block: SharedPreferences.Editor.() -> Unit) {
+    val editor = edit()
+    editor.block()
+    editor.apply()
 }
 
 inline fun inlineExample(a: String, b: Int, methodOut: (String, Int) -> Unit) {
@@ -56,7 +71,7 @@ crossinline 关键字
 //加上crossinline就不会报错了，因为crossinline是一个契约，保证在内联函数的lambda表达式中一定不会使用return关键字
 //使用crossinline之后，就不能使用return整体返回了，但是还是可以使用return@runRunnable局部返回
 inline fun runRunnable(crossinline block1: () -> Unit) {
-    val runnable = Runnable{
+    val runnable = Runnable {
         block1()
     }
     runnable.run()
@@ -69,5 +84,7 @@ fun test() {
         return@runRunnable //这样是可以的～！
     }
 }
+
+
 
 

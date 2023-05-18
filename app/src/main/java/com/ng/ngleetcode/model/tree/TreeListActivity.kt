@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.SimpleItemAnimator
 import com.ng.base.BaseActivity
 import com.ng.base.ext.smartConfig
 import com.ng.base.ext.smartDismiss
-import com.ng.base.utils.LogUtil
+import com.ng.base.utils.MLog
 import com.ng.base.utils.Param
 import com.ng.ngleetcode.databinding.ActivityTreeListBinding
 import com.ng.ngleetcode.model.tree.adapter.ArticleAdapter
@@ -31,7 +31,7 @@ class TreeListActivity : BaseActivity<TreeViewModel, ActivityTreeListBinding>() 
 
     override fun initView(savedInstanceState: Bundle?) {
 
-        LogUtil.d("params :$systemId $systemTitle")
+        MLog.d("params :$systemId $systemTitle")
 
         mBinding.tvTitle.text = systemTitle
         mBinding.ivBack.setOnClickListener {

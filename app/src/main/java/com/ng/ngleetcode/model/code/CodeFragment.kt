@@ -15,7 +15,7 @@ import com.ng.ngbaselib.utils.ViewUtils
 import com.ng.ngleetcode.databinding.FragmentCodeBinding
 import com.ng.ngleetcode.model.code.adapter.NodeTreeAdapter
 import com.ng.ngleetcode.model.code.bean.CodeNode
-import com.ng.ngleetcode.model.code.data.ProblemAndroidUtil
+import com.ng.ngleetcode.model.code.data.ProblemRepository
 import com.ng.ngleetcode.model.code.view.Language
 import com.ng.ngleetcode.model.code.view.Theme
 
@@ -118,7 +118,7 @@ class CodeFragment : BaseFragment<CodeViewModel, FragmentCodeBinding>(),
         }
 
         mViewModel.codeLiveData.observe(this) {
-            it.content = ProblemAndroidUtil.readAssets(context, it.contentPath).toString()
+            it.content = ProblemRepository.readAssets(context, it.contentPath).toString()
             if (!mBinding.codeView.code.equals(it.content)) {
                 mBinding.codeView.code = it.content
                 mBinding.codeView.apply()

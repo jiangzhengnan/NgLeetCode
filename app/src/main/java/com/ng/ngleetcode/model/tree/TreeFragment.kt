@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import com.ng.base.BaseFragment
-import com.ng.base.utils.LogUtil
+import com.ng.base.utils.MLog
 import com.ng.ngleetcode.constants.Constants
 import com.ng.ngleetcode.databinding.FragmentTreeBinding
 import com.ng.ngleetcode.model.tree.adapter.TreeAdapter
@@ -32,7 +32,7 @@ class TreeFragment : BaseFragment<TreeViewModel, FragmentTreeBinding>() {
         adapter = TreeAdapter { i, j ->
             val treeId = adapter!!.data[i].children[j].id
             var treeTitle = adapter!!.data[i].children[j].name
-            LogUtil.d("click tree:$treeId $treeTitle")
+            MLog.d("click tree:$treeId $treeTitle")
             val intent = Intent(activity, TreeListActivity::class.java)
             intent.putExtra(Constants.SYSTEM_TITLE, treeTitle)
             intent.putExtra(Constants.SYSTEM_ID, treeId)

@@ -1,11 +1,12 @@
 package com.ng.ngleetcode.model.code
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.alibaba.fastjson.JSON
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.BaseViewModel
-import com.ng.base.utils.LogUtil
+import com.ng.base.utils.MLog
 import com.ng.base.utils.SPreference
 import com.ng.code.util.IdGenerator
 import com.ng.code.work.train.monitor.utils.StringUtils
@@ -15,7 +16,7 @@ import com.ng.ngleetcode.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.model.code.bean.CodeNode
 import com.ng.ngleetcode.model.code.bean.CodeProgress
 import com.ng.ngleetcode.model.code.data.CodeState
-import com.ng.ngleetcode.model.code.data.ProblemAndroidUtil
+import com.ng.ngleetcode.model.code.data.ProblemRepository
 import java.io.IOException
 import java.util.*
 
@@ -29,7 +30,8 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
     /**
      * 题库集合
      */
-    val menuLiveData = MutableLiveData<List<BaseNode>>()
+    val menuLiveData: LiveData<List<BaseNode>> get() = _menuLiveData
+    private val _menuLiveData = MutableLiveData<List<BaseNode>>()
 
     /**
      * 当前显示题
@@ -113,7 +115,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
             }
             mLocalCodeData = dirList
         }
-        menuLiveData.value = mLocalCodeData
+        _menuLiveData.value = mLocalCodeData
     }
 
     private fun refreshLocalCodeStateList() {
@@ -158,7 +160,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
         val randomCode = targetCodeList[nowCodeIndex]
         //设置状态(已读未读)
         randomCode.state = getCodeState(randomCode.title)
-        LogUtil.d("得到随机题 : $nowCodeIndex")
+        MLog.d("得到随机题 : $nowCodeIndex")
         codeLiveData.value = randomCode
     }
 
@@ -168,7 +170,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
             return false
         }
         nowCodeIndex--
-        LogUtil.d("showLeftCode : $nowCodeIndex")
+        MLog.d("showLeftCode : $nowCodeIndex")
         codeLiveData.value = targetCodeList[nowCodeIndex]
         return true
     }
@@ -179,7 +181,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
             return false
         }
         nowCodeIndex++
-        LogUtil.d("showRightCode : $nowCodeIndex")
+        MLog.d("showRightCode : $nowCodeIndex")
         codeLiveData.value = targetCodeList[nowCodeIndex]
         return true
     }
@@ -194,7 +196,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
                 nowCodeIndex = i
             }
         }
-        LogUtil.d("refreshCode : $nowCodeIndex")
+        MLog.d("refreshCode : $nowCodeIndex")
         codeLiveData.value = codeBean
     }
 
@@ -202,13 +204,13 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
      * 刷新进度
      */
     fun refreshProgress() {
-        val codeList = ProblemAndroidUtil.getAssetsJavaCodeList(getApplication())
+        val codeList = ProblemRepository.getAssetsJavaCodeList(getApplication())
         var easyCount = 0
         var hardCount = 0
         var readCount = 0
         for (codeStr in codeList) {
             //@Solution(easy = 0, hard = 0)
-            val content = ProblemAndroidUtil.readAssets(getApplication(), codeStr)
+            val content = ProblemRepository.readAssets(getApplication(), codeStr)
             if (content!!.contains("@Solution")) {
                 val easyIndex = content.indexOf("easy = ")
                 if (content.substring(easyIndex + 7, easyIndex + 8).toInt() > 0) {
@@ -264,17 +266,17 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
         }
         for (i in mCodeStateList.indices) {
             if (title!!.contains(mCodeStateList[i].name) || mCodeStateList[i].name.contains(title)) {
-                LogUtil.d("getCodeState:$title $mCodeStateList[i].state")
+                MLog.d("getCodeState:$title $mCodeStateList[i].state")
                 return mCodeStateList[i].state
             }
         }
-        LogUtil.d("getCodeState 失败:$title")
+        MLog.d("getCodeState 失败:$title")
         return -1
     }
 
     private fun saveLocalCodeStateList() {
         if (mCodeStateList.isEmpty()) {
-            LogUtil.d("saveLocalCodeStateList 刷新失败, mCodeStateList为空")
+            MLog.d("saveLocalCodeStateList 刷新失败, mCodeStateList为空")
         }
         needRefresh = true
         mSpCodeStateListJsonStr = JSON.toJSONString(mCodeStateList)
