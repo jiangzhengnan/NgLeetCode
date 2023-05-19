@@ -4,8 +4,10 @@ import com.chad.library.adapter.base.BaseNodeAdapter
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.ngleetcode.model.code.adapter.provider.CodeDirProvider
 import com.ng.ngleetcode.model.code.adapter.provider.CodeProvider
+import com.ng.ngleetcode.model.code.adapter.provider.HeadProvider
 import com.ng.ngleetcode.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.model.code.bean.CodeNode
+import com.ng.ngleetcode.model.code.bean.CodeProgressNode
 
 /**
  *    @author : jiangzhengnan.jzn@alibaba-inc.com
@@ -19,7 +21,7 @@ class NodeTreeAdapter(onLeftItemClick: OnLeftItemClick) : BaseNodeAdapter() {
     }
 
     init {
-        //addNodeProvider(HeadProvider())
+        addNodeProvider(HeadProvider())
         addNodeProvider(CodeDirProvider())
         addNodeProvider(
             CodeProvider(
@@ -35,6 +37,9 @@ class NodeTreeAdapter(onLeftItemClick: OnLeftItemClick) : BaseNodeAdapter() {
 
     override fun getItemType(data: List<BaseNode>, position: Int): Int {
         return when (data[position]) {
+            is CodeProgressNode -> {
+                3
+            }
             is CodeDirNode -> {
                 2
             }

@@ -15,6 +15,7 @@ import com.ng.ngleetcode.constants.SpConstants
 import com.ng.ngleetcode.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.model.code.bean.CodeNode
 import com.ng.ngleetcode.model.code.bean.CodeProgress
+import com.ng.ngleetcode.model.code.bean.CodeProgressNode
 import com.ng.ngleetcode.model.code.data.CodeState
 import com.ng.ngleetcode.model.code.data.ProblemRepository
 import java.io.IOException
@@ -80,6 +81,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
         //题库 内存缓存
         if (mLocalCodeData.isEmpty()) {
             val dirList: MutableList<BaseNode> = ArrayList()
+            dirList.add(CodeProgressNode())
             if (mSpCodeStateListJsonStr.isEmpty()) {
                 mCodeStateList.clear()
             }
@@ -266,7 +268,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
         }
         for (i in mCodeStateList.indices) {
             if (title!!.contains(mCodeStateList[i].name) || mCodeStateList[i].name.contains(title)) {
-                MLog.d("getCodeState:$title $mCodeStateList[i].state")
+                //MLog.d("getCodeState:$title $mCodeStateList[i].state")
                 return mCodeStateList[i].state
             }
         }
