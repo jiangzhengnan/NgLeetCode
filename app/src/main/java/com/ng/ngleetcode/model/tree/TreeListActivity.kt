@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.model.tree
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.SimpleItemAnimator
@@ -10,6 +11,7 @@ import com.ng.base.utils.MLog
 import com.ng.base.utils.Param
 import com.ng.ngleetcode.databinding.ActivityTreeListBinding
 import com.ng.ngleetcode.model.tree.adapter.ArticleAdapter
+import com.ng.ngleetcode.model.tree.web.WebActivity
 
 /**
  *    @author : jiangzhengnan.jzn@alibaba-inc.com
@@ -41,11 +43,10 @@ class TreeListActivity : BaseActivity<TreeViewModel, ActivityTreeListBinding>() 
             mBinding.rvTreeList.adapter = this
 
             setOnItemClickListener { i, _ ->
-                //todo 跳转到详情页
-//                nav().navigate(
-//                    R.id.action_system_list_fragment_to_web_fragment,
-//                    this@SystemListFragment.adapter.getBundle(i)
-//                )
+                val intent = Intent(this@TreeListActivity, WebActivity::class.java)
+                val bundle = this@TreeListActivity.adapter.getBundle(i)
+                intent.putExtras(bundle)
+                startActivity(intent)
             }
             setOnItemChildClickListener { i, view ->
                 when (view.id) {

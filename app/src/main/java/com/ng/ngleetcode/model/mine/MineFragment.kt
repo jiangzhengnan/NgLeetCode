@@ -26,6 +26,9 @@ class MineFragment : BaseFragment<EmptyViewModel, FragmentMineBinding>() {
 
     override fun initViewsAndEvents(v: View?, savedInstanceState: Bundle?) {
         mBinding.userIcon.cornerRadius = ViewUtils.dpToPx(40F).toFloat()
+        mBinding.llSetting.setOnClickListener {
+            startTo(SettingActivity::class.java)
+        }
     }
 
     override fun initData() {

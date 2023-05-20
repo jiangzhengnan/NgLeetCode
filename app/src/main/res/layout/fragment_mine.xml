@@ -51,6 +51,7 @@
 
                 <RelativeLayout
                         android:id="@+id/rl_user_info"
+                        android:background="@color/tab3_color"
                         android:layout_width="match_parent"
                         android:layout_height="260dp">
 

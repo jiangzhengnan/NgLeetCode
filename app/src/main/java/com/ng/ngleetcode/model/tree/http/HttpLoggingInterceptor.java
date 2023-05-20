@@ -49,7 +49,9 @@ public class HttpLoggingInterceptor implements Interceptor {
     }
 
     public void setPrintLevel(Level level) {
-        if (printLevel == null) throw new NullPointerException("printLevel == null. Use Level.NONE instead.");
+        if (printLevel == null) {
+            throw new NullPointerException("printLevel == null. Use Level.NONE instead.");
+        }
         printLevel = level;
     }
 
@@ -73,12 +75,11 @@ public class HttpLoggingInterceptor implements Interceptor {
 
         //执行请求，计算请求时间
         long startNs = System.nanoTime();
-        Response response;
+        Response response = null;
         try {
             response = chain.proceed(request);
         } catch (Exception e) {
             log("<-- HTTP FAILED: " + e);
-            throw e;
         }
         long tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs);
 
@@ -141,7 +142,8 @@ public class HttpLoggingInterceptor implements Interceptor {
         boolean logHeaders = (printLevel == Level.BODY || printLevel == Level.HEADERS);
 
         try {
-            log("<-- " + clone.code() + ' ' + clone.message() + ' ' + clone.request().url() + " (" + tookMs + "ms）");
+            log("<-- " + clone.code() + ' ' + clone.message() + ' ' + clone.request()
+                                                                           .url() + " (" + tookMs + "ms）");
             if (logHeaders) {
                 Headers headers = clone.headers();
                 for (int i = 0, count = headers.size(); i < count; i++) {
@@ -149,7 +151,9 @@ public class HttpLoggingInterceptor implements Interceptor {
                 }
                 log(" ");
                 if (logBody && HttpHeaders.hasBody(clone)) {
-                    if (responseBody == null) return response;
+                    if (responseBody == null) {
+                        return response;
+                    }
 
                     if (isPlaintext(responseBody.contentType())) {
                         byte[] bytes = IOUtils.toByteArray(responseBody.byteStream());
@@ -173,7 +177,9 @@ public class HttpLoggingInterceptor implements Interceptor {
 
     private static Charset getCharset(MediaType contentType) {
         Charset charset = contentType != null ? contentType.charset(UTF8) : UTF8;
-        if (charset == null) charset = UTF8;
+        if (charset == null) {
+            charset = UTF8;
+        }
         return charset;
     }
 
@@ -182,7 +188,9 @@ public class HttpLoggingInterceptor implements Interceptor {
      * of code points to detect unicode control characters commonly used in binary file signatures.
      */
     private static boolean isPlaintext(MediaType mediaType) {
-        if (mediaType == null) return false;
+        if (mediaType == null) {
+            return false;
+        }
         if (mediaType.type() != null && mediaType.type().equals("text")) {
             return true;
         }
@@ -190,7 +198,9 @@ public class HttpLoggingInterceptor implements Interceptor {
         if (subtype != null) {
             subtype = subtype.toLowerCase();
             if (subtype.contains("x-www-form-urlencoded") || subtype.contains("json") || subtype.contains("xml") || subtype.contains("html")) //
+            {
                 return true;
+            }
         }
         return false;
     }
@@ -199,7 +209,9 @@ public class HttpLoggingInterceptor implements Interceptor {
         try {
             Request copy = request.newBuilder().build();
             RequestBody body = copy.body();
-            if (body == null) return;
+            if (body == null) {
+                return;
+            }
             Buffer buffer = new Buffer();
             body.writeTo(buffer);
             Charset charset = getCharset(body.contentType());

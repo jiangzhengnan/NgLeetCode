@@ -27,8 +27,10 @@ class HeadProvider : BaseNodeProvider() {
     @SuppressLint("SetTextI18n")
     override fun convert(helper: BaseViewHolder, data: BaseNode) {
         //helper.setText(R.id.navHeaderMainDesc, ProblemAndroidUtil.getNowProgressAndroid(context))
-        //todo 异步化？
-        mCodeStateList = JSON.parseArray(mSpCodeStateListJsonStr, CodeState::class.java)
+
+        if (mSpCodeStateListJsonStr.isNotEmpty()) {
+            mCodeStateList = JSON.parseArray(mSpCodeStateListJsonStr, CodeState::class.java)
+        }
         val codeList = ProblemRepository.getAssetsJavaCodeList(context)
         var easyCount = 0
         var easyRead = 0

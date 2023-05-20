@@ -1,10 +1,12 @@
 package com.ng.ngleetcode.model.tree.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ng.base.ext.clickNoRepeat
@@ -61,7 +63,9 @@ class ArticleAdapter(private val context: Context) :
 //                parent,
 //                false
 //            )
-            ArticleViewHolder( LayoutInflater.from(context).inflate(R.layout.item_home_article, null))
+            ArticleViewHolder(
+                LayoutInflater.from(context).inflate(R.layout.item_home_article, null)
+            )
         } else {
 //            val binding: ItemProjectBinding = DataBindingUtil.inflate(
 //                LayoutInflater.from(context),
@@ -76,6 +80,7 @@ class ArticleAdapter(private val context: Context) :
     /**
      * 将数据和ui进行绑定
      */
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         holder.itemView.clickNoRepeat {
             onItemClickListener?.invoke(position, it)
@@ -84,10 +89,18 @@ class ArticleAdapter(private val context: Context) :
         holder.itemView.findViewById<View>(R.id.ivCollect)?.clickNoRepeat {
             onItemChildClickListener?.invoke(position, it)
         }
+        val dataBean = getItem(position)
         if (holder is ArticleViewHolder) {
-            var dataBean = getItem(position)
-
-
+            holder.itemView.findViewById<TextView>(R.id.tvTitle).text = dataBean.title
+            holder.itemView.findViewById<TextView>(R.id.tvAuthor).text = dataBean.author
+            holder.itemView.findViewById<TextView>(R.id.tvDate).text = dataBean.date
+            holder.itemView.findViewById<TextView>(R.id.tvChapterName).text = dataBean.articleTag
+            holder.itemView.findViewById<TextView>(R.id.tvTag).text = dataBean.topTitle
+        } else {
+            holder.itemView.findViewById<TextView>(R.id.tvTitle).text = dataBean.title
+            holder.itemView.findViewById<TextView>(R.id.tvNameData).text =
+                dataBean.author + " " + dataBean.date
+            holder.itemView.findViewById<TextView>(R.id.tvDes).text = dataBean.articleTag
         }
 
 //        val binding = if (holder is ArticleViewHolder){
