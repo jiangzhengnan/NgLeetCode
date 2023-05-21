@@ -122,5 +122,10 @@ class WebActivity : BaseActivity<WebViewModel, ActivityWebBinding>() {
         MLog.d("接受参数: $loadUrl $title $id $author")
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mBinding.wbView.destroy()
+    }
+
 
 }
