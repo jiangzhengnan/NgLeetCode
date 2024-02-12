@@ -21,7 +21,7 @@ import com.ng.base.utils.TreeNode;
  * [求树的深度]
  */
 
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅰ_二叉树的直径 {
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@ import com.ng.code.util.Solution;
  * @creation : 2022/07/04
  * @description :
  */
-@Solution(easy = 0, hard = 1, partice = 1)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅰ_冒泡排序 {
 
     public static void main(String[] args) {

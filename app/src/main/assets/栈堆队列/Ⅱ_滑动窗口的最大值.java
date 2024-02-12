@@ -22,7 +22,7 @@ import java.util.LinkedList;
  * 返回值：
  * [4,4,6,6,6,5]
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_滑动窗口的最大值 {
 
     public static void main(String[] args) {

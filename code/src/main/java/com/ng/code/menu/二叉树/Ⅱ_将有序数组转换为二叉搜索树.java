@@ -15,7 +15,7 @@ import com.ng.base.utils.TreeNode;
  * 输出：[0,-3,9,-10,null,5]
  * 解释：[0,-10,5,null,-3,null,9] 也将被视为正确答案：
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_将有序数组转换为二叉搜索树 {
 
     public static void main(String[] args) {

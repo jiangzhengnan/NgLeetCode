@@ -28,7 +28,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 最优方案是偷第 1，3个房间
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_打家劫舍一 {
 
     public static void main(String[] args) {

@@ -24,7 +24,7 @@ import java.util.Queue;
  * 返回值：
  * true
  */
-@Solution(easy = 1, hard = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_二叉树中和为某一值的路径一 {
 
     public static void main(String[] args) {

@@ -16,7 +16,7 @@ import com.ng.base.utils.TreeNode;
  * 说明：
  * 如题面图
  */
-@Solution(easy = 1, hard = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_合并二叉树 {
 
     public static void main(String[] args) {

@@ -46,11 +46,11 @@
                         android:layout_height="wrap_content">
 
                     <ProgressBar
-                            android:id="@+id/now_progress"
-                            style="@style/myPb"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true" />
+                      android:id="@+id/now_progress"
+                      style="@style/myPb"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_centerInParent="true" />
 
                     <TextView
                             android:id="@+id/tv_progress"

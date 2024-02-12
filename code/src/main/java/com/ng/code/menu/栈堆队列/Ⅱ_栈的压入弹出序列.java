@@ -22,7 +22,7 @@ import java.util.Stack;
  * 可以通过push(1)=>push(2)=>push(3)=>push(4)=>pop()=>push(5)=>pop()=>pop()=>pop()=>pop()
  * 这样的顺序得到[4,5,3,2,1]这个序列，返回true
  */
-@Solution(easy = 0, hard = 1, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_栈的压入弹出序列 {
 
     public static void main(String[] args) {

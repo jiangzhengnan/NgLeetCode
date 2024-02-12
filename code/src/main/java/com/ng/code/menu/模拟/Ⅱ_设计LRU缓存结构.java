@@ -48,7 +48,7 @@ import java.util.Map;
  * output=s.get(3);//因为get(3)操作，缓存更新，缓存是{"3"=3，"4"=4}，get操作返回"3"
  * output=s.get(4);//因为get(4)操作，缓存更新，缓存是{"4"=4，"3"=3}，get操作返回"4"        
  */
-@Solution(easy = 0, hard = 1)
+@Solution(easy = 0, hard = 0)
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Ⅱ_设计LRU缓存结构 {
 

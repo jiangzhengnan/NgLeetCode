@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [0,3,7,2,5,8,4,6,0,1]
  * 输出：9
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_最长连续序列 {
 
     public static void main(String[] args) {

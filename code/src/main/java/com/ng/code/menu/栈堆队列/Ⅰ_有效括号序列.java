@@ -15,7 +15,7 @@ import java.util.Stack;
  * 数据范围：字符串长度 0\le n \le 100000≤n≤10000
  * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
  */
-@Solution(easy = 0, hard = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_有效括号序列 {
 
     public static void main(String[] args) {

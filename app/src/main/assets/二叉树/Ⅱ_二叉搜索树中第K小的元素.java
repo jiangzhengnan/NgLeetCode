@@ -17,7 +17,7 @@ import com.ng.base.utils.TreeNode;
  * 输入：root = [3,1,4,null,2], k = 1
  * 输出：1
  */
-@Solution(easy = 1, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 0)
 public class Ⅱ_二叉搜索树中第K小的元素 {
 
     public static void main(String[] args) {
