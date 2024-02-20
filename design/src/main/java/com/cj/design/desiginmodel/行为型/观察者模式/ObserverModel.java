@@ -14,7 +14,7 @@ import java.util.List;
  * 示例：
  * 目标类负责实现对观察者的增删与通知，观察者负责接受通知。
  */
-public class 观察者模式 {
+public class ObserverModel {
 
     static class Message {
         public int code;
