@@ -9,7 +9,7 @@ import com.ng.base.BaseViewModel
 import com.ng.base.utils.MLog
 import com.ng.base.utils.SPreference
 import com.ng.code.util.IdGenerator
-import com.ng.code.work.train.monitor.utils.StringUtils
+import com.cj.design.uc.monitor.utils.StringUtils
 import com.ng.ngleetcode.app.MyApplication
 import com.ng.ngleetcode.constants.SpConstants
 import com.ng.ngleetcode.model.code.bean.CodeDirNode
@@ -263,7 +263,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
     }
 
     private fun getCodeState(title: String?): Int {
-        if (StringUtils.isEmpty(title)) {
+        if (com.cj.design.uc.monitor.utils.StringUtils.isEmpty(title)) {
             return -1
         }
         for (i in mCodeStateList.indices) {

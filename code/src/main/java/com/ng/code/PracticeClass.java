@@ -1,44 +1,52 @@
 package com.ng.code;
 
-import com.ng.base.utils.ListNode;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 import com.ng.base.utils.LogUtil;
+import com.ng.base.utils.TreeNode;
 
 public class PracticeClass {
 
     public static void main(String[] args) {
-        ListNode phead1 = ListNode.getNodeList(1, 2, 3);
-        ListNode phead2 = ListNode.getNodeList(4, 5);
-        ListNode phead3 = ListNode.getNodeList(6, 7);
-
-        ListNode.mergeNodeList(phead1, phead3);
-        ListNode.mergeNodeList(phead2, phead3);
-
-        LogUtil.print(phead1);
-        LogUtil.print(phead2);
-
-        LogUtil.print(FindFirstCommonNode(phead1, phead2));
+        PracticeClass testClass = new PracticeClass();
+        testClass.test();
     }
 
-    public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-        ListNode ta1 = pHead1;
-        ListNode ta2 = pHead2;
+    private void test() {
+        LogUtil.print(
+            rightSideView(TreeNode.createTreeNode(1, 2, 3, -1, 5, -1, 4))
+                .toString());
+    }
 
-        while (ta1 != null && ta2 != null) {
-            if (ta1 == null) {
-                ta1 = pHead2;
-            } else {
-                ta1 = ta1.next;
-            }
-            if (ta2 == null) {
-                ta2 = pHead1;
-            } else {
-                ta2 = ta2.next;
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        //层序遍历
+        if (root == null) {
+            return result;
+        }
+
+        LinkedList<TreeNode> treeNodes = new LinkedList<>();
+        treeNodes.add(root);
+
+        while (treeNodes.size() > 0) {
+            int size = treeNodes.size();
+            result.add(treeNodes.get(treeNodes.size() - 1).val);
+
+            for (int i = 0; i < size; i++) {
+                TreeNode tempNode = treeNodes.pop();
+                if (tempNode.left != null) {
+                    treeNodes.add(tempNode.left);
+                }
+                if (tempNode.right != null) {
+                    treeNodes.add(tempNode.right);
+                }
             }
         }
 
-        return null;
+        return result;
     }
-
 }
 
 

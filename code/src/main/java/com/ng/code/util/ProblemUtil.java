@@ -22,10 +22,13 @@ import com.ng.base.utils.LogUtil;
  * @description :
  */
 public class ProblemUtil {
+
     /**
      * 抽题机
+     * <p>
+     * level: 1 2 3 三个难度
      */
-    public static void getRandomTest(int num) {
+    public static void getRandomTest(int num, int level) {
         LogUtil.print("抽取 " + num + " 道题目");
         Set<Class<?>> codeSet = getClassSet(Constants.CODE_PKG_NAME);
         ArrayList<Class<?>> list = new ArrayList(codeSet);
@@ -40,15 +43,48 @@ public class ProblemUtil {
             repeatList.add(randomIndex);
             Class<?> randomItem = list.get(randomIndex);
 
-            Annotation[] annos = randomItem.getAnnotations();
-            for (Annotation anno : annos) {
-                Solution solution = (Solution) anno;
-                if (solution.easy() == 0) {
-                    LogUtil.print(randomItem.getSimpleName() + " " + solution.easy());
-                    result ++;
+            boolean fitLevel = false;
+            switch (level) {
+                case 1:
+                    fitLevel = randomItem.getSimpleName().startsWith("Ⅰ_");
+                    break;
+                case 2:
+                    fitLevel = randomItem.getSimpleName().startsWith("Ⅱ_");
+                    break;
+                case 3:
+                    fitLevel = randomItem.getSimpleName().startsWith("Ⅲ_");
+                    break;
+                default:
+                    continue;
+            }
+
+            if (fitLevel) {
+                Annotation[] annos = randomItem.getAnnotations();
+                for (Annotation anno : annos) {
+                    Solution solution = (Solution) anno;
+                    if (solution.easy() == 0) {
+                        LogUtil.print(
+                            (result + 1) + " " + randomItem.getSimpleName() + " " +
+                                solution.easy());
+                        result++;
+                    }
                 }
             }
         }
+    }
+
+    //刷新本地目录，补充题库
+    public static void refreshLocalProjects() {
+        ProgressUtil.getNowProgress();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //输出目录到readme
+                ProgressUtil.refreshReadMe();
+                //输出所有题目到assets
+                ProblemUtil.copyJavaToAssets();
+            }
+        }).start();
     }
 
     public static void copyJavaToAssets() {

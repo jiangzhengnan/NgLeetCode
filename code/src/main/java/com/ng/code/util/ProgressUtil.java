@@ -26,7 +26,7 @@ public class ProgressUtil {
         Set<Class<?>> codeSet = ProblemUtil.getClassSet(Constants.CODE_PKG_NAME);
         ArrayList<Class<?>> list = new ArrayList(codeSet);
 
-        int easy = 0, hard = 0;
+        int easy = 0, hard = 0, partice = 0;
         for (Class clazz : list) {
             // 获取类上的注解
             Annotation[] annos = clazz.getAnnotations();
@@ -38,13 +38,17 @@ public class ProgressUtil {
                 if (solution.hard() > 0) {
                     hard++;
                 }
+                if (solution.partice() > 0) {
+                    partice++;
+                }
             }
         }
         int all = list.size();
-        LogUtil.print("题库总数: " + all
-                      + " 简单完成: " + easy + myPercent(easy, all)
-                      + " 困难完成: " + hard + myPercent(hard, all)
-                     );
+        LogUtil.print(" 题库总数: " + all
+            + "\n 练习范围: " + partice + myPercent(partice, all)
+            + "\n 简单完成: " + easy + myPercent(easy, all)
+            + "\n 困难完成: " + hard + myPercent(hard, all)
+        );
     }
 
     public static String myPercent(int x, int y) {

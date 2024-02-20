@@ -17,10 +17,6 @@ public class LogUtil {
         treeNode.print();
     }
 
-    public static void print(List<String> list) {
-        System.out.println(list.toString());
-    }
-
     public static void print(boolean str) {
         System.out.println(str + "");
     }
@@ -100,7 +96,10 @@ public class LogUtil {
 
     public static void print(long value) {
         System.out.println(value + "");
+    }
 
+    public static void print(List<String> value) {
+        System.out.println(value.toString());
     }
 
     public static void print(final double value) {

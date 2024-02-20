@@ -5,7 +5,7 @@ import com.ng.code.util.Solution;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:
+ * link:https://leetcode.cn/problems/container-with-most-water/description/
  * 原题描述:
  * 给定一个数组height，长度为n，每个数代表坐标轴中的一个点的高度，height[i]是在第i点的高度，请问，从中选2个高度与x轴组成的容器最多能容纳多少水
  * 1.你不能倾斜容器
@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 49
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅰ_盛水最多的容器 {
 
     public static void main(String[] args) {
@@ -33,29 +33,33 @@ public class Ⅰ_盛水最多的容器 {
      */
     private static class EasySolution {
 
+        /**
+         * 小边往里进，就可能会更大
+         */
         public static int maxArea(int[] height) {
-            if (height == null || height.length < 2) {
-                return 0;
-            }
-            int start = 0, end = height.length - 1;
-            int max = 0;
-            while (end > start) {
-                int temp = (end - start) * Math.min(height[start], height[end]);
-                max = Math.max(temp, max);
-                if (height[start] > height[end]) {
-                    end--;
+            int result = 0;
+            int left = 0;
+            int right = height.length - 1;
+            while (left != right) {
+
+                int now = Math.min(height[right], height[left]) * (right - left);
+                result = Math.max(now, result);
+                if (height[right] > height[left]) {
+                    left++;
                 } else {
-                    start++;
+                    right--;
                 }
             }
-            return max;
+
+            return result;
         }
 
     }
 
     /**
      * 在双指针方法中，虽然时间复杂度为O(N)O(N)O(N)，但是每次移动都需要一次比较，我们可以进行优化，
-     * 减少比较的次数，这里我们考虑到，如果向内移动时，如果短边的长度变短，那么移动后的面积一定小于移动前的面积，就可以不进行比较，知道移动后的面积大于移动前的面积。
+     * 减少比较的次数，这里我们考虑到，如果向内移动时，如果短边的长度变短，
+     * 那么移动后的面积一定小于移动前的面积，就可以不进行比较，知道移动后的面积大于移动前的面积。
      */
     private static class HardSolution {
 

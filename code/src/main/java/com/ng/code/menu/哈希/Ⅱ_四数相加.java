@@ -1,9 +1,6 @@
 package com.ng.code.menu.哈希;
 
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.HashMap;
@@ -31,13 +28,18 @@ import java.util.Map;
  * 输入：nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]
  * 输出：1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 1)
 public class Ⅱ_四数相加 {
 
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
+        int[] nums1 = new int[]{1, 2};
+        int[] nums2 = new int[]{-2, -1};
+        int[] nums3 = new int[]{-1, 2};
+        int[] nums4 = new int[]{0, 2};
 
+        LogUtil.print(hardSolution.fourSumCount(nums1, nums2, nums3, nums4));
     }
 
     /**
@@ -50,7 +52,7 @@ public class Ⅱ_四数相加 {
      * 最终即可得到满足 A[i]+B[j]+C[k]+D[l]=0 的四元组数目。
      */
     private static class EasySolution {
-        @RequiresApi(api = Build.VERSION_CODES.N)
+
         public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
             Map<Integer, Integer> countAB = new HashMap<Integer, Integer>();
             for (int u : A) {
@@ -71,6 +73,56 @@ public class Ⅱ_四数相加 {
     }
 
     private static class HardSolution {
+
+        /**
+         * 击败99%用户
+         * 概念上还是1 + 2 = 3 + 4
+         * 1.先求出每个nums最小最大区间
+         * 2.计算max = max (12最大值，-34最小值)
+         * 3.计算min = min (12最小值，-34最大值)
+         * 4.arr[]下标为 min ～ max，内容为次数
+         * 5.遍历1，2，给arr[]指定下标添加次数
+         * 6.遍历3，4，统计arr[]指定下标处的次数
+         *
+         * 相比较easy解法，这里主要是通过数组，来替代了map，提高效率。
+         */
+        public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
+            int[] max_min_1 = getMaxMin(nums1);
+            int[] max_min_2 = getMaxMin(nums2);
+            int[] max_min_3 = getMaxMin(nums3);
+            int[] max_min_4 = getMaxMin(nums4);
+            int res = 0;
+            int max = Math.max(max_min_1[1] + max_min_2[1], -(max_min_3[0] + max_min_4[0]));
+            int min = Math.min(max_min_1[0] + max_min_2[0], -(max_min_3[1] + max_min_4[1]));
+
+            int[] arr = new int[max - min + 1];
+            for (int i : nums1) {
+                for (int j : nums2) {
+                    arr[i + j - min]++;
+                }
+            }
+
+            for (int i : nums3) {
+                for (int j : nums4) {
+                    res += arr[-(i + j) - min];
+                }
+            }
+            return res;
+        }
+
+        private int[] getMaxMin(int[] nums) {
+            int max = nums[0];
+            int min = nums[0];
+            for (int num : nums) {
+                if (max < num) {
+                    max = num;
+                }
+                if (min > num) {
+                    min = num;
+                }
+            }
+            return new int[]{min, max};
+        }
 
     }
 

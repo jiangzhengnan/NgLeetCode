@@ -10,7 +10,8 @@ import java.util.Map;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/345e2ed5f81d4017bbb8cc6055b0b711?tpId=295&tqId=731&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/1fGaJU/description/
  *
  * 原题描述:
  * 描述

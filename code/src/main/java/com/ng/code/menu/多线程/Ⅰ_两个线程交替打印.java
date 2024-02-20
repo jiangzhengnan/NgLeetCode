@@ -28,10 +28,9 @@ public class Ⅰ_两个线程交替打印 {
         public void run() {
             while (counter.value <= 100) {
                 synchronized (counter) {
-                    if (counter.odd) {
+                    if (counter.value % 2 == 0) {
                         System.out.println(Thread.currentThread().getName() + ":" + counter.value);
                         counter.value++;
-                        counter.odd = !counter.odd;
                         counter.notify();
                     }
                     try {
@@ -55,10 +54,9 @@ public class Ⅰ_两个线程交替打印 {
         public void run() {
             while (counter.value <= 100) {
                 synchronized (counter) {
-                    if (!counter.odd) {
+                    if (counter.value % 2 != 0) {
                         System.out.println(Thread.currentThread().getName() + ":" + counter.value);
                         counter.value++;
-                        counter.odd = !counter.odd;
                         counter.notify();
                     }
                     try {
@@ -73,6 +71,5 @@ public class Ⅰ_两个线程交替打印 {
 
     static class Counter {
         public int value = 1;
-        public boolean odd = true;
     }
 }

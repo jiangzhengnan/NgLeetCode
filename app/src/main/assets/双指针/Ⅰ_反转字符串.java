@@ -1,54 +1,43 @@
 package com.ng.code.menu.双指针;
 
+import java.util.Arrays;
+
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:
+ * link:https://leetcode.cn/problems/reverse-string/
  * 原题描述:
- * 写出一个程序，接受一个字符串，然后输出该字符串反转后的字符串。（字符串长度不超过1000）
- * 空间复杂度 O(n) ，时间复杂度 O(n)
- *
+ * 编写一个函数，其作用是将输入的字符串反转过来。输入字符串以字符数组 s 的形式给出。
+ * 不要给另外的数组分配额外的空间，你必须原地修改输入数组、使用 O(1) 的额外空间解决这一问题。
  * 示例:
  * 输入：
  * "abcd"
  * 返回值：
  * "dcba"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 1, partice = 1)
 public class Ⅰ_反转字符串 {
 
     public static void main(String[] args) {
-        LogUtil.print(EasySolution.solve("abcd"));
+        char[] data = "abcd".toCharArray();
+        EasySolution.reverseString(data);
+        LogUtil.print(Arrays.toString(data));
     }
 
     private static class EasySolution {
-
-        public static String solve(String str) {
-            // write code here
-            char[] reveerList = new char[str.length()];
-            for (int i = 0; i < str.toCharArray().length; i++) {
-                reveerList[str.length() - i - 1] = str.toCharArray()[i];
+        public static void reverseString(char[] s) {
+            int length = s.length;
+            for (int i = 0; i < length / 2; i++) {
+                char temp = s[i];
+                s[i] = s[length - 1 - i];
+                s[length - 1 - i] = temp;
             }
-            return new String(reveerList);
         }
-
     }
 
-    //原地交换
     private static class HardSolution {
-
-        public String solve(String str) {
-            char[] cstr = str.toCharArray();
-            int len = str.length();
-            for (int i = 0; i < len / 2; i++) {
-                char t = cstr[i];
-                cstr[i] = cstr[len - 1 - i];
-                cstr[len - 1 - i] = t;
-            }
-            return new String(cstr);
-        }
 
     }
 
