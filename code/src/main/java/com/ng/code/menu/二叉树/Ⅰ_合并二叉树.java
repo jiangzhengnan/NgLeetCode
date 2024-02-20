@@ -4,8 +4,8 @@ import com.ng.code.util.Solution;
 import com.ng.base.utils.TreeNode;
 
 /**
- * 日期:
- * 原题链接:https://www.nowcoder.com/practice/7298353c24cc42e3bd5f0e0bd3d1d759?tpId=295&tqId=1025038&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * link:https://leetcode.cn/problems/merge-two-binary-trees/description/
+ * <p>
  * 原题描述:
  * 描述
  * 已知两颗二叉树，将它们合并成一颗二叉树。合并规则是：都存在的结点，就将结点值加起来，否则空的位置就由另一个树的结点来代替。例如：
@@ -16,7 +16,7 @@ import com.ng.base.utils.TreeNode;
  * 说明：
  * 如题面图
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 1, partice = 1)
 public class Ⅰ_合并二叉树 {
 
     public static void main(String[] args) {

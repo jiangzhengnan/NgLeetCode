@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 4和8都是峰值元素，返回4的索引1或者8的索引5都可以
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 1)
 public class Ⅰ_寻找峰值 {
 
     public static void main(String[] args) {

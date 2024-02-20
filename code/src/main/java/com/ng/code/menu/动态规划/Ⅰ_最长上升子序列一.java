@@ -4,6 +4,9 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
+ * link:
+ * https://leetcode.cn/problems/longest-increasing-subsequence/description/
+ *
  * 原题描述:
  * 描述
  * 给定一个长度为 n 的数组 arr，求它的最长严格上升子序列的长度。
@@ -20,11 +23,11 @@ import com.ng.code.util.Solution;
  * 说明：
  * 该数组最长上升子序列为 [1,2,3,7] ，长度为4
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, partice = 1)
 public class Ⅰ_最长上升子序列一 {
 
     public static void main(String[] args) {
-        LogUtil.print(EasySolution.LIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
+        LogUtil.print(EasySolution.lengthOfLIS(new int[]{6, 3, 1, 5, 2, 3, 7}));
     }
 
     /**
@@ -33,30 +36,23 @@ public class Ⅰ_最长上升子序列一 {
      */
     private static class EasySolution {
 
-        public static int LIS(int[] arr) {
-            int n = arr.length;
-            //特殊请款判断
-            if (n == 0) return 0;
+        public static int lengthOfLIS(int[] nums) {
+            //动态规划
+            int result = 0;
             //dp[i]表示以下标i结尾的最长上升子序列长度
-            int[] dp = new int[n];
-            for (int i = 0; i < n; i++) {
-                //初始化为1
+            int[] dp = new int[nums.length];
+            for (int i = 0; i < nums.length; i++) {
                 dp[i] = 1;
                 for (int j = 0; j < i; j++) {
-                    if (arr[i] > arr[j]) {
-                        //只要前面某个数小于当前数，则要么长度在之前基础上加1，要么保持不变，取较大者
-                        dp[i] = Math.max(dp[i], dp[j] + 1);
+                    if (nums[i] > nums[j]) {
+                        dp[i] = Math.max(dp[j] + 1, dp[i]);
                     }
                 }
+                result = Math.max(result, dp[i]);
             }
-            int maxResult = Integer.MIN_VALUE;
-            for (int temp : dp) {
-                if (temp > maxResult) {
-                    maxResult = temp;
-                }
-            }
-            //返回所有可能中的最大值
-            return maxResult;
+
+
+            return result;
         }
 
     }

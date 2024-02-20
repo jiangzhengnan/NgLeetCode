@@ -5,7 +5,7 @@ import com.ng.code.util.Solution;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:
+ * link:https://leetcode.cn/problems/merge-sorted-array/description/
  * 原题描述:
  * 给出一个有序的整数数组 A 和有序的整数数组 B ，请将数组 B 合并到数组 A 中，变成一个有序的升序数组
  * 注意：
@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * A数组为[4,5,6]，B数组为[1,2,3]，后台程序会预先将A扩容为[4,5,6,0,0,0]，B还是为[1,2,3]，m=3，n=3，传入到函数merge里面，然后请同学完成merge函数，将B的数据合并A里面，最后后台程序输出A数组
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 1, hard = 0, partice = 1)
 public class Ⅰ_合并两个有序的数组 {
 
     public static void main(String[] args) {
@@ -33,6 +33,43 @@ public class Ⅰ_合并两个有序的数组 {
 
     private static class EasySolution {
 
+        /**
+         * 从右边开始往左插入，右边大，左边小
+         */
+        public static void merge(int[] nums1, int m, int[] nums2, int n) {
+            if (nums2 == null || n == 0) {
+                return;
+            }
+
+            int endIndex = nums1.length - 1;
+
+            int nums1EndIndex = endIndex - n;
+            int nums2EndIndex = n - 1;
+
+            while (endIndex >= 0) {
+                if (nums1EndIndex >= 0 && nums2EndIndex >= 0) {
+                    if (nums1[nums1EndIndex] > nums2[nums2EndIndex]) {
+                        nums1[endIndex--] = nums1[nums1EndIndex--];
+                    } else {
+                        nums1[endIndex--] = nums2[nums2EndIndex--];
+                    }
+                } else if (nums1EndIndex >= 0) {
+                    nums1[endIndex--] = nums1[nums1EndIndex--];
+                } else if (nums2EndIndex >= 0) {
+                    nums1[endIndex--] = nums2[nums2EndIndex--];
+                }
+            }
+
+        }
+
+
+    }
+
+    private static class HardSolution {
+
+        /**
+         * 简化太多
+         */
         public static void merge(int A[], int m, int B[], int n) {
             int length = A.length;
             while (n > 0) {
@@ -44,12 +81,6 @@ public class Ⅰ_合并两个有序的数组 {
             }
 
         }
-
-
-    }
-
-    private static class HardSolution {
-
     }
 
 }
