@@ -1,45 +1,50 @@
 package com.cj.design.desiginmodel.创建型.工厂模式;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * @author : 
- * @creation : 2022/08/14
- * @description :
  * 简单工厂模式
+ * 通过hashMap形成映射，形成工厂类->对应实例的桥梁
  */
 public class SimpleFactory {
-
-    public interface IRuleConfigParser {
+    interface Fruit {
+        void introduce();
     }
 
-    public static class JsonRuleConfigParser implements IRuleConfigParser{
-    }
-
-    public static class XmlRuleConfigParser implements IRuleConfigParser{
-    }
-
-    public static class YamlRuleConfigParser implements IRuleConfigParser{
-    }
-
-    public static class PropertiesRuleConfigParser implements IRuleConfigParser{
-    }
-
-    private static final Map<String, IRuleConfigParser> cachedParsers = new HashMap<>();
-
-    static {
-        cachedParsers.put("json", new JsonRuleConfigParser());
-        cachedParsers.put("xml", new XmlRuleConfigParser());
-        cachedParsers.put("yaml", new YamlRuleConfigParser());
-        cachedParsers.put("properties", new PropertiesRuleConfigParser());
-    }
-
-    public static IRuleConfigParser createParser(String configFormat) {
-        if (configFormat == null || configFormat.isEmpty()) {
-            return null;//返回null还是IllegalArgumentException全凭你自己说了算
+    static class Apple implements Fruit {
+        @Override
+        public void introduce() {
+            System.out.println("I'm an apple.");
         }
-        IRuleConfigParser parser = cachedParsers.get(configFormat.toLowerCase());
-        return parser;
+    }
+
+    static class Banana implements Fruit {
+        @Override
+        public void introduce() {
+            System.out.println("I'm a banana.");
+        }
+    }
+
+    static class FruitFactory {
+
+        public static Fruit createFruit(String name) throws Exception {
+            if (name.equalsIgnoreCase("apple")) {
+                return new Apple();
+            } else if (name.equalsIgnoreCase("banana")) {
+                return new Banana();
+            } else {
+                throw new Exception("There is no Fruit named '" + name + "'.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Fruit apple = null;
+            apple = FruitFactory.createFruit("apple");
+            Fruit banana = FruitFactory.createFruit("banana");
+            apple.introduce();   // I'm an apple.
+            banana.introduce();  // I'm a banana.
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

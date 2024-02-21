@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author : 
- * @creation : 2022/10/05
- * @description :
  * 概念：
  * 在对象之间定义一个一对多的依赖，当一个对象状态改变的时候，所有依赖的对象都会自动收到通知
  * 区别:
@@ -22,7 +19,9 @@ public class ObserverModel {
     }
 
     /**
-     * 抽象目标类，提供增加，删除，通知观察者对象的抽象方法
+     * 主题接口
+     * 每个主题可以有许多观察者
+     * 提供增加，删除，通知观察者对象的抽象方法
      */
     interface Subject {
         void registerObserver(Observer observer);
@@ -33,7 +32,8 @@ public class ObserverModel {
     }
 
     /**
-     * 具体目标类，抽象目标类中的方法，通过集合保存观察者
+     * 具体主题实现类
+     * 抽象目标类中的方法，通过集合保存观察者
      */
     static class ConcreteSubject implements Subject {
         private List<Observer> observers = new ArrayList<Observer>();

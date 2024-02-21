@@ -1,9 +1,6 @@
 package com.cj.design.desiginmodel.结构型.装饰器模式;
 
 /**
- * @author : 
- * @creation : 2022/10/01
- * @description :
  * 概念：
  * 装饰器模式是指给一个类增强一些方法，对其做一些包装，但是不会影响改变原本类。
  * 异同：
@@ -44,6 +41,9 @@ public class 装饰器模式 {
             return component;
         }
 
+        /**
+         * 可以set传入装饰者，也可以构造方法传入，形式多样。
+         */
         public void setComponent(final DrawComponent component) {
             this.component = component;
         }
@@ -75,9 +75,12 @@ public class 装饰器模式 {
     public static void main(String[] args) {
         DrawApi drawApi = new DrawApi();
         ShapeDrawDecorator shapeDrawDecorator = new ShapeDrawDecorator();
+
         shapeDrawDecorator.setComponent(drawApi);
+
         ColorDrawDecorator colorDrawDecorator = new ColorDrawDecorator();
         colorDrawDecorator.setComponent(shapeDrawDecorator);
+
         colorDrawDecorator.draw();
     }
 
