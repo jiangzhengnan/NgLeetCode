@@ -20,7 +20,7 @@ import java.util.Map;
  * 返回值：
  * {1,2,3,4,5,3,5,#,2,#}
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_复杂链表的复制 {
 
     public static void main(String[] args) {

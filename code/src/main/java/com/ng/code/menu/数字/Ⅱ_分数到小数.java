@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 输入：numerator = 4, denominator = 333
  * 输出："0.(012)"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_分数到小数 {
 
     public static void main(String[] args) {

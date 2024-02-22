@@ -26,7 +26,7 @@ import java.util.List;
  * 输入: []
  * 输出: []
  */
-@Solution(easy = 1, hard = 1, partice = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_二叉树的右视图 {
 
     public static void main(String[] args) {

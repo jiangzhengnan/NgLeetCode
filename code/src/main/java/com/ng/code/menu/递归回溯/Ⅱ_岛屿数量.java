@@ -42,7 +42,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_岛屿数量 {
 
     public static void main(String[] args) {

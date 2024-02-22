@@ -32,7 +32,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * "abc"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_最长公共子序列 {
 
     public static void main(String[] args) {

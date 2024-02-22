@@ -44,7 +44,7 @@ import java.util.Set;
  * 返回值：
  * []
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_字符串的排列 {
 
     public static void main(String[] args) {

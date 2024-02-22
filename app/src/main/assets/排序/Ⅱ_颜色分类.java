@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [2,0,1]
  * 输出：[0,1,2]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_颜色分类 {
 
     public static void main(String[] args) {

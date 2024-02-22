@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 这是一个有效的 IPv4 地址, 所以返回 "IPv4"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_验证IP地址 {
 
     public static void main(String[] args) {

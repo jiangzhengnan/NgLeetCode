@@ -13,7 +13,7 @@ import com.ng.code.util.Solution;
  * 一个叶子节点下标从0开始，是n，父节点是  (n - 1) / 2
  * 左子节点是 n * 2 + 1，  右节点是n * 2 + 2
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_堆排序 {
 
     public static void main(String[] args) {

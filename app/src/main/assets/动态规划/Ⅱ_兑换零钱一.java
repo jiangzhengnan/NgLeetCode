@@ -26,7 +26,7 @@ import java.util.Arrays;
  * 输入：coins = [1], amount = 0
  * 输出：0
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_兑换零钱一 {
 
     public static void main(String[] args) {

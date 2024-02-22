@@ -30,7 +30,7 @@ import java.util.Stack;
  * 返回值：
  * {1,2,5,3,4,6,7}
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_重建二叉树 {
 
     public static void main(String[] args) {

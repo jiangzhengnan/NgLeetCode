@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 输入：x = -123
  * 输出：-321
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_整数反转 {
 
     public static void main(String[] args) {

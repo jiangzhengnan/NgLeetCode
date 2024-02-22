@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]
  * 输出：[4,9]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_两个数组的交集 {
 
     public static void main(String[] args) {

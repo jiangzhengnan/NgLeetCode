@@ -26,7 +26,7 @@ import com.ng.code.util.Solution;
  * 7 也是一个候选， 7 = 7 。
  * 仅有这两种组合。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_组合总和 {
 
     public static void main(String[] args) {

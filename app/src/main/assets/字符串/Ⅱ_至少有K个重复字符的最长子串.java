@@ -26,7 +26,7 @@ import java.util.HashMap;
  * 输出：5
  * 解释：最长子串为 "ababb" ，其中 'a' 重复了 2 次， 'b' 重复了 3 次。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_至少有K个重复字符的最长子串 {
 
     @RequiresApi(api = Build.VERSION_CODES.N)

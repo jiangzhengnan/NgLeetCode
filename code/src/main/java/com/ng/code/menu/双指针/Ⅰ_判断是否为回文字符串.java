@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * true
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_判断是否为回文字符串 {
 
     public static void main(String[] args) {

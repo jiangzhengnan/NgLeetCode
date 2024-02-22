@@ -21,7 +21,7 @@ import java.util.Queue;
  * 说明：
  * [2,3,4,5]是最长子数组
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_最长无重复子数组 {
 
     public static void main(String[] args) {

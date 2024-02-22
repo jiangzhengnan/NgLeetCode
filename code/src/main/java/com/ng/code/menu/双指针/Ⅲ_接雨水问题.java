@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 数组 [3,1,2,5,2,4] 表示柱子高度图，在这种情况下，可以接 5个单位的雨水，蓝色的为雨水 ，如题面图。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_接雨水问题 {
 
     public static void main(String[] args) {

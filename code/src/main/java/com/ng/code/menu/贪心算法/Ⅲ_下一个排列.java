@@ -36,7 +36,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [1,1,5]
  * 输出：[1,5,1]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_下一个排列 {
 
     public static void main(String[] args) {

@@ -19,7 +19,7 @@ import java.util.LinkedList;
  * 返回值：
  * [[8],[10,6],[5,7,9,11]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_按之字形顺序打印二叉树 {
 
     public static void main(String[] args) {

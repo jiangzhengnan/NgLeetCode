@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author : 
- * @creation : 2022/10/06
- * @description :
  * 概念：
  * 允许一个或者多个操作应用到一组对象上，解耦操作和对象本身。
  * 示例：

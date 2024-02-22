@@ -15,6 +15,6 @@ public @interface Solution {
 
     int hard() default 0;
 
-    int partice() default 0;
+    int particle() default 0;
 
 }

@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输出: true
  * 解释: 返回 true 因为 "leetcode" 可以由 "leet" 和 "code" 拼接成。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_单词拆分 {
 
     public static void main(String[] args) {

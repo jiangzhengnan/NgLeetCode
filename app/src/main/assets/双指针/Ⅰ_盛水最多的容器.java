@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * 49
  */
-@Solution(easy = 1, hard = 0, partice = 1)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅰ_盛水最多的容器 {
 
     public static void main(String[] args) {

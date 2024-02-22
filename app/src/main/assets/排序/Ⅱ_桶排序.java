@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 算法复杂度：O(nlogn)
  * 算法空间复杂度：O(1)
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_桶排序 {
 
     public static void main(String[] args) {

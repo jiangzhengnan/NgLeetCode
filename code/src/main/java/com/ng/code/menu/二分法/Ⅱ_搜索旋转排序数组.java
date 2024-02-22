@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [4,5,6,7,0,1,2], target = 3
  * 输出：-1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_搜索旋转排序数组 {
 
     public static void main(String[] args) {

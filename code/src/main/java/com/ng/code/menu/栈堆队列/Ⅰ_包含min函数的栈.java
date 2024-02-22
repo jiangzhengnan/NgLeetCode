@@ -39,7 +39,7 @@ import java.util.Stack;
  * 返回值：
  * -1,2,1,-1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_包含min函数的栈 {
 
     public static void main(String[] args) {

@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * [5,6,1,2,3,4]
  * 复制
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_旋转数组 {
 
     public static void main(String[] args) {

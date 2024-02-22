@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 输入：a = 2, b = 3
  * 输出：5
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_两整数之和 {
 
     public static void main(String[] args) {

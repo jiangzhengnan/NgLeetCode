@@ -8,7 +8,7 @@ import com.ng.code.util.Solution;
  * @description :
  * 算法题：两个线程分别持续打印奇数和偶数，实现两个线程的交替打印（从小到大）
  */
-@Solution(easy = 0, hard = 0, partice = 1)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅰ_两个线程交替打印 {
 
     public static void main(String[] args) {

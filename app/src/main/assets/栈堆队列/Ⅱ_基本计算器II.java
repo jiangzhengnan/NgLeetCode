@@ -4,8 +4,6 @@ import com.ng.code.util.Solution;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Ⅰ Ⅱ Ⅲ
@@ -30,7 +28,7 @@ import java.util.Map;
  * 输入：s = " 3+5 / 2 "
  * 输出：5
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_基本计算器II {
 
     public static void main(String[] args) {

@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 输入：digits = "23"
  * 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_电话号码的字母组合 {
 
     public static void main(String[] args) {

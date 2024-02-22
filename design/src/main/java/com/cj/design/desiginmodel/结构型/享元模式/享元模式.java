@@ -4,9 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : 
- * @creation : 2022/10/04
- * @description :
  * 概念:
  * 当一个系统中存在大量重复对象的时候，如果这些重复的对象是不可变对象，
  * 我们就可以利用享元模式将对象设计成享元，在内存中只保留一份实例，供多处代码引用

@@ -32,7 +32,7 @@ import java.util.Map;
  * 说明：
  * 在执行"1 4 4"后，"1 1 1"被删除。因此第二次询问的答案为-1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_设计LFU缓存结构 {
 
     public static void main(String[] args) {

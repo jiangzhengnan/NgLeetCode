@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * [[7,4,1],[8,5,2],[9,6,3]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_顺时针旋转矩阵 {
 
     public static void main(String[] args) {

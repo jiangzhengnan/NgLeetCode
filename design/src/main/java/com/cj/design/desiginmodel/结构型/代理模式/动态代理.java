@@ -5,97 +5,61 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @author : 
- * @creation : 2022/10/01
- * @description :
- *
  * 主要是为了解决静态代理的两个缺点
  */
 public class 动态代理 {
-    //定义一个绘制接口，原始类
-    interface DrawApi {
-        void draw();
 
-        void refresh();
+    // Subject
+    interface Calculator {
+        int add(int a, int b);
     }
 
-    //定义具体的圆形绘制方案，被代理类
-    static class CircleDraw implements DrawApi {
+    // RealSubject
+    static class SimpleCalculator implements Calculator {
+        @Override
+        public int add(int a, int b) {
+            int result = a + b;
+            System.out.printf("%d + %d = %d\n", a, b, result);
+            return result;
+        }
+    }
+
+    // InvocationHandler
+    static class LoggingInvocationHandler implements InvocationHandler {
+        private Object target;
+
+        public LoggingInvocationHandler(Object target) {
+            this.target = target;
+        }
 
         @Override
-        public void draw() {
-            System.out.println("画一个圆");
-        }
-
-        @Override
-        public void refresh() {
-            System.out.println("刷新");
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+            System.out.printf("start " + method.getName() + " % d + % d\n ", args[0], args[1]);
+            Object result = method.invoke(target, args);
+            System.out.println("calculation finished");
+            return result;
         }
     }
 
-    //定义一个测算接口，原始类
-    interface CalculateApi {
-        void calculate();
-    }
-
-    //定义圆形的测算方案，被代理类
-    static class CircleCalculate implements CalculateApi {
-
-        @Override
-        public void calculate() {
-            System.out.println("测量圆的尺寸");
-        }
-    }
-
-    //动态代理实现类
-    //优点：不需要将将原始类中的所有的方法，都重新实现一遍
-    public static class DrawProxy {
-        public DrawProxy() {
-        }
-
-        public Object createProxy(Object proxiedObject) {
-            Class<?>[] interfaces = proxiedObject.getClass().getInterfaces();
-            DynamicProxyHandler handler = new DynamicProxyHandler(proxiedObject);
-            return Proxy.newProxyInstance(proxiedObject.getClass()
-                                                       .getClassLoader(), interfaces, handler);
-        }
-
-        //代理类的实现处理接口
-        private class DynamicProxyHandler implements InvocationHandler {
-            private final Object drawImpl;
-
-            public DynamicProxyHandler(Object drawImpl) {
-                this.drawImpl = drawImpl;
-            }
-
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                before();
-                Object result = method.invoke(drawImpl, args);
-                String apiName = drawImpl.getClass().getName() + ":" + method.getName();
-                System.out.println("执行方法:" + apiName);
-                after();
-                return result;
-            }
-
-            private void after() {
-                System.out.println("执行后 做一些事情");
-            }
-
-            private void before() {
-                System.out.println("执行前 做一些事情");
-            }
-        }
-    }
-
+    /**
+     * 在这个示例中，我们使用了 Proxy.newProxyInstance() 方法来创建动态代理对象，该方法接受三个参数：
+     * 类加载器：传入被代理对象的类加载器
+     * 接口数组：需要代理的接口数组
+     * 调用处理器：实现 InvocationHandler 接口的类，代理对象的方法调用会被转发到该调用处理器中。
+     * -
+     * 动态代理的优点是可以在运行时创建代理对象，不需要编写具体的实现代码，
+     * 使得代理对象的创建更加灵活，适用于一些需要写大量重复代码的场景。
+     */
     public static void main(String[] args) {
-        DrawProxy proxy = new DrawProxy();
-        DrawApi drawApi = (DrawApi) proxy.createProxy(new CircleDraw());
-        drawApi.draw();
+        Calculator calculator = new SimpleCalculator();
 
-        //完美解决 原始类有多个的问题
-        CalculateApi calculateApi = (CalculateApi) proxy.createProxy(new CircleCalculate());
-        calculateApi.calculate();
+        Calculator loggingCalculator = (Calculator) Proxy.newProxyInstance(
+            Calculator.class.getClassLoader(),
+            new Class<?>[]{Calculator.class},
+            new LoggingInvocationHandler(calculator)
+        );
+
+        loggingCalculator.add(1, 2);
     }
 
 }

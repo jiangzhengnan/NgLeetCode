@@ -23,7 +23,7 @@ import java.util.Iterator;
  * 示例 3：
  * 输入：nums = [0,1]
  */
-@Solution(easy = 1, hard = 0, partice = 1)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅱ_只出现一次的数字 {
 
     public static void main(String[] args) {

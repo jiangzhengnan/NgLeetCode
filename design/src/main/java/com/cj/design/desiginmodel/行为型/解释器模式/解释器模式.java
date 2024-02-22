@@ -4,9 +4,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 /**
- * @author : 
- * @creation : 2022/10/06
- * @description :
  * 概念:
  * 解释器模式为某个语言定义它的语法（或者叫文法）表示，并定义一个解释器用来处理这个语法。
  * 它的代码实现的核心思想，就是将语法解析的工作拆分到各个小类中，以此来避免大而全的解析类。

@@ -1,4 +1,4 @@
-package com.cj.design.desiginmodel.结构型.门面模式;
+package com.cj.design.desiginmodel.结构型.外观模式;
 
 /**
  * @author : 
@@ -8,7 +8,7 @@ package com.cj.design.desiginmodel.结构型.门面模式;
  * 也叫外观模式，为子系统提供一组统一的接口，定义一组高层接口让子系统更易用。
  * 简单来说，就是将多个接口调用替换为一个门面接口调用。
  */
-public class 门面模式 {
+public class FacadePattern {
 
     static class TextHelper {
         public void print() {

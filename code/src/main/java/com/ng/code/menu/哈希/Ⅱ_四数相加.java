@@ -28,7 +28,7 @@ import java.util.Map;
  * 输入：nums1 = [0], nums2 = [0], nums3 = [0], nums4 = [0]
  * 输出：1
  */
-@Solution(easy = 0, hard = 0, partice = 1)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅱ_四数相加 {
 
     public static void main(String[] args) {

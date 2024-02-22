@@ -19,7 +19,7 @@ import java.util.Arrays;
  * 输入：nums = [3,30,34,5,9]
  * 输出："9534330"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_最大数 {
 
     public static void main(String[] args) {

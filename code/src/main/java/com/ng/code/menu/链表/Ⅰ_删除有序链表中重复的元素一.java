@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * {1,2}
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {

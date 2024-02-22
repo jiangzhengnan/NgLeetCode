@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author : 
- * @creation : 2022/10/05
- * @description :
  * 概念：
  * 多个处理器依次处理同一个请求。
  * 一个请求先经过A处理器处理，然后再把请求传递给B处理器，B处理器处理完后再传递给C处理器，

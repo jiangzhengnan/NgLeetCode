@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author : 
- * @creation : 2022/10/04
- * @description :
  * 概念:
  * 将一组对象组织（Compose）成树形结构，以表示一种“部分-整体”的层次结构。
  * 组合让客户端（在很多设计模式书籍中，“客户端”代指代码的使用者。）可以统一单个对象和组合对象的处理逻辑。
+ * <p>
  * 示例：
  * 希望在内存中构建整个公司的人员架构图（部门、子部门、员工的隶属关系），
  * 并且提供接口计算出部门的薪资成本（隶属于这个部门的所有员工的薪资和）。
  * 采用组合的方式可以更方便的处理员工与部门的工资计算。
  */
-public class 组合模式 {
+public class CompositePattern {
 
     //人力资源
     static abstract class HumanResource {

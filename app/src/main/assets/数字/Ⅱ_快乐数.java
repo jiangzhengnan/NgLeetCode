@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 62 + 82 = 100
  * 12 + 02 + 02 = 1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_快乐数 {
 
     public static void main(String[] args) {

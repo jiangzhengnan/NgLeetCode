@@ -40,7 +40,7 @@ import java.util.HashMap;
  * 返回值：
  * 1
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class Ⅱ_缺失的第一个正整数 {
 

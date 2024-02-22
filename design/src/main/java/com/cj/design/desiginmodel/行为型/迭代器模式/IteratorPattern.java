@@ -3,14 +3,11 @@ package com.cj.design.desiginmodel.行为型.迭代器模式;
 import java.util.NoSuchElementException;
 
 /**
- * @author : 
- * @creation : 2022/10/05
- * @description :
  * 概念：
  * 迭代器是用来遍历容器的，所以，一个完整的迭代器模式一般会涉及容器和容器迭代器两部分内容。
  * 为了达到基于接口而非实现编程的目的，容器又包含容器接口、容器实现类，迭代器又包含迭代器接口、迭代器实现类。
  */
-public class 迭代器模式 {
+public class IteratorPattern {
 
     public interface Iterator<E> {
         boolean hasNext();

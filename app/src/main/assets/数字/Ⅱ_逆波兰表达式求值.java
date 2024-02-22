@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * 输出：6
  * 解释：该算式转化为常见的中缀算术表达式为：(4 + (13 / 5)) = 6
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_逆波兰表达式求值 {
 
     public static void main(String[] args) {

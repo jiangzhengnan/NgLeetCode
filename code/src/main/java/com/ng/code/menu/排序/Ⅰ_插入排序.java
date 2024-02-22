@@ -10,7 +10,7 @@ import com.ng.code.util.Solution;
  * 平均时间复杂度：O(n²)
  * 空间复杂度：O(1)
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_插入排序 {
 
     public static void main(String[] args) {

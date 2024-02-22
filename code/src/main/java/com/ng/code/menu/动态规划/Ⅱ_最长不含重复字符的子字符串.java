@@ -19,7 +19,7 @@ import java.util.HashMap;
  * 说明：
  * 因为无重复字符的最长子串是"abc"，所以其长度为 3。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_最长不含重复字符的子字符串 {
 
     public static void main(String[] args) {

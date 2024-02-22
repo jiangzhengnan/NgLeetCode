@@ -9,7 +9,7 @@ import com.ng.code.util.Solution;
  * 需要参考
  * https://blog.csdn.net/skz980619/article/details/119703042
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_生产者消费者模式 {
     public final static int MAX_PRODUCT = 100;
     public final static int MIN_PRODUCT = 0;

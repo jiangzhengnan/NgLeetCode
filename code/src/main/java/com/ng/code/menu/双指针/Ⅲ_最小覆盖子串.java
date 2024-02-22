@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 满足条件的子串可能有很多，但是题目保证满足条件的最短的子串唯一。
  * 示例:
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_最小覆盖子串 {
 
     public static void main(String[] args) {

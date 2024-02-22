@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * 返回值：
  * [1,2,3,6,9,8,7,4,5]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_螺旋矩阵 {
 
     public static void main(String[] args) {

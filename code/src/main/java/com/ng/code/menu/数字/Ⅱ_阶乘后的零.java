@@ -15,7 +15,7 @@ import com.ng.code.util.Solution;
  * 输出：0
  * 解释：3! = 6 ，不含尾随 0
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_阶乘后的零 {
 
     public static void main(String[] args) {

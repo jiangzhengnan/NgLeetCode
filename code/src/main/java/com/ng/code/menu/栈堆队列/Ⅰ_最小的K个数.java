@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 0 <= len(arr) <= 100000
  * 0 <= k <= min(100000, len(arr))
  */
-@Solution(easy = 0, hard = 0, partice = 1)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅰ_最小的K个数 {
 
     public static void main(String[] args) {

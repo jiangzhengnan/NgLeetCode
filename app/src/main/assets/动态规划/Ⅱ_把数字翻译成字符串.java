@@ -28,7 +28,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 192种可能的译码结果
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_把数字翻译成字符串 {
 
     public static void main(String[] args) {

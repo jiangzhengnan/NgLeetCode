@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 解释：输入的二进制串 00000010100101000001111010011100 表示无符号整数 43261596，
  * 因此返回 964176192，其二进制表示形式为 00111001011110000010100101000000。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_颠倒二进制位 {
 
     public static void main(String[] args) {

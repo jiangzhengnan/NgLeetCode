@@ -13,7 +13,7 @@ import com.ng.code.util.Solution;
  * 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
  * 输出：[[7,4,1],[8,5,2],[9,6,3]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_旋转图像 {
 
     public static void main(String[] args) {

@@ -38,7 +38,7 @@ public class ProgressUtil {
                 if (solution.hard() > 0) {
                     hard++;
                 }
-                if (solution.partice() > 0) {
+                if (solution.particle() > 0) {
                     partice++;
                 }
             }

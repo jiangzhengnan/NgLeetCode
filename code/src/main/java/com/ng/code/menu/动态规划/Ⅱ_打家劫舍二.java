@@ -32,7 +32,7 @@ import java.util.Arrays;
  * 说明：
  * 由于 1 和 3 是相邻的，因此最优方案是偷第 3 个房间
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_打家劫舍二 {
 
     public static void main(String[] args) {

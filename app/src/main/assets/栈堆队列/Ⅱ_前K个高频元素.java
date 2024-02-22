@@ -23,7 +23,7 @@ import java.util.PriorityQueue;
  * 输出: [1]
  * 示例:
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 @SuppressLint("NewApi")
 public class Ⅱ_前K个高频元素 {
 

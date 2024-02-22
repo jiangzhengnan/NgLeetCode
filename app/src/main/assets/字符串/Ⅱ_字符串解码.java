@@ -30,7 +30,7 @@ import java.util.LinkedList;
  * 输入：s = "2[abc]3[cd]ef"
  * 输出："abcabccdcdcdef"
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_字符串解码 {
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输出：2
  * 解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_x的平方根 {
 
     public static void main(String[] args) {

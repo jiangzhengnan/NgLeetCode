@@ -32,7 +32,7 @@ import com.ng.code.util.Solution;
  * 解析得到整数 42 。
  * 由于 "42" 在范围 [-231, 231 - 1] 内，最终结果为 42 。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_字符串转换整数 {
 
     public static void main(String[] args) {

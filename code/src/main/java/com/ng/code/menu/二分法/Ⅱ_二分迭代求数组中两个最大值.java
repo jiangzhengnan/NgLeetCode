@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [29,5,4,6,3,7,10,2,1,11,19,13,15]
  * 输出：{29,19};
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_二分迭代求数组中两个最大值 {
 
     public static void main(String[] args) {

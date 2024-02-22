@@ -15,7 +15,7 @@ import com.ng.base.utils.TreeNode;
  * 输出：3
  * 解释：节点 5 和节点 1 的最近公共祖先是节点 3 。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_二叉树的最近公共祖先 {
 
     public static void main(String[] args) {

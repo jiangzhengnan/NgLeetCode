@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 第五天(股票价格=1)买进，第六天(股票价格=3)卖出，收益为2
  * 总收益为4。
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅲ_买卖股票的最好时机三 {
 
     public static void main(String[] args) {

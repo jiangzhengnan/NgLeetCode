@@ -13,7 +13,7 @@ import com.ng.code.util.Solution;
  *
  * 示例:
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_矩阵中的路径 {
 
     public static void main(String[] args) {

@@ -25,7 +25,7 @@ import java.util.PriorityQueue;
  * 说明：
  * 只需要一个主持人就能成功举办这两个活动
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_主持人调度二 {
 
     public static void main(String[] args) {

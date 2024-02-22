@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
  * 输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_字母异位词分组 {
 
     public static void main(String[] args) {

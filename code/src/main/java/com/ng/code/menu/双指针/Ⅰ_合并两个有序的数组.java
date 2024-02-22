@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * A数组为[4,5,6]，B数组为[1,2,3]，后台程序会预先将A扩容为[4,5,6,0,0,0]，B还是为[1,2,3]，m=3，n=3，传入到函数merge里面，然后请同学完成merge函数，将B的数据合并A里面，最后后台程序输出A数组
  */
-@Solution(easy = 1, hard = 0, partice = 1)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅰ_合并两个有序的数组 {
 
     public static void main(String[] args) {

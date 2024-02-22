@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 说明：
  * 最优分配方案为1,1,2
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_分糖果问题 {
 
     public static void main(String[] args) {

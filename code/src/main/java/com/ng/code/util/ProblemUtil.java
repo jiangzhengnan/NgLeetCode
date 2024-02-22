@@ -62,10 +62,10 @@ public class ProblemUtil {
                 Annotation[] annos = randomItem.getAnnotations();
                 for (Annotation anno : annos) {
                     Solution solution = (Solution) anno;
-                    if (solution.easy() == 0) {
+                    if (solution.particle() == 0) {
                         LogUtil.print(
-                            (result + 1) + " " + randomItem.getSimpleName() + " " +
-                                solution.easy());
+                            (result + 1) + " " + randomItem.getSimpleName() + " easy:" +
+                                solution.easy() + " particle:" + solution.particle());
                         result++;
                     }
                 }

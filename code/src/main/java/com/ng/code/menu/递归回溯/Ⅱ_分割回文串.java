@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 输入：s = "a"
  * 输出：[["a"]]
  */
-@Solution(easy = 0, hard = 0, partice = 0)
+@Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅱ_分割回文串 {
 
     public static void main(String[] args) {
