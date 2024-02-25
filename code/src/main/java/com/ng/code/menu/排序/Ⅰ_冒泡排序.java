@@ -3,12 +3,7 @@ package com.ng.code.menu.排序;
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
-/**
- * @author : 
- * @creation : 2022/07/04
- * @description :
- */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅰ_冒泡排序 {
 
     public static void main(String[] args) {

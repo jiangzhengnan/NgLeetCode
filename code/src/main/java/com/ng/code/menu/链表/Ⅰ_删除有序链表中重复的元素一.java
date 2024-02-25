@@ -6,23 +6,17 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/c087914fae584da886a0091e877f2c79?tpId=295&tqId=664&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
- * 原题描述:
- * 描述
- * 删除给出链表中的重复元素（链表中元素从小到大有序），使链表中的所有元素都只出现一次
- * 例如：
- * 给出的链表为1→1→2  ,返回 1→2.
- * 给出的链表为 1→1→2→3→3,返回 1→2→3.
+ * 原题链接:
+ * https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
  *
- * 数据范围：链表长度满足 0 <= n <= 1000≤n≤100，链表中任意节点的值满足 |val| <= 100∣val∣≤100
- * 进阶：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)
+ * 给定一个已排序的链表的头 head ， 删除所有重复的元素，使每个元素只出现一次 。返回 已排序的链表 。
  * 示例1
  * 输入：
  * {1,1,2}
  * 返回值：
  * {1,2}
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_删除有序链表中重复的元素一 {
 
     public static void main(String[] args) {

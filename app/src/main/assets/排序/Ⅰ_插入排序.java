@@ -4,11 +4,10 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * @author : 
- * @creation : 2022/07/04
- * @description :
  * 平均时间复杂度：O(n²)
  * 空间复杂度：O(1)
+ *
+ * 插入排序的思想是将待排序的序列分为已排序区间和未排序区间，每次从未排序区间中选取一个元素，将该元素插入到已排序区间中合适的位置，使得插入后仍然有序。
  */
 @Solution(easy = 0, hard = 0, particle = 0)
 public class Ⅰ_插入排序 {
@@ -38,6 +37,7 @@ public class Ⅰ_插入排序 {
                 preIndex -- ;
             }
             array[preIndex + 1] = cur;
+            LogUtil.print(array);
         }
 
     }

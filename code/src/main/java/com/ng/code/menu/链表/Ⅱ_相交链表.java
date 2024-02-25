@@ -6,11 +6,14 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46?tpId=295&tqId=23257&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/intersection-of-two-linked-lists/description/?envType=study-plan
+ * -v2&envId=top-100-liked
+ * <p>
  * 原题描述:
  */
-@Solution(easy = 0, hard = 0, particle = 0)
-public class Ⅱ_两个链表的第一个公共结点 {
+@Solution(easy = 0, hard = 0, particle = 1)
+public class Ⅱ_相交链表 {
 
     public static void main(String[] args) {
         ListNode phead1 = ListNode.getNodeList(1, 2, 3);

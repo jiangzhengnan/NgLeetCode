@@ -5,25 +5,19 @@ import com.ng.code.util.Solution;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:
- * 原题描述:
- * 给你一个大小为 n 的字符串数组 strs ，其中包含n个字符串 , 编写一个函数来查找字符串数组中的最长公共前缀，返回这个公共前缀。
- * 进阶：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
- *
- * 示例:
- * 示例1
- * 输入：
- * ["abca","abc","abca","abc","abcc"]
- * 返回值：
- * "abc"
- *
- * 示例2
- * 输入：
- * ["abc"]
- * 返回值：
- * "abc"
+ * link: https://leetcode.cn/problems/longest-common-prefix/description/
+ * 编写一个函数来查找字符串数组中的最长公共前缀。
+ * 如果不存在公共前缀，返回空字符串 ""。
+ * <p>
+ * 示例 1：
+ * 输入：strs = ["flower","flow","flight"]
+ * 输出："fl"
+ * 示例 2：
+ * 输入：strs = ["dog","racecar","car"]
+ * 输出：""
+ * 解释：输入不存在公共前缀。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅰ_最长公共前缀 {
 
     public static void main(String[] args) {

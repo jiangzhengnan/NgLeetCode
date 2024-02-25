@@ -5,28 +5,24 @@ import com.ng.code.util.Solution;
 
 /**
  * link:
- * 原题描述:
- * 与一相比，多了多次
- * 假设你有一个数组prices，长度为n，其中prices[i]是某只股票在第i天的价格，请根据这个价格数组，返回买卖股票能获得的最大收益
- * 1. 你可以多次买卖该只股票，但是再次购买前必须卖出之前的股票
- * 2. 如果不能获取收益，请返回0
- * 3. 假设买入卖出均无手续费
- * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
- * 进阶：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)
- *
- * 示例:
- * 输入：
- * [8,9,2,5,4,7,1]
- * 返回值：
- * 7
- * 复制
- * 说明：
- * 在第1天(股票价格=8)买入，第2天(股票价格=9)卖出，获利9-8=1
- * 在第3天(股票价格=2)买入，第4天(股票价格=5)卖出，获利5-2=3
- * 在第5天(股票价格=4)买入，第6天(股票价格=7)卖出，获利7-4=3
- * 总获利1+3+3=7，返回7
+ * https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/description/
+ * 给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+ * 在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+ * 返回 你能获得的 最大 利润 。
+ * <p>
+ * 示例 1：
+ * 输入：prices = [7,1,5,3,6,4]
+ * 输出：7
+ * 解释：在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+ * 随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
+ * 总利润为 4 + 3 = 7 。
+ * 示例 2：
+ * 输入：prices = [1,2,3,4,5]
+ * 输出：4
+ * 解释：在第 1 天（股票价格 = 1）的时候买入，在第 5 天 （股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+ * 总利润为 4 。
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_买卖股票的最好时机二 {
 
     public static void main(String[] args) {
@@ -37,19 +33,15 @@ public class Ⅰ_买卖股票的最好时机二 {
     //直接求每一天比前一天赚了多少，累加
     private static class EasySolution {
 
+        //因为交易次数不受限，如果可以把所有的上坡全部收集到，一定是利益最大化的
         public static int maxProfit(int[] prices) {
-            if (prices == null || prices.length <= 1) {
-                return 0;
+            int max = 0;
+            int prePrice = Integer.MAX_VALUE;
+            for (int nowPrice : prices) {
+                max = Math.max(max, max + nowPrice - prePrice);
+                prePrice = nowPrice;
             }
-            int len = prices.length;
-            int result = 0;
-            //假设当天卖出
-            for (int i = 1; i < len; i++) {
-                if (prices[i] > prices[i-1]) {
-                    result += prices[i] - prices[i-1];
-                }
-            }
-            return result;
+            return max;
         }
     }
 

@@ -4,13 +4,20 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * 日期:
- * 原题链接:https://www.nowcoder.com/practice/d3df40bd23594118b57554129cadf47b?tpId=295&tqId=1499549&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
- * 原题描述:
- * -1, 0, 3, 4, 6, 10, 13, 14     13
- * 输出 6
+ * link：
+ * https://leetcode.cn/problems/binary-search/
+ * 给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+ * <p>
+ * 示例 1:
+ * 输入: nums = [-1,0,3,5,9,12], target = 9
+ * 输出: 4
+ * 解释: 9 出现在 nums 中并且下标为 4
+ * 示例 2:
+ * 输入: nums = [-1,0,3,5,9,12], target = 2
+ * 输出: -1
+ * 解释: 2 不存在 nums 中因此返回 -1
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_二分查找一 {
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package com.ng.code.menu.多线程;
 
+import java.util.LinkedList;
+
 import com.ng.code.util.Solution;
 
 /**
@@ -9,82 +11,95 @@ import com.ng.code.util.Solution;
  * 需要参考
  * https://blog.csdn.net/skz980619/article/details/119703042
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅰ_生产者消费者模式 {
-    public final static int MAX_PRODUCT = 100;
-    public final static int MIN_PRODUCT = 0;
-
-    private volatile int product;
 
     /**
-     * 生产者生产出来的产品交给店员
+     * 此示例包括两个线程，一个是生产者，一个是消费者。
+     * 生产者在共享队列中添加元素，当队列达到最大容量时，它将等待消费者消耗元素。
+     * 消费者从共享队列中删除元素，当队列为空时，它将等待生产者生产元素。
+     * 所有生产者和消费者都共享同一个共享队列，并在修改队列时使用synchronized关键字确保线程安全性。
+     * 为了避免不必要的等待，wait()和notifyAll()方法在共享队列中使用。
      */
-    public synchronized void produce() {
-        if (this.product >= MAX_PRODUCT) {
-            try {
-                wait();
-                System.out.println("产品已满,请稍候再生产");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return;
-        }
-
-        this.product++;
-        System.out.println("生产者生产第" + this.product + "个产品.");
-        notifyAll();   //通知等待区的消费者可以取出产品了
-    }
-
-    /**
-     * 消费者从店员取产品
-     */
-    public synchronized void consume() {
-        if (this.product <= MIN_PRODUCT) {
-            try {
-                wait();
-                System.out.println("缺货,稍候再取");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return;
-        }
-
-        System.out.println("消费者取走了第" + this.product + "个产品.");
-        this.product--;
-        notifyAll();   //通知等待去的生产者可以生产产品了
-    }
-
     public static void main(String[] args) {
-        Ⅰ_生产者消费者模式 test = new Ⅰ_生产者消费者模式();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+        final int MAX_CAPACITY = 5;
+        LinkedList<Integer> sharedQueue = new LinkedList<Integer>();
 
-                while (true) {
-                    test.produce();
+        Thread producer = new Thread(new Producer(sharedQueue, MAX_CAPACITY), "Producer");
+        Thread consumer = new Thread(new Consumer(sharedQueue), "Consumer");
+
+        producer.start();
+        consumer.start();
+    }
+}
+
+class Producer implements Runnable {
+
+    private final LinkedList<Integer> sharedQueue;
+    private final int MAX_CAPACITY;
+
+    public Producer(LinkedList<Integer> sharedQueue, int size) {
+        this.sharedQueue = sharedQueue;
+        this.MAX_CAPACITY = size;
+    }
+
+    @Override
+    public void run() {
+        int value = 0;
+        while (true) {
+            synchronized (sharedQueue) {
+                while (sharedQueue.size() == MAX_CAPACITY) {
                     try {
-                        Thread.sleep(1000);
+                        System.out.println("Queue is full, waiting for consumer to consume...");
+                        sharedQueue.wait();
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        e.printStackTrace();
                     }
                 }
-
+                System.out.println("Producing value: " + value);
+                sharedQueue.add(value++);
+                sharedQueue.notifyAll();
             }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
 
-                while (true) {
-                    test.consume();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class Consumer implements Runnable {
+
+    private final LinkedList<Integer> sharedQueue;
+
+    public Consumer(LinkedList<Integer> sharedQueue) {
+        this.sharedQueue = sharedQueue;
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            synchronized (sharedQueue) {
+                while (sharedQueue.isEmpty()) {
                     try {
-                        Thread.sleep(1000);
+                        System.out.println("Queue is empty, waiting for producer to produce...");
+                        sharedQueue.wait();
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        e.printStackTrace();
                     }
                 }
-
+                int value = sharedQueue.removeFirst();
+                System.out.println("Consuming value: " + value);
+                sharedQueue.notifyAll();
             }
-        }).start();
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -7,10 +7,9 @@ import com.ng.code.util.Solution;
 /**
  * link:https://leetcode.cn/problems/UHnkqh/
  * 原题描述:
- * <p>
  * 示例:
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_链表反转 {
 
     public static void main(String[] args) {

@@ -6,39 +6,46 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.ng.base.utils.LogUtil;
+import com.ng.base.utils.TreeNode;
 
 public class PracticeClass {
 
     private void test() {
-        LogUtil.print(permute(new int[]{
-            1, 2, 3
-        }).toString());
+        int[] data = new int[]{1, 2, 3, 1};
+        TreeNode root2 = TreeNode.createTreeNode(3, 9, 20, -1, -1, 15, 7);
+
+        LogUtil.print(levelOrder(root2).toString());
+
     }
 
-    List<List<Integer>> result = new ArrayList<>();
-
-    public List<List<Integer>> permute(int[] nums) {
-        LinkedList<Integer> now = new LinkedList<>();
-        track(nums, now);
-        return result;
-    }
-
-    private void track(int[] nums, LinkedList<Integer> now) {
-        if (now.size() == nums.length) {
-            result.add(new ArrayList<>(now));
-            return;
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
         }
 
-        for (int i = 0; i < nums.length; i++) {
-            if (now.contains(nums[i])) {
-                continue;
+        LinkedList<TreeNode> tong = new LinkedList<>();
+        tong.push(root);
+
+        while (!tong.isEmpty()) {
+            int size = tong.size();
+            List<Integer> tempList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode tmp = tong.pop();
+                tempList.add(tmp.val);
+                if (tmp.left != null) {
+                    tong.addLast(tmp.left);
+                }
+                if (tmp.right != null) {
+                    tong.addLast(tmp.right);
+                }
             }
-            now.add(nums[i]);
-            track(nums, now);
-            now.removeLast();
+            res.add(tempList);
         }
 
+        return res;
     }
+
 
     public static void main(String[] args) {
         PracticeClass testClass = new PracticeClass();
@@ -46,7 +53,3 @@ public class PracticeClass {
     }
 
 }
-
-
-
-
