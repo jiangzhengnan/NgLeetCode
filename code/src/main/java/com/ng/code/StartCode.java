@@ -23,7 +23,7 @@ public final class StartCode {
         ProblemUtil.refreshLocalProjects();
 
         //随机得到几个题目 (35 + 96 + 17)
-        ProblemUtil.getRandomTest(10, 2);
+        //ProblemUtil.getRandomTest(10, 2);
     }
 
 

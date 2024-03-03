@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.alibaba.fastjson.JSON
+import com.blankj.utilcode.util.StringUtils
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.BaseViewModel
 import com.ng.base.utils.MLog
 import com.ng.base.utils.SPreference
 import com.ng.code.util.IdGenerator
-import com.cj.design.uc.monitor.utils.StringUtils
 import com.ng.ngleetcode.app.MyApplication
 import com.ng.ngleetcode.constants.SpConstants
 import com.ng.ngleetcode.model.code.bean.CodeDirNode
@@ -263,7 +263,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
     }
 
     private fun getCodeState(title: String?): Int {
-        if (com.cj.design.uc.monitor.utils.StringUtils.isEmpty(title)) {
+        if (StringUtils.isEmpty(title)) {
             return -1
         }
         for (i in mCodeStateList.indices) {

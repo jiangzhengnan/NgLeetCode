@@ -1,0 +1,51 @@
+package com.ng.code.menu.链表;
+
+import com.ng.base.utils.ListNode;
+import com.ng.base.utils.LogUtil;
+import com.ng.code.util.Solution;
+
+/**
+ * 日期:
+ * 原题链接:
+ * https://leetcode.cn/problems/intersection-of-two-linked-lists/description/?envType=study-plan
+ * -v2&envId=top-100-liked
+ * <p>
+ * 原题描述:
+ */
+@Solution(easy = 0, hard = 0, particle = 1)
+public class Ⅱ_相交链表 {
+
+    public static void main(String[] args) {
+        ListNode phead1 = ListNode.getNodeList(1, 2, 3);
+        ListNode phead2 = ListNode.getNodeList(4, 5);
+        ListNode phead3 = ListNode.getNodeList(6, 7);
+
+        ListNode.mergeNodeList(phead1, phead3);
+        ListNode.mergeNodeList(phead2, phead3);
+
+        LogUtil.print(EasySolution.FindFirstCommonNode(phead1, phead2));
+    }
+
+    /**
+     * 双指针
+     * 因为 ta + tb = tb + ta
+     */
+    private static class EasySolution {
+        public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+            if (pHead1 == null || pHead2 == null)  //其中有一个为空，则不能有公共结点，返回null
+                return null;
+            ListNode ta = pHead1;
+            ListNode tb = pHead2;
+            while (ta != tb) {
+                ta = (ta == null ? pHead2 : ta.next);
+                tb = (tb == null ? pHead1 : tb.next);
+            }
+            return ta;
+        }
+    }
+
+    private static class HardSolution {
+    }
+
+
+}
