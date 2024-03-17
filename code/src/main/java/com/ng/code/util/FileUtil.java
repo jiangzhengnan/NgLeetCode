@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Properties;
 
 public class FileUtil {
 
@@ -26,7 +27,7 @@ public class FileUtil {
         return false;
     }
 
-    public static void copyDir(String sourcePath, String newPath)   {
+    public static void copyDir(String sourcePath, String newPath) {
         try {
             File file = new File(sourcePath);
             String[] filePath = file.list();
@@ -46,7 +47,7 @@ public class FileUtil {
                 }
 
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -70,13 +71,23 @@ public class FileUtil {
 
     public static void deleteFile(File dir) {
         File[] listFiles = dir.listFiles();
-        for(int i=0;i<listFiles.length;i++) {
-            File temp=listFiles[i];
-            if(temp.isDirectory() && !temp.getName().contains("highlightjs")) {
+        for (int i = 0; i < listFiles.length; i++) {
+            File temp = listFiles[i];
+            if (temp.isDirectory() && !temp.getName().contains("highlightjs")) {
                 deleteFile(temp);
             }
             temp.delete();
         }
     }
 
+    public static String getProjectPath() {
+        Properties properties = new Properties();
+        try {
+            FileInputStream fileInputStream = new FileInputStream("local.properties"); // 根据项目结构修改路径
+            properties.load(fileInputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return properties.getProperty("projectpath") + "/";
+    }
 }
