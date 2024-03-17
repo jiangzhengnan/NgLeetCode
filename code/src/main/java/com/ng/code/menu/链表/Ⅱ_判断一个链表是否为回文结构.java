@@ -8,23 +8,24 @@ import java.util.Stack;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/3fed228444e740c8be66232ce8b87c2f?tpId=295&tqId=1008769&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/aMhZSa/description/
  * 原题描述:
  * 1 2 2 1
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅱ_判断一个链表是否为回文结构 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3,4, 3, 2, 1);
-        LogUtil.print(HardSolution.isPail(data));
+        LogUtil.print(HardSolution.isPalindrome(data));
 
     }
 
     //使用栈解决
     private static class EasySolution {
 
-        public static boolean isPail(ListNode head) {
+        public static boolean isPalindrome(ListNode head) {
             // write code here
             Stack<Integer> cache = new Stack<>();
             ListNode temp = head;
@@ -50,7 +51,7 @@ public class Ⅱ_判断一个链表是否为回文结构 {
      */
     private static class HardSolution {
 
-        public static boolean isPail(ListNode head) {
+        public static boolean isPalindrome(ListNode head) {
             ListNode fast = head;
             ListNode slow = head;
             while (fast != null && fast.next !=null) {
