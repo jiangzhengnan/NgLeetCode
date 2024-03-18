@@ -2,6 +2,7 @@ package com.ng.ngleetcode.model.code.adapter.provider
 
 import android.graphics.Color
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.chad.library.adapter.base.provider.BaseNodeProvider
@@ -29,7 +30,7 @@ class CodeProvider(private var onLeftItemClick: OnLeftItemClick?) : BaseNodeProv
             (helper.getView<View>(R.id.title) as TextView).setTextColor(Color.BLACK)
         }
 
-        helper.getView<View>(R.id.layout_code_item).setOnClickListener(View.OnClickListener {
+        helper.getView<LinearLayout>(R.id.layout_code_item).setOnClickListener(View.OnClickListener {
             if (onLeftItemClick != null) {
                 onLeftItemClick!!.onItem(data)
             }

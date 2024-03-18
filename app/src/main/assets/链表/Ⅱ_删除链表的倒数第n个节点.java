@@ -11,7 +11,7 @@ import com.ng.code.util.Solution;
  * 原题链接:
  * 原题描述:
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_删除链表的倒数第n个节点 {
 
     public static void main(String[] args) {
