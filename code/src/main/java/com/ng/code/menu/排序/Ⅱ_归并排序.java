@@ -11,7 +11,7 @@ import com.ng.code.util.Solution;
  * 算法空间复杂度：O(n)
  * 算法稳定性：稳定
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_归并排序 {
 
     public static void main(String[] args) {

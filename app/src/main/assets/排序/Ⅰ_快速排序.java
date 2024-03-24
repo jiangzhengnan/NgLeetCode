@@ -3,7 +3,7 @@ package com.ng.code.menu.排序;
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_快速排序 {
 
     public static void main(String[] args) {

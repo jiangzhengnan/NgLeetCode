@@ -4,15 +4,12 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * @author : 
- * @creation : 2022/04/16
- * @description :
  * 平均时间复杂度：O(Nlog2N)
  * 最佳时间复杂度：
  * 最差时间复杂度：O(N^2)
  * 空间复杂度：O(1)
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_希尔排序 {
 
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ import com.ng.code.util.Solution;
  *
  * 插入排序的思想是将待排序的序列分为已排序区间和未排序区间，每次从未排序区间中选取一个元素，将该元素插入到已排序区间中合适的位置，使得插入后仍然有序。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_插入排序 {
 
     public static void main(String[] args) {
@@ -25,19 +25,17 @@ public class Ⅰ_插入排序 {
      * 比自己小的就留在当前位置
      */
     private static void sort(int[] array) {
-        if (array == null || array.length < 2) {
-            return;
-        }
-
-        for (int i = 0; i < array.length - 1; i++) {
-            int cur = array[i + 1];
-            int preIndex = i;
-            while (preIndex >= 0 && cur < array[preIndex]) {
+        // 第一个元素默认已排序
+        int index = 1;
+        while (index <= array.length - 1) {
+            int preIndex = index - 1;
+            int now = array[preIndex + 1];
+            while (preIndex  >= 0 && array[preIndex] > now) {
                 array[preIndex + 1] = array[preIndex];
-                preIndex -- ;
+                preIndex--;
             }
-            array[preIndex + 1] = cur;
-            LogUtil.print(array);
+            array[preIndex + 1] = now;
+            index++;
         }
 
     }

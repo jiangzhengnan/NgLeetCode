@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 输入：l1 = [], l2 = [0]
  * 输出：[0]
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_合并两个有序链表 {
 
     public static void main(String[] args) {

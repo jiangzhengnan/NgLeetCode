@@ -4,13 +4,10 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * @author : 
- * @creation : 2022/04/16
- * @description :
  * 算法复杂度：O(nlogn)
  * 算法空间复杂度：O(1)
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_桶排序 {
 
     public static void main(String[] args) {
@@ -38,7 +35,6 @@ public class Ⅱ_桶排序 {
         for (int i = 0; i < length; i++) {
             //找到桶的下标
             int index = (nums[i] - min) / length;
-            LogUtil.print("下表:" + index);
             //添加到指定下标的桶里，并且使用插入排序排序
             bucketArrays[index] = insertSortArrays(bucketArrays[index], nums[i]);
         }
@@ -57,7 +53,6 @@ public class Ⅱ_桶排序 {
 
     //每个桶使用插入排序进行排序
     private static int[] insertSortArrays(int[] arr, int num) {
-        LogUtil.print(arr);
         if (arr == null || arr.length == 0) {
             return new int[]{num};
         }
@@ -68,14 +63,13 @@ public class Ⅱ_桶排序 {
             temp[i] = arr[i];
         }
         //找到一个位置，插入，形成新的有序的数组
-        int i;
-        for (i = temp.length - 2; i >= 0 && temp[i] > num; i--) {
-            temp[i + 1] = temp[i];
+        int index = temp.length - 1;
+        while (index > 0 && num < temp[index - 1]) {
+            temp[index] = temp[index - 1];
+            index--;
         }
         //插入需要添加的值
-        temp[i + 1] = num;
-        //返回
-        LogUtil.print(temp);
+        temp[index] = num;
         return temp;
     }
 }
