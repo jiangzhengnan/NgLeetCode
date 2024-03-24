@@ -1,6 +1,5 @@
 package com.ng.ngbaselib.network.intercepter
 
-import com.blankj.utilcode.util.JsonUtils
 import com.ng.base.network.intercepter.Level
 import com.ng.base.utils.MLog
 import okhttp3.*
@@ -102,14 +101,13 @@ class LoggingInterceptor : Interceptor {
                         || subtype.contains("html"))
         ) {
             val bodyString = responseBody.string()
-            val bodyJson = JsonUtils.formatJson(bodyString)
             Printer.printJsonResponse(
                     this,
                     chainMs,
                     isSuccessful,
                     code,
                     header,
-                    bodyJson,
+                    "",
                     segmentList
             )
             MLog.d("返回结果 Okhttp: " + request.url().toString() + " " + bodyString)

@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.alibaba.fastjson.JSON
-import com.blankj.utilcode.util.StringUtils
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.BaseViewModel
 import com.ng.base.utils.MLog
@@ -263,7 +262,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
     }
 
     private fun getCodeState(title: String?): Int {
-        if (StringUtils.isEmpty(title)) {
+        if (title.isNullOrEmpty()) {
             return -1
         }
         for (i in mCodeStateList.indices) {

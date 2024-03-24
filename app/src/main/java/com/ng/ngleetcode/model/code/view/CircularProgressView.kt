@@ -53,7 +53,7 @@ class CircularProgressView(context: Context, attrs: AttributeSet?) : View(contex
         invalidate()
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (measuredHeight <= 0 || measuredWidth <= 0 || canvas == null) {
             return
@@ -78,7 +78,6 @@ class CircularProgressView(context: Context, attrs: AttributeSet?) : View(contex
             circleR - mProWidth * 2 - mSpace * 2,
             mHardPro
         )
-
     }
 
     private fun drawCircle(

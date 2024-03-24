@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'com.cj.design'
-    compileSdkVersion 30
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 30
-        targetSdkVersion 30
+        targetSdkVersion 34
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

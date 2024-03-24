@@ -1,6 +1,5 @@
 package com.ng.ngbaselib.network.intercepter
 
-import com.blankj.utilcode.util.JsonUtils
 import com.ng.base.network.intercepter.Level
 import okhttp3.FormBody
 import okhttp3.Request
@@ -80,7 +79,7 @@ object Printer {
         code: Int, headers: String, bodyString: String, segments: List<String>
     ) {
         val responseBody =
-            LINE_SEPARATOR!! + BODY_TAG + LINE_SEPARATOR + JsonUtils.formatJson(bodyString)
+            LINE_SEPARATOR!! + BODY_TAG + LINE_SEPARATOR + bodyString
         val tag = builder.responseTag
         if (builder.logger == null)
             log(builder.type, tag, RESPONSE_UP_LINE)
@@ -239,7 +238,7 @@ object Printer {
             if (copy.body() == null)
                 return ""
             copy.body()!!.writeTo(buffer)
-            return JsonUtils.formatJson(buffer.readUtf8())
+            return buffer.readUtf8().toString()
         } catch (e: IOException) {
             return "{\"err\": \"${e.message}\"}"
         }
