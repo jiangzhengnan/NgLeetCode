@@ -21,11 +21,6 @@
           android:name=".compose.mvi.ComposeMviActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -49,7 +44,13 @@
           android:name=".model.splash.SplashActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true"
-          android:theme="@style/SplashTheme" />
+          android:theme="@style/SplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
           android:name=".HomeActivity"
