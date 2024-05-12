@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 要求：时间复杂度 O(n)O(n) ，空间复杂度 O(n)O(n)
  * 进阶：时间复杂度 O(n)O(n)，空间复杂度 O(1)O(1)
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 0, hard = 1, particle = 1)
 public class Ⅱ_链表内指定区间反转 {
 
     public static void main(String[] args) {
@@ -58,52 +58,49 @@ public class Ⅱ_链表内指定区间反转 {
     }
 
     //双指针解法
-    private static class EasySolution {
-        public static ListNode reverseBetween(ListNode head, int m, int n) {
-            // write code here
-            ListNode first = new ListNode(-1);
-            first.next = head;
+    public ListNode reverseBetween(ListNode head, int m, int n) {
 
-            ListNode pre = first;
-            ListNode last = head;
-            ListNode start = head;
-            ListNode end = head;
-
-            while (n > 1) {
-                end = end.next;
-                n--;
-            }
-
-            while (m > 1) {
-                pre = start;
-                start = start.next;
-                m--;
-            }
-
-
-            last = end.next;
+        // write code here
+        ListNode
+            left = null,
+            right = head,
+            start = head,
+            end = null;
+        while (--m > 0) {
+            left = start;
+            start = start.next;
+        }
+        while (n-- > 0) {
+            end = right;
+            right = right.next;
+        }
+        if (right != null) {
             end.next = null;
-
-            reverse(start);
-
-            pre.next = end;
-            start.next = last;
-
-
-            return first.next;
+        }
+        ListNode newHead = revers(start);
+        if (left != null) {
+            left.next = newHead;
+        } else {
+            head = newHead;
+        }
+        if (right != null) {
+            start.next = right;
         }
 
-        private static void reverse(ListNode start) {
-            ListNode pre = null;
-            ListNode now = start;
-            while (now != null) {
-                ListNode next = now.next;
+        return head;
+    }
 
-                now.next = pre;
-                pre = now;
-                now = next;
-            }
+    private ListNode revers(ListNode node) {
+        ListNode pre = null;
+        ListNode now = node;
+        ListNode next = null;
+        while (now != null) {
+            next = now.next;
+            now.next = pre;
+            pre = now;
+            now = next;
         }
+        return pre;
     }
 
 

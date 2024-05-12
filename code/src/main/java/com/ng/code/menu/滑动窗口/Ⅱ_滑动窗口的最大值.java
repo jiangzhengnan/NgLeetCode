@@ -1,4 +1,4 @@
-package com.ng.code.menu.栈堆队列;
+package com.ng.code.menu.滑动窗口;
 
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;

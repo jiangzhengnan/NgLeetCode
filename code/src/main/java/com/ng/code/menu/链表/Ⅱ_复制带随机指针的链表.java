@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
  * 输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅱ_复制带随机指针的链表 {
 
 

@@ -1,6 +1,7 @@
 package com.ng.code.menu.字符串;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输入: strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
  * 输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅱ_字母异位词分组 {
 
     public static void main(String[] args) {
@@ -65,8 +66,25 @@ public class Ⅱ_字母异位词分组 {
         }
     }
 
+
     private static class HardSolution {
 
+        /**
+         * 由于互为字母异位词的两个字符串包含的字母相同，因此对两个字符串分别进行排序之后得到的字符串一定是相同的，
+         * 故可以将排序之后的字符串作为哈希表的键。
+         */
+        public List<List<String>> groupAnagrams(String[] strs) {
+            Map<String, List<String>> map = new HashMap<String, List<String>>();
+            for (String str : strs) {
+                char[] array = str.toCharArray();
+                Arrays.sort(array);
+                String key = new String(array);
+                List<String> list = map.getOrDefault(key, new ArrayList<String>());
+                list.add(str);
+                map.put(key, list);
+            }
+            return new ArrayList<List<String>>(map.values());
+        }
     }
 
 }

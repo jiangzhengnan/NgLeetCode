@@ -56,7 +56,7 @@ class TreeViewModel : BaseViewModel(MyApplication.instance) {
         launchUI {
             val list = _articleLiveData.value
             list?.addAll(repo.loadMoreArticle(id))
-            _articleLiveData.value = list
+            _articleLiveData.value = list!!
             handleList(_articleLiveData)
         }
     }

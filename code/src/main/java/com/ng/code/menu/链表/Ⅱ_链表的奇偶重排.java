@@ -20,7 +20,7 @@ import java.util.List;
  * ，节点中的值都满足 0 <= val <= 10000≤val≤1000
  * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
  */
-@Solution(easy = 0, hard = 0)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_链表的奇偶重排 {
 
     public static void main(String[] args) {

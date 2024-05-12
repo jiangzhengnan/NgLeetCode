@@ -12,18 +12,16 @@ import com.ng.code.util.Solution;
  * <p>
  * 原题描述:
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_相交链表 {
 
     public static void main(String[] args) {
         ListNode phead1 = ListNode.getNodeList(1, 2, 3);
         ListNode phead2 = ListNode.getNodeList(4, 5);
         ListNode phead3 = ListNode.getNodeList(6, 7);
-
         ListNode.mergeNodeList(phead1, phead3);
         ListNode.mergeNodeList(phead2, phead3);
-
-        LogUtil.print(EasySolution.FindFirstCommonNode(phead1, phead2));
+        LogUtil.print(EasySolution.getIntersectionNode(phead1, phead2));
     }
 
     /**
@@ -31,21 +29,18 @@ public class Ⅱ_相交链表 {
      * 因为 ta + tb = tb + ta
      */
     private static class EasySolution {
-        public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-            if (pHead1 == null || pHead2 == null)  //其中有一个为空，则不能有公共结点，返回null
-                return null;
-            ListNode ta = pHead1;
-            ListNode tb = pHead2;
-            while (ta != tb) {
-                ta = (ta == null ? pHead2 : ta.next);
-                tb = (tb == null ? pHead1 : tb.next);
+        public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+            ListNode a1 = headA;
+            ListNode a2 = headB;
+            while (a1 != a2) {
+                a1 = a1 == null? headB : a1.next;
+                a2 = a2 == null? headA : a2.next;
             }
-            return ta;
+            return a1;
         }
     }
 
     private static class HardSolution {
     }
-
 
 }
