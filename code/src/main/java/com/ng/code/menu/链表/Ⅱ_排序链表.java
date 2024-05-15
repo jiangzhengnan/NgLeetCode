@@ -6,15 +6,28 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/f23604257af94d939848729b1a5cda08?tpId=295&tqId=1008897&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/sort-list/description/?envType=study-plan-v2&envId=top-100-liked
+ * <p>
  * 原题描述:
+ * 给你链表的头结点 head ，请将其按 升序 排列并返回 排序后的链表 。
+ * <p>
+ * 示例 1：
+ * 输入：head = [4,2,1,3]
+ * 输出：[1,2,3,4]
+ * 示例 2：
+ * 输入：head = [-1,5,3,4,0]
+ * 输出：[-1,0,3,4,5]
+ * 示例 3：
+ * 输入：head = []
+ * 输出：[]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
-public class Ⅲ_单链表的排序 {
+@Solution(easy = 1, hard = 1, particle = 1)
+public class Ⅱ_排序链表 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 3, 2, 4, 5);
-        LogUtil.print(HardSolution.sortInList(data));
+        LogUtil.print(new HardSolution().sortList(data));
     }
 
     //辅助数组排序
@@ -27,7 +40,7 @@ public class Ⅲ_单链表的排序 {
      * 2.合并，将两个链表合并，转化为排序链表
      */
     private static class HardSolution {
-        public static ListNode sortInList(ListNode head) {
+        public ListNode sortList(ListNode head) {
             if (head == null || head.next == null) {
                 return head;
             }
@@ -40,8 +53,8 @@ public class Ⅲ_单链表的排序 {
             ListNode second = slow.next;
             slow.next = null;
             //递归左右两边
-            ListNode left = sortInList(head);
-            ListNode right = sortInList(second);
+            ListNode left = sortList(head);
+            ListNode right = sortList(second);
             //合并
             return merge(left, right);
         }
@@ -65,3 +78,4 @@ public class Ⅲ_单链表的排序 {
 
 
 }
+

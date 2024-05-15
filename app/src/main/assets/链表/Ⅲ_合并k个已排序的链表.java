@@ -8,7 +8,7 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/65cfde9e5b9b4cf2b6bafa5f3ef33fa6?tpId=295&tqId=724&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:https://leetcode.cn/problems/merge-k-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked
  * 原题描述:
  * 描述
  * 合并 k 个升序的链表并将结果作为一个升序的链表返回其头节点。
@@ -27,7 +27,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * {1,1,2,4,5,6}
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 1, particle = 1)
 public class Ⅲ_合并k个已排序的链表 {
 
     public static void main(String[] args) {

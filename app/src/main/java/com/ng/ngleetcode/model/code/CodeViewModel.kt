@@ -198,7 +198,7 @@ class CodeViewModel : BaseViewModel(MyApplication.instance) {
             }
         }
         MLog.d("refreshCode : $nowCodeIndex")
-        codeLiveData.value = codeBean
+        codeLiveData.value = codeBean!!
     }
 
     /**
