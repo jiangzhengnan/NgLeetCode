@@ -16,7 +16,7 @@ public class Constants {
 //    //private static final String OS_PROJECTS_PATH = "/Users/yeziqing/AndroidStudioProjects/NgLeetCode/";
 ////    private static final String OS_PROJECTS_PATH = "/Users/jiangzhengnan/AndroidStudioProjects/private/NgLeetCode/";
 //    private static final String OS_PROJECTS_PATH = "/D:/AndroidStudioProjects/NgLeetCode/";
-    //TODO 在 local.properties中加入指定路径：projectpath=/D\:/AndroidStudioProjects/NgLeetCode
+    //TODO 在 local.properties中加入指定路径：projectpath=/Users/yeziqing/AndroidStudioProjects/NgLeetCode/
 
     public static final String README_FILE_PATH = FileUtil.getProjectPath() + "README.md";
     public static final String JAVA_DIR_PATH = FileUtil.getProjectPath() + "code/src/main/java/com/ng/code/menu";
