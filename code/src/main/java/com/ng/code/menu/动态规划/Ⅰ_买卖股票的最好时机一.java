@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输出：0
  * 解释：在这种情况下, 没有交易完成, 所以最大利润为 0。
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅰ_买卖股票的最好时机一 {
 
     public static void main(String[] args) {

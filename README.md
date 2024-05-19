@@ -62,6 +62,7 @@
 * [Ⅰ_二分查找一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_二分查找一.java)
 * [Ⅰ_寻找峰值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_寻找峰值.java)
 ## 双指针
+* [Ⅰ_删除有序数组中的重复项](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_删除有序数组中的重复项.java)
 * [Ⅰ_验证回文串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_验证回文串.java)
 * [Ⅲ_接雨水问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅲ_接雨水问题.java)
 * [Ⅰ_反转字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_反转字符串.java)
@@ -70,6 +71,7 @@
 * [Ⅲ_最小覆盖子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅲ_最小覆盖子串.java)
 * [Ⅰ_合并两个有序的数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_合并两个有序的数组.java)
 * [Ⅰ_盛水最多的容器](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_盛水最多的容器.java)
+* [Ⅱ_删除有序数组中的重复项II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_删除有序数组中的重复项II.java)
 * [Ⅱ_两个数组的交集](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_两个数组的交集.java)
 ## 数字
 * [Ⅱ_除自身以外数组的乘积](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_除自身以外数组的乘积.java)
@@ -152,6 +154,7 @@
 * [Ⅱ_跳跃游戏](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏.java)
 * [Ⅲ_下一个排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅲ_下一个排列.java)
 * [Ⅱ_主持人调度二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_主持人调度二.java)
+* [Ⅱ_跳跃游戏Ⅱ](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏Ⅱ.java)
 * [Ⅱ_分糖果问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_分糖果问题.java)
 * [Ⅱ_最大数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最大数.java)
 * [Ⅱ_最长递增子序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最长递增子序列.java)

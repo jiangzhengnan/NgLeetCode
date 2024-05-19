@@ -42,7 +42,7 @@ import java.util.Map;
  * 返回值：
  * []
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0, particle = 1)
 public class Ⅱ_三数之和 {
 
     public static void main(String[] args) {
@@ -116,7 +116,7 @@ public class Ⅱ_三数之和 {
     }
 
     /**
-     * hash表去重
+     * hash表去重,难以理解
      */
     private static class HardSolution {
 

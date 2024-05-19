@@ -53,34 +53,28 @@ public class Ⅰ_旋转数组 {
     }
 
     /**
-     * 原始数组	1 2 3 4 5 6 7
+     * 原始数组	  1 2 3 4 5 6 7
      * 翻转所有元素	7 6 5 4 3 2 1
      * 翻转 0,k-1 区间的元素	5 6 7 4 3 2 1
      * 翻转 k,n-1 区间的元素	5 6 7 1 2 3 4
      */
     private static class HardSolution {
-        public int[] solve(int n, int m, int[] a) {
-
-            m = m % n;
-            // 0 - n
-            reverse(a, 0, n - 1);
-            // 0 - m
-            reverse(a, 0, m - 1);
-            // m - n
-            return reverse(a, m, n - 1);
-
-
+        public void rotate(int[] nums, int k) {
+            k %= nums.length;
+            revers(nums, 0, nums.length - 1);
+            revers(nums, 0, k - 1);
+            revers(nums, k, nums.length - 1);
         }
 
-        private int[] reverse(int[] a, int start, int end) {
+        private void revers(int[] nums, int start, int end) {
             while (start < end) {
-                int tmp = a[start];
-                a[start] = a[end];
-                a[end] = tmp;
+                int temp = nums[end];
+                nums[end] = nums[start];
+                nums[start] = temp;
                 start++;
                 end--;
             }
-            return a;
+
         }
 
 
