@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 输出：7, nums = [0,0,1,1,2,3,3]
  * 解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。不需要考虑数组中超出新长度后面的元素。
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 1, hard = 1, particle = 1)
 public class Ⅱ_删除有序数组中的重复项II {
 
     public static void main(String[] args) {
