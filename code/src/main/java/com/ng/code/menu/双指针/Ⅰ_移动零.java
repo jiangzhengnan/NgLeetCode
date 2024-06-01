@@ -1,4 +1,4 @@
-package com.ng.code.menu.模拟;
+package com.ng.code.menu.双指针;
 
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;

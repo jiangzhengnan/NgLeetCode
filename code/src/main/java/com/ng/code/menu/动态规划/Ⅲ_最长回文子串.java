@@ -4,8 +4,6 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
- * todo
- *
  * https://leetcode.cn/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
  * 原题描述:
  * 对于长度为n的一个字符串A（仅包含数字，大小写英文字母），请设计一个高效算法，计算其中最长回文子串的长度。
@@ -42,6 +40,9 @@ public class Ⅲ_最长回文子串 {
 
     /**
      * 思路与算法
+     *
+     * 动态规划
+     *
      * 对于一个子串而言，如果它是回文串，并且长度大于 22，那么将它首尾的两个字母去除之后，它仍然是个回文串。
      * 例如对于字符串  “ababa”，如果我们已经知道 bab” 是回文串，那么  “ababa” 一定是回文串，
      * 这是因为它的首尾两个字母都是  “a”。

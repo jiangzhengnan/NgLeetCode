@@ -59,6 +59,7 @@
 * [Ⅱ_二分迭代求数组中两个最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_二分迭代求数组中两个最大值.java)
 * [Ⅰ_二维数组中的查找](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_二维数组中的查找.java)
 * [Ⅰ_搜索插入位置](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_搜索插入位置.java)
+* [Ⅱ_H指数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_H指数.java)
 * [Ⅰ_二分查找一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_二分查找一.java)
 * [Ⅰ_寻找峰值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_寻找峰值.java)
 ## 双指针
@@ -71,6 +72,7 @@
 * [Ⅲ_最小覆盖子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅲ_最小覆盖子串.java)
 * [Ⅰ_合并两个有序的数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_合并两个有序的数组.java)
 * [Ⅰ_盛水最多的容器](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_盛水最多的容器.java)
+* [Ⅱ_反转字符串中的单词](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_反转字符串中的单词.java)
 * [Ⅱ_删除有序数组中的重复项II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_删除有序数组中的重复项II.java)
 * [Ⅱ_两个数组的交集](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_两个数组的交集.java)
 ## 数字
@@ -146,6 +148,7 @@
 * [Ⅱ_设计LRU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_设计LRU缓存结构.java)
 * [Ⅱ_螺旋矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_螺旋矩阵.java)
 * [Ⅱ_被围绕的区域](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_被围绕的区域.java)
+* [Ⅱ_O1时间插入删除和获取随机元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_O1时间插入删除和获取随机元素.java)
 * [Ⅱ_顺时针旋转矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_顺时针旋转矩阵.java)
 * [Ⅲ_设计LFU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅲ_设计LFU缓存结构.java)
 * [Ⅰ_移动零](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅰ_移动零.java)
@@ -156,6 +159,7 @@
 * [Ⅱ_主持人调度二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_主持人调度二.java)
 * [Ⅱ_跳跃游戏Ⅱ](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏Ⅱ.java)
 * [Ⅱ_分糖果问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_分糖果问题.java)
+* [Ⅱ_加油站](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_加油站.java)
 * [Ⅱ_最大数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最大数.java)
 * [Ⅱ_最长递增子序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最长递增子序列.java)
 ## 链表
