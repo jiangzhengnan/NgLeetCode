@@ -2,9 +2,13 @@ package com.ng.code.menu.滑动窗口;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
+import com.airbnb.lottie.L;
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -36,10 +40,18 @@ public class Ⅱ_找到字符串中所有字母异位词 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-
+        LogUtil.print(easySolution.findAnagrams("cbaebabacd", "abc").toString());
     }
 
     private static class EasySolution {
+
+        /**
+         * 找到字符符号，比如abc可以表示为011121
+         *
+         * @param s
+         * @param p
+         * @return
+         */
         public List<Integer> findAnagrams(String s, String p) {
             List<Integer> result = new ArrayList<>();
 
@@ -70,36 +82,51 @@ public class Ⅱ_找到字符串中所有字母异位词 {
     }
 
     private static class HardSolution {
-        public List<Integer> findAnagrams(String s, String p) {
-            int sLen = s.length(), pLen = p.length();
 
-            if (sLen < pLen) {
-                return new ArrayList<Integer>();
+        /**
+         * 滑动窗口
+         */
+        public List<Integer> findAnagrams(String s, String t) {
+            Map<Character, Integer> need = new HashMap<>();
+            Map<Character, Integer> window = new HashMap<>();
+            for (int i = 0; i < t.length(); i++) {
+                char c = t.charAt(i);
+                need.put(c, need.getOrDefault(c, 0) + 1);
             }
 
-            List<Integer> ans = new ArrayList<Integer>();
-            int[] sCount = new int[26];
-            int[] pCount = new int[26];
-            for (int i = 0; i < pLen; ++i) {
-                ++sCount[s.charAt(i) - 'a'];
-                ++pCount[p.charAt(i) - 'a'];
-            }
-
-            if (Arrays.equals(sCount, pCount)) {
-                ans.add(0);
-            }
-
-            for (int i = 0; i < sLen - pLen; ++i) {
-                --sCount[s.charAt(i) - 'a'];
-                ++sCount[s.charAt(i + pLen) - 'a'];
-
-                if (Arrays.equals(sCount, pCount)) {
-                    ans.add(i + 1);
+            int left = 0, right = 0;
+            int valid = 0;
+            List<Integer> res = new ArrayList<>(); // 记录结果
+            while (right < s.length()) {
+                char c = s.charAt(right);
+                right++;
+                // 进行窗口内数据的一系列更新
+                if (need.containsKey(c)) {
+                    window.put(c, window.getOrDefault(c, 0) + 1);
+                    if (window.get(c).equals(need.get(c))) {
+                        valid++;
+                    }
+                }
+                // 判断左侧窗口是否要收缩
+                while (right - left >= t.length()) {
+                    // 当窗口符合条件时，把起始索引加入 res
+                    if (valid == need.size()) {
+                        res.add(left);
+                    }
+                    char d = s.charAt(left);
+                    left++;
+                    // 进行窗口内数据的一系列更新
+                    if (need.containsKey(d)) {
+                        if (window.get(d).equals(need.get(d))) {
+                            valid--;
+                        }
+                        window.put(d, window.get(d) - 1);
+                    }
                 }
             }
-
-            return ans;
+            return res;
         }
+
     }
 
 }

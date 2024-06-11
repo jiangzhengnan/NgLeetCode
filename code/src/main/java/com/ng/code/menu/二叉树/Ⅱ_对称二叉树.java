@@ -19,7 +19,7 @@ import java.util.List;
  * 1.[标准的层序遍历]
  * 2.迭代
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 1, hard = 0, particle = 1)
 public class Ⅱ_对称二叉树 {
 
     public static void main(String[] args) {

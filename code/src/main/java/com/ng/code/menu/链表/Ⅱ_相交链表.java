@@ -19,8 +19,8 @@ public class Ⅱ_相交链表 {
         ListNode phead1 = ListNode.getNodeList(1, 2, 3);
         ListNode phead2 = ListNode.getNodeList(4, 5);
         ListNode phead3 = ListNode.getNodeList(6, 7);
-        ListNode.mergeNodeList(phead1, phead3);
-        ListNode.mergeNodeList(phead2, phead3);
+//        ListNode.mergeNodeList(phead1, phead3);
+//        ListNode.mergeNodeList(phead2, phead3);
         LogUtil.print(EasySolution.getIntersectionNode(phead1, phead2));
     }
 

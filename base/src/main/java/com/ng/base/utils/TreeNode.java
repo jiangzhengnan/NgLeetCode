@@ -28,7 +28,7 @@ public class TreeNode {
             return null;
         }
         Integer value = array[index - 1];
-        if (value == null || value == -1) {
+        if (value == null || value == -999) {
             return null;
         }
         TreeNode node = new TreeNode(value);

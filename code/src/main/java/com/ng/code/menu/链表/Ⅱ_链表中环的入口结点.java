@@ -5,7 +5,8 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/253d2c59ec3e4bc68da16833f79a38e4?tpId=295&tqId=23449&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/c32eOV/description/
  * 原题描述:
  * 给一个长度为n链表，若其中包含环，请找出该链表的环的入口结点，否则，返回null。
  */

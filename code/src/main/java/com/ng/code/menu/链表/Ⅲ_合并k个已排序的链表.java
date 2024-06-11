@@ -1,9 +1,11 @@
 package com.ng.code.menu.链表;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 import com.ng.base.utils.ListNode;
 import com.ng.base.utils.LogUtil;
+import com.ng.code.menu.Ⅰ_Ⅱ_Ⅲ_TemplateTestClass;
 import com.ng.code.util.Solution;
 
 /**
@@ -31,95 +33,82 @@ import com.ng.code.util.Solution;
 public class Ⅲ_合并k个已排序的链表 {
 
     public static void main(String[] args) {
-        LogUtil.print(EasySolution.mergeKLists(getData()));
-        LogUtil.print(HardSolution.mergeKLists(getData()));
+        EasySolution easySolution = new EasySolution();
+        HardSolution hardSolution = new HardSolution();
+        LogUtil.print(easySolution.mergeKLists(getData()));
+        LogUtil.print(hardSolution.mergeKLists(getData()));
     }
 
-    private static ArrayList<ListNode> getData() {
-        ArrayList<ListNode> lists = new ArrayList<>();
-        lists.add(ListNode.getNodeList(new int[]{1, 2}));
-        lists.add(ListNode.getNodeList(new int[]{1, 4, 5}));
-        lists.add(ListNode.getNodeList(new int[]{6}));
+    private static ListNode[] getData() {
+        ListNode[] lists = new ListNode[]{
+            ListNode.getNodeList(1, 2),
+            ListNode.getNodeList(1, 4, 5),
+            ListNode.getNodeList(1, 2)
+        };
         return lists;
     }
 
     /**
-     * 循环遍历arraylist列表,进行比较,每次选出最小的节点加在结果链表里,
-     * 然后列表位置的最小节点指向它自己的next节点. 直到列表里全是null,则终止循环.
+     * 优先级队列
      */
     private static class EasySolution {
 
-        public static ListNode mergeKLists(ArrayList<ListNode> lists) {
-            ListNode result = new ListNode(0);
-            ListNode cur = result;
-            int len = lists.size();
-            if (len == 0) return null;
-            while (true) {
-                int minIndex = 0;//最小节点索引
-                int minValue = Integer.MAX_VALUE;
-                for (int i = 0; i < len; i++) {
-                    if (lists.get(i) == null) {
-                        continue;
-                    }
-                    if (lists.get(i).val < minValue) {
-                        minIndex = i;
-                        minValue = lists.get(i).val;
-                    }
-                }
-                //更新结果
-                ListNode node = new ListNode(0);
-                node.val = minValue;
-                cur.next = node;
-                cur = cur.next;
-                //更新原列表,使最小值的链表指向下一个节点
-                lists.set(minIndex, lists.get(minIndex).next);
-                //如果全是null，是的话就终止循环
-                ListNode flag = null;
-                for (int i = 0; i < len; i++) {
-                    if (lists.get(i) != null) {
-                        flag = lists.get(i);
-                    }
-                }
-                if (flag == null) {
-                    break;
+        public ListNode mergeKLists(ListNode[] lists) {
+            if (lists == null || lists.length == 0) {
+                return null;
+            }
+            PriorityQueue<ListNode> queue =
+                new PriorityQueue<>(lists.length, (a, b) -> (a.val - b.val));
+
+            for (ListNode temp : lists) {
+                if (temp != null) {
+                    queue.add(temp);
                 }
             }
-            return result.next;
+            ListNode ya = new ListNode(-1);
+            ListNode t = ya;
+            while (queue.size() > 0) {
+                ListNode node = queue.poll();
+                t.next = node;
+                if (node.next != null) {
+                    queue.add(node.next);
+                }
+                t = t.next;
+            }
+            return ya.next;
         }
     }
 
     /**
-     * 分治+递归
-     * 1、将两个链表合并。（递归方法合并）
-     * 2、分而治之！求一个mid,将mid左边的合并，右边的合并，最后将左右两边的链表合并。
-     * 3、重复这一过程，直到获取最终的有序链表。
+     * 时空间效率相比上面的其实更低，但是更加好理解
+     * 参考合并升序链表的写法
+     * 1.每次取出最小的。
+     * 2.放在首位，剩下的递归合并。
      */
     private static class HardSolution {
-        public static ListNode mergeKLists(ArrayList<ListNode> lists) {
-            return mergeList(lists, 0, lists.size() - 1);
-        }
 
-        private static ListNode mergeList(ArrayList<ListNode> lists, int left, int right) {
-            if (left == right) return lists.get(left);
-            if (left > right) return null;
-            int mid = left + (left + right) / 2;
-            return merge(mergeList(lists, left, mid), mergeList(lists, mid + 1, right));
-        }
-
-        private static ListNode merge(ListNode l1, ListNode l2) {
-            if (l1 == null) {
-                return l2;
+        public ListNode mergeKLists(ListNode[] lists) {
+            if (lists == null || lists.length == 0) {
+                return null;
             }
-            if (l2 == null) {
-                return l1;
+            ListNode min = lists[0];
+            int minIndex = 0;
+            for (int i = 1; i < lists.length; i++) {
+                ListNode listNode = lists[i];
+                if (listNode == null) {
+                    continue;
+                }
+                if (min == null || listNode.val < min.val) {
+                    min = listNode;
+                    minIndex = i;
+                }
             }
-            if (l1.val > l2.val) {
-                l2.next = merge(l1, l2.next);
-                return l2;
-            } else {
-                l1.next = merge(l1.next, l2);
-                return l1;
+            if (min == null) {
+                return null;
             }
+            lists[minIndex] = min.next;
+            min.next = mergeKLists(lists);
+            return min;
         }
     }
 }
