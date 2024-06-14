@@ -7,7 +7,8 @@ import java.util.Stack;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/a9d0ecbacef9410ca97463e4a5c83be7?tpId=295&tqId=1374963&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/invert-binary-tree/description/?envType=study-plan-v2&envId=top-interview-150
  * 原题描述:
  * 描述
  * 操作给定的二叉树，将其变换为源二叉树的镜像。

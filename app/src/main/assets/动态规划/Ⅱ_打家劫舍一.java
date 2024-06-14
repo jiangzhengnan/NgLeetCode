@@ -38,7 +38,7 @@ public class Ⅱ_打家劫舍一 {
     /**
      * 类似斐波那契
      * 动态规划方程:
-     * 每到一家，可以决定是从前一家+现在这家   或者前前一家+现在这家
+     * 每到一家，可以决定是 不偷现在这家  或者 前前一家+现在这家
      * f(n) = max(f(n-1) , f(n-2) + nums[i])
      */
     private static class EasySolution {

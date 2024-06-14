@@ -9,7 +9,8 @@ import java.util.Queue;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/508378c0823c423baa723ce448cbfd0c?tpId=295&tqId=634&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/path-sum/description/?envType=study-plan-v2&envId=top-interview-150
  * 原题描述:
  * 描述
  * 给定一个二叉树root和一个值 sum ，判断是否有从根节点到叶子节点的节点值之和等于 sum 的路径。
@@ -36,27 +37,22 @@ public class Ⅱ_二叉树中和为某一值的路径一 {
      */
     private static class EasySolution {
 
-        static boolean result = false;
-
-        public static boolean hasPathSum(TreeNode root, int sum) {
+        /**
+         * 假定从根节点到当前节点的值之和为 val，我们可以将这个大问题转化为一个小问题：
+         * 是否存在从当前节点的子节点到叶子的路径，满足其路径和为 sum - val。
+         *
+         * 不难发现这满足递归的性质，若当前节点就是叶子节点，那么我们直接判断 sum 是否等于 val
+         * 即可（因为路径和已经确定，就是当前节点的值，我们只需要判断该路径和是否满足条件）。
+         * 若当前节点不是叶子节点，我们只需要递归地询问它的子节点是否能满足条件即可。
+         */
+        public boolean hasPathSum(TreeNode root, int sum) {
             if (root == null) {
                 return false;
             }
-            query(root, sum);
-            return result;
-        }
-
-        public static void query(TreeNode node, int sum) {
-            sum -= node.val;
-            if (sum == 0 && node.left == null && node.right == null) {
-                result = true;
+            if (root.left == null && root.right == null) {
+                return sum == root.val;
             }
-            if (node.left != null) {
-                query(node.left, sum);
-            }
-            if (node.right != null) {
-                query(node.right, sum);
-            }
+            return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
         }
     }
 

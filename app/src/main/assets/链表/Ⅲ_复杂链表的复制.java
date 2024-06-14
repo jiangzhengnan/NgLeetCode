@@ -8,7 +8,8 @@ import java.util.Map;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:https://www.nowcoder.com/practice/f836b2c43afc4b35ad6adc41ec941dba?tpId=13&tqId=23254&ru=/exam/oj/ta&qru=/ta/coding-interviews/question-ranking&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26tpId%3D13%26type%3D13
+ * link:
+ * https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/description/
  * 原题描述:
  * 输入一个复杂链表（每个节点中有节点值，以及两个指针，一个指向下一个节点，另一个特殊指针random指向一个随机节点），请对此链表进行深拷贝，
  * 并返回拷贝后的头结点。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）。

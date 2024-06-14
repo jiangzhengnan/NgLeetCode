@@ -19,4 +19,5 @@ class NoScrollViewPager(context: Context, attrs: AttributeSet?) : ViewPager(cont
     override fun onInterceptTouchEvent(arg0: MotionEvent?): Boolean {
         return false
     }
+
 }

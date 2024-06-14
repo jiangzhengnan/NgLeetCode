@@ -1,59 +1,41 @@
 package com.ng.code;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
 
+import com.airbnb.lottie.L;
 import com.ng.base.utils.LogUtil;
 import com.ng.base.utils.TreeNode;
 
 public class PracticeClass {
 
     private void test() {
+        LogUtil.print(coinChange(new int[]{1, 2, 5}, 11)); // 3
 
-        //LogUtil.print(findMin(new int[]{3, 4, 5, 1, 2}));
-
-        LogUtil.print(searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8));
     }
 
-    public int[] searchRange(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        int first = 0;
-        int mid = 0;
-        //先求左边界
-        while (left <= right) {
-            mid = left + (right - left) / 2;
-            if (target == nums[mid]) {
-                first = mid;
-                right = mid - 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
+    public int coinChange(int[] coins, int amount) {
+        if (amount <= 0) {
+            return 0;
+        }
+        //某一位可以换到零钱的最小次数
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int coin : coins) {
+                if (i >= coin) {
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                }
             }
         }
-
-        //再求右边界
-        left = 0;
-        right = nums.length - 1;
-        int second = 0;
-
-        while (left <= right) {
-            mid = left + (right - left) / 2;
-            if (target == nums[mid]) {
-                second = mid;
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid - 1;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            }
-        }
-        return new int[]{first, second};
+        return dp[amount] > amount ? -1 : dp[amount];
     }
+
 
     public static void main(String[] args) {
         PracticeClass testClass = new PracticeClass();

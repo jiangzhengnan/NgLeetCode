@@ -20,36 +20,30 @@ public class Ⅱ_删除链表的倒数第n个节点 {
         LogUtil.print(HardSolution.removeNthFromEnd(data, 2));
     }
 
-    //双指针
     private static class EasySolution {
         public static ListNode removeNthFromEnd(ListNode head, int n) {
-            if (head == null) {
-                return null;
-            }
-            ListNode slow = head;
-            ListNode fast = head;
+            ListNode ya = new ListNode(-1);
+            ya.next = head;
 
+            ListNode nNode = findReversN(ya, n + 1);
+            nNode.next = nNode.next.next;
+            return ya.next;
+        }
+
+        //倒数第n个
+        public static ListNode findReversN(ListNode node, int n) {
+            ListNode fast = node;
             while (n-- > 0) {
                 if (fast == null) {
                     return null;
                 }
                 fast = fast.next;
             }
-            // 说明fast递归到尾部，k=size，要删除的是头节点
-            if (fast == null) {
-                return head.next;
-            }
-
-            ListNode pre = slow;
             while (fast != null) {
-                pre = slow;
-                slow = slow.next;
                 fast = fast.next;
+                node = node.next;
             }
-            pre.next = pre.next.next;
-
-            return head;
-
+            return node;
         }
     }
 

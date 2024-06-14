@@ -1,4 +1,4 @@
-package com.ng.code.menu.递归回溯;
+package com.ng.code.menu.动态规划;
 
 import java.util.ArrayList;
 import java.util.HashSet;
