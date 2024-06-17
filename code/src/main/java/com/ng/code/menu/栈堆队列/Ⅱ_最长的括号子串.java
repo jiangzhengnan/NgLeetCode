@@ -1,4 +1,4 @@
-package com.ng.code.menu.动态规划;
+package com.ng.code.menu.栈堆队列;
 
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
