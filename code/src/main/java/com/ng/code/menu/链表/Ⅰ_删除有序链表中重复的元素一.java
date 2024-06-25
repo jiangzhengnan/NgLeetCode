@@ -46,8 +46,30 @@ public class Ⅰ_删除有序链表中重复的元素一 {
         }
     }
 
-    //与上面相同
+    //递归解法
     private static class HardSolution {
+
+        /**
+         * 1 只确定递归函数需要传入什么参数，需要返回什么结果，其他不关心；
+         * 2 在递归函数里，只编写单次运行时的逻辑代码，其他不关心；
+         * 3 始终相信自己定义的递归函数，一定能返回我想要的结果；
+         * 4 在代码的任何地方，只要是需要用到递归函数时，直接调用，返回值就直接拿来主义，
+         * 永远不要在脑子里模拟递归调用递归的细节；
+         */
+        public ListNode deleteDuplicates(ListNode head) {
+            if (head == null || head.next == null) {
+                return head;
+            }
+            if (head.val != head.next.val) {
+                head.next = deleteDuplicates(head.next);
+            } else {
+                while (head.next != null && head.val == head.next.val) {
+                    head.next = head.next.next;
+                }
+                head = deleteDuplicates(head.next);
+            }
+            return head;
+        }
     }
 
 

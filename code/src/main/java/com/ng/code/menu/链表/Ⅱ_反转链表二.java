@@ -6,22 +6,25 @@ import com.ng.code.util.Solution;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/b58434e200a648c589ca2063f1faf58c?tpId=295&tqId=654&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:
+ * https://leetcode.cn/problems/reverse-linked-list-ii/description/?envType=study-plan-v2&envId
+ * =top-interview-150
  * 描述
  * 将一个节点数为 size 链表 m 位置到 n 位置之间的区间反转，要求时间复杂度 O(n)O(n)，空间复杂度 O(1)O(1)。
  * 例如：
  * 给出的链表为 1\to 2 \to 3 \to 4 \to 5 \to NULL1→2→3→4→5→NULL, m=2,n=4m=2,n=4,
  * 返回 1\to 4\to 3\to 2\to 5\to NULL1→4→3→2→5→NULL.
- * 数据范围： 链表长度 0 < size \le 10000<size≤1000，0 < m \le n \le size0<m≤n≤size，链表中每个节点的值满足 |val| \le 1000∣val∣≤1000
+ * 数据范围： 链表长度 0 < size \le 10000<size≤1000，0 < m \le n \le size0<m≤n≤size，链表中每个节点的值满足 |val| \le
+ * 1000∣val∣≤1000
  * 要求：时间复杂度 O(n)O(n) ，空间复杂度 O(n)O(n)
  * 进阶：时间复杂度 O(n)O(n)，空间复杂度 O(1)O(1)
  */
 @Solution(easy = 0, hard = 1, particle = 1)
-public class Ⅱ_链表内指定区间反转 {
+public class Ⅱ_反转链表二 {
 
     public static void main(String[] args) {
         LogUtil.print(
-                HardSolution.reverseBetween(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5, 6}), 2, 4));
+            HardSolution.reverseBetween(ListNode.getNodeList(new int[]{1, 2, 3, 4, 5}), 2, 4));
     }
 
     //一次遍历法
@@ -32,24 +35,23 @@ public class Ⅱ_链表内指定区间反转 {
             ListNode dummyNode = new ListNode(-1);
             dummyNode.next = head;
             ListNode pre = dummyNode;
-
-            LogUtil.print(dummyNode);
-
-
             //确定头节点
             for (int i = 0; i < m - 1; i++) {
                 pre = pre.next;
             }
             ListNode cur = pre.next;
-            ListNode Cur_next = null;
+            ListNode next = null;
             for (int i = 0; i < n - m; i++) {
-                LogUtil.print("cur:" + cur.val);
-                LogUtil.print("cur_next:" + (Cur_next == null ? "null" : Cur_next.val + ""));
-
-                Cur_next = cur.next;
-                cur.next = Cur_next.next;
-                Cur_next.next = pre.next;
-                pre.next = Cur_next;
+                // pre->1 -> 2 -> 3..
+                next = cur.next; //缓存next
+                // pre -> 1 -> 3 ..
+                //   2 -> 3 ..
+                cur.next = next.next;
+                // pre -> 1 -> 3 ..
+                //  2 -> 1 -> 3 ..
+                next.next = pre.next; //2 ->1
+                //  pre -> 2->1->3..
+                pre.next = next;
 
 
             }
