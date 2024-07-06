@@ -17,7 +17,7 @@ import com.ng.code.util.Solution;
  * {1,2}
  */
 @Solution(easy = 1, hard = 1, particle = 1)
-public class Ⅰ_删除有序链表中重复的元素一 {
+public class Ⅰ_删除排序链表中的重复元素 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 1, 2, 3, 3);
@@ -32,21 +32,20 @@ public class Ⅰ_删除有序链表中重复的元素一 {
     private static class EasySolution {
 
         public static ListNode deleteDuplicates(ListNode head) {
-            ListNode pre = null;
-            ListNode now = head;
-            while (now != null) {
-                if (pre != null && pre.val == now.val) {
-                    pre.next = now.next;
-                } else {
-                    pre = now;
+            ListNode cur = head;
+            while (cur != null) {
+                ListNode next = cur.next;
+                while (next != null && cur.val == next.val) {
+                    next = next.next;
                 }
-                now = now.next;
+                cur.next = next;
+                cur = cur.next;
             }
             return head;
         }
     }
 
-    //递归解法
+    //递归解法,难理解
     private static class HardSolution {
 
         /**

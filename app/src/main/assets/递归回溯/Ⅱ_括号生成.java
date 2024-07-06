@@ -4,6 +4,7 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 日期:
@@ -32,42 +33,68 @@ import java.util.ArrayList;
 public class Ⅱ_括号生成 {
 
     public static void main(String[] args) {
-        LogUtil.print(EasySolution.generateParenthesis(2).toString());
+        EasySolution easySolution = new EasySolution();
+        LogUtil.print(easySolution.generateParenthesis(3).toString());
     }
 
     /**
-     * 1. 如果左括号数量不大于 n，我们可以放一个左括号。
-     * 2. 如果右括号数量小于左括号的数量，我们可以放一个右括号.
+     * dfs
      */
     private static class EasySolution {
 
-        static ArrayList<String> res = new ArrayList<>();
-        static int n;
+        ArrayList<String> res = new ArrayList<>();
 
-        public static ArrayList<String> generateParenthesis(int _n) {
+        public ArrayList<String> generateParenthesis(int n) {
             // write code here
-            n = _n;
-            dfs("", 0, 0);
+            dfs("", n, n);
             return res;
         }
 
-        public static void dfs(String s, int cnt1, int cnt2) {
-            if (cnt1 == n && cnt2 == n) {
+        public void dfs(String s, int left, int right) {
+            if (left == 0 && right == 0) {
+                //左右括号用完了，加入结果
                 res.add(s);
                 return;
             }
-            if (cnt1 < n) {
-                dfs(s + "(", cnt1 + 1, cnt2);
+            if (left > 0) {
+                //若左边括号还有剩，加一个左括号，继续生成
+                dfs(s + "(", left - 1, right);
             }
-            if (cnt1 > cnt2 && cnt2 < n) {
-                dfs(s + ")", cnt1, cnt2 + 1);
+            if (left < right && right > 0) {
+                //若已经增加的左括号多余右括号，加一个右括号，继续生成
+                dfs(s + ")", left, right - 1);
             }
         }
 
-
     }
 
+    /**
+     * 回溯
+     */
     private static class HardSolution {
+
+        public List<String> generateParenthesis(int n) {
+            List<String> ans = new ArrayList<String>();
+            backtrack(ans, new StringBuilder(), 0, 0, n);
+            return ans;
+        }
+
+        public void backtrack(List<String> ans, StringBuilder cur, int open, int close, int max) {
+            if (cur.length() == max * 2) {
+                ans.add(cur.toString());
+                return;
+            }
+            if (open < max) {
+                cur.append('(');
+                backtrack(ans, cur, open + 1, close, max);
+                cur.deleteCharAt(cur.length() - 1);
+            }
+            if (close < open) {
+                cur.append(')');
+                backtrack(ans, cur, open, close + 1, max);
+                cur.deleteCharAt(cur.length() - 1);
+            }
+        }
 
     }
 

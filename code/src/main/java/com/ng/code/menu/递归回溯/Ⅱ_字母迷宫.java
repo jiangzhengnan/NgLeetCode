@@ -5,7 +5,7 @@ import com.ng.code.util.Solution;
 
 /**
  * Ⅰ Ⅱ Ⅲ
- * link:https://www.nowcoder.com/practice/2a49359695a544b8939c77358d29b7e6?tpId=13&tqId=1517966&ru=/exam/oj/ta&qru=/ta/coding-interviews/question-ranking&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26tpId%3D13%26type%3D13
+ * https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/description/
  * 原题描述:
  * 请设计一个函数，用来判断在一个n乘m的矩阵中是否存在一条包含某长度为len的字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，
  * 每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 \begin{bmatrix} a & b & c &e \\ s & f & c & s \\ a & d & e& e\\ \end{bmatrix}\quad
@@ -14,7 +14,7 @@ import com.ng.code.util.Solution;
  * 示例:
  */
 @Solution(easy = 0, hard = 0, particle = 0)
-public class Ⅱ_矩阵中的路径 {
+public class Ⅱ_字母迷宫 {
 
     public static void main(String[] args) {
         char[][] data = new char[][]{

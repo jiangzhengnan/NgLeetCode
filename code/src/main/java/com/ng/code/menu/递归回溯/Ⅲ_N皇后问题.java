@@ -60,8 +60,8 @@ public class Ⅲ_N皇后问题 {
                     continue;
                 }
                 column.add(j);//列号j
-                posSlant.add(i - j);//行号i - 列号j 正斜线
-                conSlant.add(i + j);//行号i + 列号j 反斜线
+                posSlant.add(i - j);//行号i - 列号j 正斜线 :从左上到右下方向，同一条斜线上的每个位置满足行下标与列下标之差相等
+                conSlant.add(i + j);//行号i + 列号j 反斜线 ：从右上到左下方向，同一条斜线上的每个位置满足行下标与列下标之和相等
                 compute(i + 1, n); //计算下一行
                 column.remove(j); //完成上一步递归计算后，清除
                 posSlant.remove(i - j);

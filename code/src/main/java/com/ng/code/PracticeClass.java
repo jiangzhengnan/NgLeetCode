@@ -1,44 +1,44 @@
 package com.ng.code;
 
-import com.ng.base.utils.ListNode;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import com.ng.base.utils.LogUtil;
+import com.ng.code.util.BasePracticeClass;
 
-public class PracticeClass {
+public class PracticeClass extends BasePracticeClass {
 
-    private void test() {
-        LogUtil.print(plusOne(new int[]{9, 9, 9}));
+    @Override
+    public void run() {
+        List<String> data = new ArrayList<>();
+        data.add("a");
     }
 
-    public int[] plusOne(int[] digits) {
-        int n = digits.length;
-        digits[n - 1]++;
-        if (digits[n - 1] < 10) {
-            return digits;
-        }
-        int yu = 0;
-        int index = 0;
-        while (index < n) {
-            int cur = digits[n - 1 - index] + yu;
-            yu = cur / 10;
-            digits[n - 1 - index] = cur % 10;
-            index++;
-        }
-        if (yu > 0) {
-            int[] newDig = new int[n + 1];
-            newDig[0] = 1;
-            for (int i = 0; i < digits.length; i++) {
-                newDig[i + 1] = digits[i];
+    public int numDecodings(String s) {
+        int n = s.length();
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        for(int i = 1; i< n;i++) {
+            if(s.charAt(i) != '0'){
+                dp[i] += dp[i - 1];
             }
-            return newDig;
-        } else {
-            return digits;
+
+            if(i > 1 && s.charAt(i - 2) != '0') {
+                int temp = (s.charAt(i - 2) - '0') * 10 +
+                    (s.charAt(i - 1) - '0');
+                if(temp <= 26) {
+                    dp[i] += dp[i - 2];
+                }
+
+            }
+
         }
+        return dp[n];
 
     }
 
-    public static void main(String[] args) {
-        PracticeClass testClass = new PracticeClass();
-        testClass.test();
-    }
 
 }

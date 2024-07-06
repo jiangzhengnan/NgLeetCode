@@ -62,6 +62,7 @@ public class Ⅱ_两两交换链表中的节点 {
         public ListNode swapPairs(ListNode head) {
             ListNode dummyHead = new ListNode(0);
             dummyHead.next = head;
+
             ListNode temp = dummyHead;
             while (temp.next != null && temp.next.next != null) {
                 ListNode node1 = temp.next;

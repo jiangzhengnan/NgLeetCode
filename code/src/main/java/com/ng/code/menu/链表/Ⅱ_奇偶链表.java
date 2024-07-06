@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * 日期:
- * 原题链接:https://www.nowcoder.com/practice/02bf49ea45cd486daa031614f9bd6fc3?tpId=295&tqId=1073463&ru=/exam/oj&qru=/ta/format-top101/question-ranking&sourceUrl=%2Fexam%2Foj%3Ftab%3D%25E7%25AE%2597%25E6%25B3%2595%25E7%25AF%2587%26topicId%3D295
+ * 原题链接:https://leetcode.cn/problems/odd-even-linked-list/description/
  * 原题描述:
  * 描述
  * 给定一个单链表，请设定一个函数，将链表的奇数位节点和偶数位节点分别放在一起，重排后输出。
@@ -21,7 +21,7 @@ import java.util.List;
  * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
  */
 @Solution(easy = 1, hard = 1, particle = 1)
-public class Ⅱ_链表的奇偶重排 {
+public class Ⅱ_奇偶链表 {
 
     public static void main(String[] args) {
         ListNode data = ListNode.getNodeList(1, 2, 3, 4, 5, 6, 7, 8);

@@ -63,7 +63,6 @@ public class Ⅱ_设计LRU缓存结构 {
 			} else {
 				cur = new Node(key, value);
 				map.put(key, cur);
-				addToHead(cur);
 				if (map.size() > capacity) {
 					// 移除最后一个
 					Node res = tail.prev;
@@ -75,10 +74,6 @@ public class Ⅱ_设计LRU缓存结构 {
 
 		private void moveToHead(Node node) {
 			removeNode(node);
-			addToHead(node);
-		}
-
-		private void addToHead(Node node) {
 			node.prev = head;
 			node.next = head.next;
 			head.next.prev = node;

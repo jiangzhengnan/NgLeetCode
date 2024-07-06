@@ -1,6 +1,10 @@
 package com.cj.design.desiginmodel.行为型.观察者模式.rxjava;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.cj.design.desiginmodel.行为型.观察者模式.rxjava.map.Function;
 import com.cj.design.desiginmodel.行为型.观察者模式.rxjava.thread.Schedulers;
 
 public class AAAAAAA_TestMain {
@@ -12,61 +16,58 @@ public class AAAAAAA_TestMain {
           public void subscribe(ObservableEmitter<String> emitter) throws Exception {
             println("A 发送第一个onNext");
             emitter.onNext("1");
-            println("A 发送第二个onNext");
-            emitter.onNext("2");
-            println("A 发送onComplete");
-            emitter.onComplete();
-            emitter.onError(new Throwable("A test error"));
+//            println("A 发送第二个onNext");
+//            emitter.onNext("2");
+//            println("A 发送onComplete");
+//            emitter.onComplete();
+//            emitter.onError(new Throwable("A test error"));
           }
         })
-        .observeOn(Schedulers.newThread())
-//        .observeOn(Schedulers.mainThread())
-//        .subscribeOn(Schedulers.mainThread())
-//        .subscribeOn(Schedulers.newThread())
+//        .observeOn(Schedulers.newThread())
+//        .observeOn(Schedulers.io())
+        .subscribeOn(Schedulers.io())
+        .subscribeOn(Schedulers.newThread())
         ;
 
     //被观察者2
     Observable<String> observableB = Observable.create(new ObservableOnSubscribe<String>() {
-      @Override
-      public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-        println("B 发送第一个onNext");
-        emitter.onNext("1");
-        println("B 发送第二个onNext");
-        emitter.onNext("2");
-        println("B 发送onComplete");
-        emitter.onComplete();
-        emitter.onError(new Throwable("B test error"));
-      }
-    });
-
-
+          @Override
+          public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+            println("B 发送第一个onNext");
+            emitter.onNext("1");
+            println("B 发送第二个onNext");
+            emitter.onNext("2");
+            println("B 发送onComplete");
+            emitter.onComplete();
+            emitter.onError(new Throwable("B test error"));
+          }
+        })
 //        .flatArray(new Function<String, String[]>() {
-//      @Override
-//      public String[] apply(String s) throws Exception {
-//        String[] res = new String[2];
-//        res[0] = "first :" + s;
-//        res[1] = "second :" + s;
-//        return res;
-//      }
-//    })
-//
-//        .map(new Function<Integer, String>() {
-//      @Override
-//      public String apply(Integer integer) throws Exception {
-//        return "A" + integer;
-//      }
-//    })
-//
-//        .flatMap(new Function<String, Iterable<String>>() {
-//      @Override
-//      public Iterable<String> apply(String s) throws Exception {
-//        List<String> list = new ArrayList<>();
-//        list.add("first : " + s);
-//        list.add("second :" + s);
-//        return list;
-//      }
-//    })
+//          @Override
+//          public String[] apply(String s) throws Exception {
+//            String[] res = new String[2];
+//            res[0] = "first :" + s;
+//            res[1] = "second :" + s;
+//            return res;
+//          }
+//        })
+        .map(new Function<String, String>() {
+          @Override
+          public String apply(String integer) throws Exception {
+            return "A" + integer;
+          }
+        })
+        .flatMap(new Function<String, Iterable<String>>() {
+          @Override
+          public Iterable<String> apply(String s) throws Exception {
+            List<String> list = new ArrayList<>();
+            list.add("first : " + s);
+            list.add("second :" + s);
+            return list;
+          }
+        })
     ;
+
     //观察者
     Observer<String> observer = new Observer<String>() {
       @Override

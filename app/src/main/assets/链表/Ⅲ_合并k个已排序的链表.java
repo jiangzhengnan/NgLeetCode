@@ -81,34 +81,41 @@ public class Ⅲ_合并k个已排序的链表 {
 
     /**
      * 时空间效率相比上面的其实更低，但是更加好理解
-     * 参考合并升序链表的写法
-     * 1.每次取出最小的。
-     * 2.放在首位，剩下的递归合并。
+     * 归并大法
      */
     private static class HardSolution {
 
         public ListNode mergeKLists(ListNode[] lists) {
-            if (lists == null || lists.length == 0) {
+            return mergeKLists(lists, 0, lists.length - 1);
+        }
+
+        public ListNode mergeKLists(ListNode[] lists, int left, int right) {
+            if (left > right) {
                 return null;
+            } else if (left == right) {
+                return lists[left];
             }
-            ListNode min = lists[0];
-            int minIndex = 0;
-            for (int i = 1; i < lists.length; i++) {
-                ListNode listNode = lists[i];
-                if (listNode == null) {
-                    continue;
-                }
-                if (min == null || listNode.val < min.val) {
-                    min = listNode;
-                    minIndex = i;
-                }
+
+            int mid = left + (right - left) / 2;
+            ListNode one = mergeKLists(lists, left, mid);
+            ListNode two = mergeKLists(lists, mid + 1, right);
+            return merge(one, two);
+        }
+
+        private ListNode merge(ListNode n1, ListNode n2) {
+            if (n1 == null) {
+                return n2;
             }
-            if (min == null) {
-                return null;
+            if (n2 == null) {
+                return n1;
             }
-            lists[minIndex] = min.next;
-            min.next = mergeKLists(lists);
-            return min;
+            if (n1.val < n2.val) {
+                n1.next = merge(n1.next, n2);
+                return n1;
+            } else {
+                n2.next = merge(n2.next, n1);
+                return n2;
+            }
         }
     }
 }

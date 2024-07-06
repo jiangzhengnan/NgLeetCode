@@ -22,8 +22,6 @@ public class Ⅱ_复制带随机指针的链表 {
 
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
-        HardSolution hardSolution = new HardSolution();
-
     }
 
     private static class EasySolution {
@@ -48,10 +46,6 @@ public class Ⅱ_复制带随机指针的链表 {
             }
             return map.get(head);
         }
-    }
-
-    private static class HardSolution {
-
     }
 
     static class Node {

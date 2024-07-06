@@ -27,6 +27,7 @@ public class ObservableObserveOn<T> extends Observable<T> {
   static final class ObserveOnObserver<T> implements Observer<T>, Runnable {
 
     Scheduler scheduler;
+    //下一个流
     Observer<? super T> downStream;
     T value;
 

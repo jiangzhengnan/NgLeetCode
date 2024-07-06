@@ -4,6 +4,8 @@ import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 原题描述:
@@ -63,28 +65,34 @@ public class Ⅱ_兑换零钱一 {
         /**
          * 自顶向下解法
          */
-        int coinChange(int[] coins, int amount) {
-            // 题目要求的最终结果是 dp(amount)
-            return dp(coins, amount);
-        }
+        Map<Integer, Integer> data = new HashMap();
 
-        // 定义：要凑出金额 n，至少要 dp(coins, n) 个硬币
-        int dp(int[] coins, int amount) {
-            // base case
-            if (amount == 0) return 0;
-            if (amount < 0) return -1;
-
+        public int coinChange(int[] coins, int amount) {
+            if (data.containsKey(amount)) {
+                return data.get(amount);
+            }
+            if (amount == 0) {
+                return 0;
+            }
+            if (amount < 0) {
+                return -1;
+            }
             int res = Integer.MAX_VALUE;
             for (int coin : coins) {
                 // 计算子问题的结果
-                int subProblem = dp(coins, amount - coin);
+                int subProblem = coinChange(coins, amount - coin);
                 // 子问题无解则跳过
-                if (subProblem == -1) continue;
+                if (subProblem == -1) {
+                    continue;
+                }
                 // 在子问题中选择最优解，然后加一
                 res = Math.min(res, subProblem + 1);
             }
+            res = (res == Integer.MAX_VALUE ? -1 : res);
+            data.put(amount, res);
 
-            return res == Integer.MAX_VALUE ? -1 : res;
+            return res;
+
         }
 
     }
