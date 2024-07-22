@@ -24,24 +24,26 @@ public class Ⅱ_希尔排序 {
      * 每一次做当前步长到length的遍历，以当前步长为距离做插入排序
      */
     private static void sort(int[] array) {
-        if (array == null || array.length < 2) {
-            return;
-        }
-        int length = array.length;
-        int temp;
-        int gap = length / 2;
+        int gap = array.length;
+        //1.设置步长
         while (gap > 0) {
-            for (int i = gap; i < length; i++) {
-                temp = array[i];
-                int preIndex = i - gap;
-                while (preIndex >= 0 && array[preIndex] > temp) {
+
+            //2.插入排序(其中步长变成了gap)
+            int preIndex;
+            int cur;
+            int index = gap;
+            while (index < array.length) {
+                cur = array[index];
+                preIndex = index - gap;
+                while (preIndex >= 0 && array[preIndex] > cur) {
                     array[preIndex + gap] = array[preIndex];
                     preIndex -= gap;
                 }
-                array[preIndex + gap] = temp;
+                array[preIndex + gap] = cur;
+                index += gap;
             }
+
             gap /= 2;
         }
-
     }
 }

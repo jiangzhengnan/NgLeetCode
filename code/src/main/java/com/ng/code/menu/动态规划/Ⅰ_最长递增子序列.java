@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * 该数组最长上升子序列为 [1,2,3,7] ，长度为4
  */
 @Solution(easy = 0, hard = 0, particle = 1)
-public class Ⅰ_最长上升子序列一 {
+public class Ⅰ_最长递增子序列 {
 
     public static void main(String[] args) {
         LogUtil.print(EasySolution.lengthOfLIS(new int[]{6, 3, 1, 5, 2, 3, 7}));

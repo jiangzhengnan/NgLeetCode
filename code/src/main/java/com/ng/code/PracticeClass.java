@@ -1,44 +1,36 @@
 package com.ng.code;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.ng.base.utils.LogUtil;
+import com.ng.base.utils.TreeNode;
 import com.ng.code.util.BasePracticeClass;
 
 public class PracticeClass extends BasePracticeClass {
 
     @Override
     public void run() {
-        List<String> data = new ArrayList<>();
-        data.add("a");
+        TreeNode root = TreeNode.createTreeNode(1, 1);
+        TreeNode subRoot = TreeNode.createTreeNode(1);
+        LogUtil.print(isSubtree(root, subRoot));
     }
 
-    public int numDecodings(String s) {
-        int n = s.length();
-        int[] dp = new int[n + 1];
-        dp[0] = 1;
-        for(int i = 1; i< n;i++) {
-            if(s.charAt(i) != '0'){
-                dp[i] += dp[i - 1];
-            }
-
-            if(i > 1 && s.charAt(i - 2) != '0') {
-                int temp = (s.charAt(i - 2) - '0') * 10 +
-                    (s.charAt(i - 1) - '0');
-                if(temp <= 26) {
-                    dp[i] += dp[i - 2];
-                }
-
-            }
-
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (root == null && subRoot == null) {
+            return true;
         }
-        return dp[n];
+        if (root == null || subRoot == null) {
+            return false;
+        }
 
+        if (root.val == subRoot.val &&
+            isSubtree(root.left, subRoot.left) &&
+            isSubtree(root.right, subRoot.right)
+        ) {
+            return true;
+        }
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }
-
 
 }

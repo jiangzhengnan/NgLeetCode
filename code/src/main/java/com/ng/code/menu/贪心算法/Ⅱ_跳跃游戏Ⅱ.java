@@ -28,7 +28,7 @@ public class Ⅱ_跳跃游戏Ⅱ {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
 
-        LogUtil.print(easySolution.jump(new int[]{2, 3, 0, 1, 4}));
+        LogUtil.print(easySolution.jump(new int[]{2, 3, 1, 1, 4}));
     }
 
     private static class EasySolution {
@@ -66,22 +66,21 @@ public class Ⅱ_跳跃游戏Ⅱ {
     private static class HardSolution {
 
         /**
-         * 正向查找可到达的最大位置
-         * 在遍历数组时，我们不访问最后一个元素，这是因为在访问最后一个元素之前，
-         * 我们的边界一定大于等于最后一个位置，否则就无法跳到最后一个位置了。
-         * 如果访问最后一个元素，在边界正好为最后一个位置的情况下，
-         * 我们会增加一次「不必要的跳跃次数」，因此我们不必访问最后一个元素。
+         * i 和 end 标记了可以选择的跳跃步数，
+         * farthest 标记了所有选择 [i..end] 中能够跳到的最远距离，
+         * jumps 记录了跳跃次数。
          */
         public int jump(int[] nums) {
             //2, 3, 0, 1, 4 -> 2
             int length = nums.length;
             int end = 0;
-            int maxPosition = 0;
+            int farthest = 0;
             int steps = 0;
             for (int i = 0; i < length - 1; i++) {
-                maxPosition = Math.max(maxPosition, i + nums[i]);
+                // 不断计算能跳到的最远距离
+                farthest = Math.max(farthest, i + nums[i]);
                 if (i == end) {
-                    end = maxPosition;
+                    end = farthest;
                     steps++;
                 }
             }

@@ -59,39 +59,33 @@ public class Ⅱ_加油站 {
     private static class HardSolution {
 
         /**
-         * 假如当前一段路无法走下去了，就该放弃
-         * 换个新的起点了。这个起点最多只能到这里了，从这段路的任何地方重新开始都到达不了更远的地方了，
-         * 因为放弃之前走的路都是帮你的，不然早就无法走下去了，因此
-         * 起点只能选在下一站，错的不是你，是你的起点和你的路。
-         * <p>
-         * 这个问题的关键在于理解如何处理油量不足的情况。当遍历数组时，我们不是简单地累加每个加油站的净油量（gas[i] - cost[i]），而是关注在当前加油站之后能否继续行驶。
-         * 假设我们有一个环形路线，从第0个加油站开始，我们希望找到一个起点，使得从这个起点开始，即使在某个点油量不足，也能通过其他加油站补充油量后继续前行，最终回到起点。
-         * 1. 初始化`sum`为0，表示当前的总油量。
-         * 2. 初始化`min`为正无穷大，`minIndex`为-1，用于记录首次油量不足的加油站索引和最小负值。
-         * 3. 遍历数组：
-         * - 对于每个加油站i，我们将当前加油站的净油量加到`sum`上。如果`sum
-         * `变为负数，说明在到达当前加油站之前已经用光了油，但因为我们在遍历中才遇到这种情况，所以之前的加油站（即`minIndex`）是最后一个足够油量到达的站。
-         * - 如果`sum`比之前遇到的最小负值还要小，更新`min`和`minIndex`。
-         * 4. 遍历结束后，如果`sum`仍然是负数，说明没有足够的油完成整个循环，返回-1。
-         * 5. 如果`sum`是非负数，说明从`minIndex +
-         * 1`开始的剩余部分可以形成一个完整的循环。因为我们在`minIndex`处油量不足，但是从那里开始的其他加油站可以提供足够的油补足这个缺口，并且最终回到起点。
-         * 通过这种方法，我们只需要遍历一次数组就能确定是否存在这样的循环路径。这是因为我们不仅关注总的净油量，还关注了第一次油量不足的位置，从而可以判断从那个位置之后是否有可能形成一个闭合的循环。
+         * 如果选择站点 i 作为起点「恰好」无法走到站点 j，那么 i 和 j 中间的任意站点 k 都不可能作为起点。
          */
         public int canCompleteCircuit(int[] gas, int[] cost) {
-            int sum = 0;
-            int min = Integer.MAX_VALUE;
-            int minIndex = -1;
-            for (int i = 0; i < gas.length; i++) {
-                sum = sum + gas[i] - cost[i];
-                if (sum < min && sum < 0) {
-                    min = sum;
-                    minIndex = i;
+            int n = gas.length;
+            // 记录起点
+            int start = 0;
+            while (start < n) {
+                // 记录油箱中的油量
+                int tempGas = 0;
+                int cnt = 0;
+                while (cnt < n) {
+                    tempGas += gas[(cnt + start) % n]; //加油
+                    tempGas -= cost[(cnt + start) % n]; //消耗
+                    if (tempGas < 0) {
+                        break;
+                    }
+                    cnt++;
                 }
+                if (cnt == n) {
+                    return start;
+                } else {
+                    // 无法从 start 到达 i + 1，所以站点 i + 1 应该是起点
+                    start = start + cnt + 1;
+                }
+
             }
-            if (sum < 0) {
-                return -1;
-            }
-            return (minIndex + 1) % gas.length;
+            return -1;
         }
     }
 

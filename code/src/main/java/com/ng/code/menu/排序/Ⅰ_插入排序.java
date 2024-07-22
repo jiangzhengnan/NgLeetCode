@@ -30,7 +30,7 @@ public class Ⅰ_插入排序 {
         while (index <= array.length - 1) {
             int preIndex = index - 1;
             int now = array[preIndex + 1];
-            while (preIndex  >= 0 && array[preIndex] > now) {
+            while (preIndex >= 0 && array[preIndex] > array[preIndex + 1]) {
                 array[preIndex + 1] = array[preIndex];
                 preIndex--;
             }
