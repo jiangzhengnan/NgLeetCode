@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 /**
@@ -38,6 +39,8 @@ public class Ⅱ_组合总和2 {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
 
+        int[] data = new int[]{1, 2, 2, 5, 5};
+        LogUtil.print(easySolution.combinationSum2(data, 8).toString());
     }
 
     private static class EasySolution {
@@ -63,6 +66,9 @@ public class Ⅱ_组合总和2 {
                 if (candidates[i] > target) {
                     break;
                 }
+                //i > begin主要是为了确保在同一层中，有数字相同时，只选择第一个数字；
+                //比如 1 2 2 5 5
+                //只能选择 1 2 5
                 if (i > start && candidates[i] == candidates[i - 1]) {
                     continue;
                 }

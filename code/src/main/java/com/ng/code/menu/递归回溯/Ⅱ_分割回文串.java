@@ -30,7 +30,7 @@ public class Ⅱ_分割回文串 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
-        LogUtil.print(easySolution.partition("cdd").toString());
+        LogUtil.print(easySolution.partition("aab").toString());
     }
 
     private static class EasySolution {
@@ -48,7 +48,7 @@ public class Ⅱ_分割回文串 {
                 result.add(new ArrayList<>(data));
                 return;
             }
-            // i表示前缀截取几个
+            // index 表示前缀截取几个，从每次截取一个，到两个，到n个。
             for (int i = index; i < s.length(); i++) {
                 //如果前缀字符串不是回文，则不产生分支和结点，这一步是剪枝操作。
                 if (!checkPalindrome(s.toCharArray(), index, i)) {

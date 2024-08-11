@@ -37,7 +37,7 @@ import java.util.LinkedList;
 public class Ⅱ_全排列 {
 
     public static void main(String[] args) {
-        int[] data = new int[]{1, 2, 3};
+        int[] data = new int[]{1, 1, 2};
         LogUtil.print(EasySolution.permute(data).toString());
     }
 

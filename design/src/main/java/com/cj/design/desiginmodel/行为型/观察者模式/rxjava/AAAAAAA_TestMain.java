@@ -23,7 +23,7 @@ public class AAAAAAA_TestMain {
 //            emitter.onError(new Throwable("A test error"));
           }
         })
-//        .observeOn(Schedulers.newThread())
+        .observeOn(Schedulers.newThread())
 //        .observeOn(Schedulers.io())
         .subscribeOn(Schedulers.io())
         .subscribeOn(Schedulers.newThread())

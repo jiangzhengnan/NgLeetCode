@@ -80,19 +80,23 @@ public class Ⅱ_缺失的第一个正整数 {
     private static class HardSolution {
 
 
+        /**
+         * https://leetcode.cn/problems/first-missing-positive/solutions/304743/que-shi-de-di-yi-ge-zheng-shu-by-leetcode-solution/
+         */
         public static int minNumberDisappeared(int[] nums) {
             if (nums == null || nums.length == 0) return 1;
             int N = nums.length;
-            //1.负数和0变成n+1
+            //1.把不在 [1,N] 范围内的数修改成任意一个大于 N 的数（例如 N+1）。这样一来，数组中的所有数就都是正数了
             for (int i = 0; i < N; i++) {
                 if (nums[i] <= 0) {
                     nums[i] = N + 1;
                 }
             }
-            //2.绝对值<=N的对应下标变成相反数
+            //2.对于遍历到的数 x，如果它在 [1,N] 的范围内，那么就将数组中的第 x−1 个位置（注意：数组下标从 0 开始）打上「标记」。
             for (int i = 0; i < N; i++) {
-                int cur = Math.abs(nums[i]);
+                int cur = Math.abs(nums[i]); //它可能已经被打了标记，因此原本对应的数为 ∣x∣
                 if (cur <= N) {
+                    //如果 ∣x∣∈[1,N]，那么我们给数组中的第 ∣x∣−1 个位置的数添加一个负号。注意如果它已经有负号，不需要重复添加；
                     nums[cur - 1] = nums[cur - 1] < 0 ? nums[cur - 1] : -nums[cur - 1];
                 }
             }
