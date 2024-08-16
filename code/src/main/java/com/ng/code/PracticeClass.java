@@ -1,25 +1,32 @@
 package com.ng.code;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.jetbrains.annotations.NotNull;
-
-import androidx.core.text.StringKt;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.ng.base.utils.LogUtil;
-import com.ng.base.utils.TreeNode;
 import com.ng.code.util.BasePracticeClass;
 
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt;
-
 public class PracticeClass extends BasePracticeClass {
+    private int num = 0;
 
     @Override
     public void run() {
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.compareAndSet(2, 3);
 
+        for (int i = 0; i < 10; i++) {
+            Thread testThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    num++;
+                    LogUtil.print(num + "  " + Thread.currentThread().getName());
+                }
+            });
+            testThread.start();
+            try {
+                testThread.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
-
 
 }

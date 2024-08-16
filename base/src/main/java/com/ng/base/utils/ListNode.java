@@ -1,5 +1,8 @@
 package com.ng.base.utils;
 
+/**
+ * 单向链表
+ */
 public class ListNode {
     public int val;
     public ListNode next = null;
