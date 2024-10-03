@@ -1,5 +1,6 @@
 package com.ng.code.menu.贪心算法;
 
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Arrays;
@@ -25,6 +26,8 @@ public class Ⅱ_最大数 {
     public static void main(String[] args) {
         EasySolution easySolution = new EasySolution();
         HardSolution hardSolution = new HardSolution();
+        int[] data = new int[]{3, 30, 34, 5, 9};
+        LogUtil.print(easySolution.largestNumber(data));
 
     }
 

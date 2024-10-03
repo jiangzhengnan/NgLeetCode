@@ -106,4 +106,46 @@ public class Ⅲ_下一个排列 {
         }
     }
 
+
+    private static class HardSolution {
+
+        public void nextPermutation(int[] nums) {
+            int i = nums.length - 2;
+            while (i >= 0 && nums[i] >= nums[i + 1]) {
+                i--;
+                //1.找到满足 A[i] < A[i + 1]。i为从右往左数，相对的较小数，此时 [i + 1,end) 必然是降序
+                // 比如在4,5,2,6,3,1中，找到的i就是2
+            }
+            if (i >= 0) {
+                int j = nums.length - 1;
+                while (j >= 0 && nums[i] >= nums[j]) {
+                    j--;
+                }
+                // 从右往左，找到相对i来说的较大数。因为需要尽可能小，且i～j是降序，所以需要从右往左。
+                //比如在4,5,2,6,3,1中，这里找到的j是3
+                swap(nums, i, j);
+
+                //交换之后，为4,5,3,6,2,1
+            }
+
+            reverse(nums, i + 1);
+            //此时，再讲i + 1～end反转为升序，即可得到结果 4 5 3 1 2 6  1,3
+        }
+
+        public void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+
+        public void reverse(int[] nums, int start) {
+            int left = start, right = nums.length - 1;
+            while (left < right) {
+                swap(nums, left, right);
+                left++;
+                right--;
+            }
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * Ⅰ Ⅱ Ⅲ
  * link:
+ * https://leetcode.cn/problems/lfu-cache/description/
  * 原题描述:
  * 一个缓存结构需要实现如下功能。
  * set(key, value)：将记录(key, value)插入该结构

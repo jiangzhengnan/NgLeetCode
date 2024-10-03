@@ -1,5 +1,6 @@
 package com.ng.code.menu.贪心算法;
 
+import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
 import java.util.Arrays;
@@ -29,6 +30,9 @@ import java.util.PriorityQueue;
 public class Ⅱ_主持人调度二 {
 
     public static void main(String[] args) {
+
+        HardSolution hardSolution = new HardSolution();
+        LogUtil.print(hardSolution.minmumNumberOfHost(3, new int[][]{{1, 3}, {2, 4}, {7, 9}}));
 
     }
 
