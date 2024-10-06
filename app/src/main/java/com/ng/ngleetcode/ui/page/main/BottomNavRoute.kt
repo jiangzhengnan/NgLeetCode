@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.ui.page
+package com.ng.ngleetcode.ui.page.main
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

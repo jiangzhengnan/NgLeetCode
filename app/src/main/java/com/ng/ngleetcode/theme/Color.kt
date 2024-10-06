@@ -1,4 +1,4 @@
-package com.cj.myapplication.ui.theme
+package com.ng.ngleetcode.theme
 
 import androidx.compose.ui.graphics.Color
 import com.ng.ngleetcode.MyApp

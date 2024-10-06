@@ -14,7 +14,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.ui.page.BottomNavRoute
+import com.ng.ngleetcode.ui.page.main.BottomNavRoute
 
 @Composable
 fun BottomNavBarView(navCtrl: NavHostController) {

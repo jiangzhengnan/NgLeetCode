@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.ui.page
+package com.ng.ngleetcode.ui.page.main
 
 object RouteName {
     // 题库

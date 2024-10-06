@@ -17,7 +17,7 @@ import com.ng.ngleetcode.old.model.code.adapter.NodeTreeAdapter
 import com.ng.ngleetcode.old.model.code.bean.CodeNode
 import com.ng.ngleetcode.old.model.code.data.ProblemRepository
 
-class CodeFragment : BaseFragment<com.ng.ngleetcode.old.model.code.CodeViewModel, FragmentCodeBinding>(),
+class CodeFragment : BaseFragment<com.ng.ngleetcode.old.model.code.OldCodeViewModel, FragmentCodeBinding>(),
     NodeTreeAdapter.OnLeftItemClick {
 
     //左侧rv

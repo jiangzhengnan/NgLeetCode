@@ -4,9 +4,9 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.AttributeSet
 import android.view.View
 import com.ng.ngbaselib.utils.ViewUtils
+import com.ng.ngleetcode.ui.page.code.mvi.CodeDrawerViewState
 import kotlin.math.min
 
 /**
@@ -15,7 +15,7 @@ import kotlin.math.min
  *    @description   :
  *    圆形进度
  */
-class CircularProgressView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
+class CircularProgressView(context: Context) : View(context) {
 
     private var mEasyPro = 0f
     private var mMidPro = 0f
@@ -50,6 +50,16 @@ class CircularProgressView(context: Context, attrs: AttributeSet?) : View(contex
         this.mEasyPro = easyPro * 360F
         this.mMidPro = midPro * 360F
         this.mHardPro = hardPro * 360F
+        invalidate()
+    }
+
+    fun setValue(viewData: CodeDrawerViewState) {
+        if (viewData.easyCount == 0 || viewData.midCount == 0 || viewData.hardCount == 0) {
+            return
+        }
+        this.mEasyPro = viewData.easyRead / viewData.easyCount * 360F
+        this.mMidPro = viewData.midRead / viewData.midCount * 360F
+        this.mHardPro = viewData.hardRead / viewData.hardCount * 360F
         invalidate()
     }
 

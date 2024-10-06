@@ -14,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.cj.myapplication.ui.theme.white
+import com.ng.ngleetcode.theme.white
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.theme.AppTheme
 import kotlinx.coroutines.delay

@@ -14,8 +14,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
-import com.ng.ngleetcode.ui.page.RouteName
 import com.ng.ngleetcode.ui.page.code.CodePage
+import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage
 import com.ng.ngleetcode.ui.widgets.AppSnackBar

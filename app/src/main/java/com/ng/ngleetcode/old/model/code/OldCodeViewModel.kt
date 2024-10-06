@@ -25,7 +25,7 @@ import java.util.*
  *    @creation   : 2023/05/12
  *    @description   :
  */
-class CodeViewModel : BaseViewModel(MyApplication.instance) {
+class OldCodeViewModel : BaseViewModel(MyApplication.instance) {
 
     /**
      * 题库集合
