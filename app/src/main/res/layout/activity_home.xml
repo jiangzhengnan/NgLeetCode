@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <com.ng.ngleetcode.view.NoScrollViewPager
+    <com.ng.ngleetcode.old.view.NoScrollViewPager
             android:id="@+id/vp_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,6 +17,6 @@
             android:layout_height="50dp"
             android:background="@drawable/tab_background"
             android:elevation="8dp"
-            app:layout_behavior=".view.BottomViewBehavior" />
+            app:layout_behavior=".old.view.BottomViewBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

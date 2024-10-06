@@ -8,7 +8,7 @@
         android:layout_height="wrap_content">
 
 
-    <com.ng.ngleetcode.model.code.view.CircularProgressView
+    <com.ng.ngleetcode.old.model.code.view.CircularProgressView
             android:id="@+id/progress_circular"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"

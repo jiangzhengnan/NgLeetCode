@@ -4,12 +4,13 @@
         package="com.ng.ngleetcode">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission
             android:name="android.permission.WRITE_EXTERNAL_STORAGE"
             tools:ignore="ScopedStorage" />
 
     <application
-      android:name=".app.MyApplication"
+      android:name=".MyApp"
       android:allowBackup="true"
       android:icon="@mipmap/app_logo"
       android:label="@string/app_name"
@@ -29,22 +30,11 @@
           android:exported="true">
         </activity>
 
+        <!-- compose 入口 -->
         <activity
-          android:name=".compose.ComposeHomeActivity"
+          android:name=".MainComposeActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true">
-        </activity>
-
-        <activity
-          android:name=".compose.ComposeTestActivity"
-          android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
-          android:exported="true"></activity>
-
-        <activity
-          android:name=".model.splash.SplashActivity"
-          android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
-          android:exported="true"
-          android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,22 +43,34 @@
         </activity>
 
         <activity
-          android:name=".HomeActivity"
+          android:name=".compose.ComposeTestActivity"
+          android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
+          android:exported="true" />
+
+        <activity
+          android:name="com.ng.ngleetcode.old.model.splash.SplashActivity"
+          android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
+          android:exported="true"
+          android:theme="@style/SplashTheme" >
+        </activity>
+
+        <activity
+          android:name=".old.HomeActivity"
           android:exported="false"
           />
 
         <activity
-          android:name=".model.tree.TreeListActivity"
+          android:name="com.ng.ngleetcode.old.model.tree.TreeListActivity"
           android:exported="false"
           android:theme="@style/Theme.MyApplication.NoActionBar" />
 
         <activity
-                android:name=".model.tree.web.WebActivity"
+                android:name="com.ng.ngleetcode.old.model.tree.web.WebActivity"
                 android:exported="false"
                 android:theme="@style/Theme.MyApplication.NoActionBar" />
 
         <activity
-                android:name=".model.mine.SettingActivity"
+                android:name="com.ng.ngleetcode.old.model.mine.SettingActivity"
                 android:exported="false"
                 android:theme="@style/Theme.MyApplication.NoActionBar" />
 

@@ -41,7 +41,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="260dp">
 
-                    <com.ng.ngleetcode.view.rounded.RoundedImageView
+                    <com.ng.ngleetcode.old.view.rounded.RoundedImageView
                             android:id="@+id/user_icon"
                             android:layout_width="80dp"
                             android:layout_height="80dp"

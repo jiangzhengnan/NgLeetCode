@@ -1,5 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        accompanistVersion = "0.18.0"
+    }
+
+
     repositories {
         maven {
             allowInsecureProtocol true

@@ -95,7 +95,7 @@
                             android:textSize="16dp"
                             android:textStyle="bold" />
 
-                    <com.ng.ngleetcode.model.code.view.PolygonLoadView
+                    <com.ng.ngleetcode.old.model.code.view.PolygonLoadView
                             android:id="@+id/pl_anim"
                             android:layout_width="16dp"
                             android:layout_height="16dp"
@@ -103,7 +103,7 @@
                             android:layout_gravity="center" />
                 </LinearLayout>
 
-                <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
+                <com.ng.ngleetcode.old.view.rounded.RoundedFrameLayout
                         android:id="@+id/content"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -111,11 +111,11 @@
                         android:layout_marginRight="8dp"
                         android:layout_weight="1">
 
-                    <com.ng.ngleetcode.model.code.view.CodeView
+                    <com.ng.ngleetcode.old.model.code.view.CodeView
                             android:id="@+id/code_view"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
-                </com.ng.ngleetcode.view.rounded.RoundedFrameLayout>
+                </com.ng.ngleetcode.old.view.rounded.RoundedFrameLayout>
 
             </LinearLayout>
 

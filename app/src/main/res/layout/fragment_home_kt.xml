@@ -47,7 +47,7 @@
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <com.ng.ngleetcode.view.ToggleView
+        <com.ng.ngleetcode.old.view.ToggleView
             android:id="@+id/toggle_code"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -57,7 +57,7 @@
     </LinearLayout>
 
 
-    <com.ng.ngleetcode.view.rounded.RoundedFrameLayout
+    <com.ng.ngleetcode.old.view.rounded.RoundedFrameLayout
         android:id="@+id/codeContent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -65,12 +65,12 @@
         android:layout_marginRight="8dp"
         android:layout_weight="1">
 
-        <com.ng.ngleetcode.model.code.view.CodeView
+        <com.ng.ngleetcode.old.model.code.view.CodeView
             android:id="@+id/codeView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.ng.ngleetcode.view.rounded.RoundedFrameLayout>
+    </com.ng.ngleetcode.old.view.rounded.RoundedFrameLayout>
 
 
 </LinearLayout>
