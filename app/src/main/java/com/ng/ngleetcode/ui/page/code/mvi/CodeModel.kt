@@ -42,6 +42,11 @@ class CodeModel {
     var midRead = 0
     var hardCount = 0
     var hardRead = 0
+
+    var nowPro = 0
+    var allPro = 1
+
+
     for (codeStr in codeList) {
       if (codeStr.contains("Ⅰ_")) {
         easyCount++
@@ -60,10 +65,17 @@ class CodeModel {
         }
       }
     }
+    for ((_, state) in mCodeStateList) {
+      if (state == 1) {
+        nowPro++
+      }
+    }
+    allPro = 1.coerceAtLeast(easyCount + midCount + hardCount)
     return arrayOf(
       intArrayOf(easyRead, easyCount),
       intArrayOf(midRead, midCount),
       intArrayOf(hardRead, hardCount),
+      intArrayOf(nowPro, allPro),
     )
   }
 

@@ -8,6 +8,5 @@ import java.io.Serializable
  * @description :
  */
 data class CodeState(var name: String, var state: Int) : Serializable {
-
     constructor() : this("",0)
 }

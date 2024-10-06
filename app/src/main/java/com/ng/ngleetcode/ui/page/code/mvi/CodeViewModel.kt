@@ -12,7 +12,6 @@ class CodeViewModel(private val codeModel: CodeModel) : BaseViewModel(MyApp.inst
 
   private val _codeDrawerListState = mutableStateOf(CodeDrawerViewState())
 
-
   // 题库列表数据
   val codeDrawerListState: State<CodeDrawerViewState> = _codeDrawerListState
 
@@ -23,11 +22,13 @@ class CodeViewModel(private val codeModel: CodeModel) : BaseViewModel(MyApp.inst
         val codeList: List<CodeDirNode?> = codeModel.getDataList()
         val progressData: Array<IntArray> = codeModel.getProgressData()
 
+
         _codeDrawerListState.value = CodeDrawerViewState(
           codeListData = codeList,
           easyRead = progressData[0][0], easyCount = progressData[0][1],
           midRead = progressData[1][0], midCount = progressData[1][1],
           hardRead = progressData[2][0], hardCount = progressData[2][1],
+          nowPro = progressData[3][0], allPro = progressData[3][1]
         )
       }
       else -> {}
@@ -55,9 +56,12 @@ data class CodeDrawerViewState(
   val midCount: Int = 0,
   val hardRead: Int = 0,
   val hardCount: Int = 0,
-)
+  val nowPro: Int = 0,
+  val allPro: Int = 1,
 
+  )
 
+// 用户行为
 sealed class CodeViewAction {
   object Refresh : CodeViewAction()
 }

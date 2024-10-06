@@ -14,7 +14,6 @@ import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.theme.green1
 import com.ng.ngleetcode.theme.red
 import com.ng.ngleetcode.theme.warn
-import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import com.ng.ngleetcode.ui.page.code.widgets.CircularProgressLayout
 import com.ng.ngleetcode.ui.page.code.widgets.CodeDrawerGroupListView
@@ -50,18 +49,18 @@ fun CodeDrawerList(
 
       Column(modifier = Modifier.fillMaxHeight()) {
         Text(
-          text = "简单: " + viewStates.value.easyRead + " / " + viewStates.value.easyCount,
+          text = "简单:  " + viewStates.value.easyRead + " / " + viewStates.value.easyCount,
           color = green1,
           modifier = Modifier
             .weight(1f)
         )
         Text(
-          text = "中等: " + viewStates.value.midRead + " / " + viewStates.value.midCount,
+          text = "中等:  " + viewStates.value.midRead + " / " + viewStates.value.midCount,
           color = warn,
           modifier = Modifier.weight(1f)
         )
         Text(
-          text = "困难: " + viewStates.value.hardRead + " / " + viewStates.value.hardCount,
+          text = "困难:  " + viewStates.value.hardRead + " / " + viewStates.value.hardCount,
           color = red,
           modifier = Modifier.weight(1f)
         )
@@ -69,38 +68,6 @@ fun CodeDrawerList(
     }
     // 列表
     CodeDrawerGroupListView(groups = viewStates.value.codeListData)
-
   }
-
-  /*
-    val items =
-    listOf(
-      Icons.Default.AccountCircle,
-    )
-  val selectedItem = remember { mutableStateOf(items[0]) }
-  Column(Modifier.verticalScroll(rememberScrollState())) {
-    Spacer(Modifier.height(12.dp))
-    items.forEach { item ->
-      NavigationDrawerItem(
-        icon = { Icon(item, contentDescription = null) },
-        label = {
-          Text(
-            text = "size:" + codeViewModel.codeDrawerListState.value
-              .codeListData?.size
-          )
-        },
-        selected = item == selectedItem.value,
-        onClick = {
-          scope.launch { drawerState.close() }
-          selectedItem.value = item
-        },
-        modifier = Modifier.padding(NavigationDrawerItemDefaults.ItemPadding)
-      )
-    }
-  }
-   */
-
-  //刷新数据
-  codeViewModel.handIntent(CodeViewAction.Refresh)
 }
 

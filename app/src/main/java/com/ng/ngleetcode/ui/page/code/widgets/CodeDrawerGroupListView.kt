@@ -36,7 +36,7 @@ fun ExpandableGroup(group: CodeDirNode, index: Int) {
       modifier = Modifier
         .weight(1f)
         .padding(start = 8.dp),
-      fontSize = 16.sp
+      fontSize = 15.sp
     )
     IconButton(onClick = toggleExpanded) {
       Icon(
@@ -67,7 +67,8 @@ fun ExpandableItems(items: List<BaseNode>, expanded: Boolean) {
           text = codeNode.title,
           modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, top = 4.dp, bottom = 4.dp)
+            .padding(start = 16.dp, top = 6.dp, bottom = 6.dp),
+          fontSize = 10.sp
         )
       }
     }
