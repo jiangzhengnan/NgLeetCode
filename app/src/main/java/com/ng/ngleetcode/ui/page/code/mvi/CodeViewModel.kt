@@ -4,9 +4,9 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.BaseViewModel
 import com.ng.ngleetcode.MyApp
+import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
 
 class CodeViewModel(private val codeModel: CodeModel) : BaseViewModel(MyApp.instance) {
 
@@ -20,7 +20,7 @@ class CodeViewModel(private val codeModel: CodeModel) : BaseViewModel(MyApp.inst
   fun handIntent(intent: CodeViewAction) {
     when (intent) {
       is CodeViewAction.Refresh -> {
-        val codeList: List<BaseNode?> = codeModel.getDataList()
+        val codeList: List<CodeDirNode?> = codeModel.getDataList()
         val progressData: Array<IntArray> = codeModel.getProgressData()
 
         _codeDrawerListState.value = CodeDrawerViewState(
@@ -48,7 +48,7 @@ class CodeViewModelFactory(private val codeModel: CodeModel) : ViewModelProvider
 
 // 题库列表数据
 data class CodeDrawerViewState(
-  val codeListData: List<BaseNode?>? = null,
+  val codeListData: List<CodeDirNode?>? = null,
   val easyRead: Int = 0,
   val easyCount: Int = 0,
   val midRead: Int = 0,

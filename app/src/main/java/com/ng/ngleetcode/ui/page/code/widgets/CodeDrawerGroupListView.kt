@@ -1,39 +1,34 @@
 package com.ng.ngleetcode.ui.page.code.widgets
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.chad.library.adapter.base.entity.node.BaseNode
+import com.ng.ngleetcode.R
+import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
+import com.ng.ngleetcode.old.model.code.bean.CodeNode
+import com.ng.ngleetcode.theme.AppTheme
 
-
-data class Group(
-  val title: String,
-  val children: List<String>
-) {
-  val expandedState = mutableStateOf(false)
-}
 
 @Composable
-fun ExpandableGroup(group: Group, index: Int) {
+fun ExpandableGroup(group: CodeDirNode, index: Int) {
   val toggleExpanded: () -> Unit = { group.expandedState.value = !group.expandedState.value }
   Row(
     modifier = Modifier
       .fillMaxWidth()
-      .padding(8.dp),
+      .height(35.dp)
+      .clickable { toggleExpanded() },
     verticalAlignment = Alignment.CenterVertically
   ) {
     Text(
@@ -45,24 +40,34 @@ fun ExpandableGroup(group: Group, index: Int) {
     )
     IconButton(onClick = toggleExpanded) {
       Icon(
-        imageVector = if (group.expandedState.value) Icons.Default.ArrowDropDown else Icons
-          .Default.ArrowBack,
-        contentDescription = "Expand or collapse group"
+        painter = if (group.expandedState.value)
+          painterResource(id = R.drawable.ic_iv_down) else
+          painterResource(id = R.drawable.ic_iv_right),
+        contentDescription = "Expand or collapse group",
+        modifier = Modifier.size(15.dp)
       )
     }
   }
 }
 
 @Composable
-fun ExpandableItems(items: List<String>, expanded: Boolean) {
+fun ExpandableItems(items: List<BaseNode>, expanded: Boolean) {
   if (expanded) {
-    Column {
+    Column(modifier = Modifier.background(color = AppTheme.colors.mainColor)) {
       items.forEach { item ->
-        Text(
-          text = item,
+        val codeNode: CodeNode = item as CodeNode
+        Spacer(
           modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
+            .height(2.dp)
+            .padding(start = 16.dp)
+            .background(color = AppTheme.colors.card)
+        )
+        Text(
+          text = codeNode.title,
+          modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, top = 4.dp, bottom = 4.dp)
         )
       }
     }
@@ -70,14 +75,26 @@ fun ExpandableItems(items: List<String>, expanded: Boolean) {
 }
 
 @Composable
-fun CodeDrawerGroupListView(groups: List<Group>) {
+fun CodeDrawerGroupListView(groups: List<CodeDirNode?>?) {
+  if (groups.isNullOrEmpty()) {
+    return
+  }
   LazyColumn {
     items(
       items = groups,
-      key = { group -> group.title }
+      key = { group -> group?.title.toString() }
     ) { group ->
+      if (group == null) {
+        return@items
+      }
+      Spacer(
+        modifier = Modifier
+          .fillMaxWidth()
+          .height(2.dp)
+          .background(color = AppTheme.colors.mainColor)
+      )
       ExpandableGroup(group = group, index = 0)
-      ExpandableItems(items = group.children, expanded = group.expandedState.value)
+      ExpandableItems(items = group.childNode, expanded = group.expandedState.value)
     }
   }
 }

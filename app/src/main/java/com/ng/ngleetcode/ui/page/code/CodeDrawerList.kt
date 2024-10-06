@@ -18,7 +18,6 @@ import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import com.ng.ngleetcode.ui.page.code.widgets.CircularProgressLayout
 import com.ng.ngleetcode.ui.page.code.widgets.CodeDrawerGroupListView
-import com.ng.ngleetcode.ui.page.code.widgets.Group
 import kotlinx.coroutines.CoroutineScope
 
 /**
@@ -38,7 +37,7 @@ fun CodeDrawerList(
   Column(
     Modifier
       .fillMaxSize()
-      .background(AppTheme.colors.mainColor)
+      .background(AppTheme.colors.card)
   ) {
     // head布局
     Row(
@@ -69,7 +68,8 @@ fun CodeDrawerList(
       }
     }
     // 列表
-    TestList()
+    CodeDrawerGroupListView(groups = viewStates.value.codeListData)
+
   }
 
   /*
@@ -104,21 +104,3 @@ fun CodeDrawerList(
   codeViewModel.handIntent(CodeViewAction.Refresh)
 }
 
-
-@Composable
-fun TestList() {
-  val groups = remember { createGroupData() }
-  Box(modifier = Modifier.fillMaxSize()) {
-    CodeDrawerGroupListView(groups = groups)
-
-  }
-}
-
-
-fun createGroupData(): List<Group> {
-  return listOf(
-    Group("Group 1", listOf("Item 1-1", "Item 1-2", "Item 1-3")),
-    Group("Group 2", listOf("Item 2-1", "Item 2-2")),
-    Group("Group 3", listOf("Item 3-1", "Item 3-2", "Item 3-3", "Item 3-4"))
-  )
-}
