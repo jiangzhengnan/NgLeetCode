@@ -1,6 +1,7 @@
 package com.ng.ngleetcode.old.model.code.view;
 
 import java.util.Locale;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -189,6 +190,9 @@ public class CodeView extends WebView {
      * Define o código que será exibido.
      */
     public CodeView setCode(String code) {
+        if (Objects.equals(code, this.code)) {
+            return this;
+        }
         if (code == null) code = "";
         this.code = code;
         this.escapeCode = Html.escapeHtml(code);

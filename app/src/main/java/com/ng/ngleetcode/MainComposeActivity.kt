@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.*
 import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.ui.MainPage
+import com.ng.ngleetcode.ui.page.main.MainPage
 import com.ng.ngleetcode.ui.SplashPage
 
 /**

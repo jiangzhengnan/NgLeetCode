@@ -1,6 +1,7 @@
-package com.ng.ngleetcode.ui
+package com.ng.ngleetcode.ui.page.main
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.SnackbarHost
 import androidx.compose.material.rememberScaffoldState
@@ -15,7 +16,6 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.ng.ngleetcode.ui.page.code.CodePage
-import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage
 import com.ng.ngleetcode.ui.widgets.AppSnackBar
@@ -40,7 +40,7 @@ fun MainPage() {
     },
     content = {
       NavHost(
-        modifier = Modifier.background(MaterialTheme.colors.background),
+        modifier = Modifier.background(MaterialTheme.colors.background).fillMaxHeight(),
         navController = navCtrl,
         startDestination = RouteName.CODE
       ) {

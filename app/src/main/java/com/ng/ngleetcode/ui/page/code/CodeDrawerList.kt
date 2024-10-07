@@ -67,7 +67,12 @@ fun CodeDrawerList(
       }
     }
     // 列表
-    CodeDrawerGroupListView(groups = viewStates.value.codeListData)
+    CodeDrawerGroupListView(
+      groups = viewStates.value.codeListData,
+      codeViewModel,
+      scope,
+      drawerState
+    )
   }
 }
 

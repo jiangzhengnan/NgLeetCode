@@ -13,6 +13,7 @@ import com.ng.ngleetcode.old.model.code.bean.CodeNode
 import com.ng.ngleetcode.old.model.code.data.CodeState
 import com.ng.ngleetcode.old.model.code.data.ProblemRepository
 import java.io.IOException
+import java.util.*
 
 // todo jzn 待重构，目前逻辑很混乱，可以通过协程优化
 class CodeModel {
@@ -33,6 +34,15 @@ class CodeModel {
   //题库阅读状态, 每次赋值以后要设置为true
   private var needRefresh = false
 
+  /**
+   * 过滤后的题库集合
+   */
+  private var targetCodeList: MutableList<CodeNode> = ArrayList()
+
+  /**
+   * 当前显示的题 index
+   */
+  private var nowCodeIndex: Int = 0
 
   fun getProgressData(): Array<IntArray> {
     val codeList = ProblemRepository.getAssetsJavaCodeList(MyApp.CONTEXT)
@@ -181,5 +191,91 @@ class CodeModel {
     }
     needRefresh = true
     mSpCodeStateListJsonStr = JSON.toJSONString(mCodeStateList)
+  }
+
+  fun getRandomCode(): CodeNode {
+    //区分目录，得到题目
+    val codeList: MutableList<CodeNode> = ArrayList()
+    mLocalCodeData.forEach { menuNode ->
+      menuNode.childNode.filterIsInstance<CodeNode>().forEach {
+        codeList.add(it)
+      }
+    }
+    //得到未读的
+    val unReadList: MutableList<CodeNode> = ArrayList()
+    codeList.toList().forEach {
+      val state = getCodeState(it.title)
+      if (state == -1) {
+        unReadList.add(it)
+      }
+    }
+    //最终题目
+    if (unReadList.size > 1) {
+      nowCodeIndex = Random().nextInt(unReadList.size - 1)
+      targetCodeList = unReadList
+    } else {
+      nowCodeIndex = Random().nextInt(codeList.size - 1)
+      targetCodeList = codeList
+    }
+    val randomCode = targetCodeList[nowCodeIndex]
+    //设置状态(已读未读)
+    randomCode.state = getCodeState(randomCode.title)
+    randomCode.content =
+      ProblemRepository.readAssets(MyApp.CONTEXT, randomCode.contentPath).toString()
+    MLog.d("得到随机题 : $randomCode")
+    return randomCode
+  }
+
+  fun getCode(codeBean: CodeNode?): CodeNode? {
+    if (codeBean == null || codeBean.title.isEmpty()) {
+      return null
+    }
+    val title = codeBean.title
+    for (i in targetCodeList.indices) {
+      if (title.contains(targetCodeList[i].title) || targetCodeList[i].title.contains(title)) {
+        nowCodeIndex = i
+      }
+    }
+    codeBean.content =
+      ProblemRepository.readAssets(MyApp.CONTEXT, codeBean.contentPath).toString()
+    MLog.d("得到某个题 : $codeBean")
+    return codeBean
+  }
+
+  fun getLeftCode(): CodeNode? {
+    val targetIndex = nowCodeIndex - 1
+    if (targetIndex < 0) {
+      return null
+    }
+    nowCodeIndex--
+    MLog.d("showLeftCode : $nowCodeIndex")
+    return targetCodeList[nowCodeIndex].apply {
+      content = ProblemRepository.readAssets(MyApp.CONTEXT, contentPath).toString()
+    }
+  }
+
+  fun getRightCode(): CodeNode? {
+    val targetIndex = nowCodeIndex + 1
+    if (targetIndex >= targetCodeList.size) {
+      return null
+    }
+    nowCodeIndex++
+    MLog.d("showRightCode : $nowCodeIndex")
+    return targetCodeList[nowCodeIndex].apply {
+      content = ProblemRepository.readAssets(MyApp.CONTEXT, contentPath).toString()
+    }
+  }
+
+  fun toggleState(nowCodeData: CodeNode?): CodeNode? {
+    if (nowCodeData == null) {
+      return null
+    }
+    val state = if (nowCodeData.state == 1) 0 else 1
+    nowCodeData.state = state
+    //刷新内存数据
+    targetCodeList[nowCodeIndex] = nowCodeData
+    //刷新持久层数据
+    saveToLocalState(nowCodeData.title, state)
+    return nowCodeData
   }
 }

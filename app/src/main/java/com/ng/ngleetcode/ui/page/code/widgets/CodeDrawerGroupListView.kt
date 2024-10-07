@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.DrawerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -19,6 +20,10 @@ import com.ng.ngleetcode.R
 import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.old.model.code.bean.CodeNode
 import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
+import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 
 @Composable
@@ -51,7 +56,13 @@ fun ExpandableGroup(group: CodeDirNode, index: Int) {
 }
 
 @Composable
-fun ExpandableItems(items: List<BaseNode>, expanded: Boolean) {
+fun ExpandableItems(
+  items: List<BaseNode>,
+  expanded: Boolean,
+  codeViewModel: CodeViewModel,
+  scope: CoroutineScope,
+  drawerState: DrawerState,
+) {
   if (expanded) {
     Column(modifier = Modifier.background(color = AppTheme.colors.mainColor)) {
       items.forEach { item ->
@@ -67,8 +78,13 @@ fun ExpandableItems(items: List<BaseNode>, expanded: Boolean) {
           text = codeNode.title,
           modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 16.dp, top = 6.dp, bottom = 6.dp),
-          fontSize = 10.sp
+            .padding(start = 16.dp, top = 6.dp, bottom = 6.dp)
+            .clickable {
+              val showCodeAction = CodeViewAction.ShowCode(codeNode)
+              codeViewModel.handIntent(showCodeAction)
+              scope.launch { drawerState.close() }
+            },
+          fontSize = 10.sp,
         )
       }
     }
@@ -76,7 +92,12 @@ fun ExpandableItems(items: List<BaseNode>, expanded: Boolean) {
 }
 
 @Composable
-fun CodeDrawerGroupListView(groups: List<CodeDirNode?>?) {
+fun CodeDrawerGroupListView(
+  groups: List<CodeDirNode?>?,
+  codeViewModel: CodeViewModel,
+  scope: CoroutineScope,
+  drawerState: DrawerState,
+) {
   if (groups.isNullOrEmpty()) {
     return
   }
@@ -95,7 +116,10 @@ fun CodeDrawerGroupListView(groups: List<CodeDirNode?>?) {
           .background(color = AppTheme.colors.mainColor)
       )
       ExpandableGroup(group = group, index = 0)
-      ExpandableItems(items = group.childNode, expanded = group.expandedState.value)
+      ExpandableItems(
+        items = group.childNode, expanded = group.expandedState.value,
+        codeViewModel, scope, drawerState
+      )
     }
   }
 }
