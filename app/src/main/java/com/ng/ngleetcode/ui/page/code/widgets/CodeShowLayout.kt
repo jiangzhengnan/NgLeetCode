@@ -1,5 +1,7 @@
 package com.ng.ngleetcode.ui.page.code.widgets
 
+import android.annotation.SuppressLint
+import android.view.MotionEvent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -12,8 +14,11 @@ import com.ng.ngleetcode.old.model.code.view.Theme
 /**
  * 代码展示图
  */
+@SuppressLint("ClickableViewAccessibility")
 @Composable
-fun CodeShowLayout(data: CodeNode) {
+fun CodeShowLayout(
+  data: CodeNode, onTouchEvent: ((event: MotionEvent) -> Boolean)? = null
+) {
   AndroidView(
     modifier = Modifier.fillMaxSize(),
     factory = { context ->
@@ -28,6 +33,13 @@ fun CodeShowLayout(data: CodeNode) {
         startLineNumber = 0
 
         code = data.content
+
+        if (onTouchEvent != null) {
+          setOnTouchListener { _, event ->
+            onTouchEvent(event)
+          }
+        }
+
         apply()
       }
     },

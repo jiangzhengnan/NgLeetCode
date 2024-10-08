@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.ui.page.code
 
+import android.view.MotionEvent
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -8,6 +9,7 @@ import androidx.compose.material.AppBarDefaults
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.ng.base.utils.MLog
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.theme.black
@@ -35,15 +38,21 @@ fun CodePage(
   navCtrl: NavHostController,
   scaffoldState: ScaffoldState,
 ) {
+  var isInitialized by rememberSaveable { mutableStateOf(false) }
+
+
+  // 左侧列表滑动手势状态
+  var drawerScrollState by remember { mutableStateOf(true) }
+
   val codeModel = CodeModel()
   val codeViewModel: CodeViewModel = viewModel(factory = CodeViewModelFactory(codeModel))
 
   // 左侧抽屉列表数据
-  val codeViewStates = remember {
+  val codeDrawerViewStates by remember {
     codeViewModel.codeDrawerListState
   }
   // 当前正在展示的题目数据
-  val codeShowStates = remember {
+  val codeNode by remember {
     codeViewModel.codeShowState
   }
 
@@ -53,14 +62,27 @@ fun CodePage(
   ModalNavigationDrawer(
     drawerState = drawerState,
     drawerContent = {
-      ModalDrawerSheet {
-        CodeDrawerList(navCtrl, scaffoldState, scope, drawerState, codeViewModel)
+      ModalDrawerSheet(
+        modifier = Modifier
+          .width(250.dp)
+          .padding(bottom = 58.dp)
+      ) {
+        CodeDrawerList(
+          navCtrl,
+          scaffoldState,
+          scope,
+          drawerState,
+          codeViewModel,
+          codeDrawerViewStates
+        )
       }
     },
+    gesturesEnabled = drawerState.isOpen,
     content = {
       Column(
         modifier = Modifier
-          .fillMaxSize(),
+          .fillMaxSize()
+        ,
         horizontalAlignment = Alignment.CenterHorizontally
       ) {
 
@@ -107,14 +129,14 @@ fun CodePage(
         ) {
           val animatedProgress by
           animateFloatAsState(
-            targetValue = (codeViewStates.value.nowPro.toFloat() / codeViewStates.value.allPro.toFloat()),
+            targetValue = (codeDrawerViewStates.nowPro.toFloat() / codeDrawerViewStates.allPro.toFloat()),
             animationSpec = ProgressIndicatorDefaults.ProgressAnimationSpec
           )
           LinearProgressIndicator(
             modifier = Modifier.fillMaxSize(),
             progress = { animatedProgress })
           Text(
-            "${codeViewStates.value.nowPro} - ${codeViewStates.value.allPro}",
+            "${codeDrawerViewStates.nowPro} - ${codeDrawerViewStates.allPro}",
             fontSize = 11.sp,
             color = black,
             modifier = Modifier.align(Alignment.Center)
@@ -139,16 +161,16 @@ fun CodePage(
               .align(Alignment.CenterVertically)
           ) {
             Text(
-              text = codeShowStates.value.getMenuStr().toString(),
+              text = codeNode.getMenuStr().toString(),
               fontSize = 20.sp,
               color = black,
               fontWeight = FontWeight.Bold, // 设置字体为粗体
             )
           }
           Text(
-            text = codeShowStates.value.title,
+            text = codeNode.title,
             fontSize = 16.sp,
-            color = if (codeShowStates.value.state == 1) green3 else black,
+            color = if (codeNode.state == 1) green3 else black,
             fontWeight = FontWeight.Bold, // 设置字体为粗体
             modifier = Modifier
               .align(Alignment.CenterVertically)
@@ -163,9 +185,22 @@ fun CodePage(
             .fillMaxHeight(1f)
             .padding(start = 8.dp, end = 8.dp, bottom = 66.dp) // 这里底部间距有问题。
         ) {
-          CodeShowLayout(data = codeShowStates.value)
+          CodeShowLayout(data = codeNode, onTouchEvent = {
+            when (it.action) {
+              MotionEvent.ACTION_DOWN -> {
+                drawerScrollState = false
+                false
+              }
+              MotionEvent.ACTION_UP -> {
+                drawerScrollState = true
+                false
+              }
+              else -> {
+                false
+              }
+            }
+          })
         }
-
       }
     }
   )
@@ -176,23 +211,28 @@ fun CodePage(
       .fillMaxSize()
       .padding(bottom = 78.dp, end = 20.dp)  // 底部间距58
   ) {
-    // 控制菜单展开和折叠的状态
-    val (expanded, setExpanded) = remember { mutableStateOf(false) }
+
     FloatingActionMenu(
       modifier = Modifier
         .align(Alignment.BottomEnd),
-      expanded = expanded,
-      onExpandToggle = { setExpanded(!expanded) },
       codeViewModel
     )
   }
 
   // 数据初始化
   LaunchedEffect(true) {
-    // 请求刷新数据
-    codeViewModel.handIntent(CodeViewAction.Refresh)
-    // 随机得到一道题用来显示
-    codeViewModel.handIntent(CodeViewAction.GetRandomCode)
+    if (!isInitialized) {
+      // 请求刷新数据
+      codeViewModel.handIntent(CodeViewAction.Refresh)
+      // 随机得到一道题用来显示
+      codeViewModel.handIntent(CodeViewAction.GetRandomCode)
+
+      // 设置初始化状态为 true
+      isInitialized = true
+      MLog.d("CodePage组件请求数据")
+    }
+
+    MLog.d("CodePage组件重组")
   }
 
 }

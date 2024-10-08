@@ -12,7 +12,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,14 +25,15 @@ import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 @Composable
 fun FloatingActionMenu(
   modifier: Modifier,
-  expanded: Boolean,
-  onExpandToggle: () -> Unit,
   codeViewModel: CodeViewModel
 ) {
 
+  // 控制菜单展开和折叠的状态 （如果定义在CodePage中则会导致每次变化状态整体重组，这里要约束一下范围）
+  var expanded by remember { mutableStateOf(false) }
 
   Column(modifier = modifier) {
     // 子按钮，使用LazyColumn实现展开和折叠效果
+
     if (expanded) {
       LazyColumn(
         modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -62,7 +63,7 @@ fun FloatingActionMenu(
             codeViewModel.handIntent(CodeViewAction.ToggleCodeState)
           }, id = R.drawable.ic_baseline_check_24)
         }
-      }
+        }
     }
 
     // 主按钮
@@ -70,7 +71,7 @@ fun FloatingActionMenu(
       modifier = Modifier
         .size(40.dp)
         .align(Alignment.CenterHorizontally),
-      onClick = onExpandToggle
+      onClick = { expanded = !expanded }
     ) {
       Icon(
         imageVector = if (expanded) Icons.Default.Close else Icons.Default.Add,

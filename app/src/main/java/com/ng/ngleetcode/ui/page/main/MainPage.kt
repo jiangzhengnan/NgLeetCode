@@ -1,5 +1,7 @@
 package com.ng.ngleetcode.ui.page.main
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material.MaterialTheme
@@ -40,11 +42,21 @@ fun MainPage() {
     },
     content = {
       NavHost(
-        modifier = Modifier.background(MaterialTheme.colors.background).fillMaxHeight(),
+        modifier = Modifier
+          .background(MaterialTheme.colors.background)
+          .fillMaxHeight(),
         navController = navCtrl,
-        startDestination = RouteName.CODE
+        startDestination = RouteName.CODE,
+        //去掉渐入渐出动画
+        enterTransition = {
+          EnterTransition.None
+        },
+        exitTransition = {
+          ExitTransition.None
+        },
       ) {
-        //题库
+
+      //题库
         composable(route = RouteName.CODE) {
           CodePage(navCtrl, scaffoldState)
         }
