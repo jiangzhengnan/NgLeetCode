@@ -21,6 +21,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.R
+import com.ng.ngleetcode.old.model.code.view.CodeView
 import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.theme.black
 import com.ng.ngleetcode.theme.green3
@@ -37,9 +38,9 @@ import kotlinx.coroutines.launch
 fun CodePage(
   navCtrl: NavHostController,
   scaffoldState: ScaffoldState,
+  webViewState: MutableState<CodeView?>,
 ) {
   var isInitialized by rememberSaveable { mutableStateOf(false) }
-
 
   // 左侧列表滑动手势状态
   var drawerScrollState by remember { mutableStateOf(true) }
@@ -185,7 +186,7 @@ fun CodePage(
             .fillMaxHeight(1f)
             .padding(start = 8.dp, end = 8.dp, bottom = 66.dp) // 这里底部间距有问题。
         ) {
-          CodeShowLayout(data = codeNode, onTouchEvent = {
+          CodeShowLayout(webViewState, data = codeNode, onTouchEvent = {
             when (it.action) {
               MotionEvent.ACTION_DOWN -> {
                 drawerScrollState = false
