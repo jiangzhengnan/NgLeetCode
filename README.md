@@ -1,8 +1,7 @@
 # NgLeetCode
 ![Java](https://img.shields.io/badge/language-Java-red.svg)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=jiangzhengnan.ngleetcode.read.me)
-<br/>
- 尊贵且免费的多功能刷题本，可根据个人爱好进行各种定制<br /><table>
+<br/><br /><table>
 	<tr>
 		<th>题库主页</th>
 		<th>右滑列表</th>
