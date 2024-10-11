@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.ng.base.utils.SPreference
+import com.ng.ngleetcode.http.store.DataStoreUtils
 
 class MyApp : Application() {
 
@@ -21,5 +22,6 @@ class MyApp : Application() {
         instance = this
         CONTEXT = this
         SPreference.setContext(this)
+        DataStoreUtils.init(this)
     }
 }

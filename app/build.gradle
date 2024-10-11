@@ -86,5 +86,11 @@ dependencies {
 
     // CodeLocator
     implementation "com.bytedance.tools.codelocator:codelocator-core:2.0.4"
+    implementation 'androidx.paging:paging-compose-android:3.3.2'
+
+    //数据保存，用于cookie持久化
+    implementation "androidx.datastore:datastore-preferences:1.0.0-rc02"
+    implementation "androidx.datastore:datastore-core:1.0.0-rc02"
+
 
 }

@@ -24,7 +24,6 @@ import com.ng.ngleetcode.theme.BottomNavBarHeight
 import com.ng.ngleetcode.theme.white
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.page.web.WebData
-import com.ng.ngleetcode.ui.widgets.AppToolsBar
 import com.ng.ngleetcode.ui.widgets.ArrowRightListItem
 import com.ng.ngleetcode.ui.widgets.MainTitle
 import com.ng.ngleetcode.utils.RouteUtils
@@ -45,18 +44,18 @@ fun ProfilePage(
       .fillMaxSize()
       .background(color = AppTheme.colors.mainColor)
   ) {
-    AppToolsBar(title = "我的")
+//    AppToolsBar(title = "我的")
     // 头像 + 昵称
     Box(
       modifier = Modifier
         .fillMaxWidth()
-        .height(220.dp)
+        .height(180.dp)
         .background(color = AppTheme.colors.themeUi)
     ) {
       Column(
         modifier = Modifier
           .fillMaxWidth()
-          .padding(top = 40.dp)
+          .padding(top = 30.dp)
       ) {
         Image(
           painter = painterResource(id = R.mipmap.pumpkin_icon),

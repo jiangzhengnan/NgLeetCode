@@ -3,11 +3,7 @@ package com.ng.ngleetcode.old.composedemo.view
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.DashPathEffect
-import android.graphics.Paint
-import android.graphics.RectF
+import android.graphics.*
 import android.os.Build
 import android.view.View
 import android.view.animation.LinearInterpolator
@@ -31,6 +27,7 @@ class CircularAnimProgressView(context: Context) : View(context) {
   private var outRWidth = dip2px(13f)
   private var title = ""
   private var showStr = ""
+  private var showStr2 = ""
 
   private var lineEffect = DashPathEffect(floatArrayOf(1f, 15f), 0f)
   private var outRect: RectF = RectF()
@@ -104,9 +101,10 @@ class CircularAnimProgressView(context: Context) : View(context) {
     }
   }
 
-  fun setData(s1: String, s2: String) {
+  fun setData(s1: String, s2: String, s3: String) {
     title = s1
     showStr = s2
+    showStr2 = s3
     invalidate()
   }
 
@@ -135,7 +133,7 @@ class CircularAnimProgressView(context: Context) : View(context) {
     //文案
     mPaint.apply {
       color = Color.parseColor("#FFA500")
-      textSize = dip2px(17f)
+      textSize = dip2px(12f)
       pathEffect = null
       style = Paint.Style.FILL
     }
@@ -144,11 +142,16 @@ class CircularAnimProgressView(context: Context) : View(context) {
       centerX - mPaint.measureText(title) / 2,
       centerY - dip2px(20f), mPaint
     )
-    mPaint.textSize = dip2px(30f)
+    mPaint.textSize = dip2px(18f)
     canvas.drawText(
       showStr,
       centerX - mPaint.measureText(showStr) / 2,
       centerY + dip2px(20f), mPaint
+    )
+    canvas.drawText(
+      showStr,
+      centerX - mPaint.measureText(showStr) / 2,
+      centerY + dip2px(40f), mPaint
     )
     //外部弧
     canvas.save()
