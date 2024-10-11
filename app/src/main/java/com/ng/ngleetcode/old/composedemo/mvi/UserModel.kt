@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.compose.mvi
+package com.ng.ngleetcode.old.composedemo.mvi
 
 class UserModel() {
 

@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.ui.page.read
+package com.ng.ngleetcode.ui.page.statistics
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,18 +13,18 @@ import com.ng.ngleetcode.theme.BottomNavBarHeight
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
 
 @Composable
-fun ReadPage(
+fun StatisticsPage(
   navCtrl: NavHostController,
   scaffoldState: ScaffoldState,
 ) {
+
   Column(
     modifier = Modifier
       .padding(bottom = BottomNavBarHeight)
       .fillMaxSize()
       .background(color = AppTheme.colors.mainColor)
   ) {
-    AppToolsBar(title = "体系")
+    AppToolsBar(title = "统计")
 
   }
-
 }

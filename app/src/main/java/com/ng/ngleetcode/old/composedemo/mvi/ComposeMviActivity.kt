@@ -1,11 +1,9 @@
-package com.ng.ngleetcode.compose.mvi
+package com.ng.ngleetcode.old.composedemo.mvi
 
 import android.app.Application
 import android.os.Bundle
-import android.preference.PreferenceManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions

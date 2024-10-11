@@ -13,18 +13,24 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.ng.ngleetcode.old.model.code.view.CodeView
 import com.ng.ngleetcode.ui.page.code.CodePage
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage
+import com.ng.ngleetcode.ui.page.statistics.StatisticsPage
+import com.ng.ngleetcode.ui.page.web.WebData
+import com.ng.ngleetcode.ui.page.web.WebViewPage
 import com.ng.ngleetcode.ui.widgets.AppSnackBar
 import com.ng.ngleetcode.ui.widgets.BottomNavBarView
+import com.ng.ngleetcode.utils.fromJson
 
 @Composable
 fun MainPage() {
@@ -34,7 +40,7 @@ fun MainPage() {
   val scaffoldState = rememberScaffoldState()
 
   // 使用 remember 来确保 WebView 实例不会在重组时被重新创建
-  var webViewState = remember { mutableStateOf<CodeView?>(null) }
+  val webViewState = remember { mutableStateOf<CodeView?>(null) }
 
   Scaffold(
     modifier = Modifier
@@ -43,6 +49,7 @@ fun MainPage() {
     bottomBar = {
       when (currentDestination?.route) {
         RouteName.CODE -> BottomNavBarView(navCtrl = navCtrl)
+        RouteName.STATISTICS -> BottomNavBarView(navCtrl = navCtrl)
         RouteName.READ -> BottomNavBarView(navCtrl = navCtrl)
         RouteName.PROFILE -> BottomNavBarView(navCtrl = navCtrl)
       }
@@ -67,6 +74,11 @@ fun MainPage() {
           CodePage(navCtrl, scaffoldState, webViewState)
         }
 
+        //收藏
+        composable(route = RouteName.STATISTICS) {
+          StatisticsPage(navCtrl, scaffoldState)
+        }
+
         //阅读
         composable(route = RouteName.READ) {
           ReadPage(navCtrl, scaffoldState)
@@ -75,6 +87,17 @@ fun MainPage() {
         //我的
         composable(route = RouteName.PROFILE) {
           ProfilePage(navCtrl, scaffoldState)
+        }
+
+        //WebView
+        composable(
+          route = RouteName.WEB_VIEW + "/{webData}",
+          arguments = listOf(navArgument("webData") { type = NavType.StringType })
+        ) {
+          val args = it.arguments?.getString("webData")?.fromJson<WebData>()
+          if (args != null) {
+            WebViewPage(webData = args, navCtrl = navCtrl)
+          }
         }
 
       }
@@ -88,6 +111,7 @@ fun MainPage() {
       }
     }
   )
+
 }
 
 

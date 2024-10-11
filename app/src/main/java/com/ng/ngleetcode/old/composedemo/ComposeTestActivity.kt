@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.compose
+package com.ng.ngleetcode.old.composedemo
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.compose.view.CircularAnimProgressView
+import com.ng.ngleetcode.old.composedemo.view.CircularAnimProgressView
 import com.ng.ngleetcode.theme.AppTheme
 
 class ComposeTestActivity : ComponentActivity() {

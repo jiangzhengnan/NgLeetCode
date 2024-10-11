@@ -19,13 +19,13 @@
       android:theme="@style/AppTheme_Night">
 
         <activity
-          android:name=".compose.mvi.ComposeMviActivity"
+          android:name=".old.composedemo.mvi.ComposeMviActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true">
         </activity>
 
         <activity
-          android:name=".compose.ComposeListActivity"
+          android:name=".old.composedemo.ComposeListActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true">
         </activity>
@@ -43,7 +43,7 @@
         </activity>
 
         <activity
-          android:name=".compose.ComposeTestActivity"
+          android:name=".old.composedemo.ComposeTestActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true" />
 

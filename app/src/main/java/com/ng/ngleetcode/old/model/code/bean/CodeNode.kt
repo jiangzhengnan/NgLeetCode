@@ -15,6 +15,10 @@ data class CodeNode(
             .toTypedArray()[0]
     }
 
+    override fun toString(): String {
+        return "CodeNode(title='$title', id=$id, contentPath='$contentPath', state=$state, childNode=$childNode)"
+    }
+
 
     override val childNode: MutableList<BaseNode>? = null
 

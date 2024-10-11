@@ -25,6 +25,41 @@ import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * 可展开列表
+ */
+@Composable
+fun CodeDrawerGroupListView(
+  groups: List<CodeDirNode?>?,
+  codeViewModel: CodeViewModel,
+  scope: CoroutineScope,
+  drawerState: DrawerState,
+) {
+  if (groups.isNullOrEmpty()) {
+    return
+  }
+  LazyColumn {
+    items(
+      items = groups,
+      key = { group -> group?.title.toString() }
+    ) { group ->
+      if (group == null) {
+        return@items
+      }
+      Spacer(
+        modifier = Modifier
+          .fillMaxWidth()
+          .height(2.dp)
+          .background(color = AppTheme.colors.mainColor)
+      )
+      ExpandableGroup(group = group, index = 0)
+      ExpandableItems(
+        items = group.childNode, expanded = group.expandedState.value,
+        codeViewModel, scope, drawerState
+      )
+    }
+  }
+}
 
 @Composable
 fun ExpandableGroup(group: CodeDirNode, index: Int) {
@@ -87,39 +122,6 @@ fun ExpandableItems(
           fontSize = 10.sp,
         )
       }
-    }
-  }
-}
-
-@Composable
-fun CodeDrawerGroupListView(
-  groups: List<CodeDirNode?>?,
-  codeViewModel: CodeViewModel,
-  scope: CoroutineScope,
-  drawerState: DrawerState,
-) {
-  if (groups.isNullOrEmpty()) {
-    return
-  }
-  LazyColumn {
-    items(
-      items = groups,
-      key = { group -> group?.title.toString() }
-    ) { group ->
-      if (group == null) {
-        return@items
-      }
-      Spacer(
-        modifier = Modifier
-          .fillMaxWidth()
-          .height(2.dp)
-          .background(color = AppTheme.colors.mainColor)
-      )
-      ExpandableGroup(group = group, index = 0)
-      ExpandableItems(
-        items = group.childNode, expanded = group.expandedState.value,
-        codeViewModel, scope, drawerState
-      )
     }
   }
 }

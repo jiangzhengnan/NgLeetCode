@@ -12,7 +12,7 @@ import com.ng.ngleetcode.old.model.code.view.Language
 import com.ng.ngleetcode.old.model.code.view.Theme
 
 /**
- * 代码展示图
+ * 代码展示组件
  */
 @SuppressLint("ClickableViewAccessibility")
 @Composable

@@ -57,9 +57,9 @@ class CircularProgressView(context: Context) : View(context) {
         if (viewData.easyCount == 0 || viewData.midCount == 0 || viewData.hardCount == 0) {
             return
         }
-        this.mEasyPro = viewData.easyRead / viewData.easyCount * 360F
-        this.mMidPro = viewData.midRead / viewData.midCount * 360F
-        this.mHardPro = viewData.hardRead / viewData.hardCount * 360F
+        this.mEasyPro = viewData.easyRead.toFloat() / viewData.easyCount.toFloat() * 360F
+        this.mMidPro = viewData.midRead.toFloat() / viewData.midCount.toFloat() * 360F
+        this.mHardPro = viewData.hardRead.toFloat() / viewData.hardCount.toFloat() * 360F
         invalidate()
     }
 

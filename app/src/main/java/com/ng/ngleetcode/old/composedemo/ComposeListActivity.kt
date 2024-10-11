@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.compose
+package com.ng.ngleetcode.old.composedemo
 
 import android.os.Bundle
 import android.widget.Toast
@@ -22,7 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.compose.ComposeListActivity.UserData.messages
+import com.ng.ngleetcode.old.composedemo.ComposeListActivity.UserData.messages
 
 //实现一个列表
 class ComposeListActivity : ComponentActivity() {

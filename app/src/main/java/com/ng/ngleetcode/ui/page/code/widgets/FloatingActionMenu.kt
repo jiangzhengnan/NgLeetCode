@@ -22,6 +22,9 @@ import com.ng.ngleetcode.R
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 
+/**
+ * 悬浮按钮组件（支持展开）
+ */
 @Composable
 fun FloatingActionMenu(
   modifier: Modifier,

@@ -80,7 +80,7 @@ public class ProblemUtil {
             @Override
             public void run() {
                 //输出目录到readme
-                ProgressUtil.refreshReadMe();
+                //ProgressUtil.refreshReadMe();
                 //输出所有题目到assets
                 ProblemUtil.copyJavaToAssets();
             }

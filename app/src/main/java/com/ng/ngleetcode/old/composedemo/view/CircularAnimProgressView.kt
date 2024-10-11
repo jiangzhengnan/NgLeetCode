@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.compose.view
+package com.ng.ngleetcode.old.composedemo.view
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -9,7 +9,6 @@ import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.graphics.RectF
 import android.os.Build
-import android.util.AttributeSet
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.annotation.RequiresApi

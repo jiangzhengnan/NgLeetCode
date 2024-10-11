@@ -22,9 +22,7 @@ import androidx.navigation.NavHostController
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.old.model.code.view.CodeView
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.black
-import com.ng.ngleetcode.theme.green3
+import com.ng.ngleetcode.theme.*
 import com.ng.ngleetcode.ui.page.code.mvi.CodeModel
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
@@ -46,6 +44,7 @@ fun CodePage(
   var drawerScrollState by remember { mutableStateOf(true) }
 
   val codeModel = CodeModel()
+
   val codeViewModel: CodeViewModel = viewModel(factory = CodeViewModelFactory(codeModel))
 
   // 左侧抽屉列表数据
@@ -66,7 +65,7 @@ fun CodePage(
       ModalDrawerSheet(
         modifier = Modifier
           .width(250.dp)
-          .padding(bottom = 58.dp)
+          .padding(bottom = BottomNavBarHeight)
       ) {
         CodeDrawerList(
           navCtrl,
@@ -103,7 +102,7 @@ fun CodePage(
               )
             }
           },
-          modifier = Modifier.height(40.dp),
+          modifier = Modifier.height(ToolBarHeight),
           navigationIcon = {
             IconButton(onClick = { scope.launch { drawerState.open() } }) {
               Icon(
@@ -210,7 +209,7 @@ fun CodePage(
   Box(
     modifier = Modifier
       .fillMaxSize()
-      .padding(bottom = 78.dp, end = 20.dp)  // 底部间距58
+      .padding(bottom = BottomNavBarHeight + 20.dp, end = 20.dp)  // 底部间距58
   ) {
 
     FloatingActionMenu(
@@ -220,8 +219,9 @@ fun CodePage(
     )
   }
 
-  // 数据初始化
-  LaunchedEffect(true) {
+  DisposableEffect(Unit) {
+    MLog.d("CodePage组件 - onStart")
+
     if (!isInitialized) {
       // 请求刷新数据
       codeViewModel.handIntent(CodeViewAction.Refresh)
@@ -232,8 +232,25 @@ fun CodePage(
       isInitialized = true
       MLog.d("CodePage组件请求数据")
     }
-
-    MLog.d("CodePage组件重组")
+    onDispose {
+      MLog.d("CodePage组件 - onStart - onDispose")
+    }
   }
+
+//  // 数据初始化
+//  LaunchedEffect(true) {
+//    if (!isInitialized) {
+//      // 请求刷新数据
+//      codeViewModel.handIntent(CodeViewAction.Refresh)
+//      // 随机得到一道题用来显示
+//      codeViewModel.handIntent(CodeViewAction.GetRandomCode)
+//
+//      // 设置初始化状态为 true
+//      isInitialized = true
+//      MLog.d("CodePage组件请求数据")
+//    }
+//
+//    MLog.d("CodePage组件重组")
+//  }
 
 }
