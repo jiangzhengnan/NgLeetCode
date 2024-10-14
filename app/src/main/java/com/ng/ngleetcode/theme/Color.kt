@@ -1,14 +1,15 @@
 package com.ng.ngleetcode.theme
 
 import androidx.compose.ui.graphics.Color
-import com.ng.ngleetcode.MyApp
 import com.ng.ngleetcode.R
+import com.ng.ngleetcode.app.MyApp
 
 
 val Transparent = Color(0x00000000)
 
 val themeColor = Color(MyApp.CONTEXT.resources.getColor(R.color.color_primary))
 val splashText = Color(0x25000000)
+val hintText = Color(0xFF999999)
 val white = Color(0xFFFFFFFF)
 val white1 = Color(0xFFF7F7F7)
 val white2 = Color(0xFFEDEDED)

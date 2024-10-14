@@ -72,8 +72,11 @@ fun SplashPage(activity: ComponentActivity, onNextPage: () -> Unit) {
     } else if (permissionState.shouldShowRationale) {
       ToastUtils.showShort(activity, "没有权限!")
     } else {
+      ToastUtils.showShort(activity, "没有权限，需要申请")
       LaunchedEffect(permissionState) {
         permissionState.launchMultiplePermissionRequest()
+
+        onNextPage.invoke()
       }
     }
 

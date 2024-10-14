@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import com.ng.base.utils.MLog
 
 /**
  * 路由名称
@@ -54,7 +55,7 @@ object RouteUtils {
                 }
             }
         }
-        println("导航到： $destinationName")
+        MLog.d("导航到： $destinationName$singleArgument")
         navCtrl.navigate("$destinationName$singleArgument") {
             if (backStackRouteName != null) {
                 popUpTo(backStackRouteName) { saveState = true }

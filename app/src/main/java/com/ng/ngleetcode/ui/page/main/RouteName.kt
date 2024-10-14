@@ -9,11 +9,13 @@ object RouteName {
 
     // 阅读
     const val READ = "read"
+
     // 我的
     const val PROFILE = "profile"
 
+    // web页
     const val WEB_VIEW = "web_view"
 
-
-    const val ARTICLE_SEARCH = "article_search"
+    // 体系文章列表
+    const val ARTICLE_LIST = "article_list"
 }

@@ -6,7 +6,7 @@ import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.base.utils.MLog
 import com.ng.base.utils.SPreference
 import com.ng.code.util.IdGenerator
-import com.ng.ngleetcode.MyApp
+import com.ng.ngleetcode.app.MyApp
 import com.ng.ngleetcode.old.constants.SpConstants
 import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.old.model.code.bean.CodeNode

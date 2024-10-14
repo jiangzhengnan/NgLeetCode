@@ -5,7 +5,7 @@ import com.franmontiel.persistentcookiejar.ClearableCookieJar
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.ng.ngleetcode.MyApp
+import com.ng.ngleetcode.app.MyApp
 import com.ng.ngleetcode.http.interceptor.CacheCookieInterceptor
 import com.ng.ngleetcode.old.constants.ApiConstants
 import com.ng.ngleetcode.old.constants.Constants

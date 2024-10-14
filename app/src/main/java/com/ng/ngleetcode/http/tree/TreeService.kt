@@ -1,5 +1,6 @@
-package com.ng.ngleetcode.http
+package com.ng.ngleetcode.http.tree
 
+import com.ng.ngleetcode.http.*
 import retrofit2.http.*
 
 /**
@@ -7,7 +8,7 @@ import retrofit2.http.*
  * 注意：接口前无需加斜杠
  * create by Mqz at 4/19
  */
-interface HttpService {
+interface TreeService {
 
     companion object {
         const val url = "https://www.wanandroid.com"
@@ -75,10 +76,10 @@ interface HttpService {
         @Query("cid") cid: Int
     ): BasicBean<ListWrapper<Article>>
 
-    //某个体系下的文章列表
-    @GET("/article/list/{page}/json")
+    //某个体系下的文章列表  todo jzn
+    @GET("/article/list/{pageNum}/json")
     suspend fun getStructureArticles(
-        @Path("page") page: Int,
+        @Path("pageNum") page: Int,
         @Query("cid") cid: Int
     ): BasicBean<ListWrapper<Article>>
 

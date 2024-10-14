@@ -15,9 +15,11 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.http.ParentBean
 import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.ui.widgets.ListTitle
+import com.ng.ngleetcode.utils.RouteUtils
 
 /**
  * 体系
@@ -44,12 +46,12 @@ fun StructurePage(
             viewStates.dataList.forEachIndexed { position, chapter1 ->
                 stickyHeader { ListTitle(title = chapter1.name ?: "标题") }
                 item {
-                    StructureItem(chapter1, onSelect = { parent ->
-//                        RouteUtils.navTo(
-//                            navCtrl = navCtrl,
-//                            destinationName = RouteName.WEB_VIEW,
-//                            args = WebData(title = chapter1.name, url = chapter1.link.toString())
-//                        )
+                    StructureItem(chapter1, onSelect = { bean ->
+                        RouteUtils.navTo(
+                            navCtrl = navCtrl,
+                            destinationName = RouteName.ARTICLE_LIST,
+                            args = bean
+                        )
                     })
                     if (position <= viewStates.size - 1) {
                         Divider(

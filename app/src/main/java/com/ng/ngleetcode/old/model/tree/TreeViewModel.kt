@@ -3,7 +3,7 @@ package com.ng.ngleetcode.old.model.tree
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ng.base.BaseViewModel
-import com.ng.ngleetcode.MyApp
+import com.ng.ngleetcode.app.MyApp
 import com.ng.ngleetcode.old.model.tree.bean.ArticleListBean
 import com.ng.ngleetcode.old.model.tree.http.http.TreeRepo
 
