@@ -84,6 +84,9 @@ dependencies {
     //placeholder
     implementation "com.google.accompanist:accompanist-placeholder-material:$accompanistVersion"
 
+    //权限申请
+    implementation "com.google.accompanist:accompanist-permissions:$accompanistVersion"
+
     // CodeLocator
     implementation "com.bytedance.tools.codelocator:codelocator-core:2.0.4"
     implementation 'androidx.paging:paging-compose-android:3.3.2'

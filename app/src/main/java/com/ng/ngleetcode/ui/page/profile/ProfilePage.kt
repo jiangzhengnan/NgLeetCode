@@ -81,14 +81,14 @@ fun ProfilePage(
       )
     }
 
-    // 清除缓存
+    // 重置进度（清除缓存）
     ArrowRightListItem(
       iconRes = Icons.Default.Settings,
-      title = "清除缓存"
+      title = "重置进度"
     ) {
       profileViewModel.handIntent(ProfileViewAction.ClearCache)
       scope.launch {
-        scaffoldState.snackbarHostState.showSnackbar("清除缓存成功", null, SnackbarDuration.Short)
+        scaffoldState.snackbarHostState.showSnackbar("重置进度成功", null, SnackbarDuration.Short)
       }
     }
 

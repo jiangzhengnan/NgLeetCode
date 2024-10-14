@@ -7,9 +7,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.ng.ngleetcode.http.HttpService
-import com.ng.ngleetcode.http.PageState
-import com.ng.ngleetcode.http.ParentBean
+import com.ng.ngleetcode.http.*
+import com.ng.ngleetcode.old.model.tree.http.http.TreeRepo
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -19,9 +18,11 @@ class StructureViewModel(
   var viewStates by mutableStateOf(StructureViewState())
     private set
 
-  init {
-    dispatch(StructureViewAction.FetchData)
-  }
+  private val repo by lazy { TreeRepo() }
+
+//  init {
+//    dispatch(StructureViewAction.FetchData)
+//  }
 
   fun dispatch(action: StructureViewAction) {
     when (action) {
@@ -32,7 +33,7 @@ class StructureViewModel(
   private fun fetchData() {
     viewModelScope.launch {
       flow {
-        emit(service.getStructureList())
+        emit(ApiRepo.getHttpService().getStructureList())
       }.map {
         it.data ?: emptyList()
       }.onStart {

@@ -12,7 +12,6 @@ import com.ng.ngleetcode.R
 import com.ng.ngleetcode.old.constants.SpConstants
 import com.ng.ngleetcode.old.model.code.data.CodeState
 import com.ng.ngleetcode.old.model.code.data.ProblemRepository
-import com.ng.ngleetcode.old.model.code.view.CircularProgressView
 
 class HeadProvider : BaseNodeProvider() {
     override val itemViewType = 3
@@ -59,12 +58,12 @@ class HeadProvider : BaseNodeProvider() {
                 }
             }
         }
-
-        helper.getView<CircularProgressView>(R.id.progress_circular).setValue(
-            (easyRead / easyCount.toFloat()),
-            (midRead / midCount.toFloat()),
-            (hardRead / hardCount.toFloat())
-        )
+//
+//        helper.getView<CircularProgressView>(R.id.progress_circular).setValue(
+//            (easyRead / easyCount.toFloat()),
+//            (midRead / midCount.toFloat()),
+//            (hardRead / hardCount.toFloat())
+//        )
 
         helper.getView<TextView>(R.id.progress_easy).text = "$easyRead/$easyCount"
         helper.getView<TextView>(R.id.progress_mid).text = "$midRead/$midCount"

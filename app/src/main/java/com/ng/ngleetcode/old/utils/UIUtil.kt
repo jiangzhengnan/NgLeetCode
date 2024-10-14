@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import com.ng.ngleetcode.old.app.MyApplication
+import com.ng.ngleetcode.MyApp
 
 /**
  * @ProjectName: DXZS
@@ -32,7 +32,7 @@ object UIUtil {
     }
 
     private fun getContext(): Context {
-        return MyApplication.instance
+        return MyApp.instance
     }
 
     fun sp2px(context: Context?, spVal: Float): Float {

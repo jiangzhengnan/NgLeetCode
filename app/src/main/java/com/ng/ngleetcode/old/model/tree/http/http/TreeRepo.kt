@@ -1,8 +1,8 @@
-package com.ng.ngleetcode.old.model.tree.http
+package com.ng.ngleetcode.old.model.tree.http.http
 
+import com.ng.ngleetcode.http.RetrofitManager
 import com.ng.ngleetcode.old.model.tree.bean.ArticleListBean
-import com.ng.ngleetcode.old.model.tree.http.http.ApiService
-import com.ng.ngleetcode.old.model.tree.http.http.RetrofitManager
+import com.ng.ngleetcode.old.model.tree.http.BaseRepository
 
 class TreeRepo : BaseRepository() {
 

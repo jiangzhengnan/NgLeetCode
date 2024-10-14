@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.old.composedemo.view.CircularAnimProgressView
 import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.theme.BottomNavBarHeight
 import com.ng.ngleetcode.theme.black
@@ -61,7 +60,7 @@ fun StatisticsPage(
       )
     )
 
-    //todo jzn 实现一个列表
+    //todo jzn 实现收藏列表
 
   }
 }

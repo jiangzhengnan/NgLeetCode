@@ -5,9 +5,9 @@ import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import com.ng.ngleetcode.old.model.tree.http.http.IOUtils;
-import com.ng.ngleetcode.old.model.tree.http.http.OkLogger;
-import com.zs.base_library.http.JsonUtil;
+import com.ng.ngleetcode.http.IOUtils;
+import com.ng.ngleetcode.http.OkLogger;
+import com.ng.ngleetcode.http.JsonUtil;
 import okhttp3.Connection;
 import okhttp3.Headers;
 import okhttp3.Interceptor;

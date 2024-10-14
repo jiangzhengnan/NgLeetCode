@@ -14,5 +14,10 @@
     <color name="tab3_color">#0C77E8</color>
 
     <color name="color_gray_dark1">#333333</color>
+    <color name="circular_arc_bg">#b7ebf1</color>
+    <color name="circular_arc1">#5ca9ec</color>
+    <color name="circular_arc2">#2295eb</color>
+    <color name="circular_arc3">#2c85d0</color>
+    <color name="circular_arc_tv">#2295eb</color>
 
 </resources>

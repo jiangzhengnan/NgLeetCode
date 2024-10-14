@@ -96,6 +96,6 @@ sealed class CodeViewAction {
   object ShowLeftCode : CodeViewAction() //左划到下一道题
   object ShowRightCode : CodeViewAction() //右划到下一道题
   object ToggleCodeState : CodeViewAction() //修改当前题的已读标志
-  class ShowCode(val codeBean: CodeNode?) : CodeViewAction()// 展示某道题
+  data class ShowCode(val codeBean: CodeNode?) : CodeViewAction()// 展示某道题
 
 }

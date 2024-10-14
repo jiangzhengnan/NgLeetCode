@@ -1,10 +1,11 @@
-package com.ng.ngbaselib.permission
+package com.ng.base.permission
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.MutableLiveData
+import com.ng.ngbaselib.permission.PermissionFragment
+import com.ng.ngbaselib.permission.PermissionResult
 
 /**
  * 单例模式权限管理类，抽离权限申请的回调逻辑到fragment中

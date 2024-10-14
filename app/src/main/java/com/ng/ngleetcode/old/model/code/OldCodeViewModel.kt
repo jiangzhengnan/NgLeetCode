@@ -9,7 +9,7 @@ import com.ng.base.BaseViewModel
 import com.ng.base.utils.MLog
 import com.ng.base.utils.SPreference
 import com.ng.code.util.IdGenerator
-import com.ng.ngleetcode.old.app.MyApplication
+import com.ng.ngleetcode.MyApp
 import com.ng.ngleetcode.old.constants.SpConstants
 import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
 import com.ng.ngleetcode.old.model.code.bean.CodeNode
@@ -25,7 +25,7 @@ import java.util.*
  *    @creation   : 2023/05/12
  *    @description   :
  */
-class OldCodeViewModel : BaseViewModel(MyApplication.instance) {
+class OldCodeViewModel : BaseViewModel(MyApp.instance) {
 
     /**
      * 题库集合

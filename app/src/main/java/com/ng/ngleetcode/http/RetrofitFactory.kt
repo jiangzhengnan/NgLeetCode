@@ -1,21 +1,25 @@
-package com.ng.ngleetcode.old.model.tree.http.http
+package com.ng.ngleetcode.http
 
 import com.franmontiel.persistentcookiejar.ClearableCookieJar
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
-import com.ng.ngleetcode.old.app.MyApplication
+import com.ng.ngleetcode.MyApp
+import com.ng.ngleetcode.http.interceptor.CacheCookieInterceptor
 import com.ng.ngleetcode.old.constants.ApiConstants
 import com.ng.ngleetcode.old.constants.Constants
-import com.ng.ngleetcode.old.model.tree.http.HttpLoggingInterceptor
+import com.zj.wanandroid.data.http.interceptor.SetCookieInterceptor
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.security.SecureRandom
 import java.util.concurrent.TimeUnit
 import java.util.logging.Level
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLSocketFactory
 
 /**
  * des Retrofit工厂类
@@ -36,9 +40,27 @@ object RetrofitFactory {
                     TimeUnit.MILLISECONDS
                 )
                 .addInterceptor(getLogInterceptor())
+                .addInterceptor(SetCookieInterceptor())
+                .addInterceptor(CacheCookieInterceptor())
                 .cookieJar(getCookie())
+                //不验证证书
+                .sslSocketFactory(createSSLSocketFactory())
+                .hostnameVerifier(TrustAllNameVerifier())
                 .cache(getCache())
         }
+
+
+    private fun createSSLSocketFactory(): SSLSocketFactory {
+        lateinit var ssfFactory: SSLSocketFactory
+        try {
+            val sslFactory = SSLContext.getInstance("TLS")
+            sslFactory.init(null,  arrayOf(TrustAllCerts()), SecureRandom());
+            ssfFactory = sslFactory.socketFactory
+        } catch (e: Exception) {
+            print("SSL错误：${e.message}")
+        }
+        return ssfFactory
+    }
 
     fun factory(): Retrofit {
         val okHttpClient = okHttpClientBuilder.build()
@@ -66,7 +88,7 @@ object RetrofitFactory {
     private fun getCookie(): ClearableCookieJar {
         return PersistentCookieJar(
             SetCookieCache(),
-            SharedPrefsCookiePersistor(MyApplication.instance)
+            SharedPrefsCookiePersistor(MyApp.instance)
         )
     }
 
@@ -75,7 +97,8 @@ object RetrofitFactory {
      */
     private fun getCache():Cache{
         //缓存100Mb
-        return Cache( File(MyApplication.instance.cacheDir, "cache")
-            , 1024 * 1024 * 100)
+        return Cache(
+            File(MyApp.instance.cacheDir, "cache"), 1024 * 1024 * 100
+        )
     }
 }

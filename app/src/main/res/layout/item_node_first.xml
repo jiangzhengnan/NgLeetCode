@@ -8,14 +8,14 @@
         android:layout_height="wrap_content">
 
 
-    <com.ng.ngleetcode.old.model.code.view.CircularProgressView
-            android:id="@+id/progress_circular"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="10dp"
-            android:layout_width="90dp"
-            android:layout_height="90dp" />
+<!--    <com.ng.ngleetcode.old.model.code.view.CircularProgressView-->
+<!--            android:id="@+id/progress_circular"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp" />-->
 
     <TextView
             android:layout_marginTop="10dp"

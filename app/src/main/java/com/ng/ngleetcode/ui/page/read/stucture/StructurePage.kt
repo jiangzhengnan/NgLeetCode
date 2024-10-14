@@ -5,21 +5,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
+import com.ng.base.utils.MLog
 import com.ng.ngleetcode.http.ApiCall
 import com.ng.ngleetcode.http.ParentBean
 import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.ui.page.main.RouteName
-import com.ng.ngleetcode.ui.page.web.WebData
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.ui.widgets.ListTitle
-import com.ng.ngleetcode.utils.RouteUtils
 
 /**
  * 体系
@@ -47,11 +46,11 @@ fun StructurePage(
                 stickyHeader { ListTitle(title = chapter1.name ?: "标题") }
                 item {
                     StructureItem(chapter1, onSelect = { parent ->
-                        RouteUtils.navTo(
-                            navCtrl = navCtrl,
-                            destinationName = RouteName.WEB_VIEW,
-                            args = WebData(title = chapter1.name, url = chapter1.link.toString())
-                        )
+//                        RouteUtils.navTo(
+//                            navCtrl = navCtrl,
+//                            destinationName = RouteName.WEB_VIEW,
+//                            args = WebData(title = chapter1.name, url = chapter1.link.toString())
+//                        )
                     })
                     if (position <= viewStates.size - 1) {
                         Divider(
@@ -66,6 +65,22 @@ fun StructurePage(
 
         }
     }
+
+    var isInitialized by rememberSaveable { mutableStateOf(false) }
+    DisposableEffect(Unit) {
+        MLog.d("StructurePage - onStart")
+
+        if (!isInitialized) {
+            viewModel.dispatch(StructureViewAction.FetchData)
+            // 设置初始化状态为 true
+            isInitialized = true
+            MLog.d("StructurePage - fetchData")
+        }
+        onDispose {
+            MLog.d("StructurePage - onDispose")
+        }
+    }
+
 }
 
 @Composable

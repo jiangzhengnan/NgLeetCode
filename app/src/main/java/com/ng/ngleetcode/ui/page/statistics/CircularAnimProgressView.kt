@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.old.composedemo.view
+package com.ng.ngleetcode.ui.page.statistics
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -6,8 +6,10 @@ import android.content.Context
 import android.graphics.*
 import android.os.Build
 import android.view.View
-import android.view.animation.LinearInterpolator
+import android.view.animation.BounceInterpolator
 import androidx.annotation.RequiresApi
+import com.ng.ngleetcode.R
+import com.ng.ngleetcode.old.utils.UIUtil
 import kotlin.math.min
 
 /**
@@ -48,8 +50,8 @@ class CircularAnimProgressView(context: Context) : View(context) {
       style = Paint.Style.STROKE
     }
     degreeAnim = ValueAnimator.ofFloat(-100f, 260f)
-    degreeAnim.duration = 80 * 1000
-    degreeAnim.interpolator = LinearInterpolator()
+    degreeAnim.duration = 100 * 1000
+    degreeAnim.interpolator = BounceInterpolator()
     degreeAnim.repeatCount = -1
     degreeAnim.addUpdateListener { animation ->
       nowAnimDegree = animation.animatedValue as Float
@@ -60,6 +62,7 @@ class CircularAnimProgressView(context: Context) : View(context) {
 
   var lastTime = 0L
   var state = 1
+
   private fun postLineAnim() {
     val nowTime = System.currentTimeMillis()
     if (nowTime - lastTime < (1000 / 60)) {
@@ -118,13 +121,13 @@ class CircularAnimProgressView(context: Context) : View(context) {
     }
     mPaint.setShadowLayer(
       dip2px(50f), 0f, 0f,
-      Color.parseColor("#44FFA500")
+      UIUtil.getColor(R.color.circular_arc_bg)
     )
     canvas.drawCircle(centerX, centerY, centerR, mPaint)
     mPaint.setShadowLayer(0f, 0f, 0f, Color.TRANSPARENT)
     // 中心点点小圈边
     mPaint.apply {
-      color = Color.parseColor("#FFA500")
+      color = UIUtil.getColor(R.color.circular_arc3)
       pathEffect = lineEffect
       style = Paint.Style.STROKE
       strokeWidth = dip2px(0.5f)
@@ -132,7 +135,7 @@ class CircularAnimProgressView(context: Context) : View(context) {
     canvas.drawCircle(centerX, centerY, centerR - dip2px(4f), mPaint)
     //文案
     mPaint.apply {
-      color = Color.parseColor("#FFA500")
+      color = UIUtil.getColor(R.color.circular_arc_tv)
       textSize = dip2px(12f)
       pathEffect = null
       style = Paint.Style.FILL
@@ -170,6 +173,7 @@ class CircularAnimProgressView(context: Context) : View(context) {
     canvas.save()
     canvas.rotate(nowAnimDegree, centerX, centerY)
 
+    mPaint.color = UIUtil.getColor(R.color.circular_arc1)
     //弧1
     var tempDegree = nowAnimDegree
     canvas.drawArc(
@@ -178,14 +182,14 @@ class CircularAnimProgressView(context: Context) : View(context) {
     tempDegree += c1Line
     tempDegree += 20f
     //弧2
-    mPaint.color = Color.parseColor("#F4A460")
+    mPaint.color = UIUtil.getColor(R.color.circular_arc2)
     canvas.drawArc(
       outRect, tempDegree, c2Line, false, mPaint
     )
     tempDegree += c2Line
     tempDegree += 20f
     //弧3
-    mPaint.color = Color.parseColor("#FFA500")
+    mPaint.color = UIUtil.getColor(R.color.circular_arc3)
     canvas.drawArc(
       outRect, tempDegree, c3Line, false, mPaint
     )
@@ -202,6 +206,11 @@ class CircularAnimProgressView(context: Context) : View(context) {
     } else {
       degreeAnim.start()
     }
+  }
+
+  override fun onAttachedToWindow() {
+    super.onAttachedToWindow()
+    start()
   }
 
   override fun onDetachedFromWindow() {

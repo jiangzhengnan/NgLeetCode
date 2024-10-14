@@ -233,7 +233,7 @@ fun CodePage(
       MLog.d("CodePage组件请求数据")
     }
     onDispose {
-      MLog.d("CodePage组件 - onStart - onDispose")
+      MLog.d("CodePage组件 - onDispose")
     }
   }
 

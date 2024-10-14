@@ -1,4 +1,4 @@
-package com.zs.base_library.http
+package com.ng.ngleetcode.http
 
 object JsonUtil {
     /**
