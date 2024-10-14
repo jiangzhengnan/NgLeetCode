@@ -10,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
-import com.ng.ngleetcode.http.ApiCall
 import com.ng.ngleetcode.http.NaviWrapper
 import com.ng.ngleetcode.http.WebData
 import com.ng.ngleetcode.theme.AppTheme
@@ -22,7 +21,7 @@ import com.ng.ngleetcode.ui.widgets.ListTitle
 @Composable
 fun NaviPage(
   navCtrl: NavHostController,
-  viewModel: NaviViewModel = viewModel(factory = NaviViewModelFactory(ApiCall.retrofit))
+  viewModel: NaviViewModel = viewModel()
 ) {
   val viewStates = viewModel.viewStates
 
@@ -61,8 +60,8 @@ fun NaviItem(
 ) {
   Column(
     modifier = Modifier
-        .fillMaxWidth()
-        .padding(horizontal = 10.dp)
+      .fillMaxWidth()
+      .padding(horizontal = 10.dp)
   ) {
     if (isLoading) {
       ListTitle(title = "我是标题")

@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.http.ApiCall
 import com.ng.ngleetcode.http.ParentBean
 import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.theme.white1
@@ -26,7 +25,7 @@ import com.ng.ngleetcode.theme.white1
 @Composable
 fun PublicAccountPage(
   navCtrl: NavHostController,
-  viewModel: PubAccountViewModel = viewModel(factory = PubAccountViewModelFactory(ApiCall.retrofit))
+  viewModel: PubAccountViewModel = viewModel()
 ) {
   val viewStates = viewModel.viewStates
 

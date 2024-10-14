@@ -13,7 +13,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
 import com.ng.base.utils.MLog
-import com.ng.ngleetcode.http.ApiCall
 import com.ng.ngleetcode.http.ParentBean
 import com.ng.ngleetcode.theme.AppTheme
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
@@ -27,7 +26,7 @@ import com.ng.ngleetcode.ui.widgets.ListTitle
 @Composable
 fun StructurePage(
     navCtrl: NavHostController,
-    viewModel: StructureViewModel = viewModel(factory = StructureViewModelFactory(ApiCall.retrofit))
+    viewModel: StructureViewModel = viewModel()
 ) {
     val viewStates = viewModel.viewStates
 

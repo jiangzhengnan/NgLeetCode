@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.http
 
+import android.annotation.SuppressLint
 import com.franmontiel.persistentcookiejar.ClearableCookieJar
 import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
@@ -16,10 +17,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.security.SecureRandom
+import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import java.util.logging.Level
-import javax.net.ssl.SSLContext
-import javax.net.ssl.SSLSocketFactory
+import javax.net.ssl.*
 
 /**
  * des Retrofit工厂类
@@ -101,4 +102,22 @@ object RetrofitFactory {
             File(MyApp.instance.cacheDir, "cache"), 1024 * 1024 * 100
         )
     }
+}
+
+
+class TrustAllNameVerifier: HostnameVerifier {
+    @SuppressLint("BadHostnameVerifier")
+    override fun verify(hostname: String?, session: SSLSession?): Boolean = true
+}
+
+@SuppressLint("CustomX509TrustManager")
+class TrustAllCerts : X509TrustManager {
+
+    @SuppressLint("TrustAllX509TrustManager")
+    override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+
+    @SuppressLint("TrustAllX509TrustManager")
+    override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
+
+    override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
 }
