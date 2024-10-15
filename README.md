@@ -1,212 +1,54 @@
 # NgLeetCode
+<br/> Kotlin+Compose编写的刷题项目，基于单Activity+Navigation+多Compose架构。<br />
 ![Java](https://img.shields.io/badge/language-Java-red.svg)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=jiangzhengnan.ngleetcode.read.me)
-<br/><br /><table>
+<table>
 	<tr>
 		<th>题库主页</th>
 		<th>右滑列表</th>
+  		<th>做题统计</th>
+		<th>知识体系</th>
+		<th>个人主页</th>
+
 	</tr>
 	<tr>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.jpg" height = 400/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.png" height = 400/>
 		  </td>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpg" height = 400/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpng" height = 400/>
+		  </td>
+    		  <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show3.jpng" height = 400/>
+		  </td>
+    		  <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show4.jpng" height = 400/>
+		  </td>
+    		  <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show5.jpng" height = 400/>
 		  </td>
 	</tr>
 </table><br />
 
-# 题库
-## 二叉树
-* [Ⅱ_二叉树的镜像](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉树的镜像.java)
-* [Ⅱ_判断是不是平衡二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是平衡二叉树.java)
-* [Ⅱ_完全二叉树的结点个数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_完全二叉树的结点个数.java)
-* [Ⅱ_按之字形顺序打印二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_按之字形顺序打印二叉树.java)
-* [Ⅱ_对称二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_对称二叉树.java)
-* [Ⅱ_二叉搜索树与双向链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉搜索树与双向链表.java)
-* [Ⅱ_从前序与中序遍历序列构造二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_从前序与中序遍历序列构造二叉树.java)
-* [Ⅲ_二叉树中最长的连续序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅲ_二叉树中最长的连续序列.java)
-* [Ⅱ_判断是不是二叉搜索树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是二叉搜索树.java)
-* [Ⅱ_二叉搜索树的最近公共祖先](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉搜索树的最近公共祖先.java)
-* [Ⅱ_实现二叉树先序中序和后序遍历](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_实现二叉树先序中序和后序遍历.java)
-* [Ⅱ_二叉树中和为某一值的路径一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉树中和为某一值的路径一.java)
-* [Ⅱ_二叉树展开为链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉树展开为链表.java)
-* [Ⅱ_二叉树的右视图](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉树的右视图.java)
-* [Ⅰ_二叉树的直径](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅰ_二叉树的直径.java)
-* [Ⅱ_将有序数组转换为二叉搜索树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_将有序数组转换为二叉搜索树.java)
-* [Ⅰ_合并二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅰ_合并二叉树.java)
-* [Ⅱ_判断是不是完全二叉树](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_判断是不是完全二叉树.java)
-* [Ⅱ_二叉树的最近公共祖先](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉树的最近公共祖先.java)
-* [Ⅰ_求二叉树的层序遍历](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅰ_求二叉树的层序遍历.java)
-* [Ⅱ_二叉搜索树中第K小的元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二叉树/Ⅱ_二叉搜索树中第K小的元素.java)
-## 字符串
-* [Ⅱ_无重复字符的最长子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_无重复字符的最长子串.java)
-* [Ⅱ_字符串解码](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串解码.java)
-* [Ⅰ_有效的括号](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅰ_有效的括号.java)
-* [Ⅱ_大数加法](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_大数加法.java)
-* [Ⅱ_字符串转换整数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串转换整数.java)
-* [Ⅱ_至少有K个重复字符的最长子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_至少有K个重复字符的最长子串.java)
-* [Ⅱ_验证IP地址](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_验证IP地址.java)
-* [Ⅱ_字符串变形](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字符串变形.java)
-* [Ⅲ_字符串相乘](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅲ_字符串相乘.java)
-* [Ⅰ_最长公共前缀](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅰ_最长公共前缀.java)
-* [Ⅱ_字母异位词分组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/字符串/Ⅱ_字母异位词分组.java)
-## 滑动窗口
-* [Ⅱ_找到字符串中所有字母异位词](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/滑动窗口/Ⅱ_找到字符串中所有字母异位词.java)
-* [Ⅱ_滑动窗口的最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/滑动窗口/Ⅱ_滑动窗口的最大值.java)
-## 二分法
-* [Ⅲ_数组中的逆序对](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅲ_数组中的逆序对.java)
-* [Ⅱ_比较版本号](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_比较版本号.java)
-* [Ⅱ_搜索旋转排序数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_搜索旋转排序数组.java)
-* [Ⅱ_二分迭代求数组中两个最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_二分迭代求数组中两个最大值.java)
-* [Ⅰ_二维数组中的查找](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_二维数组中的查找.java)
-* [Ⅰ_搜索插入位置](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_搜索插入位置.java)
-* [Ⅱ_H指数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅱ_H指数.java)
-* [Ⅰ_二分查找一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_二分查找一.java)
-* [Ⅰ_寻找峰值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/二分法/Ⅰ_寻找峰值.java)
-## 双指针
-* [Ⅰ_删除有序数组中的重复项](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_删除有序数组中的重复项.java)
-* [Ⅰ_验证回文串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_验证回文串.java)
-* [Ⅲ_接雨水问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅲ_接雨水问题.java)
-* [Ⅰ_反转字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_反转字符串.java)
-* [Ⅱ_合并区间](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_合并区间.java)
-* [Ⅱ_最长无重复子数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_最长无重复子数组.java)
-* [Ⅲ_最小覆盖子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅲ_最小覆盖子串.java)
-* [Ⅰ_合并两个有序的数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_合并两个有序的数组.java)
-* [Ⅰ_盛水最多的容器](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_盛水最多的容器.java)
-* [Ⅰ_合并两个有序链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_合并两个有序链表.java)
-* [Ⅱ_反转字符串中的单词](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_反转字符串中的单词.java)
-* [Ⅱ_删除有序数组中的重复项II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_删除有序数组中的重复项II.java)
-* [Ⅱ_两个数组的交集](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅱ_两个数组的交集.java)
-* [Ⅰ_移动零](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/双指针/Ⅰ_移动零.java)
-## 数字
-* [Ⅱ_除自身以外数组的乘积](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_除自身以外数组的乘积.java)
-* [Ⅱ_阶乘后的零](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_阶乘后的零.java)
-* [Ⅱ_x的平方根](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_x的平方根.java)
-* [Ⅱ_快乐数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_快乐数.java)
-* [Ⅱ_分数到小数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_分数到小数.java)
-* [Ⅱ_整数反转](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_整数反转.java)
-* [Ⅱ_逆波兰表达式求值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/数字/Ⅱ_逆波兰表达式求值.java)
-## 动态规划
-* [Ⅲ_最长公共子序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_最长公共子序列.java)
-* [Ⅱ_把数字翻译成字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_把数字翻译成字符串.java)
-* [Ⅱ_最长公共子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_最长公共子串.java)
-* [Ⅲ_编辑距离一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_编辑距离一.java)
-* [Ⅱ_最小花费爬楼梯](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_最小花费爬楼梯.java)
-* [Ⅱ_矩形覆盖](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_矩形覆盖.java)
-* [Ⅱ_单词拆分](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_单词拆分.java)
-* [Ⅱ_解码方法](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_解码方法.java)
-* [Ⅱ_礼物的最大价值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_礼物的最大价值.java)
-* [Ⅱ_乘积最大子数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_乘积最大子数组.java)
-* [Ⅰ_买卖股票的最好时机一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_买卖股票的最好时机一.java)
-* [Ⅲ_买卖股票的最好时机三](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_买卖股票的最好时机三.java)
-* [Ⅱ_连续子数组的最大和二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_连续子数组的最大和二.java)
-* [Ⅱ_打家劫舍二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_打家劫舍二.java)
-* [Ⅱ_不同路径的数目一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_不同路径的数目一.java)
-* [Ⅱ_矩阵的最小路径和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_矩阵的最小路径和.java)
-* [Ⅲ_交错字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_交错字符串.java)
-* [Ⅰ_连续子数组的最大和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_连续子数组的最大和.java)
-* [Ⅰ_最长上升子序列一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_最长上升子序列一.java)
-* [Ⅲ_最长回文子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_最长回文子串.java)
-* [Ⅲ_接雨水](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅲ_接雨水.java)
-* [Ⅱ_兑换零钱一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_兑换零钱一.java)
-* [Ⅰ_买卖股票的最好时机二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_买卖股票的最好时机二.java)
-* [Ⅱ_最长不含重复字符的子字符串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_最长不含重复字符的子字符串.java)
-* [Ⅱ_打家劫舍一](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅱ_打家劫舍一.java)
-* [Ⅰ_斐波那契数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/动态规划/Ⅰ_斐波那契数.java)
-## 哈希
-* [Ⅱ_缺失的第一个正整数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_缺失的第一个正整数.java)
-* [Ⅱ_四数相加](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_四数相加.java)
-* [Ⅱ_最长连续序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_最长连续序列.java)
-* [Ⅱ_只出现一次的数字](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_只出现一次的数字.java)
-* [Ⅱ_和为K的子数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_和为K的子数组.java)
-* [Ⅱ_三数之和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/哈希/Ⅱ_三数之和.java)
-## 位运算
-* [Ⅱ_颠倒二进制位](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅱ_颠倒二进制位.java)
-* [Ⅰ_汉明距离](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅰ_汉明距离.java)
-* [Ⅱ_两整数之和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅱ_两整数之和.java)
-* [Ⅰ_比特位计数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/位运算/Ⅰ_比特位计数.java)
-## 排序
-* [Ⅱ_桶排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_桶排序.java)
-* [Ⅱ_希尔排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_希尔排序.java)
-* [Ⅱ_颜色分类](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_颜色分类.java)
-* [Ⅰ_冒泡排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_冒泡排序.java)
-* [Ⅰ_快速排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_快速排序.java)
-* [Ⅰ_插入排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_插入排序.java)
-* [Ⅱ_归并排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_归并排序.java)
-* [Ⅰ_选择排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅰ_选择排序.java)
-* [Ⅱ_堆排序](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/排序/Ⅱ_堆排序.java)
-## 栈堆队列
-* [Ⅱ_栈的压入弹出序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_栈的压入弹出序列.java)
-* [Ⅰ_翻转单词序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅰ_翻转单词序列.java)
-* [Ⅱ_数据流中的中位数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_数据流中的中位数.java)
-* [Ⅰ_最小的K个数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅰ_最小的K个数.java)
-* [Ⅲ_滑动窗口最大值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅲ_滑动窗口最大值.java)
-* [Ⅱ_寻找第K大](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_寻找第K大.java)
-* [Ⅱ_表达式求值](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_表达式求值.java)
-* [Ⅱ_前K个高频元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_前K个高频元素.java)
-* [Ⅰ_最小栈](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅰ_最小栈.java)
-* [Ⅱ_基本计算器II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_基本计算器II.java)
-* [Ⅱ_最长的括号子串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/栈堆队列/Ⅱ_最长的括号子串.java)
-## 模拟
-* [Ⅱ_旋转图像](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_旋转图像.java)
-* [Ⅱ_设计LRU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_设计LRU缓存结构.java)
-* [Ⅱ_螺旋矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_螺旋矩阵.java)
-* [Ⅱ_被围绕的区域](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_被围绕的区域.java)
-* [Ⅱ_O1时间插入删除和获取随机元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_O1时间插入删除和获取随机元素.java)
-* [Ⅱ_顺时针旋转矩阵](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅱ_顺时针旋转矩阵.java)
-* [Ⅲ_设计LFU缓存结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅲ_设计LFU缓存结构.java)
-* [Ⅰ_旋转数组](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/模拟/Ⅰ_旋转数组.java)
-## 贪心算法
-* [Ⅱ_跳跃游戏](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏.java)
-* [Ⅲ_下一个排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅲ_下一个排列.java)
-* [Ⅱ_主持人调度二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_主持人调度二.java)
-* [Ⅱ_跳跃游戏Ⅱ](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_跳跃游戏Ⅱ.java)
-* [Ⅱ_分糖果问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_分糖果问题.java)
-* [Ⅱ_加油站](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_加油站.java)
-* [Ⅱ_最大数](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最大数.java)
-* [Ⅱ_最长递增子序列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/贪心算法/Ⅱ_最长递增子序列.java)
-## 链表
-* [Ⅱ_排序链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_排序链表.java)
-* [Ⅱ_删除排序链表中的重复元素II](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_删除排序链表中的重复元素II.java)
-* [Ⅲ_K个一组翻转链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅲ_K个一组翻转链表.java)
-* [Ⅱ_删除链表的倒数第n个节点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_删除链表的倒数第n个节点.java)
-* [Ⅱ_链表相加二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_链表相加二.java)
-* [Ⅱ_排序奇升偶降链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_排序奇升偶降链表.java)
-* [Ⅰ_链表中倒数最后k个结点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅰ_链表中倒数最后k个结点.java)
-* [Ⅱ_两两交换链表中的节点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_两两交换链表中的节点.java)
-* [Ⅰ_删除排序链表中的重复元素](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅰ_删除排序链表中的重复元素.java)
-* [Ⅱ_反转链表二](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_反转链表二.java)
-* [Ⅱ_环形链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_环形链表.java)
-* [Ⅲ_合并k个已排序的链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅲ_合并k个已排序的链表.java)
-* [Ⅱ_复制带随机指针的链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_复制带随机指针的链表.java)
-* [Ⅱ_相交链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_相交链表.java)
-* [Ⅰ_链表反转](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅰ_链表反转.java)
-* [Ⅱ_奇偶链表](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_奇偶链表.java)
-* [Ⅱ_链表中环的入口结点](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_链表中环的入口结点.java)
-* [Ⅱ_判断一个链表是否为回文结构](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/链表/Ⅱ_判断一个链表是否为回文结构.java)
-## 多线程
-* [Consumer](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Consumer.java)
-* [Producer](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Producer.java)
-* [Ⅰ_两个线程交替打印](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Ⅰ_两个线程交替打印.java)
-* [Ⅰ_生产者消费者模式](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/多线程/Ⅰ_生产者消费者模式.java)
-## 暂未分类
-* [Ⅰ_Ⅱ_Ⅲ_TemplateTestClass](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/Ⅰ_Ⅱ_Ⅲ_TemplateTestClass.java)
-## 递归回溯
-* [Ⅲ_N皇后问题](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅲ_N皇后问题.java)
-* [Ⅱ_组合总和](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_组合总和.java)
-* [Ⅱ_岛屿数量](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_岛屿数量.java)
-* [Ⅱ_括号生成](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_括号生成.java)
-* [Ⅱ_子集](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_子集.java)
-* [Ⅱ_数字字符串转化成IP地址](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_数字字符串转化成IP地址.java)
-* [Ⅱ_分割回文串](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_分割回文串.java)
-* [Ⅱ_电话号码的字母组合](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_电话号码的字母组合.java)
-* [Ⅱ_单词搜索](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_单词搜索.java)
-* [Ⅱ_字母迷宫](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_字母迷宫.java)
-* [Ⅱ_组合总和2](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_组合总和2.java)
-* [Ⅱ_矩阵最长递增路径](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_矩阵最长递增路径.java)
-* [Ⅱ_组合总和3](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_组合总和3.java)
-* [Ⅱ_全排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_全排列.java)
-* [Ⅱ_全排列2](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_全排列2.java)
-* [Ⅱ_有重复项数字的全排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_有重复项数字的全排列.java)
-* [Ⅱ_字符串的排列](https://github.com/jiangzhengnan/NgLeetCode/tree/master/code/src/main/java/com/ng/code/menu/递归回溯/Ⅱ_字符串的排列.java)
+
+
+## 待做
+- [x] 收藏功能
+- [x] 存储逻辑使用协程重构
+
+
+## License
+
+    Copyright 2021, Jiang Zhengnan
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
