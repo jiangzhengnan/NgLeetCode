@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.ng.base.utils.SPreference
-import com.ng.ngleetcode.http.store.DataStoreUtils
+import com.ng.ngleetcode.app.http.store.DataStoreUtils
 
 class MyApp : Application() {
 

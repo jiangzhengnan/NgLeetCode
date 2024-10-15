@@ -16,8 +16,8 @@ import androidx.navigation.NavHostController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.BottomNavBarHeight
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.BottomNavBarHeight
 import com.ng.ngleetcode.ui.page.read.navi.NaviPage
 import com.ng.ngleetcode.ui.page.read.pubaccount.PublicAccountPage
 import com.ng.ngleetcode.ui.page.read.stucture.StructurePage

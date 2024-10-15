@@ -21,8 +21,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
-import com.ng.ngleetcode.http.ParentBean
-import com.ng.ngleetcode.old.model.code.view.CodeView
+import com.ng.ngleetcode.app.http.ParentBean
+import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.code.CodePage
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage

@@ -4,7 +4,7 @@ import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Snackbar
 import androidx.compose.material.SnackbarData
 import androidx.compose.runtime.Composable
-import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.app.theme.AppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

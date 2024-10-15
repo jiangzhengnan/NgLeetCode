@@ -17,9 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.http.ParentBean
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.white1
+import com.ng.ngleetcode.app.http.ParentBean
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.white1
 
 @ExperimentalFoundationApi
 @Composable

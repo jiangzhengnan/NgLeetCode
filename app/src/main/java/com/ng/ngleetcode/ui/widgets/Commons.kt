@@ -26,10 +26,10 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.H5
-import com.ng.ngleetcode.theme.ToolBarHeight
-import com.ng.ngleetcode.theme.ToolBarTitleSize
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.H5
+import com.ng.ngleetcode.app.theme.ToolBarHeight
+import com.ng.ngleetcode.app.theme.ToolBarTitleSize
 import com.ng.ngleetcode.ui.page.main.BottomNavRoute
 import com.ng.ngleetcode.ui.page.read.TabTitle
 

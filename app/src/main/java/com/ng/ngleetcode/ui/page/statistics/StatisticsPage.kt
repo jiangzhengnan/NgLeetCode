@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.BottomNavBarHeight
-import com.ng.ngleetcode.theme.black
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.BottomNavBarHeight
+import com.ng.ngleetcode.app.theme.black
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
 
 @Composable

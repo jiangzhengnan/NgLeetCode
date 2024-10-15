@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import com.ng.ngleetcode.old.model.code.view.CircularProgressView
 import com.ng.ngleetcode.ui.page.code.mvi.CodeDrawerViewState
 
 /**

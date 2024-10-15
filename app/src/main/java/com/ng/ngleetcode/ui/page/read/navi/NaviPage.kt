@@ -10,9 +10,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
-import com.ng.ngleetcode.http.NaviWrapper
-import com.ng.ngleetcode.http.WebData
-import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.app.http.NaviWrapper
+import com.ng.ngleetcode.app.http.WebData
+import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.ui.widgets.ListTitle

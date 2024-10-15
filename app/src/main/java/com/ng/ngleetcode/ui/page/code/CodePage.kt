@@ -21,8 +21,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.old.model.code.view.CodeView
-import com.ng.ngleetcode.theme.*
+import com.ng.ngleetcode.app.theme.*
+import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.code.mvi.CodeModel
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel

@@ -15,9 +15,9 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.placeholder.material.placeholder
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.H7
-import com.ng.ngleetcode.theme.ListTitleHeight
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.H7
+import com.ng.ngleetcode.app.theme.ListTitleHeight
 
 
 @Composable

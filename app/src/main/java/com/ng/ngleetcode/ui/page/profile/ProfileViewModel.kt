@@ -2,7 +2,7 @@ package com.ng.ngleetcode.ui.page.profile
 
 import androidx.lifecycle.ViewModel
 import com.ng.base.utils.SPreference
-import com.ng.ngleetcode.old.constants.SpConstants
+import com.ng.ngleetcode.app.constants.SpConstants
 
 class ProfileViewModel : ViewModel() {
 

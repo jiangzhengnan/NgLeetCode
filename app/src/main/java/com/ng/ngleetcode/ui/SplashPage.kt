@@ -20,8 +20,8 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.ng.base.utils.ToastUtils
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.white
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.white
 import kotlinx.coroutines.delay
 
 /**

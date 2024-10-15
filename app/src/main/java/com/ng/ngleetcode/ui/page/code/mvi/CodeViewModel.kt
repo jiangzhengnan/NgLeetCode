@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ng.base.BaseViewModel
 import com.ng.ngleetcode.app.MyApp
-import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
-import com.ng.ngleetcode.old.model.code.bean.CodeNode
+import com.ng.ngleetcode.ui.page.code.bean.CodeDirNode
+import com.ng.ngleetcode.ui.page.code.bean.CodeNode
 
 class CodeViewModel(private val codeModel: CodeModel) : BaseViewModel(MyApp.instance) {
 

@@ -9,10 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.green1
-import com.ng.ngleetcode.theme.red
-import com.ng.ngleetcode.theme.warn
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.green1
+import com.ng.ngleetcode.app.theme.red
+import com.ng.ngleetcode.app.theme.warn
 import com.ng.ngleetcode.ui.page.code.mvi.CodeDrawerViewState
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import com.ng.ngleetcode.ui.page.code.widgets.CircularProgressLayout

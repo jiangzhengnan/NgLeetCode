@@ -6,10 +6,10 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.ng.ngleetcode.http.ApiRepo
-import com.ng.ngleetcode.http.Article
-import com.ng.ngleetcode.http.ListWrapper
-import com.ng.ngleetcode.http.PageState
+import com.ng.ngleetcode.app.http.ApiRepo
+import com.ng.ngleetcode.app.http.Article
+import com.ng.ngleetcode.app.http.ListWrapper
+import com.ng.ngleetcode.app.http.PageState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

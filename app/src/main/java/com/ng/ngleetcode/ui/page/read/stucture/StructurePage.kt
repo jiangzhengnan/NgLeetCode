@@ -13,8 +13,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.flowlayout.FlowRow
 import com.ng.base.utils.MLog
-import com.ng.ngleetcode.http.ParentBean
-import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.app.http.ParentBean
+import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage

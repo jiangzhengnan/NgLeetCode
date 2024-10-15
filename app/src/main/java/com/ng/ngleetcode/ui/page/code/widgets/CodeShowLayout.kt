@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import com.ng.ngleetcode.old.model.code.bean.CodeNode
-import com.ng.ngleetcode.old.model.code.view.CodeView
-import com.ng.ngleetcode.old.model.code.view.Language
-import com.ng.ngleetcode.old.model.code.view.Theme
+import com.ng.ngleetcode.ui.page.code.bean.CodeNode
 
 /**
  * 代码展示组件
@@ -24,7 +21,9 @@ fun CodeShowLayout(
   AndroidView(
     modifier = Modifier.fillMaxSize(),
     factory = { context ->
-      webViewState.value ?: CodeView(context).apply {
+      webViewState.value ?: CodeView(
+        context
+      ).apply {
         webViewState.value = this
         theme = Theme.ANDROIDSTUDIO
         language = Language.JAVA

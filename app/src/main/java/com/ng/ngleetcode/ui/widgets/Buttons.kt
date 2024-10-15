@@ -21,10 +21,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.placeholder.material.placeholder
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.buttonCorner
-import com.ng.ngleetcode.theme.buttonHeight
-import com.ng.ngleetcode.theme.white1
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.buttonCorner
+import com.ng.ngleetcode.app.theme.buttonHeight
+import com.ng.ngleetcode.app.theme.white1
 import org.jetbrains.annotations.NotNull
 
 

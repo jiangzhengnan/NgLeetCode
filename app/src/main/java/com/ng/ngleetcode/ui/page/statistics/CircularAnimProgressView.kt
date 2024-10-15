@@ -9,7 +9,7 @@ import android.view.View
 import android.view.animation.BounceInterpolator
 import androidx.annotation.RequiresApi
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.old.utils.UIUtil
+import com.ng.ngleetcode.utils.UIUtil
 import kotlin.math.min
 
 /**

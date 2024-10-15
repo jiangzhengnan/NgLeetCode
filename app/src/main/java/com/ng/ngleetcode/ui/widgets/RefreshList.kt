@@ -23,7 +23,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.app.theme.AppTheme
 
 @Composable
 fun <T : Any> RefreshList(

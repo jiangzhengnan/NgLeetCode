@@ -6,10 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ng.ngleetcode.http.ApiRepo
-import com.ng.ngleetcode.http.PageState
-import com.ng.ngleetcode.http.ParentBean
-import com.ng.ngleetcode.old.model.tree.http.http.TreeRepo
+import com.ng.ngleetcode.app.http.ApiRepo
+import com.ng.ngleetcode.app.http.PageState
+import com.ng.ngleetcode.app.http.ParentBean
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -17,7 +16,6 @@ class StructureViewModel() : ViewModel() {
   var viewStates by mutableStateOf(StructureViewState())
     private set
 
-  private val repo by lazy { TreeRepo() }
 
 //  init {
 //    dispatch(StructureViewAction.FetchData)

@@ -17,9 +17,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.chad.library.adapter.base.entity.node.BaseNode
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.old.model.code.bean.CodeDirNode
-import com.ng.ngleetcode.old.model.code.bean.CodeNode
-import com.ng.ngleetcode.theme.AppTheme
+import com.ng.ngleetcode.ui.page.code.bean.CodeDirNode
+import com.ng.ngleetcode.ui.page.code.bean.CodeNode
+import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import kotlinx.coroutines.CoroutineScope

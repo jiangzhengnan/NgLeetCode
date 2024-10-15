@@ -19,9 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.ng.ngleetcode.R
-import com.ng.ngleetcode.theme.AppTheme
-import com.ng.ngleetcode.theme.BottomNavBarHeight
-import com.ng.ngleetcode.theme.white
+import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.theme.BottomNavBarHeight
+import com.ng.ngleetcode.app.theme.white
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.page.web.WebData
 import com.ng.ngleetcode.ui.widgets.ArrowRightListItem

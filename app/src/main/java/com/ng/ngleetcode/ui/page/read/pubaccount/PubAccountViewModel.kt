@@ -6,9 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ng.ngleetcode.http.ApiRepo
-import com.ng.ngleetcode.http.PageState
-import com.ng.ngleetcode.http.ParentBean
+import com.ng.ngleetcode.app.http.ApiRepo
+import com.ng.ngleetcode.app.http.PageState
+import com.ng.ngleetcode.app.http.ParentBean
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

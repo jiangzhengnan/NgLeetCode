@@ -3,9 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id "kotlin-parcelize"
-
 }
-
 
 android {
     //noinspection GradleCompatible
@@ -35,9 +33,6 @@ android {
     buildFeatures {
         compose true
         viewBinding true
-    }
-    dataBinding {
-        enabled true
     }
 
 }
