@@ -2,6 +2,7 @@
 <br/> Kotlin+Compose编写的刷题项目，基于单Activity+Navigation+多Compose架构。<br />
 ![Java](https://img.shields.io/badge/language-Java-red.svg)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=jiangzhengnan.ngleetcode.read.me)
+### Preview
 <table>
 	<tr>
 		<th>题库主页</th>
@@ -9,27 +10,26 @@
   		<th>做题统计</th>
 		<th>知识体系</th>
 		<th>个人主页</th>
-
 	</tr>
 	<tr>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.png" height = 400/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.png" height = 300/>
 		  </td>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.jpng" height = 400/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.png" height = 300/>
 		  </td>
-    		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show3.jpng" height = 400/>
+		  <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show3.png" height = 300/>
 		  </td>
-    		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show4.jpng" height = 400/>
+		 <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show4.png" height = 300/>
 		  </td>
-    		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show5.jpng" height = 400/>
+		  <td>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show5.png" height = 300/>
 		  </td>
 	</tr>
-</table><br />
-
+</table></br>
+ 
 
 
 ## 待做
