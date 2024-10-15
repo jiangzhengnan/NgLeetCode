@@ -28,7 +28,7 @@ data class ListWrapper<T>(
     var over: Boolean,
     var pageCount: Int,
     var size: Int,
-    var total: Int,
+    var total: Int = 0,
     var datas: ArrayList<T>
 )
 

@@ -26,7 +26,7 @@ import com.ng.ngleetcode.old.model.code.view.CodeView
 import com.ng.ngleetcode.ui.page.code.CodePage
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage
-import com.ng.ngleetcode.ui.page.read.stucture.list.StructureArticleListPage
+import com.ng.ngleetcode.ui.page.read.stucture.list.StructureArticleRefreshableListPage
 import com.ng.ngleetcode.ui.page.statistics.StatisticsPage
 import com.ng.ngleetcode.ui.page.web.WebData
 import com.ng.ngleetcode.ui.page.web.WebViewPage
@@ -109,7 +109,7 @@ fun MainPage() {
         ) {
           val args = it.arguments?.getString("parentData")?.fromJson<ParentBean>()
           if (args != null) {
-            StructureArticleListPage(parentData = args,
+            StructureArticleRefreshableListPage(parentData = args,
               navCtrl =
             navCtrl)
           }

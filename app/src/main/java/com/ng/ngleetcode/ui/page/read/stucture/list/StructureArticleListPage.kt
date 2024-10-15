@@ -1,10 +1,8 @@
 package com.ng.ngleetcode.ui.page.read.stucture.list
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Divider
 import androidx.compose.material3.Text
@@ -16,10 +14,10 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.http.Article
 import com.ng.ngleetcode.http.ParentBean
@@ -29,14 +27,14 @@ import com.ng.ngleetcode.theme.black
 import com.ng.ngleetcode.theme.hintText
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
-import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.utils.RouteUtils
+import com.ng.ngleetcode.utils.RouteUtils.back
 
 /**
  * 某个体系下对应的文章列表
  */
 @Composable
-fun StructureArticleListPage(
+fun StructureArticleRefreshableListPage(
   parentData: ParentBean,
   navCtrl: NavHostController,
   viewModel: StructureArticleListModel = viewModel(
@@ -45,44 +43,43 @@ fun StructureArticleListPage(
     )
   )
 ) {
-  val lazyListState: LazyListState = rememberLazyListState()
-
-  val viewStates = viewModel.viewStates
-
+  // 记录列表状态
+  val lazyListState = rememberLazyListState()
   Column(modifier = Modifier.fillMaxSize()) {
-    AppToolsBar(title = parentData.name.toString())
-
-    LcePage(pageState = viewStates.pageState, onRetry = {
-      viewModel.dispatch(StructureArticleListAction.FetchData)
+    AppToolsBar(title = parentData.name.toString(), onBack = {
+      navCtrl.back()
+    })
+    SwipeRefresh(state = rememberSwipeRefreshState(viewModel.viewStates.isRefresh), onRefresh = {
+      viewModel.dispatch(StructureArticleListAction.RefreshData)
     }) {
-
       LazyColumn(
-        modifier = Modifier
-          .fillMaxWidth()
-          .fillMaxHeight()
-          .background(AppTheme.colors.background),
+        modifier = Modifier.fillMaxSize(),
         state = lazyListState,
-        contentPadding = PaddingValues(vertical = 10.dp)
+        contentPadding = PaddingValues(vertical = 8.dp)
       ) {
-        MLog.d("体系列表：" + viewStates.dataList?.datas?.toString())
-        viewStates.dataList?.datas?.forEachIndexed { position, chapter1 ->
-
+        viewModel.viewStates.dataList?.datas?.forEachIndexed { position, chapter1 ->
           item {
-
             Box(
               modifier = Modifier
                 .fillMaxWidth()
                 .onGloballyPositioned {
-                  MLog.d("onGloballyPositioned: " + lazyListState.layoutInfo.visibleItemsInfo
-                    .isNotEmpty() +" " + lazyListState.isScrollInProgress)
-//                  if (lazyListState.layoutInfo.visibleItemsInfo.isNotEmpty()) {
-//                    val lastItemIndex = lazyListState.layoutInfo.visibleItemsInfo.last().index
-//                    MLog.d("onGloballyPositioned: lastItemIndex $lastItemIndex")
-//                    if (lastItemIndex == (viewStates.dataList.size - 1)) {
-//                      MLog.d("需要加载更多了")
-//                      viewModel.dispatch(StructureArticleListAction.LoadMoreData)
-//                    }
-//                  }
+                  val lastItemIndex = lazyListState.layoutInfo.visibleItemsInfo.last().index
+                  if (viewModel.viewStates.hasMoreData &&
+                    !viewModel.viewStates.isRefresh &&
+                    lazyListState.layoutInfo.visibleItemsInfo.isNotEmpty() &&
+                    lastItemIndex == (viewModel.viewStates.size - 1)
+                  ) {
+                    MLog.d(
+                      "onGloballyPositioned\n" +
+                          "当前size：" + viewModel.viewStates.size +
+                          "总数：" + viewModel.viewStates.totalSize +
+                          "是否正在刷新：" + viewModel.viewStates.isRefresh +
+                          "最后一个可见项:" + lastItemIndex
+                    )
+                    MLog.d("需要加载更多了")
+                    viewModel.dispatch(StructureArticleListAction.LoadMoreData)
+                  }
+
                 },
               contentAlignment = Alignment.Center
             ) {
@@ -95,7 +92,7 @@ fun StructureArticleListPage(
                 )
               })
             }
-            if (position <= viewStates.dataList.datas.size - 1) {
+            if (position <= viewModel.viewStates.size - 1) {
               Divider(
                 startIndent = 10.dp,
                 color = AppTheme.colors.divider,
@@ -108,7 +105,6 @@ fun StructureArticleListPage(
       }
     }
   }
-
 
   // 初始化加载数据
   var isInitialized by rememberSaveable { mutableStateOf(false) }
@@ -123,7 +119,6 @@ fun StructureArticleListPage(
       MLog.d("StructurePage - onDispose")
     }
   }
-
 }
 
 @Composable
@@ -170,16 +165,3 @@ fun StructureArticleItem(
 
   }
 }
-
-
-class StructureArticleListViewModelFactory(private val cid: Int) : ViewModelProvider
-.Factory {
-  override fun <T : ViewModel> create(modelClass: Class<T>): T {
-    if (modelClass.isAssignableFrom(StructureArticleListModel::class.java)) {
-      @Suppress("UNCHECKED_CAST")
-      return StructureArticleListModel(cid) as T
-    }
-    throw IllegalArgumentException("Unknown ViewModel class")
-  }
-}
-
