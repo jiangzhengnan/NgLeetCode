@@ -22,8 +22,8 @@ import androidx.navigation.navArgument
 import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.statusBarsPadding
 import com.ng.ngleetcode.app.http.ParentBean
-import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.code.CodePage
+import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.profile.ProfilePage
 import com.ng.ngleetcode.ui.page.read.ReadPage
 import com.ng.ngleetcode.ui.page.read.stucture.list.StructureArticleRefreshableListPage
@@ -35,7 +35,7 @@ import com.ng.ngleetcode.ui.widgets.BottomNavBarView
 import com.ng.ngleetcode.utils.fromJson
 
 @Composable
-fun MainPage() {
+fun MainPage(  mainViewModel: MainViewModel) {
   val navCtrl = rememberNavController()
   val navBackStackEntry by navCtrl.currentBackStackEntryAsState()
   val currentDestination = navBackStackEntry?.destination
@@ -43,6 +43,10 @@ fun MainPage() {
 
   // 使用 remember 来确保 WebView 实例不会在重组时被重新创建
   val webViewState = remember { mutableStateOf<CodeView?>(null) }
+
+  val myList by mutableStateOf(
+    listOf("a", "ab", "abc")
+  )
 
   Scaffold(
     modifier = Modifier
@@ -88,7 +92,7 @@ fun MainPage() {
 
         //我的
         composable(route = RouteName.PROFILE) {
-          ProfilePage(navCtrl, scaffoldState)
+          ProfilePage(navCtrl, scaffoldState, mainViewModel = mainViewModel)
         }
 
         //WebView

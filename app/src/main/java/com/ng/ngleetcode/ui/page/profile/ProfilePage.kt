@@ -7,6 +7,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
@@ -22,22 +23,22 @@ import com.ng.ngleetcode.R
 import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.app.theme.BottomNavBarHeight
 import com.ng.ngleetcode.app.theme.white
-import com.ng.ngleetcode.ui.page.main.RouteName
+import com.ng.ngleetcode.ui.page.main.MainViewAction
+import com.ng.ngleetcode.ui.page.main.MainViewModel
 import com.ng.ngleetcode.ui.page.web.WebData
 import com.ng.ngleetcode.ui.widgets.ArrowRightListItem
 import com.ng.ngleetcode.ui.widgets.MainTitle
-import com.ng.ngleetcode.utils.RouteUtils
 import kotlinx.coroutines.launch
 
 @Composable
 fun ProfilePage(
   navCtrl: NavHostController,
   scaffoldState: ScaffoldState,
-  profileViewModel: ProfileViewModel = viewModel()
+  profileViewModel: ProfileViewModel = viewModel(),
+  mainViewModel: MainViewModel
 ) {
 
   val scope = rememberCoroutineScope()
-
   Column(
     modifier = Modifier
       .padding(bottom = BottomNavBarHeight)
@@ -74,11 +75,19 @@ fun ProfilePage(
       iconRes = Icons.Default.Home,
       title = "Github 主页"
     ) {
-      RouteUtils.navTo(
-        navCtrl = navCtrl,
-        destinationName = RouteName.WEB_VIEW,
-        args = WebData(title = "Github", url = "https://github.com/jiangzhengnan")
+      mainViewModel.handIntent(
+        MainViewAction.OpenWeb(
+          WebData(
+            "Github",
+            "https://github.com/jiangzhengnan"
+          )
+        )
       )
+//      RouteUtils.navTo(
+//        navCtrl = navCtrl,
+//        destinationName = RouteName.WEB_VIEW,
+//        args = WebData(title = "Github", url = "https://github.com/jiangzhengnan")
+//      )
     }
 
     // 重置进度（清除缓存）
@@ -90,6 +99,14 @@ fun ProfilePage(
       scope.launch {
         scaffoldState.snackbarHostState.showSnackbar("重置进度成功", null, SnackbarDuration.Short)
       }
+    }
+
+    // 切换主题
+    ArrowRightListItem(
+      iconRes = Icons.Default.Build,
+      title = "切换主题 " + (mainViewModel.theme.toString())
+    ) {
+      mainViewModel.handIntent(MainViewAction.ChangeTheme)
     }
 
   }

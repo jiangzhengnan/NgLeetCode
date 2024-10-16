@@ -18,7 +18,7 @@ class StructureArticleListModel(private val cid: Int) : ViewModel() {
   var viewStates by mutableStateOf(StructureArticleListState())
     private set
 
-  // 当前页码 todo jzn 待做加载更多功能
+  // 当前页码
   var nowPage = 0
 
   fun dispatch(action: StructureArticleListAction) {

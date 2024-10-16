@@ -22,13 +22,14 @@ import androidx.navigation.NavHostController
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.app.theme.*
-import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.code.mvi.CodeModel
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModelFactory
 import com.ng.ngleetcode.ui.page.code.widgets.CodeShowLayout
+import com.ng.ngleetcode.ui.page.code.widgets.CodeView
 import com.ng.ngleetcode.ui.page.code.widgets.FloatingActionMenu
+import com.ng.ngleetcode.ui.page.main.MainViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -59,6 +60,7 @@ fun CodePage(
   val drawerState = rememberDrawerState(DrawerValue.Closed)
   val scope = rememberCoroutineScope()
 
+  val mainViewModel:MainViewModel = viewModel()
   ModalNavigationDrawer(
     drawerState = drawerState,
     drawerContent = {
@@ -97,7 +99,7 @@ fun CodePage(
               contentAlignment = Alignment.Center,
             ) {
               Text(
-                "题库", fontSize = 20.sp,
+                "题库" + mainViewModel.theme.toString(), fontSize = 20.sp,
                 modifier = Modifier.align(Alignment.Center)
               )
             }

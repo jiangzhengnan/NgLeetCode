@@ -18,9 +18,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewAction
 import com.ng.ngleetcode.ui.page.code.mvi.CodeViewModel
+import com.ng.ngleetcode.ui.page.main.MainViewAction
+import com.ng.ngleetcode.ui.page.main.MainViewModel
 
 /**
  * 悬浮按钮组件（支持展开）
@@ -68,13 +71,15 @@ fun FloatingActionMenu(
         }
         }
     }
+    var mainViewModel2: MainViewModel = viewModel()
 
     // 主按钮
     FloatingActionButton(
       modifier = Modifier
         .size(40.dp)
         .align(Alignment.CenterHorizontally),
-      onClick = { expanded = !expanded }
+      onClick = { expanded = !expanded
+        mainViewModel2.handIntent(MainViewAction.ChangeTheme)}
     ) {
       Icon(
         imageVector = if (expanded) Icons.Default.Close else Icons.Default.Add,

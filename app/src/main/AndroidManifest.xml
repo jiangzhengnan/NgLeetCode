@@ -18,44 +18,17 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme_Night">
 
-
         <!-- compose 入口 -->
         <activity
           android:name=".MainComposeActivity"
           android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
           android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+          <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
         </activity>
-
-        <activity
-          android:name=".old.HomeActivity"
-          android:exported="true"
-          >
-<!--            <intent-filter>-->
-          <!--                <action android:name="android.intent.action.MAIN" />-->
-
-          <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-          <!--            </intent-filter>-->
-        </activity>
-
-        <activity
-          android:name="com.ng.ngleetcode.old.model.tree.TreeListActivity"
-          android:exported="false"
-          android:theme="@style/Theme.MyApplication.NoActionBar" />
-
-        <activity
-                android:name="com.ng.ngleetcode.old.model.tree.web.WebActivity"
-                android:exported="false"
-                android:theme="@style/Theme.MyApplication.NoActionBar" />
-
-        <activity
-                android:name="com.ng.ngleetcode.old.model.mine.SettingActivity"
-                android:exported="false"
-                android:theme="@style/Theme.MyApplication.NoActionBar" />
 
     </application>
 

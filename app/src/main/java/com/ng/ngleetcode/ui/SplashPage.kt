@@ -25,7 +25,6 @@ import com.ng.ngleetcode.app.theme.white
 import kotlinx.coroutines.delay
 
 /**
- * todo jzn 补充权限申请部分功能
  */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable

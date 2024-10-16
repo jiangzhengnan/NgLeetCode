@@ -76,7 +76,7 @@ interface TreeService {
         @Query("cid") cid: Int
     ): BasicBean<ListWrapper<Article>>
 
-    //某个体系下的文章列表  todo jzn
+    //某个体系下的文章列表
     @GET("/article/list/{pageNum}/json")
     suspend fun getStructureArticles(
         @Path("pageNum") page: Int,

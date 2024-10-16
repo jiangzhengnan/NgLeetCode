@@ -53,7 +53,6 @@ var LocalAppColors = compositionLocalOf {
   LightColorPalette
 }
 
-@Stable
 object AppTheme {
   val colors: AppColors
     @Composable
@@ -129,11 +128,7 @@ fun AppTheme(
 ) {
 
   val targetColors = when (theme) {
-    AppTheme.Theme.Light -> {
-      LightColorPalette.themeUi = themeColor
-      LightColorPalette.primaryBtnBg = themeColor
-      LightColorPalette
-    }
+    AppTheme.Theme.Light -> LightColorPalette
     AppTheme.Theme.Dark -> DarkColorPalette
   }
 
@@ -182,5 +177,6 @@ fun AppTheme(
   ProvideWindowInsets {
     CompositionLocalProvider(LocalAppColors provides appColors, content = content)
   }
+
 
 }

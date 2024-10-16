@@ -56,7 +56,10 @@ class WebViewCtrl(
         refresh()
     }
 
-    fun refresh() {
+    fun refresh(link: String? = null) {
+        link?.let {
+            linkUrl = it
+        }
         webView.loadUrl(linkUrl)
     }
 
