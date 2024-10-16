@@ -13,19 +13,19 @@
 	</tr>
 	<tr>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.png" height = 300/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show1.png" height = 270/>
 		  </td>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.png" height = 300/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show2.png" height = 270/>
 		  </td>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show3.png" height = 300/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show3.png" height = 270/>
 		  </td>
 		 <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show4.png" height = 300/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show4.png" height = 270/>
 		  </td>
 		  <td>
-			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show5.png" height = 300/>
+			  <img src="https://github.com/jiangzhengnan/NgLeetCode/blob/master/app/src/main/res/raw/show5.png" height = 270/>
 		  </td>
 	</tr>
 </table></br>
