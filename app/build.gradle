@@ -67,8 +67,10 @@ dependencies {
     implementation "com.google.accompanist:accompanist-coil:0.15.0"
     //系统ui控制器
     implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
-    //glide
-    implementation "com.google.accompanist:accompanist-glide:0.15.0"
+
+    //图片库
+    implementation("io.coil-kt:coil-compose:2.0.0")
+
     //viewPager
     implementation "com.google.accompanist:accompanist-pager:0.20.2"
     implementation "com.google.accompanist:accompanist-pager-indicators:$accompanistVersion"

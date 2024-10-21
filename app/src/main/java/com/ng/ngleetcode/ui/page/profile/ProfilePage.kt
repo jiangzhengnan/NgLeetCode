@@ -15,11 +15,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.ng.ngleetcode.R
+import coil.compose.rememberAsyncImagePainter
 import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.app.theme.BottomNavBarHeight
 import com.ng.ngleetcode.app.theme.white
@@ -59,7 +58,8 @@ fun ProfilePage(
           .padding(top = 30.dp)
       ) {
         Image(
-          painter = painterResource(id = R.mipmap.pumpkin_icon),
+          // 加载网络头像图片
+          painter = rememberAsyncImagePainter("https://avatars.githubusercontent.com/u/14868338?v=4"),
           contentDescription = null,
           modifier = Modifier
             .size(80.dp)
@@ -83,11 +83,6 @@ fun ProfilePage(
           )
         )
       )
-//      RouteUtils.navTo(
-//        navCtrl = navCtrl,
-//        destinationName = RouteName.WEB_VIEW,
-//        args = WebData(title = "Github", url = "https://github.com/jiangzhengnan")
-//      )
     }
 
     // 重置进度（清除缓存）

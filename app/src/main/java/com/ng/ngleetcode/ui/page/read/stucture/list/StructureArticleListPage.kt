@@ -27,8 +27,8 @@ import com.ng.ngleetcode.app.theme.black
 import com.ng.ngleetcode.app.theme.hintText
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
-import com.ng.ngleetcode.utils.RouteUtils
-import com.ng.ngleetcode.utils.RouteUtils.back
+import com.ng.ngleetcode.app.utils.RouteUtils
+import com.ng.ngleetcode.app.utils.RouteUtils.back
 
 /**
  * 某个体系下对应的文章列表

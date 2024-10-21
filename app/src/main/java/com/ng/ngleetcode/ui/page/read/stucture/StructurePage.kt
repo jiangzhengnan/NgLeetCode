@@ -19,7 +19,7 @@ import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.ui.widgets.ListTitle
-import com.ng.ngleetcode.utils.RouteUtils
+import com.ng.ngleetcode.app.utils.RouteUtils
 
 /**
  * 体系

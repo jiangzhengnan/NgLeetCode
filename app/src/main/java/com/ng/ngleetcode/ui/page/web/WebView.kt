@@ -17,8 +17,8 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.app.theme.ToolBarHeight
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
-import com.ng.ngleetcode.utils.RouteUtils.back
-import com.ng.ngleetcode.utils.SizeUtils
+import com.ng.ngleetcode.app.utils.RouteUtils.back
+import com.ng.ngleetcode.app.utils.SizeUtils
 
 @SuppressLint("UseCompatLoadingForDrawables")
 @Composable

@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.utils
+package com.ng.ngleetcode.app.utils
 
 import android.os.Parcelable
 import com.google.gson.Gson

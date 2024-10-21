@@ -16,7 +16,7 @@ class LogInterceptor : Interceptor {
 
     @RequiresApi(Build.VERSION_CODES.N)
     @Throws(IOException::class)
-    override fun intercept(chain: Interceptor.Chain): Response? {
+    override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         return kotlin.runCatching { chain.proceed(request) }
             .onSuccess {
@@ -24,7 +24,7 @@ class LogInterceptor : Interceptor {
                 if (it.isSuccessful) {
                     logResponse(it)
                 } else {
-                    logThat(ColorLevel.WARN(it.message() ?: "未知异常"))
+                    logThat(ColorLevel.WARN(it.message ?: "未知异常"))
                 }
             }
             .onFailure {
@@ -39,7 +39,7 @@ class LogInterceptor : Interceptor {
         strb.appendLine("<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-<<-")
 
         var headerText = ""
-        response.headers().toMultimap().forEach { header->
+        response.headers.toMultimap().forEach { header->
             headerText += "请求 Header:{${header.key}=${header.value}}\n"
         }
         strb.appendln(headerText)
@@ -77,14 +77,14 @@ class LogInterceptor : Interceptor {
             "->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->->"
         )
         logHeaders(strb, request, connection)
-        strb.appendLine("RequestBody:${request.body().toString()}")
+        strb.appendLine("RequestBody:${request.body.toString()}")
         logThat(ColorLevel.VERBOSE(strb.toString()))
     }
 
     private fun logHeaders(strb: StringBuilder, request: Request, connection: Connection?) {
         logBasic(strb, request, connection)
         var headerStr = ""
-        request.headers().toMultimap().forEach { header->
+        request.headers.toMultimap().forEach { header->
             headerStr += "请求 Header:{${header.key}=${header.value}}\n"
         }
         strb.appendln(headerStr)
@@ -92,7 +92,7 @@ class LogInterceptor : Interceptor {
 
     private fun logBasic(strb: StringBuilder, request: Request, connection: Connection?) {
         strb.appendLine(
-            "请求 method：${request.method()} url:${decodeUrlStr(request.url().toString())} tag:" +
+            "请求 method：${request.method} url:${decodeUrlStr(request.url.toString())} tag:" +
                     "${request.tag()} protocol:${connection?.protocol() ?: Protocol.HTTP_1_1}"
         )
     }

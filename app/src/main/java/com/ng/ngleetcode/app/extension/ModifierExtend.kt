@@ -8,7 +8,9 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 
-
+/**
+ * Modifier 相关扩展函数
+ */
 fun Modifier.unread(show: Boolean, color: Color): Modifier = this.drawWithContent {
   drawContent()
   if (show) {

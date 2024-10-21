@@ -1,4 +1,4 @@
-package com.ng.ngleetcode
+package com.ng.ngleetcode.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,7 +7,6 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.*
 import com.ng.ngleetcode.app.theme.AppTheme
-import com.ng.ngleetcode.ui.SplashPage
 import com.ng.ngleetcode.ui.page.main.MainPage
 import com.ng.ngleetcode.ui.page.main.MainViewModel
 import com.ng.ngleetcode.ui.page.web.RightWebViewPage

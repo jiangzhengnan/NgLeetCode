@@ -18,17 +18,28 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme_Night">
 
-        <!-- compose 入口 -->
-        <activity
-          android:name=".MainComposeActivity"
-          android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
-          android:exported="true">
-          <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+      <!-- compose 入口 -->
+      <activity
+        android:name=".ui.MainComposeActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
+        android:exported="true">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-          </intent-filter>
-        </activity>
+          <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+
+      <!-- compose 状态学习 -->
+      <activity
+        android:name=".study.StateStudyComposeActivity"
+        android:exported="true">
+        <!--        <intent-filter>-->
+        <!--          <action android:name="android.intent.action.MAIN" />-->
+
+        <!--          <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--        </intent-filter>-->
+      </activity>
 
     </application>
 

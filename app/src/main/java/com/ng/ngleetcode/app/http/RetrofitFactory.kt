@@ -9,7 +9,7 @@ import com.ng.ngleetcode.app.MyApp
 import com.ng.ngleetcode.app.constants.ApiConstants
 import com.ng.ngleetcode.app.constants.Constants
 import com.ng.ngleetcode.app.http.interceptor.CacheCookieInterceptor
-import com.zj.wanandroid.data.http.interceptor.SetCookieInterceptor
+import com.ng.ngleetcode.app.http.interceptor.SetCookieInterceptor
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -45,7 +45,7 @@ object RetrofitFactory {
                 .addInterceptor(CacheCookieInterceptor())
                 .cookieJar(getCookie())
                 //不验证证书
-                .sslSocketFactory(createSSLSocketFactory())
+                //.sslSocketFactory(createSSLSocketFactory())
                 .hostnameVerifier(TrustAllNameVerifier())
                 .cache(getCache())
         }

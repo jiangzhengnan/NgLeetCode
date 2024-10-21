@@ -21,7 +21,7 @@ import com.ng.ngleetcode.app.theme.ToolBarHeight
 import com.ng.ngleetcode.ui.page.main.MainViewAction
 import com.ng.ngleetcode.ui.page.main.MainViewModel
 import com.ng.ngleetcode.ui.widgets.AppToolsBar
-import com.ng.ngleetcode.utils.SizeUtils
+import com.ng.ngleetcode.app.utils.SizeUtils
 
 /**
  * 侧滑进入的webView

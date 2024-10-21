@@ -1,4 +1,4 @@
-package com.zj.wanandroid.data.http.interceptor
+package com.ng.ngleetcode.app.http.interceptor
 
 import com.ng.ngleetcode.app.http.store.DataStoreUtils
 import okhttp3.Interceptor
@@ -9,7 +9,7 @@ class SetCookieInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
         val builder = request.newBuilder()
-        val domain = request.url().host()
+        val domain = request.url.host
         //获取domain内的cookie
         if (domain.isNotEmpty()) {
             val cookie: String = DataStoreUtils.readStringData(domain, "")

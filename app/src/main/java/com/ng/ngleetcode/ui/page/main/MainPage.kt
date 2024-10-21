@@ -32,7 +32,7 @@ import com.ng.ngleetcode.ui.page.web.WebData
 import com.ng.ngleetcode.ui.page.web.WebViewPage
 import com.ng.ngleetcode.ui.widgets.AppSnackBar
 import com.ng.ngleetcode.ui.widgets.BottomNavBarView
-import com.ng.ngleetcode.utils.fromJson
+import com.ng.ngleetcode.app.utils.fromJson
 
 @Composable
 fun MainPage(  mainViewModel: MainViewModel) {

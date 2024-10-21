@@ -49,8 +49,8 @@ private val LightColorPalette = AppColors(
   hot = red,
   placeholder = white3,
 )
-var LocalAppColors = compositionLocalOf {
-  LightColorPalette
+var LocalAppColors = compositionLocalOf<AppColors> {
+  error("LocalAppColors 没有提供值")
 }
 
 object AppTheme {
