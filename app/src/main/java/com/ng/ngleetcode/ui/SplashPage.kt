@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,10 +73,10 @@ fun SplashPage(activity: ComponentActivity, onNextPage: () -> Unit) {
       ToastUtils.showShort(activity, "没有权限!")
     } else {
       ToastUtils.showShort(activity, "没有权限，需要申请")
-      LaunchedEffect(permissionState) {
+      DisposableEffect(permissionState) {
         permissionState.launchMultiplePermissionRequest()
-
         onNextPage.invoke()
+        onDispose {  }
       }
     }
 

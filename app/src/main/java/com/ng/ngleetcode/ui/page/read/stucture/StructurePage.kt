@@ -15,11 +15,11 @@ import com.google.accompanist.flowlayout.FlowRow
 import com.ng.base.utils.MLog
 import com.ng.ngleetcode.app.http.ParentBean
 import com.ng.ngleetcode.app.theme.AppTheme
+import com.ng.ngleetcode.app.utils.RouteUtils
 import com.ng.ngleetcode.ui.page.main.RouteName
 import com.ng.ngleetcode.ui.widgets.LabelTextButton
 import com.ng.ngleetcode.ui.widgets.LcePage
 import com.ng.ngleetcode.ui.widgets.ListTitle
-import com.ng.ngleetcode.app.utils.RouteUtils
 
 /**
  * 体系
@@ -66,7 +66,6 @@ fun StructurePage(
 
         }
     }
-
     var isInitialized by rememberSaveable { mutableStateOf(false) }
     DisposableEffect(Unit) {
         MLog.d("StructurePage - onStart")
