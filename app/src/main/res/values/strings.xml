@@ -16,4 +16,7 @@
     <string name="tab_2">统计</string>
     <string name="tab_3">体系</string>
     <string name="tab_4">我的</string>
+
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare, odio eget suscipit efficitur, nisi mi scelerisque ex, sed vehicula nibh augue non dui. Integer ultricies at nulla eget vestibulum. Praesent scelerisque vehicula condimentum. Aenean sapien lectus, scelerisque eget eros sed, consequat dignissim diam. Donec libero odio, tempus ut purus in, tempus pretium justo. Nam quam neque, volutpat commodo ultricies nec, pellentesque in augue. Cras arcu dolor, luctus tincidunt sodales sed, vehicula facilisis arcu. Sed semper quam et nulla lobortis pretium. Morbi rhoncus tortor a orci tincidunt, non fermentum orci dignissim. In sed est id enim eleifend eleifend.</string>
+
 </resources>
