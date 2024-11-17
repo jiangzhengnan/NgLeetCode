@@ -19,6 +19,7 @@ class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        //a
         instance = this
         CONTEXT = this
         SPreference.setContext(this)
