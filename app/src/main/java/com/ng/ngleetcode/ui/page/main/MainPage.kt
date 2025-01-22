@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.ui.page.main
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.background
@@ -34,6 +35,7 @@ import com.ng.ngleetcode.ui.widgets.AppSnackBar
 import com.ng.ngleetcode.ui.widgets.BottomNavBarView
 import com.ng.ngleetcode.app.utils.fromJson
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainPage(  mainViewModel: MainViewModel) {
   val navCtrl = rememberNavController()
@@ -43,10 +45,6 @@ fun MainPage(  mainViewModel: MainViewModel) {
 
   // 使用 remember 来确保 WebView 实例不会在重组时被重新创建
   val webViewState = remember { mutableStateOf<CodeView?>(null) }
-
-  val myList by mutableStateOf(
-    listOf("a", "ab", "abc")
-  )
 
   Scaffold(
     modifier = Modifier
