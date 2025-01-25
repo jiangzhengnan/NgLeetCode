@@ -3,21 +3,31 @@ package com.ng.ngleetcode.test.协程启动框架
 import android.os.Looper
 import android.util.Log
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withContext
+import java.util.concurrent.atomic.AtomicBoolean
 import kotlin.system.measureTimeMillis
 
 /**
  * 有向无环，Node 节点
  */
 abstract class DagNode {
-	abstract val name: String    // 节点唯一标识符
-	abstract val depends: MutableSet<String> // 业务需要传入依赖的name
 
-	// 业务无需关心，用来组成节点依赖关系。
+	/**
+	 * 节点唯一标识符
+	 */
+	abstract val name: String
+
+	/**
+	 * 所依赖的name（如果没有依赖可以不实现）
+	 */
+	open val depends: MutableSet<String> = mutableSetOf()
+
+	/**
+	 * 依赖该节点的子节点集合
+	 * 业务无需关心，用来组成节点依赖关系。
+	 */
 	val children: MutableSet<DagNode> = mutableSetOf()
+
 	override fun hashCode(): Int {
 		return name.hashCode()
 	}
@@ -29,6 +39,7 @@ abstract class DagNode {
 	override fun toString(): String {
 		return name
 	}
+
 }
 
 object DagUtils {
@@ -77,34 +88,73 @@ object DagUtils {
 	}
 }
 
+/**
+ * ## 任务阶段定义
+ * （比如t0，t1，t2）
+ */
+enum class TaskInterval {
 
-//任务定义
+	/**
+	 * Application attachBaseContext
+	 */
+	ApplicationAttachBase,
+
+	/**
+	 * Application创建
+	 */
+	ApplicationOnCreate,
+
+	/**
+	 * 主Activity创建
+	 */
+	ActivityOnCreate,
+
+	/**
+	 * 闲时执行的任务
+	 */
+	Idle,
+
+}
+
+/**
+ * ## 任务定义
+ */
 interface ITask {
+
 	/**
 	 * 任务名称 && 耗时监控标识符
 	 */
 	val name: String
 
 	/**
-	 * 所属任务组名称
-	 * App#OnCreate阶段为T1，Activity渲染阶段为T2
+	 * 所属任务阶段名称（一般自动划分，不需要特殊指定）
 	 */
-	val group: TaskGroup
-
-	/**
-	 * 所依赖的任务名称
-	 */
-	val depends: MutableSet<String>
-
-	/**
-	 * 任务优先级
-	 */
-	val priority: Int
+	var group: TaskInterval
+		get() = TaskInterval.ApplicationAttachBase
+		set(_) {}
 
 }
 
-abstract class BaseTask : DagNode(), ITask, Comparable<ITask> {
-	abstract suspend fun execute()
+/**
+ * ## 启动任务基类
+ * 任务只会执行一次，不可重复初始化。
+ */
+abstract class BaseTask : DagNode(), ITask {
+
+	/**
+	 * 保证任务只执行一次
+	 */
+	private val isExecuted = AtomicBoolean(false)
+
+	abstract suspend fun execute(scope: CoroutineScope)
+
+	suspend fun tryExecute(scope: CoroutineScope) :Boolean{
+		if (isExecuted.compareAndSet(false, true)) {
+			execute(scope)
+			return true
+		}
+		return false
+	}
 
 	override fun hashCode(): Int {
 		return name.hashCode()
@@ -114,9 +164,6 @@ abstract class BaseTask : DagNode(), ITask, Comparable<ITask> {
 		return other is ITask && other.name == name
 	}
 
-	override fun compareTo(other: ITask): Int {
-		return priority.compareTo(other.priority)
-	}
 }
 
 /**
@@ -125,38 +172,53 @@ abstract class BaseTask : DagNode(), ITask, Comparable<ITask> {
 abstract class IdleTask : BaseTask() {
 
 	override val depends: MutableSet<String> = mutableSetOf()
-	override val group: TaskGroup = TaskGroup.Idle
-	override val priority: Int = 0
+
+	override var group: TaskInterval = TaskInterval.Idle
+
 }
 
-// 任务组定义，App#OnCreate阶段为T1，Activity渲染阶段为T2
-enum class TaskGroup {
-	ApplicationOnCreate,
-	ActivityOnCreate,
-	Idle,   //闲时执行的任务
-	Foreground, //App回到前台执行的任务
-	Background //App回到后台执行的任务
-}
+/**
+ * ## 启动任务管理器
+ * 可在任意场景下使用，对启动任务进行管理
+ *
+ * ### 功能特性
+ * 1. 按 DAG 结构检查和执行任务
+ * 2. 支持任务同/异步执行
+ * 3. 全流程监控
+ */
+object LaunchTaskManager {
 
-// 任务管理器
-object TaskManager {
-	// 任务收集与注册
-	private val taskCollector = TaskCollector()
+	// 任务策略
+	private var taskProxy: TaskProxy? = null
 
 	// 任务执行
 	private val taskExecutor = TaskExecutor() { task, cost ->
 		taskMonitor.onTaskComplete(task, cost)
 	}
 
-	// 任务监听
+	// 任务监控
 	private val taskMonitor = TaskMonitor()
 
+	fun init(launchTaskProxy: TaskProxy) {
+		taskProxy = launchTaskProxy
+	}
+
+	fun onAttachBaseContext(scope: CoroutineScope) {
+		launchTaskLog.i { "「onAttachBaseContext」 start" }
+		taskExecutor.start(scope, taskProxy?.getAttachBaseContextTaskList())
+		launchTaskLog.i { "「onAttachBaseContext」 end" }
+	}
+
 	fun onAppCreate(scope: CoroutineScope) {
-		taskExecutor.start(scope, taskCollector.getAppOnCreateTaskList())
+		launchTaskLog.i { "「onAppCreate」 start" }
+		taskExecutor.start(scope, taskProxy?.getAppOnCreateTaskList())
+		launchTaskLog.i { "「onAppCreate」 end" }
 	}
 
 	fun onActivityCreate(scope: CoroutineScope) {
-		taskExecutor.start(scope, taskCollector.getActivityCreateTaskList())
+		launchTaskLog.i { "「onActivityCreate」 start" }
+		taskExecutor.start(scope, taskProxy?.getActivityCreateTaskList())
+		launchTaskLog.i { "「onActivityCreate」 end" }
 	}
 
 	fun addTaskListener(listener: TaskListener) {
@@ -165,27 +227,67 @@ object TaskManager {
 
 }
 
-// 任务执行
+/**
+ * ## 任务收集与注册
+ */
+interface TaskProxy {
+
+	/**
+	 * 获取App#attachBaseContext阶段的任务列表
+	 */
+	fun getAttachBaseContextTaskList(): List<BaseTask>
+
+	/**
+	 * 获取App#OnCreate阶段的任务列表
+	 */
+	fun getAppOnCreateTaskList(): List<BaseTask>
+
+	/**
+	 * 获取主Activity#OnCreate阶段的任务列表
+	 */
+	fun getActivityCreateTaskList(): List<BaseTask>
+
+	/**
+	 * 获取闲时任务列表
+	 */
+	fun getIdleTaskList(): List<BaseTask>
+
+}
+
+/**
+ * ## 任务执行
+ * todo jzn 让业务可以策略选择Scheduler
+ * 分为同步任务和异步任务
+ * 同步任务：任务在主线程执行
+ * 异步任务：任务在非主线程执行（协程实现）
+ */
 class TaskExecutor(
 	onTaskComplete: ((BaseTask, Long) -> Unit)?,
 ) {
+
 	private val normalScheduler = NormalScheduler(onTaskComplete)
+
 	private val idleScheduler = IdleScheduler(onTaskComplete)
 
-	fun start(scope: CoroutineScope, taskList: List<BaseTask>) {
-		// 普通任务
-		normalScheduler.start(scope, taskList.filter { it.group != TaskGroup.Idle })
-		// 闲时任务
-		idleScheduler.start(scope, taskList.filter { it.group == TaskGroup.Idle })
+	fun start(scope: CoroutineScope, taskList: List<BaseTask>?) {
+		taskList?.let { list ->
+			// 普通任务
+			normalScheduler.start(scope, list.filter { it.group != TaskInterval.Idle })
+			// 闲时任务
+			idleScheduler.start(scope, list.filter { it.group == TaskInterval.Idle })
+		}
 	}
 
 }
 
-// 闲时任务执行器
+
+/**
+ * ## 闲时任务执行器
+ */
 class IdleScheduler(private val onTaskComplete: ((BaseTask, Long) -> Unit)?) {
 
 	fun start(scope: CoroutineScope, taskList: List<BaseTask>) {
-		taskList.forEachIndexed { index, task ->
+		taskList.forEach { task ->
 			addIdleTask(scope, task)
 			task.children.forEach {
 				addIdleTask(scope, it as BaseTask)
@@ -193,25 +295,27 @@ class IdleScheduler(private val onTaskComplete: ((BaseTask, Long) -> Unit)?) {
 		}
 	}
 
-	fun addIdleTask(scope: CoroutineScope, task: BaseTask) {
+	private fun addIdleTask(scope: CoroutineScope, task: BaseTask) {
 		Looper.myQueue().addIdleHandler {
 			scope.launch {
-				val result: Result<Unit>
+				val result: Result<Boolean>
 				val cost = measureTimeMillis {
 					result = kotlin.runCatching {
-						task.execute()
+						task.tryExecute(scope)
 					}.onFailure {
-						log("executing idle task [${task.name}] error " + it)
+						launchTaskLog.i {
+							"executing idle task [${task.name}] error " + it
+						}
 					}
 				}
-				onTaskComplete?.invoke(task, cost)
-				log(
-					"Execute idle task [${task.name}] complete " + "thread [${
-						Thread
-							.currentThread().name
-					}], " +
+				if (result.isSuccess && result.getOrNull() == true) {
+					onTaskComplete?.invoke(task, cost)
+				}
+				launchTaskLog.i {
+					"Execute idle task [${task.name}] complete " +
+							"thread [${Thread.currentThread().name}], " +
 							"cost: ${cost}ms, result: $result"
-				)
+				}
 			}
 			false
 		}
@@ -219,43 +323,63 @@ class IdleScheduler(private val onTaskComplete: ((BaseTask, Long) -> Unit)?) {
 }
 
 
-//普通任务执行器
+/**
+ * ## 普通任务执行器
+ */
 class NormalScheduler(private val onTaskComplete: ((BaseTask, Long) -> Unit)?) {
+
 	fun start(scope: CoroutineScope, taskList: List<BaseTask>) {
 		//检查是否符合Dag结构
 		DagUtils.checkDag(taskList)
 		scope.launch {
 			// 执行无依赖的任务
-			taskList.sorted().filter { it.depends.isEmpty() }.forEach { task ->
-				execute(task)
+			taskList.filter { it.depends.isEmpty() }.forEach { task ->
+				execute(scope, task)
 			}
 		}
 	}
 
-	private suspend fun execute(task: BaseTask) {
-		val result: Result<Unit>
+	private suspend fun execute(scope: CoroutineScope, task: BaseTask) {
+		launchTaskLog.i {
+			"Execute task [${task.name}] start " + "thread [${Thread.currentThread().name}]"
+		}
+		val result: Result<Boolean>
 		val cost = measureTimeMillis {
 			result = kotlin.runCatching {
-				task.execute()
+				task.tryExecute(scope)
 			}.onFailure {
-				log("executing task [${task.name}] error " + it)
+				launchTaskLog.i { "executing task [${task.name}] error " + it }
 			}
 		}
-		onTaskComplete?.invoke(task, cost)
-		log(
+		if (result.isSuccess && result.getOrNull() == true) {
+			// 只统计执行成功的任务
+			onTaskComplete?.invoke(task, cost)
+		}
+		launchTaskLog.i {
 			"Execute task [${task.name}] complete " + "thread [${Thread.currentThread().name}], " +
 					"cost: ${cost}ms, result: $result"
-		)
+		}
 		task.children.map { it as BaseTask }.forEach {
-			execute(it)
+			execute(scope, it)
 		}
 	}
 
 }
 
-// 任务监听
+/**
+ * ## 任务监控
+ *
+ * todo jzn 参考TimeCostUtil
+ * 1.对启动耗时span做划分，各个大的阶段，内部拆分小的阶段
+ * 2.只统计登录成功，且同意隐私协议下的用户耗时。
+ *
+ * 上报时机：Activity#onCreate结束后。
+ * 闲时执行的任务不做上报。
+ */
 class TaskMonitor {
+
 	private val taskListenerList = mutableListOf<TaskListener>()
+
 	fun addTaskListener(listener: TaskListener) {
 		taskListenerList.add(listener)
 	}
@@ -271,99 +395,3 @@ interface TaskListener {
 	fun onTaskComplete(task: BaseTask, cost: Long)
 }
 
-
-// 任务举例
-/**
- * App静态变量初始化
- */
-class AppInitTask : BaseTask() {
-	override suspend fun execute() {
-		log("AppInitTask execute start")
-		log("AppInitTask execute end")
-	}
-
-	override val name: String = "AppInitTask"
-	override val depends: MutableSet<String> = mutableSetOf()
-	override val group: TaskGroup = TaskGroup.ApplicationOnCreate
-	override val priority: Int = 1
-}
-
-/**
- * QIMEI sdk初始化，依赖AppInitTask
- */
-class QimeiTask : BaseTask() {
-	override suspend fun execute() {
-		return suspendCancellableCoroutine{it->
-			log("QimeiTask execute start")
-			Thread {
-				Thread.sleep(1000)
-
-				log("QimeiTask execute end")
-				it.resumeWith(Result.success(Unit))
-			}.start()
-		}
-	}
-
-	override val name: String = "QimeiTask"
-	override val depends: MutableSet<String> = mutableSetOf("AppInitTask")
-	override val group: TaskGroup = TaskGroup.ApplicationOnCreate
-	override val priority: Int = 2
-}
-
-/**
- * 日志上报SDK初始化，依赖QimeiTask
- */
-class LogTask : BaseTask() {
-	override suspend fun execute() {
-		log("LogTask execute start")
-		withContext(Dispatchers.IO) {
-			Thread.sleep(50)
-		}
-		log("LogTask execute end")
-	}
-
-	override val name: String = "LogTask"
-	override val depends: MutableSet<String> = mutableSetOf("QimeiTask")
-	override val group: TaskGroup = TaskGroup.ApplicationOnCreate
-	override val priority: Int = 3
-}
-
-class ImageLoadTask : IdleTask() {
-	override suspend fun execute() {
-		log("ImageLoadTask execute start")
-		withContext(Dispatchers.IO) {
-			Thread.sleep(2000)
-		}
-		log("ImageLoadTask execute end")
-	}
-
-	override val name: String = "ImageLoadTask"
-
-}
-
-// 任务收集与注册(考虑用KSP+注解实现)
-class TaskCollector {
-
-	/**
-	 * 获取App#OnCreate阶段的任务列表
-	 */
-	fun getAppOnCreateTaskList(): List<BaseTask> {
-		return if (isAgreePrivacy()) {
-			listOf(AppInitTask(), QimeiTask(), LogTask())
-		} else {
-			listOf(AppInitTask())
-		}
-	}
-
-	fun getActivityCreateTaskList(): List<BaseTask> {
-		return listOf(ImageLoadTask())
-	}
-
-	//是否同意隐私协议
-	private fun isAgreePrivacy(): Boolean = true
-
-}
-
-fun log(msg: String) {
-	Log.d("TaskManager", msg)
-}

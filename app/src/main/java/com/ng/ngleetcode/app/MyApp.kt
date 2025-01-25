@@ -5,7 +5,8 @@ import android.app.Application
 import android.content.Context
 import com.ng.base.utils.SPreference
 import com.ng.ngleetcode.app.http.store.DataStoreUtils
-import com.ng.ngleetcode.test.协程启动框架.TaskManager
+import com.ng.ngleetcode.test.协程启动框架.LaunchTaskManager
+import com.ng.ngleetcode.test.协程启动框架.LaunchTaskProxy
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -25,6 +26,13 @@ class MyApp : Application() {
 
     }
 
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+
+        LaunchTaskManager.init(LaunchTaskProxy())
+        LaunchTaskManager.onAttachBaseContext(AppScope)
+    }
+
     override fun onCreate() {
         super.onCreate()
         //a
@@ -34,6 +42,6 @@ class MyApp : Application() {
         DataStoreUtils.init(this)
 
 
-        TaskManager.onAppCreate(AppScope)
+        LaunchTaskManager.onAppCreate(AppScope)
     }
 }
