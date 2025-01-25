@@ -5,8 +5,13 @@ import android.app.Application
 import android.content.Context
 import com.ng.base.utils.SPreference
 import com.ng.ngleetcode.app.http.store.DataStoreUtils
-import com.ng.ngleetcode.test.协程启动框架.LaunchTaskManager
-import com.ng.ngleetcode.test.协程启动框架.LaunchTaskProxy
+import com.ng.ngleetcode.test.协程启动框架.AppInitTask
+import com.ng.ngleetcode.test.协程启动框架.BuglyReport
+import com.ng.ngleetcode.test.协程启动框架.ImageLoadTask
+import com.ng.ngleetcode.test.协程启动框架.LogTask
+import com.ng.ngleetcode.test.协程启动框架.QimeiTask
+import com.ng.ngleetcode.test.协程启动框架.TaskManager
+import com.ng.ngleetcode.test.协程启动框架.TaskStage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -16,6 +21,8 @@ object AppScope : CoroutineScope {
     override val coroutineContext: CoroutineContext = Dispatchers.Main.immediate + SupervisorJob()
 }
 class MyApp : Application() {
+
+    val launchTaskManager = TaskManager("AppLaunch", mutableListOf(BuglyReport()))
 
     companion object {
         @SuppressLint("StaticFieldLeak")
@@ -28,20 +35,24 @@ class MyApp : Application() {
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
-
-        LaunchTaskManager.init(LaunchTaskProxy())
-        LaunchTaskManager.onAttachBaseContext(AppScope)
+        launchTaskManager.onStage(
+            AppScope,
+            TaskStage("App#attachBaseContext", mutableListOf(AppInitTask()))
+        )
     }
 
     override fun onCreate() {
         super.onCreate()
-        //a
         instance = this
         CONTEXT = this
+
         SPreference.setContext(this)
         DataStoreUtils.init(this)
 
-
-        LaunchTaskManager.onAppCreate(AppScope)
+        launchTaskManager.onStage(
+            AppScope,
+            TaskStage("App#onCreate", mutableListOf(ImageLoadTask(), QimeiTask(), LogTask()))
+        )
+        //TaskManager.onAppCreate(AppScope)
     }
 }

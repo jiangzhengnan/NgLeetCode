@@ -65,55 +65,30 @@ fun log(msg: String) {
 	Log.d("nangua-TaskManager", msg)
 }
 
-// 任务收集与注册(考虑用KSP+注解实现)
-class LaunchTaskProxy : TaskProxy {
-	override fun getAttachBaseContextTaskList(): List<BaseTask> {
-		return listOf(AppInitTask())
-	}
-
-	override fun getAppOnCreateTaskList(): List<BaseTask> {
-		return listOf(ImageLoadTask(), QimeiTask(), LogTask())
-
-	}
-
-	override fun getActivityCreateTaskList(): List<BaseTask> {
-		return mutableListOf()
-	}
-
-	override fun getIdleTaskList(): List<BaseTask> {
-		return mutableListOf()
-	}
-
-	//是否同意隐私协议
-	private fun isAgreePrivacy(): Boolean = true
-
-}
-
 // 任务举例
 /**
  * App静态变量初始化
  */
-class AppInitTask : BaseTask() {
-	override suspend fun execute(scope: CoroutineScope) {
+class AppInitTask : SyncTask() {
+
+	override fun execute() {
 		log("AppInitTask execute start")
-		delay(50)
+		Thread.sleep(50)
 		log("AppInitTask execute end")
 	}
 
 	override val name: String = "AppInitTask"
-	override var group: TaskInterval = TaskInterval.ApplicationOnCreate
 }
 
 /**
  * QIMEI sdk初始化，依赖AppInitTask
  */
-class QimeiTask : BaseTask() {
+class QimeiTask : AsyncTask() {
 	override suspend fun execute(scope: CoroutineScope) {
 		return suspendCancellableCoroutine { it ->
 			log("QimeiTask execute start")
 			Thread {
 				Thread.sleep(100)
-
 				log("QimeiTask execute end")
 				it.resumeWith(Result.success(Unit))
 			}.start()
@@ -121,33 +96,30 @@ class QimeiTask : BaseTask() {
 	}
 
 	override val name: String = "QimeiTask"
-	override var group: TaskInterval = TaskInterval.ApplicationOnCreate
 }
 
 /**
  * 日志上报SDK初始化，依赖QimeiTask
  */
-class LogTask : BaseTask() {
-	override suspend fun execute(scope: CoroutineScope) {
+class LogTask : SyncTask() {
+
+	override fun execute() {
 		log("LogTask execute start")
-		withContext(Dispatchers.IO) {
-			Thread.sleep(50)
-		}
+		Thread.sleep(50)
 		log("LogTask execute end")
 	}
 
 	override val name: String = "LogTask"
-	override val depends: MutableSet<String> = mutableSetOf("QimeiTask")
-	override var group: TaskInterval = TaskInterval.ApplicationOnCreate
+	override val depends: MutableSet<String> = mutableSetOf("QimeiTask", "ImageLoadTask")
 }
 
-class ImageLoadTask : IdleTask() {
+class ImageLoadTask : SyncTask() {
 
-	override suspend fun execute(scope: CoroutineScope) {
+
+	override fun execute() {
 		log("ImageLoadTask execute start")
-		withContext(Dispatchers.IO) {
-			Thread.sleep(20)
-		}
+		Thread.sleep(1000)
+
 		log("ImageLoadTask execute end")
 	}
 
