@@ -2,6 +2,7 @@ package com.ng.ngleetcode.test.协程启动框架
 
 import android.util.Log
 import com.ng.ngleetcode.app.AppScope
+import com.ng.ngleetcode.app.http.UserInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -9,39 +10,52 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
+import java.util.concurrent.CopyOnWriteArrayList
 
-fun main() {
+interface OnAccountLoginListener {
+	open fun onLoginSuccess(userInfo: String)
+}
 
-	println("start")
-	runBlocking {
-		val result = withTimeoutOrNull(2000) {
-			println("1")
-			GlobalScope.launch {
-				println("getQimei start")
-				delay(6000)
-				println("getQimei end")
-
-			}
-
-			println("2")
-			delay(1000)
-
-			doSomething()
-
-			println("3")
-		}
-		if (result == null) {
-			println("Operation timed out")
-		} else {
-			println("Operation success")
+object AccountManager {
+	private val loginListeners = CopyOnWriteArrayList<OnAccountLoginListener>()
+	fun addLoginCallback(callback: OnAccountLoginListener) {
+		if (!loginListeners.contains(callback)) {
+			loginListeners.add(callback)
 		}
 	}
 
-	println("end")
+	fun login() {
+		loginListeners.forEach { it.onLoginSuccess("") }
+	}
 
-	Thread.sleep(200000)
+}
+
+suspend fun execute(scope: CoroutineScope) {
+	return suspendCancellableCoroutine {
+		AccountManager.addLoginCallback(object : OnAccountLoginListener {
+			override fun onLoginSuccess(userInfo: String) {
+				println("onLoginSuccess")
+				it.resumeWith(Result.success(Unit))
+			}
+
+		})
+	}
+}
+fun main() {
+
+	GlobalScope.launch {
+		println("start")
+		execute(this)
+		println("end")
+	}
+
+	GlobalScope.launch {
+		delay(2000)
+		AccountManager.login()
+	}
+
+	Thread.sleep(20000)
 }
 
 suspend fun doSomething() {

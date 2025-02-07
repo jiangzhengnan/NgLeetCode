@@ -3,6 +3,7 @@ package com.ng.ngleetcode.test.协程启动框架
 import android.os.Looper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.system.measureTimeMillis
 
 /**
@@ -122,6 +123,11 @@ abstract class BaseTask : DagNode(), ITask {
 	 */
 	var stageName: String? = null
 
+	/**
+	 * 记录未完成的依赖数量
+	 */
+	val remainingDependencies = AtomicInteger()
+
 	override fun hashCode(): Int {
 		return name.hashCode()
 	}
@@ -200,8 +206,13 @@ class TaskExecutor(
 
 	fun trySchedule(scope: CoroutineScope, taskList: List<BaseTask>?) {
 		taskList?.let { list ->
-			//检查是否符合Dag结构
+			// 检查是否符合Dag结构
 			DagUtils.checkDag(list)
+			// 初始化每个任务的未完成依赖数量
+			list.forEach { task ->
+				task.remainingDependencies.set(task.depends.size)
+			}
+			// 调度无依赖的任务（根节点任务）
 			schedule(scope, list.filter { it.depends.isEmpty() })
 		}
 	}
@@ -213,13 +224,11 @@ class TaskExecutor(
 				is IdleTask -> {
 					addIdleTask(scope, task)
 				}
-
 				is AsyncTask -> {
 					scope.launch {
 						executeAsync(scope, task)
 					}
 				}
-
 				is SyncTask -> {
 					executeSync(scope, task)
 				}
@@ -246,7 +255,8 @@ class TaskExecutor(
 			}
 		}
 		taskMonitor.onTaskEnd(task, cost, error)
-		schedule(scope, task.children.map { it as BaseTask })
+		// 任务完成，通知依赖该任务的子任务
+		taskCompleted(scope, task)
 	}
 
 	private suspend fun executeAsync(scope: CoroutineScope, task: AsyncTask) {
@@ -261,10 +271,32 @@ class TaskExecutor(
 			}
 		}
 		taskMonitor.onTaskEnd(task, cost, error)
-		// 执行子任务
-		schedule(scope, task.children.map { it as BaseTask })
+		// 任务完成，通知依赖该任务的子任务
+		taskCompleted(scope, task)
 	}
 
+	private fun taskCompleted(scope: CoroutineScope, completedTask: BaseTask) {
+		completedTask.children.forEach { childTask ->
+			// 减少子任务的未完成依赖数量
+			val remaining = (childTask as BaseTask).remainingDependencies.decrementAndGet()
+			if (remaining == 0) {
+				// 所有依赖任务都完成，执行该任务
+				when (childTask) {
+					is IdleTask -> {
+						addIdleTask(scope, childTask)
+					}
+					is AsyncTask -> {
+						scope.launch {
+							executeAsync(scope, childTask)
+						}
+					}
+					is SyncTask -> {
+						executeSync(scope, childTask)
+					}
+				}
+			}
+		}
+	}
 }
 
 /**
