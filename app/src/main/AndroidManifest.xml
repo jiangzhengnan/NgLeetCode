@@ -20,18 +20,6 @@
 
       <activity android:name=".test.ComposeMainActivity"
 	      android:exported="true">
-<!--        <intent-filter>-->
-<!--          <action android:name="android.intent.action.MAIN" />-->
-
-<!--          <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
-      </activity>
-
-      <!-- compose 入口 -->
-      <activity
-        android:name=".ui.MainComposeActivity"
-        android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
-        android:exported="true">
         <intent-filter>
           <action android:name="android.intent.action.MAIN" />
 
@@ -39,9 +27,21 @@
         </intent-filter>
       </activity>
 
+      <!-- compose 入口 -->
+      <activity
+        android:name=".ui.MainComposeActivity"
+        android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
+        android:exported="true">
+<!--        <intent-filter>-->
+<!--          <action android:name="android.intent.action.MAIN" />-->
+
+<!--          <category android:name="android.intent.category.LAUNCHER" />-->
+<!--        </intent-filter>-->
+      </activity>
+
       <!-- compose 状态学习 -->
       <activity
-        android:name=".study.CustomComposeActivity"
+        android:name=".test.study.CustomComposeActivity"
         android:exported="true">
       </activity>
 

@@ -5,6 +5,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.system.measureTimeMillis
+import kotlinx.coroutines.*
+import java.util.Collections
+import java.util.concurrent.ConcurrentHashMap
 
 /**
  * 有向无环，Node 节点
@@ -44,17 +47,14 @@ abstract class DagNode {
 object DagUtils {
 
 	// 生成并检查是否符合Dag结构
-	fun checkDag(nodeList: List<DagNode>)  {
+	fun generateAndCheckDagList(nodeList: List<DagNode>) {
 		val nodeMap = nodeList.associateBy { it.name }
 
 		nodeList.forEach { node ->
 			checkCircularDependency(listOf(node.name), node.depends, nodeMap)
 			node.depends.forEach { depend ->
 				val foundDepend = nodeMap[depend]
-				checkNotNull(foundDepend) {
-					"Can not find task [$depend] which depend by task [${node.name}]"
-				}
-				foundDepend.children.add(node)
+				foundDepend?.children?.add(node)
 			}
 		}
 	}
@@ -124,18 +124,15 @@ abstract class BaseTask : DagNode(), ITask {
 	var stageName: String? = null
 
 	/**
-	 * 记录未完成的依赖数量
+	 * 记录依赖的任务是否完成，使用 ConcurrentHashMap 保证线程安全
 	 */
-	val remainingDependencies = AtomicInteger()
+	val remainingDependencies: ConcurrentHashMap<String, Boolean> = ConcurrentHashMap()
 
-	override fun hashCode(): Int {
-		return name.hashCode()
-	}
+	override fun hashCode(): Int = name.hashCode()
 
-	override fun equals(other: Any?): Boolean {
-		return other is ITask && other.name == name
-	}
+	override fun equals(other: Any?): Boolean = other is ITask && other.name == name
 
+	fun allDependenciesCompleted(): Boolean = remainingDependencies.values.all { it }
 }
 
 /**
@@ -162,6 +159,23 @@ abstract class SyncTask : BaseTask() {
 abstract class IdleTask : SyncTask() {
 
 	override val depends: MutableSet<String> = mutableSetOf()
+
+}
+
+/**
+ * 任务记录帮助类
+ */
+object TaskRecordHelper {
+
+	private val completedTasks = Collections.synchronizedSet(mutableSetOf<String>())
+
+	fun isTaskCompleted(taskName: String): Boolean = completedTasks.contains(taskName)
+
+	fun markTaskCompleted(taskName: String) {
+		completedTasks.add(taskName)
+	}
+
+	fun getCompletedTasks(): Set<String> = Collections.unmodifiableSet(completedTasks)
 
 }
 
@@ -207,10 +221,13 @@ class TaskExecutor(
 	fun trySchedule(scope: CoroutineScope, taskList: List<BaseTask>?) {
 		taskList?.let { list ->
 			// 检查是否符合Dag结构
-			DagUtils.checkDag(list)
+			DagUtils.generateAndCheckDagList(list)
 			// 初始化每个任务的未完成依赖数量
 			list.forEach { task ->
-				task.remainingDependencies.set(task.depends.size)
+				task.depends.forEach { depend ->
+					// 如果依赖任务已完成，也记录依赖任务的完成状态
+					task.remainingDependencies[depend] = TaskRecordHelper.isTaskCompleted(depend)
+				}
 			}
 			// 调度无依赖的任务（根节点任务）
 			schedule(scope, list.filter { it.depends.isEmpty() })
@@ -220,19 +237,24 @@ class TaskExecutor(
 	private fun schedule(scope: CoroutineScope, taskList: List<BaseTask>) {
 		// 执行无依赖的任务（根节点任务）
 		taskList.forEach { task ->
+			if (TaskRecordHelper.isTaskCompleted(task.name)) {
+				throw IllegalArgumentException("Task had been completed: ${task.name}")
+			}
 			when (task) {
 				is IdleTask -> {
 					addIdleTask(scope, task)
 				}
+
 				is AsyncTask -> {
 					scope.launch {
 						executeAsync(scope, task)
 					}
 				}
+
 				is SyncTask -> {
 					executeSync(scope, task)
 				}
-			}
+				}
 		}
 	}
 
@@ -276,10 +298,10 @@ class TaskExecutor(
 	}
 
 	private fun taskCompleted(scope: CoroutineScope, completedTask: BaseTask) {
+		TaskRecordHelper.markTaskCompleted(completedTask.name)
 		completedTask.children.forEach { childTask ->
-			// 减少子任务的未完成依赖数量
-			val remaining = (childTask as BaseTask).remainingDependencies.decrementAndGet()
-			if (remaining == 0) {
+			(childTask as BaseTask).remainingDependencies[completedTask.name] = true
+			if (childTask.allDependenciesCompleted()) {
 				// 所有依赖任务都完成，执行该任务
 				when (childTask) {
 					is IdleTask -> {
@@ -378,4 +400,3 @@ class BuglyReport : TaskListener {
 	}
 
 }
-

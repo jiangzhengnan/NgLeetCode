@@ -1,4 +1,4 @@
-package com.ng.ngleetcode.study
+package com.ng.ngleetcode.test.study
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

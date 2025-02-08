@@ -31,7 +31,7 @@ fun main() {
 	val node2 = AiSummarizeService()
 	val node3 = AppInitializer()
 	val nodeList = mutableListOf(node1, node2, node3)
-	DagUtils.checkDag(nodeList)
+	DagUtils.generateAndCheckDagList(nodeList)
 	println("DAG generated successfully without circular dependency")
 	DagUtils.printDAG(node1)
 
@@ -40,7 +40,7 @@ fun main() {
 	val nodeB = RecordService()
 	val nodeListWithCycle = mutableListOf(nodeA, nodeB)
 	try {
-		DagUtils.checkDag(nodeListWithCycle)
+		DagUtils.generateAndCheckDagList(nodeListWithCycle)
 	} catch (e: IllegalArgumentException) {
 		println("Caught circular dependency: ${e.message}")
 	}
