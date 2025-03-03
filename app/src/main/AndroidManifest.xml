@@ -18,13 +18,18 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme_Night">
 
+        <activity
+            android:name=".test.bottomsheet.BottomSheetTestActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
       <activity android:name=".test.ComposeMainActivity"
 	      android:exported="true">
-        <intent-filter>
-          <action android:name="android.intent.action.MAIN" />
-
-          <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
       </activity>
 
       <!-- compose 入口 -->
