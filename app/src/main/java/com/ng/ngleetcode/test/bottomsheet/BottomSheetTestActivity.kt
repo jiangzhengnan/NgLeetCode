@@ -1,5 +1,6 @@
 package com.ng.ngleetcode.test.bottomsheet
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
@@ -27,6 +28,7 @@ class BottomSheetTestActivity : AppCompatActivity() {
         initWebView()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initBottomSheet() {
         val bottomSheet = findViewById<LinearLayout>(R.id.bottom_sheet)
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
@@ -36,13 +38,28 @@ class BottomSheetTestActivity : AppCompatActivity() {
             state = BottomSheetBehavior.STATE_EXPANDED
             skipCollapsed = true // 跳过中间状态
             isFitToContents = false // 禁用自动适配内容高度
-            halfExpandedRatio = 0.9f // 中等展开比例（可选）
         }
 
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        bottomSheetBehavior.isDraggable = false
+
+        findViewById<View>(R.id.drag_handle).setOnTouchListener { _, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    // 激活拖动效果
+                    bottomSheetBehavior.isDraggable = true
+                }
+            }
+            false
+        }
+
     }
 
     private fun initWebView() {
+        findViewById<View>(R.id.top_area).setOnClickListener {
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        }
+
+
         findViewById<WebView>(R.id.webview).apply {
             settings.apply {
                 javaScriptEnabled = true
@@ -59,6 +76,16 @@ class BottomSheetTestActivity : AppCompatActivity() {
                     return super.shouldOverrideUrlLoading(view, request)
                 }
             }
+            setOnTouchListener { _, event ->
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        // 激活拖动效果
+                        bottomSheetBehavior.isDraggable = false
+                    }
+                }
+                false
+            }
+
             loadUrl("https://docs.qq.com/doc/DQnh5b1F4eFFsRGth?mode=editing&client=&AIGenerate=1&openAiAssistant=1")
         }
     }
