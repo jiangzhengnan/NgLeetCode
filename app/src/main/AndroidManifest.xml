@@ -19,13 +19,13 @@
       android:theme="@style/AppTheme_Night">
 
         <activity
+            android:name=".test.widgets.WidgetsTestActivity"
+            android:exported="true">
+        </activity>
+
+        <activity
             android:name=".test.bottomsheet.BottomSheetTestActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
       <activity android:name=".test.ComposeMainActivity"
@@ -37,11 +37,11 @@
         android:name=".ui.MainComposeActivity"
         android:configChanges="orientation|screenSize|keyboardHidden|fontScale|screenLayout|smallestScreenSize|locale|uiMode|layoutDirection|density"
         android:exported="true">
-<!--        <intent-filter>-->
-<!--          <action android:name="android.intent.action.MAIN" />-->
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-<!--          <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
       </activity>
 
       <!-- compose 状态学习 -->

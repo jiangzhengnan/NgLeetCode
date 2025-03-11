@@ -18,7 +18,6 @@ import com.ng.ngleetcode.R
 class BottomSheetTestActivity : AppCompatActivity() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<LinearLayout>
-    private var maxSheetHeight = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,7 @@ class BottomSheetTestActivity : AppCompatActivity() {
         // 配置底部弹窗行为
         bottomSheetBehavior.apply {
             state = BottomSheetBehavior.STATE_EXPANDED
-            skipCollapsed = true // 跳过中间状态
+            skipCollapsed = false // 跳过中间状态
             isFitToContents = false // 禁用自动适配内容高度
         }
 
