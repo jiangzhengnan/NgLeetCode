@@ -4,6 +4,11 @@
     <option name="conversations">
       <list>
         <Conversation>
+          <option name="createTime" value="1766401489062" />
+          <option name="id" value="019b45bbb8a67d28a4df6e039e058e25" />
+          <option name="updateTime" value="1766401489062" />
+        </Conversation>
+        <Conversation>
           <option name="createTime" value="1734168376121" />
           <option name="id" value="0193c47d73397011a78fadf53f6e3c54" />
           <option name="title" value="@workspace /fix " />
@@ -45,7 +50,7 @@
                       <option name="filename" value="MyApp.kt" />
                       <option name="language" value="kotlin" />
                       <option name="range">
-                        <Range>
+                        <CommitRange>
                           <option name="end">
                             <Position>
                               <option name="character" value="5" />
@@ -58,7 +63,7 @@
                               <option name="line" value="21" />
                             </Position>
                           </option>
-                        </Range>
+                        </CommitRange>
                       </option>
                       <option name="start_line" value="21" />
                       <option name="url" value="file://$PROJECT_DIR$/app/src/main/java/com/ng/ngleetcode/app/MyApp.kt" />

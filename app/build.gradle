@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace 'com.ng.ngleetcode'
     //noinspection GradleCompatible
     compileSdkVersion 34
 
@@ -26,13 +27,21 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_9
-        targetCompatibility JavaVersion.VERSION_1_9
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     buildFeatures {
         compose true
         viewBinding true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
     }
 
 }
