@@ -1,16 +1,11 @@
 package com.ng.ngleetcode.test.协程启动框架
 
 import android.util.Log
-import com.ng.ngleetcode.app.AppScope
-import com.ng.ngleetcode.app.http.UserInfo
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withTimeoutOrNull
 import java.util.concurrent.CopyOnWriteArrayList
 
 interface OnAccountLoginListener {
@@ -87,7 +82,7 @@ class AppInitTask : SyncTask() {
 
 	override fun execute() {
 		log("AppInitTask execute start")
-		Thread.sleep(50)
+//		Thread.sleep(50)
 		log("AppInitTask execute end")
 	}
 
@@ -102,7 +97,7 @@ class QimeiTask : AsyncTask() {
 		return suspendCancellableCoroutine { it ->
 			log("QimeiTask execute start")
 			Thread {
-				Thread.sleep(100)
+//				Thread.sleep(100)
 				log("QimeiTask execute end")
 				it.resumeWith(Result.success(Unit))
 			}.start()
@@ -119,7 +114,7 @@ class LogTask : SyncTask() {
 
 	override fun execute() {
 		log("LogTask execute start")
-		Thread.sleep(50)
+//		Thread.sleep(50)
 		log("LogTask execute end")
 	}
 
@@ -132,7 +127,7 @@ class ImageLoadTask : SyncTask() {
 
 	override fun execute() {
 		log("ImageLoadTask execute start")
-		Thread.sleep(1000)
+//		Thread.sleep(1000)
 
 		log("ImageLoadTask execute end")
 	}
