@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.ui.page.main.MainPage
 import com.ng.ngleetcode.ui.page.main.MainViewModel
@@ -22,7 +22,6 @@ class MainComposeActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       AppTheme(mainViewModel.theme) {
-
         Box {
           HomeEntry()
           RightWebViewPage(mainViewModel)
@@ -33,13 +32,7 @@ class MainComposeActivity : ComponentActivity() {
 
   @Composable
   fun HomeEntry() {
-    //是否闪屏页
-    var isSplash by remember { mutableStateOf(true) }
-      if (isSplash) {
-        SplashPage(this) { isSplash = false }
-      } else {
-        MainPage(mainViewModel)
-      }
+    MainPage(mainViewModel)
   }
 
 }

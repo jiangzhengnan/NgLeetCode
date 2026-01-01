@@ -4,7 +4,11 @@ import android.Manifest
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -23,7 +27,6 @@ import com.ng.base.utils.ToastUtils
 import com.ng.ngleetcode.R
 import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.app.theme.white
-import kotlinx.coroutines.delay
 
 /**
  */
@@ -66,7 +69,6 @@ fun SplashPage(activity: ComponentActivity, onNextPage: () -> Unit) {
 
     if (permissionState.allPermissionsGranted) {
       LaunchedEffect(Unit) {
-        delay(500)
         onNextPage.invoke()
       }
     } else if (permissionState.shouldShowRationale) {

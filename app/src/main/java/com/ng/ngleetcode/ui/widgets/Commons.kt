@@ -116,7 +116,7 @@ fun BottomNavBarView(navCtrl: NavHostController) {
     val bottomNavList = listOf(
         BottomNavRoute.Code,
 //        BottomNavRoute.Statistics,
-        BottomNavRoute.Read,
+//        BottomNavRoute.Read,
         BottomNavRoute.Profile
     )
     BottomNavigation {
