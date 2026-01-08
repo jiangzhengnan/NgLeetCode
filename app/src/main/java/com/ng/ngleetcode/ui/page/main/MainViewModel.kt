@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.ng.ngleetcode.app.http.store.DataStoreUtils
 import com.ng.ngleetcode.app.theme.AppTheme
 import com.ng.ngleetcode.ui.page.web.WebData
 
@@ -12,11 +13,28 @@ import com.ng.ngleetcode.ui.page.web.WebData
  */
 class MainViewModel : ViewModel() {
 
-  // 当前主题
-  var theme by mutableStateOf(AppTheme.Theme.Light)
+  companion object {
+    private const val KEY_THEME = "app_theme"
+  }
+
+  // 当前主题（从 DataStore 读取保存的值）
+  var theme by mutableStateOf(loadTheme())
 
   // 右滑进入的web
   var currentWeb: WebData? by mutableStateOf(null)
+
+  private fun loadTheme(): AppTheme.Theme {
+    val themeName = DataStoreUtils.readStringData(KEY_THEME, AppTheme.Theme.Light.name)
+    return try {
+      AppTheme.Theme.valueOf(themeName)
+    } catch (e: Exception) {
+      AppTheme.Theme.Light
+    }
+  }
+
+  private fun saveTheme(theme: AppTheme.Theme) {
+    DataStoreUtils.saveSyncStringData(KEY_THEME, theme.name)
+  }
 
   fun handIntent(action: MainViewAction) {
     when (action) {
@@ -26,6 +44,7 @@ class MainViewModel : ViewModel() {
         } else {
           AppTheme.Theme.Light
         }
+        saveTheme(theme)
       }
       is MainViewAction.ExitWeb -> {
         currentWeb = null
