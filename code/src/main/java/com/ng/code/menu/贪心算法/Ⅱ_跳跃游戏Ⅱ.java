@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输入: nums = [2,3,0,1,4]
  * 输出: 2
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_跳跃游戏Ⅱ {
 
     public static void main(String[] args) {

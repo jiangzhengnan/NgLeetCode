@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [5,4,-1,7,8]
  * 输出：23
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_连续子数组的最大和 {
 
     public static void main(String[] args) {

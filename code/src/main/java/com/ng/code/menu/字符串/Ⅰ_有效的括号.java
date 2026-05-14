@@ -27,7 +27,7 @@ import com.ng.code.util.Solution;
  * 输入：s = "(]"
  * 输出：false
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_有效的括号 {
 
     public static void main(String[] args) {

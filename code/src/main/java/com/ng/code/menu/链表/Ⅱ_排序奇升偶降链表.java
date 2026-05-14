@@ -26,7 +26,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * {1,2,2}
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_排序奇升偶降链表 {
 
     public static void main(String[] args) {

@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 1 + 2 + 4 = 7
  * 没有其他符合的组合了。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_组合总和3 {
 
     public static void main(String[] args) {

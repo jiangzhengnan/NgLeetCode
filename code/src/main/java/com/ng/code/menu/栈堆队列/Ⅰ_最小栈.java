@@ -17,7 +17,7 @@ import java.util.Stack;
  * int top() 获取堆栈顶部的元素。
  * int getMin() 获取堆栈中的最小元素。
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_最小栈 {
 
     public static void main(String[] args) {

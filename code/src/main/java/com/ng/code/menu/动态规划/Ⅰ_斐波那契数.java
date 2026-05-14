@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输出：1
  * 解释：F(2) = F(1) + F(0) = 1 + 0 = 1
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_斐波那契数 {
 
     public static void main(String[] args) {

@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 输入：head = []
  * 输出：[]
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_排序链表 {
 
     public static void main(String[] args) {

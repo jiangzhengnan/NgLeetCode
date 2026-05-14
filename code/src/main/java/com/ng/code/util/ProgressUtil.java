@@ -38,7 +38,7 @@ public class ProgressUtil {
                 if (solution.hard() > 0) {
                     hard++;
                 }
-                if (solution.particle() > 0) {
+                if (solution.easy() > 0 || solution.hard() > 0) {
                     partice++;
                 }
             }
@@ -140,6 +140,9 @@ public class ProgressUtil {
                 return (file.isFile() && file.getName().endsWith(".class")) || file.isDirectory();
             }
         });
+        if (files == null) {
+            return;
+        }
         for (File file : files) {
             String fileName = file.getName();
             if (file.isFile()) {

@@ -15,7 +15,7 @@ import com.ng.code.util.Solution;
  * 返回值：
  * true
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_验证回文串 {
 
     public static void main(String[] args) {

@@ -27,7 +27,7 @@ import com.ng.code.util.Solution;
  * 向右轮转 1 步: [99,-1,-100,3]
  * 向右轮转 2 步: [3,99,-1,-100]
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_旋转数组 {
 
     public static void main(String[] args) {

@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 对于 k = 2k=2 , 你应该返回 2→1→4→3→5
  * 对于 k = 3k=3 , 你应该返回 3→2→1→4→5
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅲ_K个一组翻转链表 {
 
     public static void main(String[] args) {

@@ -22,7 +22,7 @@ import com.ng.code.util.Solution;
  * 输出: 3
  * 解释: 最长的连续路径是 [1, 2, 3] 或者 [3, 2, 1]。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅲ_二叉树中最长的连续序列 {
 
     public static void main(String[] args) {

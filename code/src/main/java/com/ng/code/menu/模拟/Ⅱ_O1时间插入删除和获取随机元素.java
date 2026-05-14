@@ -42,7 +42,7 @@ import com.ng.code.util.Solution;
  * 最多调用 insert、remove 和 getRandom 函数 2 * 105 次
  * 在调用 getRandom 方法时，数据结构中 至少存在一个 元素。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_O1时间插入删除和获取随机元素 {
 
     public static void main(String[] args) {

@@ -31,7 +31,7 @@ import com.ng.code.util.Solution;
  * 1 <= n <= 5000
  * 0 <= citations[i] <= 1000
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_H指数 {
 
     public static void main(String[] args) {

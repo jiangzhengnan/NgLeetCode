@@ -23,7 +23,7 @@ import com.ng.code.util.Solution;
  * 0 <= Node.val <= 100
  * 示例:
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_两两交换链表中的节点 {
 
     public static void main(String[] args) {

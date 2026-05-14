@@ -41,7 +41,7 @@ import com.ng.code.util.Solution;
  * 1 <= n <= 105
  * 0 <= gas[i], cost[i] <= 104
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_加油站 {
 
     public static void main(String[] args) {

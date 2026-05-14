@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输出：返回索引为 1 的链表节点
  * 解释：链表中有一个环，其尾部连接到第二个节点。
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_环形链表 {
 
     public static void main(String[] args) {

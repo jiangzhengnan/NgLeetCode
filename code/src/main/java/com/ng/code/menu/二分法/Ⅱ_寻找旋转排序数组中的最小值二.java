@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [2,2,2,0,1]
  * 输出：0
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_寻找旋转排序数组中的最小值二 {
 
     public static void main(String[] args) {

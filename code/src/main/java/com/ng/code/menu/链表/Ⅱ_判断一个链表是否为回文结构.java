@@ -13,7 +13,7 @@ import java.util.Stack;
  * 原题描述:
  * 1 2 2 1
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_判断一个链表是否为回文结构 {
 
     public static void main(String[] args) {

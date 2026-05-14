@@ -29,7 +29,7 @@ import java.util.List;
  * 返回值：
  * ["(())","()()"]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_括号生成 {
 
     public static void main(String[] args) {

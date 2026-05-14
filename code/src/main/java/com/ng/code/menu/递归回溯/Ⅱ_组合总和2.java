@@ -32,7 +32,7 @@ import com.ng.code.util.Solution;
  * [5]
  * ]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_组合总和2 {
 
     public static void main(String[] args) {

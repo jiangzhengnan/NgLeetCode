@@ -20,7 +20,7 @@ import com.ng.code.util.Solution;
  * 输出："world hello"
  * 解释：反转后的字符串中不能存在前导空格和尾随空格。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_反转字符串中的单词 {
 
     public static void main(String[] args) {

@@ -18,7 +18,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [1,2,3], k = 3
  * 输出：2
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_和为K的子数组 {
 
     public static void main(String[] args) {

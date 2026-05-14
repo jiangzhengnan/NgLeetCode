@@ -33,7 +33,7 @@ import java.util.LinkedList;
  * 返回值：
  * [[1]]
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_全排列 {
 
     public static void main(String[] args) {

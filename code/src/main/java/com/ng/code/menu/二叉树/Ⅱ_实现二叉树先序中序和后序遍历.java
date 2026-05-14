@@ -22,7 +22,7 @@ import java.util.Stack;
  * 难点：
  * 迭代实现 中序，后序？
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_实现二叉树先序中序和后序遍历 {
 
 	public static void main(String[] args) {

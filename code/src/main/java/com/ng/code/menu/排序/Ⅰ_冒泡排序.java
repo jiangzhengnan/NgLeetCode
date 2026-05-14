@@ -3,7 +3,11 @@ package com.ng.code.menu.排序;
 import com.ng.base.utils.LogUtil;
 import com.ng.code.util.Solution;
 
-@Solution(easy = 1, hard = 1, particle = 1)
+/**
+ * 时间复杂度：O(n²)
+ * 空间复杂度：O(1)
+ */
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_冒泡排序 {
 
     public static void main(String[] args) {
@@ -13,15 +17,19 @@ public class Ⅰ_冒泡排序 {
     }
 
     public static void sort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j + 1 < array.length - i; j++) {
-                if (array[j] > array[j + 1]) {
+        for (int i = 0; i < array.length - 1; i++) {
+            boolean swapped = false;  // 优化：提前退出
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {  // 相邻比较才是"冒泡"
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
+                    swapped = true;
                 }
             }
+            if (!swapped) break;  // 本轮无交换，已有序
         }
     }
+
 
 }

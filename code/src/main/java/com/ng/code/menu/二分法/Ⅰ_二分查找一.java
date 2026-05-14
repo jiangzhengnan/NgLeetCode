@@ -17,7 +17,7 @@ import com.ng.code.util.Solution;
  * 输出: -1
  * 解释: 2 不存在 nums 中因此返回 -1
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_二分查找一 {
 
     public static void main(String[] args) {

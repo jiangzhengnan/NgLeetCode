@@ -29,7 +29,7 @@ import com.ng.code.util.Solution;
  * 输入：nums = [1], k = 1
  * 输出：[1]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅲ_滑动窗口最大值 {
 
     public static void main(String[] args) {

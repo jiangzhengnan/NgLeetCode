@@ -22,4 +22,10 @@ public class Constants {
     public static final String JAVA_DIR_PATH = FileUtil.getProjectPath() + "code/src/main/java/com/ng/code/menu";
     public static final String ASSETS_DIR_PATH = FileUtil.getProjectPath() + "app/src/main/assets";
 
+    /**
+     * 题库压缩包名（位于 assets 根目录），App 运行时通过 ZipFile 读取。
+     * 改为单文件压缩包后，全工程搜索题目源码不会再出现 src 与 assets 两份命中。
+     */
+    public static final String PROBLEMS_ZIP_NAME = "problems.zip";
+
 }

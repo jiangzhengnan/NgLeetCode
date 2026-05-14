@@ -14,7 +14,7 @@ import com.ng.code.util.Solution;
  * https://leetcode.cn/problems/permutations-ii/description/
  * 给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_全排列2 {
 
     public static void main(String[] args) {

@@ -19,7 +19,7 @@ import com.ng.code.util.Solution;
  * 输入: nums = [1,3,5,6], target = 7
  * 输出: 4
  */
-@Solution(easy = 0, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_搜索插入位置 {
 
     public static void main(String[] args) {

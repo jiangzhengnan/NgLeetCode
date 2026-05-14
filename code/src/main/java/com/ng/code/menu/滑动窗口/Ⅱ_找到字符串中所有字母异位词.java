@@ -31,7 +31,7 @@ import java.util.Objects;
  * 起始索引等于 1 的子串是 "ba", 它是 "ab" 的异位词。
  * 起始索引等于 2 的子串是 "ab", 它是 "ab" 的异位词。
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_找到字符串中所有字母异位词 {
 
     public static void main(String[] args) {

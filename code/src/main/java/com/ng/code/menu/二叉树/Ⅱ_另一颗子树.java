@@ -12,7 +12,7 @@ import com.ng.code.util.Solution;
  * <p>
  * 示例:
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_另一颗子树 {
 
     public static void main(String[] args) {

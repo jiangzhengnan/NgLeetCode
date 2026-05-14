@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输入：root = [1]
  * 输出：1
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_完全二叉树的结点个数 {
 
     public static void main(String[] args) {

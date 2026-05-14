@@ -113,28 +113,28 @@ class CodeModel {
         mCodeStateList.clear()
       }
       try {
-        val files = context.assets.list("")
-        for (temp in files!!) {
-          val codeList: MutableList<BaseNode> = ArrayList()
-          var needAdd = false
-          for (subTemp in context.assets.list(temp)!!) {
-            val realFilePath = "$temp/$subTemp"
-            if (realFilePath.endsWith(".java")) {
-              val id = IdGenerator.generateID()
-              val name = subTemp.replace(".java", "")
-              if (mSpCodeStateListJsonStr.isEmpty()) {
-                mCodeStateList.add(CodeState(name, -1))
-              }
-              val node = CodeNode(name, id, realFilePath, "")
-              node.state = getCodeState(name)
-              codeList.add(node)
-              needAdd = true
-            }
+        // 改造后题库由 assets/problems.zip 提供，列表项形如 "链表/Ⅰ_链表反转.java"，
+        // 这里按第一级路径分组重建分类目录树，行为与原先基于 AssetManager.list 的实现等价。
+        val codeList = ProblemRepository.getAssetsJavaCodeList(context)
+        // 用 LinkedHashMap 保持首次出现顺序，避免分类顺序抖动
+        val grouped = linkedMapOf<String, MutableList<BaseNode>>()
+        for (realFilePath in codeList) {
+          if (!realFilePath.endsWith(".java")) continue
+          val slash = realFilePath.indexOf('/')
+          if (slash <= 0 || slash >= realFilePath.length - 1) continue
+          val dirName = realFilePath.substring(0, slash)
+          val fileName = realFilePath.substring(slash + 1)
+          val name = fileName.replace(".java", "")
+          if (mSpCodeStateListJsonStr.isEmpty()) {
+            mCodeStateList.add(CodeState(name, -1))
           }
-          if (needAdd) {
-            val dirNode = CodeDirNode(codeList, temp)
-            dirList.add(dirNode)
-          }
+          val id = IdGenerator.generateID()
+          val node = CodeNode(name, id, realFilePath, "")
+          node.state = getCodeState(name)
+          grouped.getOrPut(dirName) { ArrayList() }.add(node)
+        }
+        for ((dirName, nodes) in grouped) {
+          dirList.add(CodeDirNode(nodes, dirName))
         }
       } catch (e: IOException) {
         e.printStackTrace()

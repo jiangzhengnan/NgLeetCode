@@ -21,7 +21,7 @@ import com.ng.code.util.Solution;
  * 输入：s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
  * 输出：false
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅲ_交错字符串 {
 
     public static void main(String[] args) {

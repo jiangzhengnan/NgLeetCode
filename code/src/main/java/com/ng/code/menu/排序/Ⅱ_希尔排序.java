@@ -9,7 +9,7 @@ import com.ng.code.util.Solution;
  * 最差时间复杂度：O(N^2)
  * 空间复杂度：O(1)
  */
-@Solution(easy = 1, hard = 1, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_希尔排序 {
 
     public static void main(String[] args) {

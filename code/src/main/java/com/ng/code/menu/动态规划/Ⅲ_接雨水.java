@@ -16,7 +16,7 @@ import com.ng.code.util.Solution;
  * 输入：height = [4,2,0,3,2,5]
  * 输出：9
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅲ_接雨水 {
 
     public static void main(String[] args) {

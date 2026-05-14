@@ -27,7 +27,7 @@ import java.util.Stack;
  * 返回值：
  * 4
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_最长有效括号 {
 
     public static void main(String[] args) {

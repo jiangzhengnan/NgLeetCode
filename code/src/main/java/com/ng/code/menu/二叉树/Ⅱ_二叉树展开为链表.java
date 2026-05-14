@@ -15,7 +15,7 @@ import com.ng.code.util.Solution;
  * 输入：root = [1,2,5,3,4,null,6]
  * 输出：[1,null,2,null,3,null,4,null,5,null,6]
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_二叉树展开为链表 {
 
     public static void main(String[] args) {

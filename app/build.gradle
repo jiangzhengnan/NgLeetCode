@@ -34,6 +34,13 @@ android {
     buildFeatures {
         compose true
         viewBinding true
+        buildConfig true
+    }
+
+    // 题库以单文件 problems.zip 的形式打入 assets，AGP 默认会再压一次，
+    // 这里显式声明不压缩 zip，避免双重压缩拖慢首次拷贝。
+    androidResources {
+        noCompress 'zip'
     }
 
     composeOptions {

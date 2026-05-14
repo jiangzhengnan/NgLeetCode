@@ -24,7 +24,7 @@ import com.ng.code.util.Solution;
  * 输出：0
  * 解释：原数组为 [0,1,2,4,5,6,7] ，旋转 3 次得到输入数组。
  */
-@Solution(easy = 0, hard = 0, particle = 0)
+@Solution(easy = 0, hard = 0)
 public class Ⅱ_寻找旋转排序数组中的最小值 {
 
     public static void main(String[] args) {

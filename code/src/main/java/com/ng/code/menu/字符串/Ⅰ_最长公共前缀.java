@@ -17,7 +17,7 @@ import com.ng.code.util.Solution;
  * 输出：""
  * 解释：输入不存在公共前缀。
  */
-@Solution(easy = 1, hard = 0, particle = 1)
+@Solution(easy = 0, hard = 0)
 public class Ⅰ_最长公共前缀 {
 
     public static void main(String[] args) {
